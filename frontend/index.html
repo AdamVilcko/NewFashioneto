@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web app. Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">   
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>  
+
+    <script>
+    window.App = {
+        Models:{},
+        Collections:{},
+        Views:{},
+        router:{},
+        vent: null,
+        content:{
+            language:"EN-GB",
+            title: "Fasioneto"
+        }
+    };
+
+    var require = {
+        
+        paths: {
+            "jquery": "lib/jquery-1.10.2",
+            "mootools": "lib/mootools-core-1.4.5-full",
+            "backbone": "lib/backbone1.1.0",
+            "_": "lib/underscore1.5.2",
+            "bootstrap": "lib/bootstrap",
+            "handlebars": "lib/handlebars-v1.1.2",
+            "modernizr": "lib/modernizr",
+            "class": "lib/mootools-class-1.4.5"
+            },
+        shim:{
+            backbone : {
+                deps : [ '_', 'jquery' ],
+                exports : 'Backbone',
+                init: function(){
+                    if( !window.App.vent )
+                        window.App.vent = this._.extend({}, this.Backbone.Events);
+                    }
+            },
+            jquery : {
+                exports : '$'
+            },
+            modernizr :{
+                exports : 'Modernizr'
+            },
+            _ : {
+                exports : '_'
+            },
+            handlebars:{
+                exports : 'Handlebars'
+            },
+            bootstrap : {
+                deps : ['jquery']
+            }
+        }
+    };
+    </script>
+    <script data-main="main.js" src="lib/require2.1.9.js"></script>
+    
+  </body>
+</html>
