@@ -6,7 +6,7 @@ define(function(require){
 	$          = require("jquery"),
 	Modernizr  = require("modernizr"),
 	
-	template   = require("text!templates/ui/nav-main.hbr");
+	template   = require("text!templates/ui/nav.hbr");
 
 	return Backbone.View.extend({
 		initialize: function(options){
@@ -15,7 +15,7 @@ define(function(require){
 			//this.setEvents();
 		},
 
-		el:"#nav-main",
+		el:"#nav",
 
 		template: Handlebars.compile( template ),
 

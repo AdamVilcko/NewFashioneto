@@ -10,7 +10,7 @@ define(function(require){
 
 	//UI views
 
-	NavMain  = require( 'views/nav-main' ),
+	Nav  = require( 'views/nav' ),
 	
 	//Page views
 	
@@ -42,9 +42,8 @@ define(function(require){
 		},
 
 		intantiateViews: function(){
-			this.ui = {
-				navMain: new NavMain(),
-				nav: new NavMain(),
+			this.ui = {				
+				nav: new Nav()
 			};
 
 			this.pages = [

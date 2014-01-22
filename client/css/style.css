@@ -9,6 +9,10 @@ body{
 
 /* Navigation */
 
+.navbar-brand{
+	padding: 20px 15px;
+}
+
 .navbar-default .navbar-brand{
 	color:#fff;
 }
@@ -20,7 +24,12 @@ body{
 
 .navbar-default .navbar-nav>li>a {
 	color:#fff;
-	text-shadow:1px 2px 2px rgba(0,0,0,0.7);
+	text-shadow:1px 2px 2px rgba(0,0,0,0.7);	
+}
+
+.navbar-nav>li>a{
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
