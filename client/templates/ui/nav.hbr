@@ -19,9 +19,21 @@
       </ul>
 
       <ul id="nav-right" class="nav navbar-nav navbar-right">
-        <li><a href="../navbar/">Default</a></li>
-        <li><a href="../navbar-static-top/">Static top</a></li>
-        <li class="active"><a href="./">Fixed top</a></li>
+      
+        
+        <li class="inbox"><a href="#inbox">Static top</a></li>
+       
+
+        <li class="notifications"><a href="#notifications">Static top</a></li>
+
+
+        <li class="search"><a href="#">Fixed top</a></li>
+        <li class="profile">          
+          <a href="#profile">
+            <img src="img/nav-avatar.png" />
+            <span>Alex Langdon<br />2557 pts (1st in city)</span>
+          </a>
+        </li>
       </ul>
 
     </div><!--/.nav-collapse -->
