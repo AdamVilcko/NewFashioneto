@@ -9,10 +9,12 @@ import net.sourceforge.stripes.action.DefaultHandler;
 import net.sourceforge.stripes.action.Resolution;
 import net.sourceforge.stripes.action.StreamingResolution;
 import net.sourceforge.stripes.action.UrlBinding;
+import net.sourceforge.stripes.integration.spring.SpringBean;
 import net.sourceforge.stripes.validation.ValidationErrorHandler;
 import net.sourceforge.stripes.validation.ValidationErrors;
 
 import com.fashioneto.persistence.Fashionetoer;
+import com.fashioneto.service.FashionetoerService;
 import com.fashioneto.ws.entities.FashionetoMessage;
 import com.fashioneto.ws.entities.MessageTypeEnum;
 import com.fashioneto.ws.entities.ResponseWrapper;
@@ -27,6 +29,9 @@ public class FashionetoerActionBean implements ActionBean, ValidationErrorHandle
 
 	private ActionBeanContext context;
 
+	@SpringBean
+	private FashionetoerService fashionetoerService;
+
 	@DefaultHandler
 	public Resolution view()
 	{
@@ -40,8 +45,8 @@ public class FashionetoerActionBean implements ActionBean, ValidationErrorHandle
 
 	public Resolution handleValidationErrors(ValidationErrors arg0) throws Exception
 	{
-		// TODO Auto-generated method stub
-		return new StreamingResolution("text", "{\"errors\":false}");
+		Gson gson = new Gson();
+		return new StreamingResolution("text", gson.toJson(arg0));
 	}
 
 	public ActionBeanContext getContext()

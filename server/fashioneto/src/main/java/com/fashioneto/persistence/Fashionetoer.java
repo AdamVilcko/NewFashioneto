@@ -13,7 +13,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "fashionetoer")
-//user
 public class Fashionetoer implements Serializable
 {
 
