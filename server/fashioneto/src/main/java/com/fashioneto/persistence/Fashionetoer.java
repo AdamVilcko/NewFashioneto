@@ -3,10 +3,15 @@
  */
 package com.fashioneto.persistence;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * @author Felipe
- *
  */
-public class Fashionetoer {
+@Entity
+@Table(name = "fashionetoer")
+public class Fashionetoer
+{
 
 }
