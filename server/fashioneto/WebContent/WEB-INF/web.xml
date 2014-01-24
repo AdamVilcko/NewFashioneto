@@ -37,4 +37,15 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
+<!--  Spring CONF: -->
+
+	<context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:/META-INF/generalContext-beans.xml</param-value>
+	</context-param>
+	
+	<listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
 </web-app>
