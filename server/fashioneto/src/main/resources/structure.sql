@@ -5,8 +5,10 @@
 
 create table fashionetoer (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
+	`username` varchar(100) not null,
 	`email` varchar(100) not null,
 	`password` varchar(200) not null
+	
 );
 
 create table image (
