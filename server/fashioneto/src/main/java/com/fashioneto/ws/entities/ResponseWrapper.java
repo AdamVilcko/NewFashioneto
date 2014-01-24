@@ -28,6 +28,7 @@ public class ResponseWrapper
 	{
 		this.message = message;
 		this.result = result;
+		this.resultType = result.getClass().getSimpleName();
 	}
 
 	public void setResult(Object result)
