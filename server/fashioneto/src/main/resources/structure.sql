@@ -65,3 +65,8 @@ create table like_commentary (
 	`id_fashionetoer` int(11) unsigned not null,
 	`id_commentary` int(11) unsigned not null
 );
+
+/*
+ * Dummy data:
+ */
+insert into fashionetoer (`username`, `email`, `password`) values ('John Doe', 'john@doe.com', 'pass123');

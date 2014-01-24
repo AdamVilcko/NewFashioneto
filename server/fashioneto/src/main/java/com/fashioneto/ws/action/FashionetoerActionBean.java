@@ -37,8 +37,9 @@ public class FashionetoerActionBean implements ActionBean, ValidationErrorHandle
 	{
 
 		FashionetoMessage message = new FashionetoMessage("Your request was successfull", MessageTypeEnum.INFO);
+		Fashionetoer fashionetoer = fashionetoerService.getFashionetoer(1);
 
-		ResponseWrapper rw = new ResponseWrapper(new Fashionetoer(1, "John Doe", "john@doe.com"), message);
+		ResponseWrapper rw = new ResponseWrapper(fashionetoer, message);
 		Gson gson = new Gson();
 		return new StreamingResolution("text", gson.toJson(rw));
 	}

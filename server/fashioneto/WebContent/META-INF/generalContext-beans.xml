@@ -22,4 +22,6 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 	
+	<bean id="fashionetoerService" class="com.fashioneto.service.FashionetoerServiceImpl" />
+	
 </beans>
