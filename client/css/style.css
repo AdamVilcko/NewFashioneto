@@ -18,7 +18,7 @@ body{
 }
 
 .navbar{
-	background:#3c2647;
+	background:url(../img/nav-bg.jpg);
 	border-bottom:2px solid #000;
 }
 
@@ -37,13 +37,11 @@ body{
 	text-shadow:1px 2px 2px rgba(0,0,0,0.7);	
 }
 
-
 .navbar-default .navbar-nav>li.active{
 	border-right:1px solid #000;
 	border-left:1px solid #000;
 	background:#2d1d35;
 }
-
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>.active>a:hover,
@@ -71,35 +69,95 @@ body{
 	background-repeat: no-repeat;
 	padding-left:10px;
 	padding-right:10px;
+	position: relative;
+}
+
+#nav-right li .subMenu{
+	border-left:1px solid #000;
+	border-right:1px solid #000;
+	border-bottom:1px solid #000;
+	background:#2d1d35;
+	position: absolute;
+	right:-1px;
+	width: 200px;
+	padding:15px;
+	margin-top:1px;
+	-webkit-box-shadow: inset 0px 5px 13px 0px rgba(50, 50, 50, 0.22);
+	-moz-box-shadow:    inset 0px 5px 13px 0px rgba(50, 50, 50, 0.22);
+	box-shadow:         inset 0px 5px 13px 0px rgba(50, 50, 50, 0.22);
+	display: none;
+}
+
+#nav-right li.active .subMenu{
+	display: block;
+}
+
+#nav-right li.active a div{
+	height:1px;
+	display: block;
+	background: #2d1d35;
+	position:absolute;
+	bottom:-1px;
+	left:-1px;
+	right:-1px;
+}
+
+#nav-right li .subMenu p{
+	color:#fff;
 }
 
 #nav-right li.inbox a{
 	background-image: url(../img/nav-messages.png);
 }
 
-#nav-right li.inbox a:hover{
+#nav-right li.inbox a:hover,
+#nav-right li.inbox.active a{
 	background-image: url(../img/nav-messages-hover.png);
 }
 
-#nav-right li.notifications a{
-	background-image: url(../img/nav-notifications.png);
-}
-
-#nav-right li.notifications:hover a{
-	background-image: url(../img/nav-notifications-hover.png);
-}
-
 #nav-right li.search{
-	border-right:1px solid #6b4c7a;
 }
 
 #nav-right li.search a{
 	background-image: url(../img/nav-search.png);	
 }
 
-#nav-right li.search a:hover{
+#nav-right li.search a:hover,
+#nav-right li.search.active a{
 	background-image: url(../img/nav-search-hover.png);
 }
+
+
+/* Notifications style */
+
+
+#nav-right li.notifications a{
+	background-image: url(../img/nav-notifications.png);
+	position: relative;
+}
+
+#nav-right li.notifications a:hover,
+#nav-right li.notifications.active a{
+	background-image: url(../img/nav-notifications-hover.png);
+}
+
+#nav-right li.notifications a span {	
+	position: absolute;
+	display: inline-block;
+	text-indent: -2px;
+	top:6px;
+	right:5px;
+	border-radius: 50%;
+	background:#f5344e;
+	padding:3px;
+	text-align:center;
+	border:1px solid rgba(0,0,0,0.7);
+	font-size:0.75em;
+	
+}
+
+
+/* Profile styles */
 
 #nav-right li.profile{
 }
@@ -108,7 +166,7 @@ body{
 	background:url(../img/nav-profile-chevron.png) no-repeat right center;
 	position: relative;
 	text-indent:0px;
-	padding:15px 30px 14px 15px;
+	padding:15px 30px 12px 15px;
 	margin-right:15px;	
 }
 
@@ -122,7 +180,7 @@ body{
 	display: block;
 	font-size: 0.9em;
 	padding-left:45px;
-	line-height: 16px;
+	line-height: 16px;	
 }
 
 

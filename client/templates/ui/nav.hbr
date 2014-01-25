@@ -21,18 +21,35 @@
       <ul id="nav-right" class="nav navbar-nav navbar-right">
       
         
-        <li class="inbox"><a href="#inbox">Static top</a></li>
+        <li class="inbox">
+          <a href="#inbox">Static top<div></div></a>
+          <div class="subMenu">
+            <p>Hello there this is some text.</p>         
+          </div><!-- subMenu -->
+        </li>
        
 
-        <li class="notifications"><a href="#notifications">Static top</a></li>
+        <li class="notifications">
+          <a href="#notifications">Static top<span>100</span>
+          <div></div></a>
+          <div class="subMenu">
+            <p>Hello there this is some text.</p>         
+          </div><!-- subMenu -->
+        </li>
 
-
-        <li class="search"><a href="#">Fixed top</a></li>
+        <li class="search"><a href="#">Fixed top<div></div></a>
+        <div class="subMenu">
+            <p>Hello there this is some text.</p>         
+          </div><!-- subMenu -->
+        </li>
         <li class="profile">          
           <a href="#profile">
             <img src="img/nav-avatar.png" />
-            <span>Alex Langdon<br />2557 pts (1st in city)</span>
+            <span>Alex Langdon<br />2557 pts (1st in city)</span><div></div>
           </a>
+          <div class="subMenu">
+            <p>Hello there this is some text.</p>         
+          </div><!-- subMenu -->
         </li>
       </ul>
 
