@@ -36,9 +36,14 @@ define(function(require){
 			if ( Modernizr.touch )
 				evType = "touchstart";
 			else
-				evType = "click";						
+				evType = "click";		
 			links.parent().removeClass( active );
-			$(ev.target).parent().addClass( active );			
+			$(ev.target).parent().addClass( active );	
+		},
+
+		profileClick: function(){
+
 		}
+		
 	});
 });
