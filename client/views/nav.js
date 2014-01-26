@@ -28,6 +28,7 @@ define(function(require){
 		},
 
 		clickState: function(ev){
+			ev.stopPropagation();
 			var
 			links  = this.$el.find( "a" ),
 			active = "active",
@@ -43,7 +44,11 @@ define(function(require){
 
 		profileClick: function(){
 
+		},
+
+		removeActiveState: function(){
+			this.$el.find("li").removeClass("active");
 		}
-		
+
 	});
 });

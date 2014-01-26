@@ -78,15 +78,42 @@ body{
 	border-right:1px solid #000;
 	border-bottom:1px solid #000;
 	background:#2d1d35;
-	position: absolute;
-	width: 200px;
-	padding:15px;
-	margin-top:1px;
-	-webkit-box-shadow: inset 0px 5px 13px 0px rgba(50, 50, 50, 0.22);
-	-moz-box-shadow:    inset 0px 5px 13px 0px rgba(50, 50, 50, 0.22);
-	box-shadow:         inset 0px 5px 13px 0px rgba(50, 50, 50, 0.22);
+	position: absolute;	
+	margin-top:1px;	
 	display: none;
 	right: -1px;
+	white-space:nowrap;
+}
+
+#nav-right li .subMenu .body{
+	z-index:3;
+	position: relative;	
+}
+
+#nav-right li .subMenu:before{
+	-webkit-box-shadow: inset 0px 5px 13px 0px #190e2e;
+	-moz-box-shadow:    inset 0px 5px 13px 0px #190e2e;
+	box-shadow:         inset 0px 5px 13px 0px #190e2e;
+	content:" ";
+	position: absolute;
+	width: 100%;
+	height:100%;
+	z-index:1;
+	top:0;
+	left:0;
+}
+
+#nav-right li .subMenu:after{
+	content: " ";
+	z-index:2;
+	position: absolute;
+	background:  #2d1d35 ;
+	width:56px;
+	height: 15px;
+	top:0;
+	right:0px;
+	
+
 }
 
 #nav-right li.active .subMenu{
@@ -104,6 +131,8 @@ body{
 	right:-1px;
 }
 
+.input-group { z-index:3; }
+
 #nav-right li .subMenu p{
 	color:#fff;
 }
@@ -117,6 +146,8 @@ body{
 	background-image: url(../img/nav-messages-hover.png);
 }
 
+/* Search */
+
 #nav-right li.search{
 }
 
@@ -128,6 +159,44 @@ body{
 #nav-right li.search.active a{
 	background-image: url(../img/nav-search-hover.png);
 }
+
+#nav-right li.search a{
+	
+}
+
+#nav-right li.search .subMenu{
+	padding:13px;
+}
+
+#nav-right li.search .subMenu .form-control,
+#nav-right li.search .subMenu .btn{
+	display: block;
+	float: left;
+}
+
+#nav-right li.search .subMenu .form-control{
+	width:170px;
+	background:#1c1222;
+	color:#b1a9a5;
+	font-size:0.8em;
+	border:1px solid #000;
+	border-bottom:1px solid #4c3657;
+}
+
+#nav-right li.search .subMenu .btn{
+	border:1px solid #000;
+	text-shadow:1px 1px #fff;
+	color:#2d2827;
+}
+
+#nav-right li.search .subMenu .btn:hover{
+
+}
+
+#nav-right li.search .subMenu .btn:active{
+
+}
+
 
 
 /* Notifications style */
@@ -183,7 +252,7 @@ body{
 }
 
 #nav-right li.profile.active,
-#nav-right li.profile.active a{
+#nav-right li.profile.active > a{
 	background:transparent;
 	border:none;
 }
@@ -203,11 +272,6 @@ body{
 	left:auto;
 }
 
-#nav-right li.profile .subMenu{	
-	margin-top:2px;
-	right:1px;
-}
-
 #nav-right li.profile.active a div.lineFix{
 	bottom: -5px;
 	height: 10px;
@@ -215,12 +279,35 @@ body{
 	right:0;
 }
 
-.profile .subMenu a{}
+#nav-right li.profile .subMenu{	
+	margin-top:2px;
+	right:1px;
+	padding:10px 18px;
 
-.profile .subMenu a.myprofile{}
-.profile .subMenu a.stats{}
-.profile .subMenu a.settings{}
-.profile .subMenu a.logout{}
+}
+
+.profile .subMenu .body > a{
+	color:#fff;
+	display: block;
+	background-position: left center;
+	background-repeat: no-repeat;
+	text-indent: 30px;
+	font-size:0.9em;
+	line-height: 25px
+}
+
+.profile .subMenu .body > a.myprofile{
+	background-image: url(../img/nav-profile-myprofile.png);
+}
+.profile .subMenu .body > a.stats{
+	background-image: url(../img/nav-profile-statistics.png);
+}
+.profile .subMenu .body > a.settings{
+	background-image: url(../img/nav-profile-settings.png);
+}
+.profile .subMenu .body > a.logout{
+	background-image: url(../img/nav-profile-logout.png);
+}
 
 
 
@@ -327,9 +414,17 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 
 /* Tabs */
 
+.nav-tabs{
+	border-bottom:1px solid #e5dada;
+	color:#6d5478;
+}
+
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus{
 	background: #f7f5f2;
 	font-weight: bold;
+	border: 1px solid #e5dada;
+	border-bottom-color:transparent;
+	color:inherit;
 }
 
 
@@ -361,26 +456,80 @@ p{
 	color:#3a2444;
 }
 
-#main{
+
+#userTitle{
+	margin-bottom:20px;
 }
 
+#userTitle h1{
+	margin-top:0;
+}
+
+#userTitle .options{
+	text-align: right;
+}
+
+
+
+
+#main{
+	padding-top:25px;
+}
+
+
+
 footer{
-	min-height:100px;
+	font-size:0.9em;
 	background:#fff;
 	border-top:#eeeeee 1px solid;
 	position: relative;
+
 }
 
 footer:before{
-	background: #cccccc ;
+	background: #cccccc;
 	height:1px;
 	width: 100%;
 	position: absolute;
 	top:-2px;
 	content:"";
+}
+
+footer ul{
+	text-align: center;
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 0px;
+	margin-bottom:0;
+}
+
+footer ul > li{
+	display: inline-block;
+	padding:0 15px;
 
 }
 
+footer ul > li > a{
+	color:#797170;
+	padding:0 15px;
+}
+
+#copyright,
+footer ul > li {
+	margin:0;
+	padding:15px 0;
+}
+
+
+#copyright{
+	text-align: center;	
+	color:#797170;
+}
+
+
+
+.clear{
+	clear:both;
+}
 
 
 

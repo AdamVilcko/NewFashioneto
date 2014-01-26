@@ -2,36 +2,26 @@
 
         <div class="col-xs-12 col-sm-9">
 
-          <section id="userTitle">
+          <section id="userTitle" class="row">
 
-            <h1><span class="name">Alex Langdon</span>, <span class="age">23</span></h1>
+            <div class="col-md-6">
+              <h1><span class="name">Alex Langdon</span>, <span class="age">23</span></h1>
+            </div>
 
-             <ul class="nav navbar-nav navbar-right">
-                <li><a class="btn btn-primary" href="../navbar/">Follow</a></li>
-                <li><a class="btn btn-default" href="../navbar-static-top/">Duel</a></li>
-                <li><a class="btn btn-default" href="../navbar-static-top/">Mail</a></li>
-                <li><a class="btn btn-default" href="../navbar-static-top/">Down arrow</a></li>
-
-
-                <li class="active"><a href="./">Fixed top</a></li>
-             </ul>
+             <div class="col-md-6 options">              
+                  <a class="btn btn-primary btn-md" href="../navbar/">Follow</a>
+                  <a class="btn btn-default btn-md" href="../navbar-static-top/">Duel</a>
+                  <a class="btn btn-default btn-md" href="../navbar-static-top/">Mail</a>
+                  <a class="btn btn-default btn-md" href="../navbar-static-top/">Down arrow</a>
+             </div>
 
           </section><!-- userTitle -->
 
           <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-            <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-            <li><a href="#profile" data-toggle="tab">Profile</a></li>
-            <li class="disabled"><a>Disabled</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Dropdown <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="#dropdown1" data-toggle="tab">Action</a></li>
-                <li class="divider"></li>
-                <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
-              </ul>
-            </li>
+            <li class="active"><a href="#home" data-toggle="tab">Wall</a></li>
+            <li><a href="#" data-toggle="tab">Photos (432)</a></li>
+            <li><a href="#" data-toggle="tab">Items</a></li>
+            <li><a href="#" data-toggle="tab">Information</a></li>
           </ul>
 
           <section id="headlineGallery">

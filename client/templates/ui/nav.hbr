@@ -18,13 +18,13 @@
         <li><a href="#items">Items</a></li>
       </ul>
 
-      <ul id="nav-right" class="nav navbar-nav navbar-right">
-      
-        
+      <ul id="nav-right" class="nav navbar-nav navbar-right">              
         <li class="inbox">
           <a href="#inbox">Static top<div></div></a>
           <div class="subMenu">
-            <p>Hello there this is some text.</p>         
+            <div class="body">
+              <p>Hello there this is some text.</p>
+            </div>
           </div><!-- subMenu -->
         </li>
        
@@ -33,28 +33,39 @@
           <a href="#notifications">Static top<span>100</span>
           <div></div></a>
           <div class="subMenu">
-            <p>Hello there this is some text.</p>
+            <div class="body">
+              <p>Hello there this is some text.</p>
+            </div>
           </div><!-- subMenu -->
         </li>
 
         <li class="search"><a href="#">Fixed top<div></div></a>
         <div class="subMenu">
-            <p>Hello there this is some text.</p>        
-          </div><!-- subMenu -->
+          <div class="body">
+            <div class="input-group">
+              <input placeholder="What are you looking for?" type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+              </span>
+            </div><!-- /input-group -->
+          </div>
+        </div><!-- subMenu -->
         </li>
-        <li class="profile">      
+        <li class="profile">   
           <a href="#profile">
             <img src="img/nav-avatar.png" />
-            <span>Alex Langdon<br />2557 pts (1st in city)</span>            
+            <span>Alex Langdon<br />2557 pts (1st in city)</span>          
             <div class="handle">
               <div class="lineFix"></div>
             </div>
           </a>
           <div class="subMenu">
-            <a class="myprofile" href="#">My profile</a>
-            <a class="stats" href="#">Statistics</a>
-            <a class="settings" href="#">Settings</a>
-            <a class="logout" href="#">Logout</a>
+            <div class="body">
+              <a class="myprofile" href="#">My profile</a>
+              <a class="stats" href="#">Statistics</a>
+              <a class="settings" href="#">Settings</a>
+              <a class="logout" href="#">Logout</a>
+            </div>
           </div><!-- subMenu -->
         </li>
       </ul>

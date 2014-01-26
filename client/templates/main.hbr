@@ -9,8 +9,7 @@
 
 <footer>
   <div class="container">
-    <ul class="list-unstyled row">
-      <li class="pull-right"><a href="#top">Back to top</a></li>
+    <ul class="list-unstyled row">      
       <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
       <li><a href="http://feeds.feedburner.com/bootswatch">RSS</a></li>
       <li><a href="https://twitter.com/thomashpark">Twitter</a></li>
