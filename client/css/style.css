@@ -80,9 +80,19 @@ body{
 	background:#2d1d35;
 	position: absolute;	
 	margin-top:1px;	
-	display: none;
+	
 	right: -1px;
 	white-space:nowrap;
+	zoom:0.1;
+	visibility: hidden;
+	transition: zoom 300ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+	-webkit-transition: zoom 300ms cubic-bezier(0.770, 0.000, 0.175, 1.000); /* Safari */
+
+}
+
+#nav-right li.active .subMenu{
+	zoom:1;
+	visibility: visible;
 }
 
 #nav-right li .subMenu .body{
@@ -113,12 +123,9 @@ body{
 	top:0;
 	right:0px;
 	
-
 }
 
-#nav-right li.active .subMenu{
-	display: block;
-}
+
 
 #nav-right li.active a div,
 #nav-right li.active a div.lineFix{
@@ -546,7 +553,7 @@ p{
 	display: inline-block;
 	height: 100%;
 	width:12px;
-	height:8px;
+	height:7px;
 }
 
 
