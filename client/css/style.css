@@ -389,6 +389,55 @@ body{
 	border-color: #444;
 }
 
+.like{
+	text-indent:18px;
+	color:#000;
+	background: url(../img/button-like.png) no-repeat 10px center, #f9f8f7; /* Old browsers */
+	background: url(../img/button-like.png) no-repeat 10px center, -moz-linear-gradient(top,  #f9f8f7 0%, #f3f1ef 100%); /* FF3.6+ */
+	background: url(../img/button-like.png) no-repeat 10px center, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f8f7), color-stop(100%,#f3f1ef)); /* Chrome,Safari4+ */
+	background: url(../img/button-like.png) no-repeat 10px center, -webkit-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* Chrome10+,Safari5.1+ */
+	background: url(../img/button-like.png) no-repeat 10px center, -o-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* Opera 11.10+ */
+	background: url(../img/button-like.png) no-repeat 10px center, -ms-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* IE10+ */
+	background: url(../img/button-like.png) no-repeat 10px center, linear-gradient(to bottom,  #f9f8f7 0%,#f3f1ef 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 ); /* IE6-9 */	
+
+
+}
+
+.like > div{
+	text-indent: 0;
+	margin: 0;
+	position: absolute;
+	display: inline-block;
+	border-top: 1px solid #d4cac1;
+	border-right: 1px solid #d4cac1;
+	border-bottom: 1px solid #d4cac1;
+	left: 100%;
+	top: 2px;
+	padding: 3px 3px 3px 6px;
+	-webkit-border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius: 3px;
+	-moz-border-radius-topright: 3px;
+	-moz-border-radius-bottomright: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background: #f5f3ee; /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y1ZjNlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlY2U4ZTEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #f5f3ee 0%, #ece8e1 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f3ee), color-stop(100%,#ece8e1)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f5f3ee 0%,#ece8e1 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f5f3ee 0%,#ece8e1 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f5f3ee 0%,#ece8e1 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f5f3ee 0%,#ece8e1 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f3ee', endColorstr='#ece8e1',GradientType=0 ); /* IE6-8 */
+
+}
+
+.like div:before{
+
+}
+
 
 
 
@@ -580,6 +629,101 @@ p{
 	clear:both;
 	margin-bottom:15px;
 }
+
+
+
+/* Wall */
+
+#wall .media{
+
+}
+
+#wall .media > a{
+	position: relative;
+}
+
+#wall .media > a:after{
+	position: absolute;
+	border-top: 1px solid #e5dada;
+	top: 50%;
+	content: " ";
+	right: -12px;
+	width: 12px;
+	height: 10px;
+	z-index: 100;
+}
+
+#wall .post{
+	min-height: 85px;
+}
+
+#wall .media:after{
+	content:" ";
+	clear:both;
+}
+
+#wall .media .img-thumbnail{
+	background: #e8e5e3;
+	border-color: #d4c3c3;
+}
+
+#wall textarea{
+	color:#3a2444;
+	padding: 13px;
+	resize: none;
+	width:100%;
+}
+
+#wall h4 span{
+	color:#797170;
+	font-size:0.8em;
+}
+
+#wall h4 span:before{
+	content:" ";
+}
+
+#postCreate .uploadphoto{
+	background: url(../img/wall-uploadphoto.png) no-repeat left center;
+	padding: 10px 0px 10px 30px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#wall .loadmore{
+	margin-bottom: 20px;
+	width:100%;
+}
+
+
+
+
+/* Comments */
+
+.showAllComments{
+	color:#797170;
+}
+
+#wall .comments{
+
+}
+
+#wall .comments .media > a:after{
+	content: none;
+	
+}
+
+#postDisplay .like{
+	position: absolute;
+	right: 46px;
+	top: 30px;
+}
+
+
+
+
+
 
 
 

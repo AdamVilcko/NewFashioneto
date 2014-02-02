@@ -74,33 +74,193 @@
 
           <section id="wall">
 
-            <div id="postCreate"></div><!-- postCreate -->
+            <div id="postCreate">
+
+              <div class="media">
+              
+                <a class="pull-left img-thumbnail" href="#">
+                  <img class="media-object" src="img/wall-avatar.jpg" alt="...">
+                </a>
+                <div class="media-body well">
+
+                  <div class="row">
+                    <div class="col-md-10"> <textarea placeholder="Write on Alex's wall" class="well"></textarea></div>
+                    <div class="col-md-2"><a class="uploadphoto pull-right" href="#">Upload photo</a></div>                 
+                    
+                  </div>
+                  
+                </div>
+                
+              </div><!-- media -->  
+
+            </div><!-- postCreate -->
 
             <div id="postDisplay">
 
               <article class="media">
               
-                <a class="pull-left" href="#">
-                  <img class="media-object" src="..." alt="...">
+                <a class="pull-left img-thumbnail" href="#">
+                  <img class="media-object" src="img/wall-avatar.jpg" alt="...">
                 </a>
-                <div class="media-body">                  
-                  content, probably list style
-                </div>
-                
+
+                <ul class="list-group media-body list-group">                  
+                  <li class="list-group-item post">
+                    <h4 class="list-group-item-heading">Emma Geller<span>25 minutes ago on the web</span></h4>
+                    <p class="list-group-item-text">Hello my name is Emma but I look like a guy!</p>
+
+                    <button type="button" class="btn btn-default like">Like<div>25</div></button>
+
+                  </li>
+                  <li class="list-group-item"><a class="showAllComments" href="#">Show all comments (40)</a></li>
+
+                  <li class="list-group-item comments">
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                        <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                      </div>
+                    </div>
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                        <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                      </div>
+                    </div>
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <textarea placeholder="Write your comment" class="well"></textarea>
+                      </div><!-- media-body -->
+                      
+                    </div>
+
+                  </li>
+
+                </ul>               
               </article>
 
+              <article class="media">
+              
+                <a class="pull-left img-thumbnail" href="#">
+                  <img class="media-object" src="img/wall-avatar.jpg" alt="...">
+                </a>
+
+                <ul class="list-group media-body list-group">                  
+                  <li class="list-group-item post">
+                    <h4 class="list-group-item-heading">Emma Geller<span>25 minutes ago on the web</span></h4>
+                    <p class="list-group-item-text">Hello my name is Emma but I look like guy!</p>
+
+                    <button type="button" class="btn btn-default like">Like<div>25</div></button>
+
+                  </li>
+                  <li class="list-group-item"><a class="showAllComments" href="#">Show all comments(40)</a></li>
+
+                  <li class="list-group-item comments">
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                        <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                      </div>
+                    </div>
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                        <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                      </div>
+                    </div>
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <textarea placeholder="Write your comment" class="well"></textarea>
+                      </div><!-- media-body -->
+                      
+                    </div>
+
+                  </li>
+
+                </ul>               
+              </article>
+
+              <article class="media">
+              
+                <a class="pull-left img-thumbnail" href="#">
+                  <img class="media-object" src="img/wall-avatar.jpg" alt="...">
+                </a>
+
+                <ul class="list-group media-body list-group">                  
+                  <li class="list-group-item post">
+                    <h4 class="list-group-item-heading">Emma Geller<span>25 minutes ago on the web</span></h4>
+                    <p class="list-group-item-text">Hello my name is Emma but I look like guy!</p>
+
+                    <button type="button" class="btn btn-default like">Like<div>25</div></button>
+
+                  </li>
+                  <li class="list-group-item"><a class="showAllComments" href="#">Show all comments(40)</a></li>
+
+                  <li class="list-group-item comments">
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                        <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                      </div>
+                    </div>
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                        <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                      </div>
+                    </div>
+
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <textarea placeholder="Write your comment" class="well"></textarea>
+                      </div><!-- media-body -->
+                      
+                    </div>
+
+                  </li>
+
+                </ul>               
+              </article>
+
+              <button class="btn btn-default loadmore">Load more...</button>
+
             </div><!-- postDisplay -->
-            
 
-
-
-          </section><!-- wall -->
-
-
-
-
-
-          
+          </section><!-- wall -->          
 
         </div><!--/span-->
 
