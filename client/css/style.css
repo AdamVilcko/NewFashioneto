@@ -672,6 +672,7 @@ p{
 	padding: 13px;
 	resize: none;
 	width:100%;
+	margin-bottom: 0;
 }
 
 #wall h4 span{
@@ -723,6 +724,60 @@ p{
 
 
 
+/* Profile */
+
+#profilePicture a{
+	margin-bottom: 0px;
+	z-index:5;
+}
+
+#profilePicture h6.location{
+	margin-top:0;
+	text-align:center;
+	z-index:4;
+	width:90%;
+	margin:0 auto;
+	border-top:none;
+	-webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 0px;
+	-moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 0px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+
+
+
+/* Badges */
+
+#badges h5,
+#badges p{
+	text-align:center;
+
+}
+
+#badges ul{
+	text-align:center;
+	padding:0;
+	margin: 0 0 15px 0;
+}
+
+#badges li{
+	background:url(../img/badge.png) no-repeat;
+	display: inline-block;	
+	width:65px;
+	height:65px;
+}
+
+#badges a{
+	display: block;
+}
+
+#badges button{
+	display: block;
+	margin: 0 auto 15px auto;
+}
 
 
 
@@ -731,6 +786,7 @@ p{
 
 
 
+/* Footer */
 
 footer{
 	font-size:0.9em;
@@ -777,6 +833,11 @@ footer ul > li {
 #copyright{
 	text-align: center;	
 	color:#797170;
+}
+
+#bottomBar{
+	height: 50px;
+	background:#3a2444;
 }
 
 
