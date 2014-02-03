@@ -757,6 +757,14 @@ p{
 
 }
 
+#badges h5{
+	font-weight:bold;
+}
+
+#badges p{
+	font-size:0.9em;
+}
+
 #badges ul{
 	text-align:center;
 	padding:0;
@@ -778,6 +786,7 @@ p{
 	display: block;
 	margin: 0 auto 15px auto;
 }
+
 
 
 
