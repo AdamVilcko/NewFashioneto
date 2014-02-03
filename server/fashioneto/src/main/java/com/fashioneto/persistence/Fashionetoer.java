@@ -33,6 +33,11 @@ public class Fashionetoer implements Serializable
 	@Column(name = "email")
 	private String email;
 
+	public Fashionetoer()
+	{
+		//No args constructor
+	}
+
 	public Fashionetoer(int id, String username, String email)
 	{
 		this.id = id;

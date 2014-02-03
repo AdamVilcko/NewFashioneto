@@ -15,9 +15,12 @@ import javax.persistence.PersistenceContext;
 
 import net.sourceforge.stripes.integration.spring.SpringBean;
 
+import org.springframework.stereotype.Service;
+
 import com.fashioneto.dao.FashionetoerDAO;
 import com.fashioneto.persistence.Fashionetoer;
 
+@Service("fashionetoerService")
 public class FashionetoerServiceImpl implements FashionetoerService
 {
 	@PersistenceContext
