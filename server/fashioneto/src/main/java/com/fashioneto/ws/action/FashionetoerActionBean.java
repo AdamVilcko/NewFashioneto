@@ -13,6 +13,8 @@ import net.sourceforge.stripes.integration.spring.SpringBean;
 import net.sourceforge.stripes.validation.ValidationErrorHandler;
 import net.sourceforge.stripes.validation.ValidationErrors;
 
+import org.springframework.stereotype.Controller;
+
 import com.fashioneto.persistence.Fashionetoer;
 import com.fashioneto.service.FashionetoerService;
 import com.fashioneto.ws.entities.FashionetoMessage;
@@ -24,6 +26,7 @@ import com.google.gson.Gson;
  * @author Felipe
  */
 @UrlBinding("/user.do")
+@Controller
 public class FashionetoerActionBean implements ActionBean, ValidationErrorHandler
 {
 
