@@ -34,7 +34,7 @@ define(function(require){
 		initialize:function(){
 			this.render();
 			this.intantiateViews();
-			this.renderFirstView();
+			
 		},
 
 		render: function(){
@@ -56,9 +56,15 @@ define(function(require){
 			this.pages[0].render();
 		},
 
-		renderFirstView: function(){
+		events:{
+			"click" : "closeNav"
+		},
 
+		closeNav: function(){
+			this.ui.nav.removeActiveState();
 		}
+
+
 		
 	});
 });

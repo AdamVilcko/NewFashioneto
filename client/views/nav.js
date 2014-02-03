@@ -5,6 +5,7 @@ define(function(require){
 	Handlebars = require("handlebars"),
 	$          = require("jquery"),
 	Modernizr  = require("modernizr"),
+	Helper     = require('helper'),
 	
 	template   = require("text!templates/ui/nav.hbr");
 
@@ -27,18 +28,17 @@ define(function(require){
 			this.$el.html( this.template() );
 		},
 
-		clickState: function(ev){
-			var
-			links  = this.$el.find( "a" ),
-			active = "active",
-			evType;
-			
-			if ( Modernizr.touch )
-				evType = "touchstart";
-			else
-				evType = "click";						
-			links.parent().removeClass( active );
-			$(ev.target).parent().addClass( active );			
+		clickState: function(ev){			
+			Helper.clickState( this.$el.find("a"), ev );				
+		},
+
+		profileClick: function(){
+
+		},
+
+		removeActiveState: function(){
+			this.$el.find("li").removeClass("active");
 		}
+
 	});
 });

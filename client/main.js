@@ -12,13 +12,15 @@ require([
 	var Router = Backbone.Router.extend({
 
 		routes:{
-			'': 'index',
-			'show/:id': 'show',
-			'appointment/:id': 'showAppointment',
-			'feed': 'feed',
-			'people': 'people',
-			'items': 'items',
+			'index': "profile",
 			'profile': 'profile',
+			'profile/:tab': 'profile',
+
+			'people': 'people',
+			'people/:tab': 'people',
+
+			'items': 'items',
+			'items/:tab': 'items'	
 		},
 
 		initialize: function(){
@@ -27,25 +29,25 @@ require([
 			this.mainView = new MainView();
 		},
 
-		onRouteChange: function(){
-			console.log("Route change fire!");
+		changeRoute: function(){
+			console.log("Route change!");
 		},
 
 		index:function(){
-			console.log("Hello from the router!");
-		},		
+			this.profile( "" );
+		},
 		
-		feed: function( id ){
-			App.vent.trigger( 'page:feed', id );	
+		feed: function( tab ){
+			App.vent.trigger( 'page:feed', tab );	
 		},
-		people: function( id ){
-			App.vent.trigger( 'page:people', id );
+		people: function( tab ){
+			App.vent.trigger( 'page:people', tab );
 		},
-		items: function( id ){
-			App.vent.trigger( 'page:items', id );
+		items: function( tab ){
+			App.vent.trigger( 'page:items', tab );
 		},
-		profile: function( id ){
-			App.vent.trigger( 'page:profile', id );
+		profile: function( tab ){
+			App.vent.trigger( 'page:profile', tab );
 		}
 
 	});
