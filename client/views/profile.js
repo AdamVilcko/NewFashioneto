@@ -1,22 +1,34 @@
 define(function(require){
 	
 	var
-	Backbone   = require("backbone"),
-	Handlebars = require("handlebars"),
-	$          = require("jquery"),
-	Helper     = require('helper'),
 
+	//Deps
+
+	$            = require("jquery"),
+	Backbone     = require("backbone"),
+	Handlebars   = require("handlebars"),	
+	Helper       = require('helper'),
+	
+	//Base page view
+	
 	BasePageView = require("views/basepageview"),
-	BaseTabView = require("views/basetabview"),
-
-	template = require("text!templates/pages/profile.hbr");
-
-
+	
+	//Tab views
+	
+	Wall         = require("views/wall/wall.js"),
+	Photos       = require("views/photos/photos.js"),
+	Items        = require("views/items/items.js"),
+	
+	//Main profile template
+	
+	template     = require("text!templates/pages/profile.hbr");
+	
 
 	return BasePageView.extend({
 		initialize: function(options){
 			this.options = options || {};
-			this.setEvents();			
+			this.setEvents();
+			this.InstantiateTabs();
 		},
 
 		events:{
@@ -29,7 +41,7 @@ define(function(require){
 
 		template: Handlebars.compile( template ),
 
-		render: function( tab ){			
+		render: function( tab ){
 			this.$el.html( this.template() );
 			//Open selected tab
 		},
@@ -38,9 +50,21 @@ define(function(require){
 			Helper.clickState( ".nav-tabs a", ev );
 		},
 
-		tabs: {
-			wall : ""
+		InstantiateTabs: function(){
+			this.tabs = [
+				new Wall(),
+				new Photos(),
+				new Items()
+			];
+
+			for( var i = 0; this.tabs.length < i;  i++ ){
+				row[i].setElement( this.el );
+			};
+
+			this.tabs[0].render();		
+			console.log( this.tabs );
 		}
+
 	});
 
 });
