@@ -39,8 +39,9 @@ define(function(require){
 		},
 
 		tabs: {
-			wall : ""
+			wall:
 		}
+
 	});
 
 });
