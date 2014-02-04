@@ -12,6 +12,12 @@
 			<param-name>ActionResolver.Packages</param-name>
 			<param-value>com.fashioneto.ws.action</param-value>
 		</init-param>
+		<init-param>     <!-- [4] -->
+			<param-name>Interceptor.Classes</param-name>
+			<param-value>
+            	net.sourceforge.stripes.integration.spring.SpringInterceptor
+      		</param-value>
+		</init-param>
 	</filter>
 
 	<filter-mapping>
@@ -37,15 +43,14 @@
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
-	<!--  Spring CONF: -->
+	<!-- Spring CONF: -->
 	<context-param>
-        <param-name>contextConfigLocation</param-name>
-<!--         <param-value>classpath*:/META-INF/generalContext-beans.xml</param-value> -->
-        <param-value>/META-INF/generalContext-beans.xml</param-value>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/META-INF/generalContext-beans.xml</param-value>
 	</context-param>
-	
+
 	<listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
 </web-app>

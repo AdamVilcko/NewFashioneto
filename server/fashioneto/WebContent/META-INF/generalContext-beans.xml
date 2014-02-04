@@ -7,7 +7,10 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="com.fashioneto,com.fashioneto.ws" />
+	<context:component-scan base-package="com.fashioneto.dao" />
+	<context:component-scan base-package="com.fashioneto.service" />
+	<context:component-scan base-package="com.fashioneto.ws.action" />
+	<context:component-scan base-package="com.fashioneto.ws.entities" />
 
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -27,7 +30,7 @@
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
 		<property name="packagesToScan"
-			value="com.fashioneto.service,com.fashioneto.dao,com.fashioneto.persistence,com.fashioneto.ws.action,com.fashioneto.ws.entities" />
+			value="com.fashioneto.persistence,com.fashioneto.ws.entities" />
 
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
@@ -39,5 +42,7 @@
 		</property>
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+<!-- 	<bean id="fashionetoerService" class="com.fashioneto.service.FashionetoerServiceImpl" /> -->
 
 </beans>
