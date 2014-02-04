@@ -33,8 +33,7 @@ define(function(require){
 
 		initialize:function(){
 			this.render();
-			this.intantiateViews();
-			
+			this.intantiateViews();			
 		},
 
 		render: function(){
