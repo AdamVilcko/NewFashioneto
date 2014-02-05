@@ -15,24 +15,24 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Service;
 
-import com.fashioneto.persistence.Fashionetoer;
+import com.fashioneto.persistence.User;
 
 @Service("fashionetoerService")
-public class FashionetoerServiceImpl implements FashionetoerService
+public class UserServiceImpl implements UserService
 {
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
-	public List<Fashionetoer> getFashionetoers()
+	public List<User> getFashionetoers()
 	{
 		return null;
 	}
 
 	@Override
-	public Fashionetoer getFashionetoer(int id)
+	public User getFashionetoer(int id)
 	{
-		return entityManager.find(Fashionetoer.class, id);
+		User user = entityManager.find(User.class, id);
+		return user;
 	}
-
 }

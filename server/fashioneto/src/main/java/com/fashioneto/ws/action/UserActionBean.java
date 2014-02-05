@@ -11,8 +11,8 @@ import net.sourceforge.stripes.integration.spring.SpringBean;
 
 import org.springframework.stereotype.Controller;
 
-import com.fashioneto.persistence.Fashionetoer;
-import com.fashioneto.service.FashionetoerService;
+import com.fashioneto.persistence.User;
+import com.fashioneto.service.UserService;
 import com.fashioneto.ws.entities.FashionetoMessage;
 import com.fashioneto.ws.entities.MessageTypeEnum;
 import com.fashioneto.ws.entities.ResponseWrapper;
@@ -23,22 +23,23 @@ import com.google.gson.Gson;
  */
 @UrlBinding("/user.do")
 @Controller
-public class FashionetoerActionBean extends BaseActionBean
+public class UserActionBean extends BaseActionBean
 {
 
 	@SpringBean
-	private FashionetoerService fashionetoerService;
+	private UserService userService;
 
 	@DefaultHandler
 	public Resolution view()
 	{
 
 		FashionetoMessage message = new FashionetoMessage("Your request was successfull", MessageTypeEnum.INFO);
-		Fashionetoer fashionetoer = fashionetoerService.getFashionetoer(1);
-
+		User fashionetoer = userService.getFashionetoer(1);
+		fashionetoer.getCommentList();
 		ResponseWrapper rw = new ResponseWrapper(fashionetoer, message);
 		Gson gson = new Gson();
-		return new StreamingResolution("text", gson.toJson(rw));
+		String returnJson = gson.toJson(rw);
+		return new StreamingResolution("text", returnJson);
 	}
 
 }
