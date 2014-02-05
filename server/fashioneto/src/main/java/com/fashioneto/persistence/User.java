@@ -19,8 +19,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
-import org.hibernate.annotations.FilterJoinTable;
 
 /**
  * @author Felipe
@@ -45,21 +45,15 @@ public class User implements Serializable
 	@Column(name = "email")
 	private String email;
 
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	//	@OrderBy("date desc")
+	private Set<Comment> postedComments = new LinkedHashSet<Comment>();
+
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
-	@FilterJoinTable(name = User.PARENT_TYPE_FILTER, condition = "parent_type == USER")
+	@Filter(name = User.PARENT_TYPE_FILTER, condition = "comment_parent.parent_type == USER")
 	//	@OrderBy("date desc")
-	private Set<Comment> comments = new LinkedHashSet<Comment>();
-
-	public Set<Comment> getCommentList()
-	{
-		return comments;
-	}
-
-	public void setCommentList(Set<Comment> commentList)
-	{
-		this.comments = commentList;
-	}
+	private Set<Comment> receivedComments = new LinkedHashSet<Comment>();
 
 	public User()
 	{
@@ -103,10 +97,31 @@ public class User implements Serializable
 		this.email = email;
 	}
 
+	public Set<Comment> getPostedComments()
+	{
+		return postedComments;
+	}
+
+	public void setPostedComments(Set<Comment> postedComments)
+	{
+		this.postedComments = postedComments;
+	}
+
+	public Set<Comment> getReceivedComments()
+	{
+		return receivedComments;
+	}
+
+	public void setReceivedComments(Set<Comment> receivedComments)
+	{
+		this.receivedComments = receivedComments;
+	}
+
 	@Override
 	public String toString()
 	{
-		return "User [id=" + id + ", username=" + username + ", email=" + email + ", commentList=" + comments + "]";
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", postedComments=" + postedComments
+				+ ", receivedComments=" + receivedComments + "]";
 	}
 
 }

@@ -109,7 +109,7 @@ public class Comment implements Serializable
 	@Override
 	public String toString()
 	{
-		return "Comment [id=" + id + ", content=" + content + "]";
+		return "Comment [id=" + id + ", user=" + user.getId() + ", content=" + content + "]";
 	}
 
 }

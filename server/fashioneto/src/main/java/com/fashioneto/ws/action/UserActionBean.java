@@ -36,7 +36,7 @@ public class UserActionBean extends BaseActionBean
 
 		FashionetoMessage message = new FashionetoMessage("Your request was successfull", MessageTypeEnum.INFO);
 		User fashionetoer = userService.getFashionetoer(1);
-		fashionetoer.getCommentList();
+		fashionetoer.getReceivedComments();
 		ResponseWrapper rw = new ResponseWrapper(fashionetoer, message);
 		//		Gson gson = new Gson();
 		//		String returnJson = gson.toJson(rw);
