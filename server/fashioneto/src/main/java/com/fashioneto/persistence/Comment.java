@@ -106,4 +106,10 @@ public class Comment implements Serializable
 		this.content = content;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "Comment [id=" + id + ", content=" + content + "]";
+	}
+
 }
