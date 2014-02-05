@@ -16,7 +16,6 @@ import com.fashioneto.service.UserService;
 import com.fashioneto.ws.entities.FashionetoMessage;
 import com.fashioneto.ws.entities.MessageTypeEnum;
 import com.fashioneto.ws.entities.ResponseWrapper;
-import com.google.gson.Gson;
 
 /**
  * @author Felipe
@@ -33,13 +32,16 @@ public class UserActionBean extends BaseActionBean
 	public Resolution view()
 	{
 
+		// http://stackoverflow.com/questions/13459718/could-not-serialize-object-cause-of-hibernateproxy
+
 		FashionetoMessage message = new FashionetoMessage("Your request was successfull", MessageTypeEnum.INFO);
 		User fashionetoer = userService.getFashionetoer(1);
 		fashionetoer.getCommentList();
 		ResponseWrapper rw = new ResponseWrapper(fashionetoer, message);
-		Gson gson = new Gson();
-		String returnJson = gson.toJson(rw);
-		return new StreamingResolution("text", returnJson);
+		//		Gson gson = new Gson();
+		//		String returnJson = gson.toJson(rw);
+		//		return new StreamingResolution("text", returnJson);
+		return new StreamingResolution("text", rw.toString());
 	}
 
 }

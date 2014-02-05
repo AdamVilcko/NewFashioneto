@@ -4,8 +4,8 @@
 package com.fashioneto.persistence;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,16 +14,23 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.FilterJoinTable;
 
 /**
  * @author Felipe
  */
 @Entity
 @Table(name = "fashionetoer")
+@FilterDef(name = User.PARENT_TYPE_FILTER)
 public class User implements Serializable
 {
+	public static final String PARENT_TYPE_FILTER = "parentTypeFilter";
 
 	private static final long serialVersionUID = 1L;
 
@@ -38,17 +45,20 @@ public class User implements Serializable
 	@Column(name = "email")
 	private String email;
 
-	@OneToMany(mappedBy = "parent", cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
-	private List<CommentUser> commentList = new ArrayList<CommentUser>();
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
+	@FilterJoinTable(name = User.PARENT_TYPE_FILTER, condition = "parent_type == USER")
+	//	@OrderBy("date desc")
+	private Set<Comment> comments = new LinkedHashSet<Comment>();
 
-	public List<CommentUser> getCommentList()
+	public Set<Comment> getCommentList()
 	{
-		return commentList;
+		return comments;
 	}
 
-	public void setCommentList(List<CommentUser> commentList)
+	public void setCommentList(Set<Comment> commentList)
 	{
-		this.commentList = commentList;
+		this.comments = commentList;
 	}
 
 	public User()
@@ -91,6 +101,12 @@ public class User implements Serializable
 	public void setEmail(String email)
 	{
 		this.email = email;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", commentList=" + comments + "]";
 	}
 
 }

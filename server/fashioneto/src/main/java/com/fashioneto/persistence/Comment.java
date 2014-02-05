@@ -10,36 +10,39 @@ create table commentary (
 package com.fashioneto.persistence;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.FilterJoinTable;
 
 /**
  * @author Felipe Tonon 5 Feb 2014
  **/
 @Entity
-@Table(name = "commentary")
-@Inheritance
-@DiscriminatorColumn(name = "parent_type", discriminatorType = DiscriminatorType.STRING)
-public abstract class AbstractComment implements Serializable
+@Table(name = "comment")
+@FilterDef(name = Comment.PARENT_TYPE_FILTER)
+public class Comment implements Serializable
 {
 
+	public static final String PARENT_TYPE_FILTER = "parentTypeFilter";
+	//TODO: continue here
+
+	//http://www.nvenky.in/2010/07/hibernate-onetomany-annotation-filter.html
+	//http://docs.jboss.org/hibernate/orm/3.6/reference/en-US/html/filters.html
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -54,20 +57,23 @@ public abstract class AbstractComment implements Serializable
 	@Column(name = "content")
 	private String content;
 
-	@Enumerated(EnumType.STRING)
-	private EnumCommentParentType parentType;
+	//	@Enumerated(EnumType.STRING)
+	//	private CommentParentTypeEnum parentType;
 
-	@OneToMany(mappedBy = "parent", cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
-	private List<CommentComment> commentList = new ArrayList<CommentComment>();
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
+	@FilterJoinTable(name = PARENT_TYPE_FILTER, condition = "parent_type == COMMENT")
+	//	@OrderBy("date desc")
+	private Set<Comment> comments = new LinkedHashSet<Comment>();
 
-	public List<CommentComment> getCommentList()
+	public Set<Comment> getCommentList()
 	{
-		return commentList;
+		return comments;
 	}
 
-	public void setCommentList(List<CommentComment> commentList)
+	public void setCommentList(Set<Comment> commentList)
 	{
-		this.commentList = commentList;
+		this.comments = commentList;
 	}
 
 	public int getId()
@@ -98,16 +104,6 @@ public abstract class AbstractComment implements Serializable
 	public void setContent(String content)
 	{
 		this.content = content;
-	}
-
-	public EnumCommentParentType getParentType()
-	{
-		return parentType;
-	}
-
-	public void setParentType(EnumCommentParentType parentType)
-	{
-		this.parentType = parentType;
 	}
 
 }

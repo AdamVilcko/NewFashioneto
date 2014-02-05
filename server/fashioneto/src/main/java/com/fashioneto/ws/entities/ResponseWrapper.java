@@ -57,4 +57,10 @@ public class ResponseWrapper
 		return result;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "ResponseWrapper [result=" + result + ", resultType=" + resultType + ", message=" + message + "]";
+	}
+
 }
