@@ -11,7 +11,7 @@ package com.fashioneto.dao;
 /**
  * @author Felipe Tonon 24 Jan 2014
  **/
-public class FashionetoerDAOImpl implements FashionetoerDAO
+public class UserDAOImpl implements UserDAO
 {
 
 }

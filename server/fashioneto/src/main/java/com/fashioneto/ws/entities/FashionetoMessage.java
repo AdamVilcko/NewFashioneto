@@ -43,4 +43,10 @@ public class FashionetoMessage
 		this.type = type;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "FashionetoMessage [content=" + content + ", type=" + type + "]";
+	}
+
 }

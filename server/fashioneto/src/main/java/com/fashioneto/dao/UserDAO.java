@@ -12,7 +12,7 @@ package com.fashioneto.dao;
  * @author Felipe Tonon
  * 24 Jan 2014
  **/
-public interface FashionetoerDAO
+public interface UserDAO
 {
 
 }
