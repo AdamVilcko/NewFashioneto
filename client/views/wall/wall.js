@@ -14,7 +14,7 @@ define(function(require){
 
 		template: Handlebars.compile( template ),
 
-		render: function(){			
+		render: function(){	
 			this.$el.html( this.template() );
 		}
 		

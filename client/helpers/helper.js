@@ -15,6 +15,25 @@ define(function(require){
 				evType = "click";		
 			target.parent().removeClass( active );
 			$( ev.target ).parent().addClass( active );
+		},
+
+		routeState: function( route ){
+			if( route !== "route" ){
+				if( ! App.page.current ){
+				App.page.current = Backbone.history.fragment.split("/")[0];
+				} else {
+					//Save previous value and iterate to current
+					App.page.previous = App.page.current;
+					App.page.current  = Backbone.history.fragment.split("/")[0];
+
+					//If the values are identical then identical = TRUE
+					if( App.page.previous === App.page.current ){
+						App.page.identical = true;
+					} else {
+						App.page.identical = false;
+					}
+				}
+			}
 		}
 
 	};

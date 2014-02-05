@@ -1,27 +1,16 @@
-/*My app:*/
-
 require([
 	'backbone',
 	'jquery',
 	'handlebars',
-	'views/main.js'	
-	], function( Backbone, $, Handlebars, MainView ){
+	'views/main.js',
+	'helper'
+	], function( Backbone, $, Handlebars, MainView, Helper ){
+
 
 	//Backbone router
 
+
 	var Router = Backbone.Router.extend({
-
-		routes:{
-			'index': "profile",
-			'profile': 'profile',
-			'profile/:tab': 'profile',
-
-			'people': 'people',
-			'people/:tab': 'people',
-
-			'items': 'items',
-			'items/:tab': 'items'			
-		},
 
 		initialize: function(){
 			//Bind change routes action
@@ -29,12 +18,35 @@ require([
 			this.mainView = new MainView();
 		},
 
-		changeRoute: function(){
-			
+		changeRoute: function( route ){
+			Helper.routeState( route );
 		},
 
+
+		//Route definitions hash
+
+
+		routes:{
+
+			'index': "index",
+			'profile': 'profile',
+			'profile/:tab': 'profile',
+			
+			'people': 'people',
+			'people/:tab': 'people',
+			
+			'items': 'items',
+			'items/:tab': 'items'
+
+		},
+
+
+		//Route mapped methods
+
+
 		index:function(){
-			this.profile( "" );
+			console.log("Index");
+			Backbone.router.navigate("profile");
 		},
 		
 		feed: function( tab ){
@@ -50,12 +62,14 @@ require([
 			App.vent.trigger( 'page:profile', tab );
 		}
 
-
 	});
+
 	
 	//Instantiate router and start Backbone history
 
+
 	App.router   = new Router;
 	Backbone.history.start();
+
 
 });
