@@ -52,9 +52,9 @@ define(function(require){
 
 		instantiateTabs: function(){
 			this.tabs = [
-				new TabWrapper({ tab: new Wall(), hashId: "wall" })/*,
+				new TabWrapper({ tab: new Wall(), hashId: "wall" }),
 				new TabWrapper({ tab: new Photos(), hashId: "photos" }),
-				new TabWrapper({ tab: new Items(), hashId: "items" })*/
+				new TabWrapper({ tab: new Items(), hashId: "items" })
 			];
 		}
 
