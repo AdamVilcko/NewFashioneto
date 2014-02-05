@@ -28,7 +28,7 @@ define(function(require){
 		initialize: function(options){
 			this.options = options || {};
 			this.setEvents();
-			this.InstantiateTabs();
+			this.instantiateTabs();
 		},
 
 		events:{
@@ -43,6 +43,10 @@ define(function(require){
 
 		render: function( tab ){
 			this.$el.html( this.template() );
+			this.tabs[0]
+			.setElement( "#tabContainer" )
+			.render();
+
 			//Open selected tab
 		},
 
@@ -50,7 +54,7 @@ define(function(require){
 			Helper.clickState( ".nav-tabs a", ev );
 		},
 
-		InstantiateTabs: function(){
+		instantiateTabs: function(){
 			this.tabs = [
 				new Wall(),
 				new Photos(),
@@ -58,11 +62,8 @@ define(function(require){
 			];
 
 			for( var i = 0; this.tabs.length < i;  i++ ){
-				row[i].setElement( this.el );
+				this.tabs[i].setElement( "#tabContainer" );
 			};
-
-			this.tabs[0].render();		
-			console.log( this.tabs );
 		}
 
 	});

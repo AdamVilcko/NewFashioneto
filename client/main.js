@@ -5,7 +5,7 @@ require([
 	'jquery',
 	'handlebars',
 	'views/main.js'	
-	], function(Backbone, $, Handlebars, MainView){
+	], function( Backbone, $, Handlebars, MainView ){
 
 	//Backbone router
 
@@ -30,7 +30,7 @@ require([
 		},
 
 		changeRoute: function(){
-			console.log("Route change!");
+			
 		},
 
 		index:function(){
