@@ -20,10 +20,10 @@
           </section><!-- userTitle -->
 
           <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-            <li class="active"><a href="#home" data-toggle="tab">Wall</a></li>
-            <li><a href="#" data-toggle="tab">Photos (432)</a></li>
-            <li><a href="#" data-toggle="tab">Items</a></li>
-            <li><a href="#" data-toggle="tab">Information</a></li>
+            <li class="active"><a href="#profile/wall" data-toggle="tab">Wall</a></li>
+            <li><a href="#profile/photos" data-toggle="tab">Photos (432)</a></li>
+            <li><a href="#profile/items" data-toggle="tab">Items</a></li>
+            <!-- <li><a href="profile/info" data-toggle="tab">Information</a></li> -->
           </ul>
 
           <div id="tabContainer">            

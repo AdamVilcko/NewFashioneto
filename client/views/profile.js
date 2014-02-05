@@ -12,6 +12,7 @@ define(function(require){
 	//Base page view
 	
 	BasePageView = require("views/basepageview"),
+	TabWrapper   = require("views/tabwrapper"),
 	
 	//Tab views
 	
@@ -25,45 +26,36 @@ define(function(require){
 	
 
 	return BasePageView.extend({
-		initialize: function(options){
-			this.options = options || {};
-			this.setEvents();
-			this.instantiateTabs();
-		},
-
+		
 		events:{
 			"click .nav-tabs a" : "clickState"
 		},
 
-		setEvents: function(){
-			App.vent.on("page:profile", this.render, this);	
-		},
-
 		template: Handlebars.compile( template ),
 
-		render: function( tab ){
-			this.$el.html( this.template() );
-			this.tabs[0]
-			.setElement( "#tabContainer" )
-			.render();
+		initialize: function( options ){
+			this.options = options || {};
+			this.render();
+			App.vent.on( "page:profile", this.render, this );			
+			this.instantiateTabs();
+		},
 
-			//Open selected tab
+		render: function( tab ){
+			if( typeof( tab ) === "undefined" ){
+				this.$el.html( this.template() );
+			}
 		},
 
 		clickState: function( ev ){
-			Helper.clickState( ".nav-tabs a", ev );
+			Helper.clickState( ".nav-tabs a", ev );			
 		},
 
 		instantiateTabs: function(){
 			this.tabs = [
-				new Wall(),
-				new Photos(),
-				new Items()
+				new TabWrapper({ tab: new Wall(), hashId: "wall" })/*,
+				new TabWrapper({ tab: new Photos(), hashId: "photos" }),
+				new TabWrapper({ tab: new Items(), hashId: "items" })*/
 			];
-
-			for( var i = 0; this.tabs.length < i;  i++ ){
-				this.tabs[i].setElement( "#tabContainer" );
-			};
 		}
 
 	});

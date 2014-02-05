@@ -20,7 +20,7 @@ require([
 			'people/:tab': 'people',
 
 			'items': 'items',
-			'items/:tab': 'items'	
+			'items/:tab': 'items'			
 		},
 
 		initialize: function(){
@@ -49,6 +49,7 @@ require([
 		profile: function( tab ){
 			App.vent.trigger( 'page:profile', tab );
 		}
+
 
 	});
 	
