@@ -1,22 +1,23 @@
 define(function(require){
-	
+
 	var
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
-	$          = require("jquery");
+	$          = require("jquery"),
+
+	template = require("text!templates/wall/wall.hbr");
+
 
 	return Backbone.View.extend({
 
-		initialize: function(options){
-			
-		},
+		el: ".wallContainer",
 
-		el: "#tabContainer",
+		template: Handlebars.compile( template ),
 
-		render: function(){
+		render: function(){			
 			this.$el.html( this.template() );
 		}
-
+		
 	});
 
 });

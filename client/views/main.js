@@ -50,9 +50,7 @@ define(function(require){
 				new Items({ parent: this }),
 				new People({ parent: this }),
 				new Profile({ parent: this })
-			];	
-
-			this.pages[0].render();
+			];
 		},
 
 		events:{
