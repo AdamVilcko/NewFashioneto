@@ -5,17 +5,26 @@ define(function(require){
 	Handlebars = require("handlebars"),
 	$          = require("jquery");
 
-	return Backbone.View.extend({		
+	return Backbone.View.extend({	
 
 		el:"#main",
 
-		renderChain: function(){
-			if( ! App.page.identical ){
-				this.$el.html( this.template() );
+		renderChain: function( evData ){
 
+			if( evData.pageName !== App.page.current ){
+				this.$el.html( this.template() );
+				
 				// At the moment this is just for profile!!! This needs to be made generic for all page types
-				for( var i = 1; i < App.renderChain.profile.length; i++ ){
-					App.renderChain.profile[i].render();
+				for( var i = 1; i < App.renderChain.profile.length; i++ ){					
+					var childView = App.renderChain.profile[i];
+					if( typeof childView.hashId !== "undefined" ){
+						if ( childView.hashId === evData.tab ){
+							childView.render( evData );
+							console.log("Rendering");
+						}
+					} else {
+						childView.render( evData );
+					}					
 				}
 			}
 

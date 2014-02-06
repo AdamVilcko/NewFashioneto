@@ -39,13 +39,14 @@ define(function(require){
 			
 			//Register render chain
 			App.renderChain.profile.push( this );
+			
+		},
+
+		render: function( evData ){
+			this.renderChain( evData );
 
 			//Insantiate tab wrappers
 			this.instantiateTabs();
-		},
-
-		render: function( tab ){
-			this.renderChain();
 		},
 
 		clickState: function( ev ){
@@ -53,11 +54,14 @@ define(function(require){
 		},
 
 		instantiateTabs: function(){
-			this.tabs = [
+			if( ! this.tabs ){
+				this.tabs = [
 					new TabWrapper({ tab: new Wall(), hashId: "wall" }),
 					new TabWrapper({ tab: new Photos(), hashId: "photos" }),
 					new TabWrapper({ tab: new Items(), hashId: "items" })
 				];
+			window.tabs = this.tabs;
+			}
 		}
 
 	});

@@ -18,7 +18,7 @@ require([
 			this.mainView = new MainView();
 		},
 
-		changeRoute: function( route ){
+		changeRoute: function( route ){			
 			Helper.routeState( route );
 		},
 
@@ -45,21 +45,32 @@ require([
 
 
 		index:function(){
-			console.log("Index");
-			Backbone.router.navigate("profile");
+			this.profile();
 		},
 		
 		feed: function( tab ){
-			App.vent.trigger( 'page:feed', tab );	
+			App.vent.trigger( 'page:feed', {
+				pageName:"feed",
+				tab: tab
+			});
 		},
 		people: function( tab ){
-			App.vent.trigger( 'page:people', tab );
+			App.vent.trigger( 'page:people', {
+				pageName:"people",
+				tab: tab
+			});
 		},
 		items: function( tab ){
-			App.vent.trigger( 'page:items', tab );
+			App.vent.trigger( 'page:items', {
+				pageName:"items",
+				tab: tab
+			});
 		},
 		profile: function( tab ){
-			App.vent.trigger( 'page:profile', tab );
+			App.vent.trigger( 'page:profile', {
+				pageName:"profile",
+				tab: tab
+			});
 		}
 
 	});

@@ -23,15 +23,20 @@ define(function(require){
 			//Check hash on load, if hash is active then render tab
 			var tab = "profile/" + this.options.hashId;
 			if( Backbone.history.fragment === tab ){
-				this.render( tab );
+				this.render( {
+					pageName: "profile",
+					tab: tab
+				} );
 			}
 		},
 
-		render: function( tab ){
-			if( this.options.hashId === tab ){				
-				this.tab.render();
+		render: function( evData ){
+			if( this.options.hashId === evData.tab ){				
+				this.tab.setElement( "#" + this.el.id ).render();
 			}
-		}
+		},
+
+		active: false
 
 	});
 

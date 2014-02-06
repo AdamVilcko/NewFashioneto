@@ -5,7 +5,7 @@ define(function(require){
 		clickState: function( target, ev ){
 			ev.stopPropagation();
 			var				
-			active = "active",			
+			active = "active",	
 			evType;
 			target = $( target );
 			
@@ -33,6 +33,24 @@ define(function(require){
 						App.page.identical = false;
 					}
 				}
+			}
+		},
+
+		toggleMobileNav: function( ev ){
+			var
+			el     = $( ev.target ),
+			state  = el.data( 'toggle' ),
+			targetName = el.data( 'target' ),
+			target = $( targetName );
+
+			if( state === "collapse" ){
+				$( target ).
+				slideDown( 200 );
+				el.data( 'toggle', 'uncollapse' );
+			} else {
+				$( target ).
+				slideUp( 200 );
+				el.data( 'toggle', 'collapse' );
 			}
 		}
 
