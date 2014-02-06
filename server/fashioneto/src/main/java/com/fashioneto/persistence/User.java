@@ -19,7 +19,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Filter;
 import org.hibernate.annotations.FilterDef;
 
 /**
@@ -30,7 +29,7 @@ import org.hibernate.annotations.FilterDef;
 @FilterDef(name = User.PARENT_TYPE_FILTER)
 public class User implements Serializable
 {
-	public static final String PARENT_TYPE_FILTER = "parentTypeFilter";
+	public static final String PARENT_TYPE_FILTER = "userParentTypeFilter";
 
 	private static final long serialVersionUID = 1L;
 
@@ -50,8 +49,8 @@ public class User implements Serializable
 	private Set<Comment> postedComments = new LinkedHashSet<Comment>();
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
-	@Filter(name = User.PARENT_TYPE_FILTER, condition = "comment_parent.parent_type == USER")
+	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_user"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
+	//	@FilterJoinTable(name = User.PARENT_TYPE_FILTER, condition = "comment_parent.parent_type == USER")
 	//	@OrderBy("date desc")
 	private Set<Comment> receivedComments = new LinkedHashSet<Comment>();
 

@@ -1,6 +1,8 @@
 /*
  * Foreign keys and any constraints haven't been included yet
  * 
+ *	fashionetoer = user (user is a reserved word to be avoided on table names)
+ *
  */
 
 create table fashionetoer (
@@ -41,13 +43,14 @@ create table fashionetoer_image (
 
 create table comment (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
-	`id_fashionetoer` int(11) unsigned not null,
+	`id_user` int(11) unsigned not null,
 	`content` varchar(200) not null
 );
 
 create table comment_parent (
 	`id_comment` int(11) unsigned not null primary key,
-	`id_parent` int(11) unsigned not null,
+	`id_parent_comment` int(11) unsigned,
+	`id_parent_user` int(11) unsigned,
 	`parent_type` varchar(50) not null
 );
 
@@ -69,8 +72,8 @@ insert into fashionetoer (`id`, `username`, `email`, `password`) values (2, 'Joh
 
 
 -- user 2 leaving a comment for user 1
-insert into comment (`id`, `id_fashionetoer`, `content`) values (1, 2, 'I like your pictures and your profile, man!');
-insert into comment_parent values (1, 1, 'USER');	
+insert into comment (`id`, `id_user`, `content`) values (1, 2, 'I like your pictures and your profile, man!');
+insert into comment_parent values (1, null, 1, 'USER');	
 -- user 1 leaving a reply for comment above
-insert into comment (`id`, `id_fashionetoer`, `content`) values (2, 1, 'Thanks!');
-insert into comment_parent values (2, 1, 'COMMENT');		
+insert into comment (`id`, `id_user`, `content`) values (2, 1, 'Thanks!');
+insert into comment_parent values (2, 1, null, 'COMMENT');

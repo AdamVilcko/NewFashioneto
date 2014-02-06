@@ -8,6 +8,7 @@
  */
 package com.fashioneto.ws.entities;
 
+
 /**
  * @author Felipe Tonon 24 Jan 2014
  **/
