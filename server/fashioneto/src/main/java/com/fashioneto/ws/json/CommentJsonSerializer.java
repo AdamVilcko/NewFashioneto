@@ -20,7 +20,7 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 	public static final String JSON_PROPERTY_NAME_COMMENTS = "comments";
 	public static final String JSON_PROPERTY_NAME_USER = "senderID";
 
-	public static JsonElement getJsonFromComment(Comment comment)
+	private JsonElement getJsonFromComment(Comment comment)
 	{
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty(JSON_PROPERTY_NAME_ID, comment.getId());

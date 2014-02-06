@@ -25,13 +25,11 @@ public class UserJsonSerializer implements JsonSerializer<User>
 		JsonArray jsonComments = new JsonArray();
 		for (Comment comment : user.getReceivedComments())
 		{
-			jsonComments.add(CommentJsonSerializer.getJsonFromComment(comment));
+			jsonComments.add(context.serialize(comment));
 		}
 
 		jsonObject.add("comments", jsonComments);
 
-		//		jsonObject.addProperty("numberOfDirectCommentsReceived", user.getReceivedComments().size());
-		//		jsonObject.addProperty("numberOfDirectCommentsPosted", user.getPostedComments().size());
 		return jsonObject;
 	}
 

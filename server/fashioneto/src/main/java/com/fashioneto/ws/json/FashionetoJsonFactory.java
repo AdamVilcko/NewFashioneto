@@ -12,6 +12,8 @@ import com.google.gson.GsonBuilder;
 public class FashionetoJsonFactory
 {
 
+	private static final boolean PRETTY_PRINT = true;
+
 	private static GsonBuilder getGsonBuilder()
 	{
 		GsonBuilder gBuilder = new GsonBuilder();
@@ -22,8 +24,12 @@ public class FashionetoJsonFactory
 
 	private static Gson getGson()
 	{
-		//		return getGsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-		return getGsonBuilder().setPrettyPrinting().create();
+		GsonBuilder gBuilder = getGsonBuilder();
+		if (PRETTY_PRINT)
+		{
+			gBuilder.setPrettyPrinting();
+		}
+		return gBuilder.create();
 	}
 
 	public static String getJson(User user)
