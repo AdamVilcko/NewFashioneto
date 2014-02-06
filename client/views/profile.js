@@ -34,30 +34,33 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		initialize: function( options ){
-			this.options = options || {};
-			this.render();
-			App.vent.on( "page:profile", this.render, this );			
+			this.options = options || {};			
+			App.vent.on( "page:profile", this.render, this );
+			
+			//Register render chain
+			App.renderChain.profile.push( this );
+
+			//Insantiate tab wrappers
 			this.instantiateTabs();
 		},
 
 		render: function( tab ){
-			if( typeof( tab ) === "undefined" ){
-				this.$el.html( this.template() );
-			}
+			this.renderChain();
 		},
 
 		clickState: function( ev ){
-			Helper.clickState( ".nav-tabs a", ev );			
+			Helper.clickState( ".nav-tabs a", ev );
 		},
 
 		instantiateTabs: function(){
 			this.tabs = [
-				new TabWrapper({ tab: new Wall(), hashId: "wall" }),
-				new TabWrapper({ tab: new Photos(), hashId: "photos" }),
-				new TabWrapper({ tab: new Items(), hashId: "items" })
-			];
+					new TabWrapper({ tab: new Wall(), hashId: "wall" }),
+					new TabWrapper({ tab: new Photos(), hashId: "photos" }),
+					new TabWrapper({ tab: new Items(), hashId: "items" })
+				];
 		}
 
 	});
 
 });
+

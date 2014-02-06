@@ -9,24 +9,27 @@ define(function(require){
 
 		el: "#tabContainer",
 
-		initialize: function(options){
+		initialize: function( options ){
 			this.options = options || {};
 			this.tab     = this.options.tab;
 			this.tab.setElement( this.el );
+
+			//Register render chain
+			App.renderChain.profile.push( this );
 
 			//Add listen event for change tab
 			App.vent.on( "page:profile", this.render, this );
 
 			//Check hash on load, if hash is active then render tab
-			var tab = "profile/" + Backbone.history.fragment;
-			if( this.options.hashId === tab ){
+			var tab = "profile/" + this.options.hashId;
+			if( Backbone.history.fragment === tab ){
 				this.render( tab );
-			}			
+			}
 		},
 
 		render: function( tab ){
 			if( this.options.hashId === tab ){				
-				this.tab.render();		
+				this.tab.render();
 			}
 		}
 
