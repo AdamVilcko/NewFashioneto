@@ -8,14 +8,19 @@
  */
 package com.fashioneto.ws.entities;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * @author Felipe Tonon 24 Jan 2014
  **/
 public class ResponseWrapper
 {
 
+	@Expose
 	private Object result;
+	@Expose
 	private String resultType;
+	@Expose
 	private FashionetoMessage message;
 
 	public ResponseWrapper(Object result)

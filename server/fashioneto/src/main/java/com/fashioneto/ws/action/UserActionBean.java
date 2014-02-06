@@ -16,6 +16,7 @@ import com.fashioneto.service.UserService;
 import com.fashioneto.ws.entities.FashionetoMessage;
 import com.fashioneto.ws.entities.MessageTypeEnum;
 import com.fashioneto.ws.entities.ResponseWrapper;
+import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 /**
  * @author Felipe
@@ -41,7 +42,7 @@ public class UserActionBean extends BaseActionBean
 		//		Gson gson = new Gson();
 		//		String returnJson = gson.toJson(rw);
 		//		return new StreamingResolution("text", returnJson);
-		return new StreamingResolution("text", rw.toString());
+		return new StreamingResolution("text", FashionetoJsonFactory.getJson(rw));
 	}
 
 }

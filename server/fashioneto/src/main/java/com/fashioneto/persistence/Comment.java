@@ -27,7 +27,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.FilterDef;
-import org.hibernate.annotations.FilterJoinTable;
 
 /**
  * @author Felipe Tonon 5 Feb 2014
@@ -51,7 +50,7 @@ public class Comment implements Serializable
 	private int id;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_fashionetoer")
+	@JoinColumn(name = "id_user")
 	private User user;
 
 	@Column(name = "content")
@@ -61,19 +60,18 @@ public class Comment implements Serializable
 	//	private CommentParentTypeEnum parentType;
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
-	@FilterJoinTable(name = PARENT_TYPE_FILTER, condition = "parent_type == COMMENT")
+	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_comment"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
 	//	@OrderBy("date desc")
 	private Set<Comment> comments = new LinkedHashSet<Comment>();
 
-	public Set<Comment> getCommentList()
+	public Set<Comment> getComments()
 	{
 		return comments;
 	}
 
-	public void setCommentList(Set<Comment> commentList)
+	public void setComments(Set<Comment> comments)
 	{
-		this.comments = commentList;
+		this.comments = comments;
 	}
 
 	public int getId()
@@ -109,7 +107,8 @@ public class Comment implements Serializable
 	@Override
 	public String toString()
 	{
-		return "Comment [id=" + id + ", user=" + user.getId() + ", content=" + content + "]";
+		//		return "Comment [id=" + id + ", user=" + user.getId() + ", content=" + content + "]";
+		return "Comment [id=" + id + ", content=" + content + "]";
 	}
 
 }
