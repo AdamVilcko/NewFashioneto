@@ -25,7 +25,7 @@ define(function(require){
 			if( Backbone.history.fragment === tab ){
 				this.render( {
 					pageName: "profile",
-					tab: tab
+					tab: this.options.hashId
 				} );
 			}
 		},
@@ -33,7 +33,11 @@ define(function(require){
 		render: function( evData ){
 			if( this.options.hashId === evData.tab ){				
 				this.tab.setElement( "#" + this.el.id ).render();
+				this.active = true;
+			} else {
+				this.active = false;
 			}
+			return this;
 		},
 
 		active: false

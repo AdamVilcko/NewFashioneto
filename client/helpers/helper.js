@@ -38,10 +38,10 @@ define(function(require){
 
 		toggleMobileNav: function( ev ){
 			var
-			el     = $( ev.target ),
-			state  = el.data( 'toggle' ),
+			el         = $( ev.target ),
+			state      = el.data( 'toggle' ),
 			targetName = el.data( 'target' ),
-			target = $( targetName );
+			target     = $( targetName );
 
 			if( state === "collapse" ){
 				$( target ).

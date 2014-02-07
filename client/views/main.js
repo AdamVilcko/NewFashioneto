@@ -38,6 +38,7 @@ define(function(require){
 
 		render: function(){
 			this.$el.html( this.template() );
+			return this;
 		},
 
 		intantiateViews: function(){

@@ -19,15 +19,14 @@ define(function(require){
 					var childView = App.renderChain.profile[i];
 					if( typeof childView.hashId !== "undefined" ){
 						if ( childView.hashId === evData.tab ){
-							childView.render( evData );
-							console.log("Rendering");
+							childView.render( evData );						
 						}
 					} else {
 						childView.render( evData );
-					}					
+					}
 				}
 			}
-
+			return this;
 		}
 
 	});
