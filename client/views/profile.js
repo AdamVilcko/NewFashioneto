@@ -60,7 +60,7 @@ define(function(require){
 					new TabWrapper({ tab: new Photos(), hashId: "photos" }),
 					new TabWrapper({ tab: new Items(), hashId: "items" })
 				];
-			window.tabs = this.tabs;
+				window.tabs = this.tabs;
 			}
 		}
 
