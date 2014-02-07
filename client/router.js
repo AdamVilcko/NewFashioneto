@@ -1,10 +1,10 @@
 require([
-'backbone',
-"_",
-'jquery',
-'handlebars',
-'views/main.js',
-'helper'
+	'backbone',
+	"_",
+	'jquery',
+	'handlebars',
+	'views/main.js',
+	'helper'
 ],
 function( Backbone, _, $, Handlebars, MainView, Helper ){
 
