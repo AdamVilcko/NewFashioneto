@@ -17,16 +17,16 @@ define(function(require){
 				// At the moment this is just for profile!!! This needs to be made generic for all page types
 				for( var i = 1; i < App.renderChain.profile.length; i++ ){					
 					var childView = App.renderChain.profile[i];
-					if( typeof childView.hashId !== "undefined" ){
-						if ( childView.hashId === evData.tab ){
-							childView.render( evData );						
-						}
+					if( typeof childView.hashId !== "undefined" && childView.hashId === evData.tab ){						
+						childView.render( evData );
 					} else {
 						childView.render( evData );
 					}
 				}
 			}
+			
 			return this;
+			
 		}
 
 	});
