@@ -27,7 +27,7 @@ function( Backbone, _, $, Handlebars, MainView, Helper ){
 
 		routes:{
 
-			'index': "index",
+			'': "index",
 			'profile': 'profile',
 			'profile/:tab': 'profile',
 			

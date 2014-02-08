@@ -15,23 +15,24 @@ define(function(require){
 			this.tab.setElement( this.el );
 
 			//Register render chain
-			App.renderChain.profile.push( this );
+			App.renderChain[ this.options.pageId ].push( this );
 
 			//Add listen event for change tab
-			App.vent.on( "page:profile", this.render, this );
+			App.vent.on( "page:" + this.options.pageId, this.render, this );
 
 			//Check hash on load, if hash is active then render tab
-			var tab = "profile/" + this.options.hashId;
+			var tab = this.options.pageId + "/" + this.options.tabId;
 			if( Backbone.history.fragment === tab ){
 				this.render( {
-					pageName: "profile",
-					tab: this.options.hashId
+					pageName: this.options.pageId,
+					tab: this.options.tabId
 				} );
 			}
 		},
 
 		render: function( evData ){
-			if( this.options.hashId === evData.tab ){				
+			//If the tab name matches the tab event OR if default is true
+			if( this.options.tabId === evData.tab || this.options.default ){		
 				this.tab.setElement( "#" + this.el.id ).render();
 				this.active = true;
 			} else {
