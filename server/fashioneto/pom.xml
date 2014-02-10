@@ -3,7 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>Fashioneto</groupId>
 	<artifactId>Fashioneto</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1b</version>
+	<packaging>war</packaging>
+	<name>Fashionette</name>
 	<repositories>
 		<repository>
 			<id>central</id>
@@ -27,6 +29,17 @@
 						<source>1.7</source>
 						<target>1.7</target>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.4</version>
+
+					<configuration>
+							<webXml>WebContent\WEB-INF\web.xml</webXml>
+<!--           						<webappDirectory>/home/felipe/git/Fashioneto/server/fashioneto/WebContent</webappDirectory>								 -->
+					</configuration>
+
 				</plugin>
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
@@ -101,11 +114,11 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.2.0.Final</version>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-annotations</artifactId> -->
-<!-- 			<version>3.5.6-Final</version> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.hibernate</groupId> -->
+		<!-- <artifactId>hibernate-annotations</artifactId> -->
+		<!-- <version>3.5.6-Final</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
