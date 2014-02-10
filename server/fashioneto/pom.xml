@@ -36,8 +36,8 @@
 					<version>2.4</version>
 
 					<configuration>
-							<webXml>WebContent\WEB-INF\web.xml</webXml>
-<!--           						<webappDirectory>/home/felipe/git/Fashioneto/server/fashioneto/WebContent</webappDirectory>								 -->
+						<webXml>WebContent\WEB-INF\web.xml</webXml>
+						<!-- <webappDirectory>/home/felipe/git/Fashioneto/server/fashioneto/WebContent</webappDirectory> -->
 					</configuration>
 
 				</plugin>
@@ -96,8 +96,26 @@
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>log4j-over-slf4j</artifactId>
-			<version>1.7.2</version>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.0</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sourceforge.stripes</groupId>
@@ -134,11 +152,13 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.0</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- <dependency> -->
 		<!-- <groupId>taglibs</groupId> -->
