@@ -1,37 +1,91 @@
-define(function(require){
+require([
+	'backbone',
+	"_",
+	'jquery',
+	'handlebars',
+	'views/main.js',
+	'helper'
+],
+function( Backbone, _, $, Handlebars, MainView, Helper ){
 
-	var Backbone = require("backbone");
-	var _        = require("_");	
 
-	var router = Backbone.Router.extend({
-		routes:{			
-			'': 'index',
-			'show/:id': 'show',
-			'appointment/:id': 'showAppointment'
-		},
+	var Router = Backbone.Router.extend({
+
 
 		initialize: function(){
-			this.bind( "all", this.changeRoute );
+			this.mainView = new MainView();
+			this.bind( "all", this.changeRoute );			
 		},
+
+		changeRoute: function( route ){			
+			Helper.routeState( route );
+		},
+
+
+		//Route definitions hash
+
+
+		routes:{
+
+			'': "index",
+			'profile': 'profile',
+			'profile/:tab': 'profile',
+			
+			'people': 'people',
+			'people/:tab': 'people',
+			
+			'items': 'items',
+			'items/:tab': 'items'
+
+		},
+
+
+		//Route mapped methods
+
 
 		index:function(){
-			console.log("Hello from the router!");
-
+			this.profile();
 		},
-
-		changeRoute: function(){
-			console.log("Always fired");
+		
+		feed: function( tab ){
+			App.vent.trigger( 'page:feed', {
+				pageName:"feed",
+				tab: tab
+			});
 		},
-
-		show: function(id){
-			console.log("Show " + id);
+		people: function( tab ){
+			App.vent.trigger( 'page:people', {
+				pageName:"people",
+				tab: tab
+			});
 		},
-
-		showAppointment: function(appointmentId){
-			App.vent.trigger('appointment:show', appointmentId);
+		items: function( tab ){
+			App.vent.trigger( 'page:items', {
+				pageName:"items",
+				tab: tab
+			});
+		},
+		profile: function( tab ){
+			App.vent.trigger( 'page:profile', {
+				pageName:"profile",
+				tab: tab
+			});
 		}
-	});	
 
-	return router;
+	});
+
+
+	//Instantiate router and start Backbone history
+
+
+	App.router   = new Router;
+	Backbone.history.start();
+
 
 });
+
+
+
+
+
+	

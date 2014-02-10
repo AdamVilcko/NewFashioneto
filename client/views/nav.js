@@ -21,15 +21,20 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		events: {
-			'click a' : 'clickState'
+			'click a' : 'clickState',
+			'click .navbar-toggle' : 'toggleMobileNav'
 		},
 
 		render: function(){
 			this.$el.html( this.template() );
 		},
 
-		clickState: function(ev){			
+		clickState: function( ev ){			
 			Helper.clickState( this.$el.find("a"), ev );				
+		},
+
+		toggleMobileNav: function( ev ){
+			Helper.toggleMobileNav( ev );
 		},
 
 		profileClick: function(){
