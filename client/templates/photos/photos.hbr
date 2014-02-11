@@ -1,1 +1,35 @@
-<h1>Photos</h1>
+<section id="userTitle" class="row">
+
+            <div class="col-md-6">
+
+              <h1><span class="name"><!-- Alex Langdon -->sss</span>, <span class="age">23</span></h1>
+              
+            </div>
+
+             <div class="col-md-6 options">              
+                  <button class="follow btn btn-primary btn-md" href="../navbar/">Follow</button>
+                  <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
+                  <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
+                  <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
+             </div>
+
+</section>
+
+<div class="row">
+
+	<div class="col-sm-6 col-md-4">
+
+		<img class="frame" src="img/thumbnail.jpg" alt="...">
+		<img class="photo" src="img/thumbnail.jpg" alt="...">
+	
+	    <div class="item thumbnail">
+	      
+	      <div class="caption"></div>     
+	      
+	      <a href="#">Only me <span>(15 photos)</span></a>
+
+	    </div>
+	  
+	</div>
+
+</div><!-- row -->
