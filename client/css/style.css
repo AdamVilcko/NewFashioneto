@@ -4,6 +4,10 @@ body{
 	min-height: 0;
 }
 
+h1,h2,h3,h4,h5,h6{
+	color:#3a2444;
+}
+
 
 
 
@@ -789,6 +793,34 @@ p{
 
 
 
+
+/* Photos */
+
+
+.item{
+
+}
+
+.item h6{
+	text-align: center;
+	font-size:15px;
+	line-height:23px;
+	margin:0;
+}
+
+.item.thumbnail{
+	padding:4px 22px 4px 22px;
+}
+
+.item img{
+	margin-bottom: 20px;
+}
+
+.item .like{
+	display: block;
+	margin: 0 auto 15px auto ;
+	position: relative;
+}
 
 
 
