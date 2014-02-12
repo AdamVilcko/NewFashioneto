@@ -13,7 +13,9 @@ window.App = {
     },
 
     renderChain: {
-        profile: []
+        profile: [],
+        items: [],
+        people: []
     },
 
     content:{
@@ -29,6 +31,7 @@ var require = {
 
         "helper": "helpers/helper",
         "jquery": "lib/jquery-1.10.2",
+        "jqueryui": "lib/jquery-ui-1.10.4.custom.min.js",
         "mootools": "lib/mootools-core-1.4.5-full",
         "backbone": "lib/backbone1.1.0",
         "_": "lib/underscore1.5.2",
@@ -52,6 +55,10 @@ var require = {
 
         jquery : {
             exports : '$'
+        },
+
+        jqueryui:{
+            deps: ['jquery']
         },
 
         modernizr :{

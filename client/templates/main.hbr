@@ -3,7 +3,7 @@
   
 </div>
 
-<div id="main" class="container">
+<div id="main">
 
 	<!-- Page content here -->
   
@@ -24,5 +24,5 @@
 
   </div>
 </footer>
-
+ 
 <div id="bottomBar"></div><!-- bottomBar -->

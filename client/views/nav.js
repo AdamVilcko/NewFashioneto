@@ -22,7 +22,8 @@ define(function(require){
 
 		events: {
 			'click a' : 'clickState',
-			'click .navbar-toggle' : 'toggleMobileNav'
+			'click .navbar-toggle' : 'toggleMobileNav',
+			'click .subMenu' : 'stopProp'
 		},
 
 		render: function(){
@@ -43,6 +44,10 @@ define(function(require){
 
 		removeActiveState: function(){
 			this.$el.find("li").removeClass("active");
+		},
+
+		stopProp: function( ev ){
+			ev.stopPropagation();
 		}
 
 	});

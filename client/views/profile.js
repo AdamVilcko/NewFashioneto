@@ -26,6 +26,8 @@ define(function(require){
 	
 
 	return BasePageView.extend({
+
+		pageId: "profile",
 		
 		events:{
 			"click .nav-tabs a" : "clickState"
@@ -38,7 +40,7 @@ define(function(require){
 			App.vent.on( "page:profile", this.render, this );
 			
 			//Register render chain
-			App.renderChain.profile.push( this );
+			App.renderChain[ this.pageId ].push( this );
 			
 		},
 
@@ -56,11 +58,10 @@ define(function(require){
 		instantiateTabs: function(){
 			if( ! this.tabs ){
 				this.tabs = [
-					new TabWrapper({ tab: new Wall(), pageId:"profile", tabId: "wall", default: true }),
-					new TabWrapper({ tab: new Photos(), pageId:"profile", tabId: "photos" }),
-					new TabWrapper({ tab: new Items(), pageId:"profile", tabId: "items" })
-				];
-				window.tabs = this.tabs;
+					new TabWrapper({ tab: new Wall(), pageId:this.pageId, tabId: "wall", default: true }),
+					new TabWrapper({ tab: new Photos(), pageId:this.pageId, tabId: "photos" }),
+					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "items" })
+				];				
 			}
 		}
 

@@ -9,9 +9,7 @@ define(function(require){
 
 
 	return Backbone.View.extend({
-
-		el: ".itemsContainer",
-
+		
 		template: Handlebars.compile( template ),
 
 		render: function(){
