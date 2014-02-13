@@ -61,7 +61,10 @@ define(function(require){
 					new TabWrapper({ tab: new Wall(), pageId:this.pageId, tabId: "wall", default: true }),
 					new TabWrapper({ tab: new Photos(), pageId:this.pageId, tabId: "photos" }),
 					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "items" })
-				];				
+				];
+
+				//Restart render chain after tab instantiated
+				this.renderChain( { pageName: this.pageId } );
 			}
 		}
 

@@ -10,7 +10,6 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .wrap{
-	background:#f0eeea;
 }
 
 
@@ -330,7 +329,9 @@ h1,h2,h3,h4,h5,h6{
 	background-image: url(../img/nav-profile-logout.png);
 }
 
-
+.topMargin{
+	margin-top:30px;
+}
 
 /* Wells */
 

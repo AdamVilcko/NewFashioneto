@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs page-tabs">
-  <li class="active"><a href="#">Home</a></li>
-  <li><a href="#">Profile</a></li>  
+  <li class="active"><a href="#items/recommendations">Tailored recommendations</a></li>
+  <li><a href="#items/search">Search for items</a></li>  
 </ul>
 
 <div id="controls">
@@ -19,8 +19,7 @@
 
 </div><!-- controls -->
 
-
-<div class="wrap">
-  <div id="content"></div><!-- content -->
+<div class="wrap container">
+  <div id="tabContainer"></div><!-- content -->
 </div><!-- wrap -->
 

@@ -50,7 +50,7 @@ define(function(require){
 					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "explore", default: true }),
 					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "search" })				
 				];				
-			console.log( this );
+			this.renderChain( { pageName: this.pageId } );
 			}
 
 		}

@@ -44,7 +44,7 @@ function( Backbone, _, $, Handlebars, MainView, Helper ){
 
 
 		index:function(){
-			this.profile();
+			this.profile( "wall" );
 		},
 		
 		feed: function( tab ){

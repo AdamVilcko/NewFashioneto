@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs page-tabs">
-  <li class="active"><a href="#">Explore</a></li>
-  <li><a href="#">Search for people</a></li>  
+  <li class="active"><a href="#people/explore">Explore</a></li>
+  <li><a href="#people/search">Search for people</a></li>  
 </ul>
 
 <div id="controls">
