@@ -23,6 +23,68 @@ h1,h2,h3,h4,h5,h6{
 
 
 
+
+/* Controls */
+
+.controls{
+	margin-bottom: 25px;
+}
+
+.controls button{
+	margin-left:8px;
+}
+
+button.addphotos{
+	
+}
+
+button.addphotos{
+	padding-left:40px;
+}
+
+button.addphotos:before{
+	background-image:url(../img/photos-controls-addphotos.png);
+	background-repeat: no-repeat;
+	background-position:10px center;
+	content:" ";
+	position: absolute;
+	width:100%;
+	height: 100%;
+	top:0;
+	left:0;
+}
+
+a.albumBack{
+	position: relative;
+	color:#c0b3c7;
+	text-decoration: underline;
+}
+
+a.albumBack:before{
+	position: absolute;
+	content:"<";
+	left:-16px;
+	top:-2px;
+}
+
+a.addPhotosLink{
+	position: relative;
+	text-decoration: underline;
+}
+
+a.addPhotosLink:before{
+	position: absolute;
+	content:" ";
+	width:18px;
+	height:100%;
+	top:0px;
+	left:-27px;
+	background: url(../img/photos-controls-addphotos2.png);
+}
+
+
+
+
 /* Navigation */
 
 .navbar-brand{
@@ -619,9 +681,6 @@ p{
 	text-align: right;
 }
 
-
-
-
 #userTitle button{
 	position: relative;
 }
@@ -643,10 +702,6 @@ p{
 	top:0;
 	left:0;
 }
-
-
-
-
 
 #userTitle .duel{
 	padding-left:30px;
@@ -872,6 +927,12 @@ p{
 /* Photos */
 
 
+
+
+.photos{
+
+}
+
 .item{
 
 }
@@ -896,7 +957,6 @@ p{
 	margin: 0 auto 15px auto ;
 	position: relative;
 }
-
 
 
 

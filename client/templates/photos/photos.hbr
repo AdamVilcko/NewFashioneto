@@ -1,26 +1,104 @@
-<section id="userTitle" class="row">
+<section class="row controls">
 
             <div class="col-md-6">
 
-              <h1><span class="name"><!-- Alex Langdon -->sss</span>, <span class="age">23</span></h1>
+              <h5><span class="name">Album: <strong>Only me</strong> (15 photos)</span></h5>
               
             </div>
 
-             <div class="col-md-6 options">              
-                  <button class="follow btn btn-primary btn-md" href="../navbar/">Follow</button>
-                  <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
-                  <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
-                  <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
+             <div class="col-md-6">             	
+				<div class="pull-right">
+					<a class="albumBack" href="">Back to album view</a>
+					<button class="addphotos btn btn-primary btn-md" href="../navbar-static-top/">Add photos</button>
+					<button class="btn btn-default btn-md" href="../navbar-static-top/">Edit album</button>
+				</div><!-- pull-right -->
              </div>
 
 </section>
 
+
+
+<div class="row">
+
+	<div class="col-sm-3 col-md-3">
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	</div>
+
+	<div class="col-sm-3 col-md-3">
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	</div>
+
+	<div class="col-sm-3 col-md-3">
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	</div>
+
+	<div class="col-sm-3 col-md-3">
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	      <a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+	</div>
+
+</div><!-- row -->
+
+
+
+
+
+
+<section class="row controls">
+
+            <div class="col-md-6">
+
+              <h5><span class="name">Album: <strong>Only me</strong> (15 photos)</span></h5>
+              
+            </div>
+
+             <div class="col-md-6">             	
+				<div class="pull-right">
+					<a class="addPhotosLink" href="">Add photos</a>					
+					<button class="btn btn-primary btn-md" href="../navbar-static-top/">Create new album</button>
+				</div><!-- pull-right -->
+             </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 <div class="row">
 
 	<div class="col-sm-6 col-md-4">
 
 		<img class="frame" src="img/thumbnail.jpg" alt="...">
-		<img class="photo" src="img/thumbnail.jpg" alt="...">
+		<img class="photo" src="img/pictures-single.jpg" alt="...">
 	
 	    <div class="item thumbnail">
 	      
@@ -32,4 +110,4 @@
 	  
 	</div>
 
-</div><!-- row -->
+</div>row -->
