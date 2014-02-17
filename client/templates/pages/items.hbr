@@ -19,7 +19,7 @@
 
 </div><!-- controls -->
 
-<div class="wrap container">
-  <div id="tabContainer"></div><!-- content -->
+<div class="wrap">
+  <div style="margin: 0 auto;" id="tabContainer"></div><!-- content -->
 </div><!-- wrap -->
 

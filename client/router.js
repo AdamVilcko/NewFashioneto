@@ -39,7 +39,8 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 			'items': 'items',
 			'items/:tab': 'items',
 
-			'modal': 'modal'			
+			'itemmodal': 'itemModal',
+			'photomodal': 'photoModal'
 
 		},
 
@@ -76,9 +77,12 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 			});
 		},
 
-		modal: function(){
-			
-			$('#modal').modal();
+		itemModal: function(){
+			$('#itemModal').modal();
+		},
+
+		photoModal: function(){
+			$('#photoModal').modal();
 		}
 		
 

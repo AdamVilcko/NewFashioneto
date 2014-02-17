@@ -61,6 +61,11 @@ span.underline{
 	padding: 0;
 }
 
+.modal-body:after{
+	content:" ";
+	clear:both;
+}
+
 .modal-dialog button.close{
 	position: absolute;
 	top:-2px;
@@ -126,6 +131,17 @@ span.underline{
 
 .modal .right section{
 	padding-left:15px;
+}
+
+
+.column{
+	float:left;
+}
+.column.left{
+	width:66.66%;
+}
+.column.right{
+	width:33.33%;
 }
 
 
@@ -1167,9 +1183,6 @@ p{
 
 /* Photos */
 
-
-
-
 .photos{
 
 }
@@ -1197,7 +1210,7 @@ p{
 
 .item .like{
 	display: block;
-	margin: 0 auto 15px auto ;
+	margin: 25px auto 25px auto ;
 	position: relative;
 }
 

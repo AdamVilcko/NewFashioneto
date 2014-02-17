@@ -52,7 +52,7 @@ define(function(require){
 
 
 			var that = this;
-			setTimeout( that.invokeMasonry, 100 );
+			setTimeout( that.invokeMasonry, 500 );
 		},
 
 		instantiateTabs: function(){
@@ -61,7 +61,7 @@ define(function(require){
 					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "explore", default: true }),
 					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "search" })				
 				];				
-			this.renderChain( { pageName: this.pageId } );
+				this.renderChain( { pageName: this.pageId } );
 			}
 
 		},
@@ -76,7 +76,8 @@ define(function(require){
 			$container.masonry({
 			  columnWidth: 60,
 			  itemSelector: '.item',
-			  "gutter": 20
+			  "gutter": 20,
+			  isFitWidth: true
 			});
 		}
 

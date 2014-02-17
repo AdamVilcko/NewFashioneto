@@ -1,5 +1,13 @@
+
+
+
+
+
+
+
+
 <!-- Modal window -->
-<div id="modal" class="modal fade viewingItem">
+<div id="itemModal" class="modal fade viewingItem">
   <div class="modal-dialog">
     <div class="modal-content">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
@@ -134,6 +142,96 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+  
+
+<!-- Modal window -->
+<div id="photoModal" class="modal fade viewingPhoto">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+      <div class="modal-body">
+
+          <div class="column left">
+            <section>
+              <img src="img/photos-viewingphoto.jpg" alt="" />
+            </section>
+          </div><!-- column -->
+
+          <div class="column right"> 
+
+            <section class="comments">
+                 <div class="media">
+                  <a class="pull-left" href="#">
+                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                    <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                  </div>
+                </div>
+
+                <div class="media">
+                  <a class="pull-left" href="#">
+                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                    <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                  </div>
+                </div>
+
+                <div class="media">
+                  <a class="pull-left" href="#">
+                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                  </a>
+                  <div class="media-body">
+                    <textarea placeholder="Write your comment" class="well"></textarea>
+                  </div><!-- media-body --> 
+                </div>
+
+                
+
+            </section>            
+   
+          </div><!-- column -->          
+       <div class="clear"></div>
+      </div>      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Fixed navbar -->
 <div id="nav" class="navbar navbar-default navbar-fixed-top" role="navigation">  
