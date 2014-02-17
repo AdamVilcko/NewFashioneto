@@ -31,14 +31,15 @@ var require = {
 
         "helper": "helpers/helper",
         "jquery": "lib/jquery-1.10.2",
-        "jqueryui": "lib/jquery-ui-1.10.4.custom.min.js",
+        "jqueryui": "lib/jquery-ui-1.10.4.custom.min",
         "mootools": "lib/mootools-core-1.4.5-full",
         "backbone": "lib/backbone1.1.0",
         "_": "lib/underscore1.5.2",
         "bootstrap": "lib/bootstrap",
         "handlebars": "lib/handlebars-v1.1.2",
         "modernizr": "lib/modernizr",
-        "class": "lib/mootools-class-1.4.5"
+        "class": "lib/mootools-class-1.4.5",
+        "jquery.masonry": "lib/jquery.masonry.min"
         },
 
     shim:{
@@ -61,6 +62,12 @@ var require = {
             deps: ['jquery']
         },
 
+        "jquery.masonry": ['jquery'],
+
+        jqueryui: ['jquery'],
+
+        bootstrap : ['jquery'],
+
         modernizr :{
             exports : 'Modernizr'
         },
@@ -71,10 +78,6 @@ var require = {
 
         handlebars:{
             exports : 'Handlebars'
-        },
-
-        bootstrap : {
-            deps : ['jquery']
         }
 
     }

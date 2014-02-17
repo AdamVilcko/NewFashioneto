@@ -1,27 +1,31 @@
 define(function(require){
 	
 	var
-
+	
 	//Deps
-
+	
 	Backbone     = require("backbone"),
 	Handlebars   = require("handlebars"),
 	$            = require("jquery"),
+	Maso
 	Helper       = require('helper'),
+	Masonry      = require("jquery.masonry"),
+	
 	
 	//Base page view
-
+	
 	BasePageView = require("views/basepageview"),
 	TabWrapper   = require("views/tabwrapper"),
 	
 	
 	//Tab views
-
+	
 	Items        = require("views/items/items"),
-
+	
 	//Main items template
-
+	
 	template     = require("text!templates/pages/items.hbr");
+
 
 
 	return BasePageView.extend({
@@ -42,6 +46,13 @@ define(function(require){
 		render: function( evData ){
 			this.renderChain( evData );
 			this.instantiateTabs();
+			
+
+			//NEEDS REFACTORING - CAN'T RELY ON TIMEOUT
+
+
+			var that = this;
+			setTimeout( that.invokeMasonry, 100 );
 		},
 
 		instantiateTabs: function(){
@@ -53,6 +64,20 @@ define(function(require){
 			this.renderChain( { pageName: this.pageId } );
 			}
 
+		},
+
+		invokeMasonry: function(){
+
+			//NEEDS REFACTORING - NEEDS TO USE EL AND OPTNIOS NEED OPTIMISING
+
+
+			var $container = $('#tabContainer');
+			// initialize
+			$container.masonry({
+			  columnWidth: 60,
+			  itemSelector: '.item',
+			  "gutter": 20
+			});
 		}
 
 	});

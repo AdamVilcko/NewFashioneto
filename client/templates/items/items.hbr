@@ -1,8 +1,4 @@
-<div class="row">
-
-  <div class="col-sm-6 col-md-4">
-
-    <div class="item thumbnail">      
+ <div class="item thumbnail">      
       <div class="caption">
         <h6><strong>Double Take Weekend Bag Smoke</strong><br />
 by Hard Graft</h6>   
@@ -10,6 +6,124 @@ by Hard Graft</h6>
       <img src="img/thumbnail.jpg" alt="...">
       <button type="button" class="btn btn-default like">Like<div>25</div></button>
     </div>
+
+ <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+     <div class="item thumbnail">      
+      <div class="caption">
+        <h6><strong>Double Take Weekend Bag Smoke</strong><br />
+by Hard Graft</h6>   
+      </div>
+      <img src="img/thumbnail.jpg" alt="...">
+      <button type="button" class="btn btn-default like">Like<div>25</div></button>
+    </div>
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+
+  <div class="col-sm-6 col-md-4">
+
+   
 
     <div class="item thumbnail">      
       <div class="caption">
@@ -96,3 +210,4 @@ by Hard Graft</h6>
 
 <button class="btn btn-default loadmore">Load more...</button>
 
+ -->

@@ -4,9 +4,11 @@ require([
 	'jquery',
 	'handlebars',
 	'views/main.js',
-	'helper'
+	'helper',
+	'bootstrap',
+	'jquery.masonry'
 ],
-function( Backbone, _, $, Handlebars, MainView, Helper ){
+function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 
 
 	var Router = Backbone.Router.extend({
@@ -17,7 +19,7 @@ function( Backbone, _, $, Handlebars, MainView, Helper ){
 			this.bind( "all", this.changeRoute );			
 		},
 
-		changeRoute: function( route ){			
+		changeRoute: function( route ){
 			Helper.routeState( route );
 		},
 
@@ -35,7 +37,9 @@ function( Backbone, _, $, Handlebars, MainView, Helper ){
 			'people/:tab': 'people',
 			
 			'items': 'items',
-			'items/:tab': 'items'
+			'items/:tab': 'items',
+
+			'modal': 'modal'			
 
 		},
 
@@ -70,7 +74,13 @@ function( Backbone, _, $, Handlebars, MainView, Helper ){
 				pageName:"profile",
 				tab: tab
 			});
+		},
+
+		modal: function(){
+			
+			$('#modal').modal();
 		}
+		
 
 	});
 
