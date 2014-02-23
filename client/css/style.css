@@ -29,6 +29,10 @@ h1,h2,h3,h4,h5,h6{
 	
 }
 
+.modal-content{
+	background: #f7f5f2;
+}
+
 .modal h1{
 	font-size:18px;
 	font-weight: bold;
@@ -126,11 +130,11 @@ span.underline{
 }
 
 .modal .left section{
-	padding-right:15px;
+	padding-right: 15px;
 }
 
 .modal .right section{
-	padding-left:15px;
+	padding-left: 15px;
 }
 
 
@@ -149,6 +153,13 @@ span.underline{
 
 /* Viewing item modal */
 
+#itemModal{
+
+}
+
+#itemModal .modal-content{
+	background:#fff;
+}
 
 
 .viewingItem{
@@ -218,6 +229,50 @@ section.recommendations .media-heading{
 	font-size:14px;
 	
 }
+
+
+
+
+/* Viewing photo modal */
+
+section.photoframe{
+	padding:0;
+}
+
+.photoHolder{
+	background:#000;
+	overflow:hidden;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.photoHolder .paddle{
+	position: absolute;
+	top:48%;
+	z-index:2000;
+}
+
+.photoHolder .paddle.left{
+	left: 5%;
+}
+.photoHolder .paddle.right{
+	right: 5%;
+}
+
+.photoHolder img{
+	margin:auto;
+	display: block;
+}
+
+.photoDetails{
+	padding:18px;
+}
+
+#photoModal .left section{
+	padding-right:0;
+}
+
 
 
 
@@ -1090,12 +1145,31 @@ p{
 }
 
 .comments{
+	font-size:0.9em;
+}
+
+.comments .media-heading{
+	font-size:1.2em;
+	font-weight: bold;
+	margin-bottom:0;
+}
+
+.comments .media. .media-heading{
+	
+}
+
+.comments .media-heading span{
+	color:#797170;
+	font-size:0.7em;
+}
+
+.comments .media-heading span:before{
+	content:" ";
 
 }
 
-.comments h4 span{
-	color:#797170;
-	font-size:0.8em;
+.comments .media-body {
+	margin-top:5px;
 }
 
 .comments .media > a:after{
@@ -1104,6 +1178,7 @@ p{
 
 .comments textarea{
 	width: 100%;
+	padding:8px!important;
 }
 
 #postDisplay .like{
@@ -1111,6 +1186,13 @@ p{
 	right: 46px;
 	top: 30px;
 }
+
+.postComment .media-body{
+	margin-top:1px;
+}
+
+
+
 
 
 
@@ -1243,6 +1325,7 @@ p{
        -o-transition-property: left, right, top;
           transition-property: left, right, top;
 }
+
 
 
 
