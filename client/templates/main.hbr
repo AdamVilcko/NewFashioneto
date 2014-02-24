@@ -13,7 +13,6 @@
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
       <div class="modal-body">
 
-
         <div class="row">
 
         <div class="col-md-8 left">
@@ -165,7 +164,7 @@
                     </a>
                     <div class="media-body">
                       <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
-                      <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                      <p>album <span>Only me</span></p>
                       <button type="button" class="btn btn-default like star">Like<div>25</div></button>
                     </div>
                   </div>
@@ -212,7 +211,6 @@
    
           </div><!-- column -->
 
-
        <div class="clear"></div>
 
         <ul class="nav nav-tabs page-tabs">
@@ -222,19 +220,16 @@
 
         <div class="badges">
               
-              <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-              </ul>
-        
-            </div><!-- badges -->
-
-
-
+            <ul>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+      
+          </div><!-- badges -->
 
       </div>
     </div><!-- /.modal-content -->

@@ -5,20 +5,37 @@ body{
 	padding-top: 42px;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3,h4,h5,h6, select{
 	color:#3a2444;
 }
 
+
 .wrap{
+
 }
 
-
+.form-control{
+	border:1px solid #d0cbc7;	
+	color:#3a2444;
+}
 
 .form-control:focus {
     border-color: rgba(58, 36, 68,0.7);
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(58, 36, 68,0.8);
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(58, 36, 68,0.8)
+}
+
+select.form-control{
+	font-weight: bold;
+	background: #fffefd; /* Old browsers */
+	background: -moz-linear-gradient(top,  #fffefd 0%, #f5f0ec 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fffefd), color-stop(100%,#f5f0ec)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #fffefd 0%,#f5f0ec 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #fffefd 0%,#f5f0ec 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #fffefd 0%,#f5f0ec 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #fffefd 0%,#f5f0ec 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffefd', endColorstr='#f5f0ec',GradientType=0 ); /* IE6-9 */
 }
 
 textarea::-webkit-input-placeholder,
@@ -205,8 +222,7 @@ section.itemDetails button.like{
 
 .viewingItem a.moreInfo span{
 	font-size:0.8em;
-	line-height: inherit;
-	
+	line-height: inherit;	
 }
 
 .viewingItem .heading{
@@ -235,8 +251,7 @@ section.recommendations .title{
 }
 
 section.recommendations .media-heading{
-	font-size:14px;
-	
+	font-size:14px;	
 }
 
 
@@ -284,6 +299,11 @@ section.photoframe{
 	position:absolute;
 	right:40px;
 	top:30px;
+}
+
+.photoDetails .media-heading{
+	font-size:1.1em;
+	font-weight:bold;
 }
 
 .photoDetails .media-body p{
@@ -468,6 +488,9 @@ a.addPhotosLink:before{
 	border-left: 1px solid #6b4c7a;
 }
 
+#nav-right .profile{
+	border-left: 1px solid #6b4c7a;
+}
 
 
 
@@ -614,8 +637,8 @@ a.addPhotosLink:before{
 
 
 
-/* Notifications style */
 
+/* Notifications style */
 
 #nav-right li.notifications a{
 	background-image: url(../img/nav-notifications.png);
@@ -641,6 +664,8 @@ a.addPhotosLink:before{
 	font-size:0.75em;
 	
 }
+
+
 
 
 /* Profile styles */
@@ -725,12 +750,16 @@ a.addPhotosLink:before{
 	margin-top:30px;
 }
 
+
+
+
 /* Wells */
 
 .well{
 	border:1px solid #cccccc;
 	background: #fff;
 	box-shadow: inset 0px 0px 15px #fafafa;
+	position: relative;
 
 }
 
@@ -747,6 +776,8 @@ a.addPhotosLink:before{
 	opacity: .3;
 	box-shadow: 0px 1px 0px rgba(0,0,0,0.2);
 }
+
+
 
 
 
@@ -783,7 +814,6 @@ a.addPhotosLink:before{
 
 .btn-default{
 	color: #3a2444;
-	border:1px solid #d4cac1;
 	background: #f9f8f7; /* Old browsers */
 	background: -moz-linear-gradient(top,  #f9f8f7 0%, #f3f1ef 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f8f7), color-stop(100%,#f3f1ef)); /* Chrome,Safari4+ */
@@ -791,7 +821,8 @@ a.addPhotosLink:before{
 	background: -o-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #f9f8f7 0%,#f3f1ef 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 ); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 );
+	border: 1px solid #d4cac1; /* IE6-9 */
 }
 
 
@@ -861,7 +892,6 @@ a.addPhotosLink:before{
 
 }
 
-
 .btn.buy{
 	padding-left: 32px;
 }
@@ -876,6 +906,22 @@ a.addPhotosLink:before{
 	height: 100%;
 	top: 0;
 	left: 0;
+}
+
+.btn.follow{
+	padding-left:30px;
+}
+
+.btn.follow:before{
+	background-image:url(../img/usertitle-cross.png);
+	background-repeat: no-repeat;
+	background-position:10px center;
+	content:" ";
+	position: absolute;
+	width:100%;
+	height: 100%;
+	top:0;
+	left:0;
 }
 
 
@@ -946,11 +992,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 	line-height: 45px;
 	position: relative;	
 	border-radius: 0;
-
 }
-
-
-
 
 .page-tabs>li.active>a:after{
 	content: " ";
@@ -971,25 +1013,43 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 }
 
 
+
+
 /* Controls */
 
-
-
-
 #controls{
-	background:#f7f5f2;
 	text-align: center;
-	line-height: 78px;
+	line-height: 113px;
+	border-bottom: 1px solid #e1dcd9;
+	margin-bottom: 30px;
 }
 
-#controls select{
+#controls label{
+	margin-right: 5px;
+	margin-left: 14px;
+}
+
+#controls select,
+#controls input,
+#controls label{
 	display: inline-block;
-	width:80px;
+	width: 110px;
+	line-height: 23px;
+}
+
+#controls .checkbox{
+	display: inline-block;
+}
+
+#controls .checkbox input[type=checkbox]{
+	width:auto;
 }
 
 #controls .slider{
 	
 }
+
+
 
 
 /* Pills */
@@ -1027,10 +1087,9 @@ p{
 }
 
 
+
+
 /* UserTitle */
-
-
-
 
 #userTitle{	
 	margin-bottom:20px;
@@ -1046,24 +1105,6 @@ p{
 
 #userTitle button{
 	position: relative;
-}
-
-#userTitle button:before{}
-
-#userTitle button.follow{
-	padding-left:30px;
-}
-
-#userTitle button.follow:before{
-	background-image:url(../img/usertitle-cross.png);
-	background-repeat: no-repeat;
-	background-position:10px center;
-	content:" ";
-	position: absolute;
-	width:100%;
-	height: 100%;
-	top:0;
-	left:0;
 }
 
 #userTitle .duel{
@@ -1126,6 +1167,7 @@ p{
 	clear:both;
 	margin-bottom:15px;
 }
+
 
 
 
@@ -1225,7 +1267,7 @@ p{
 
 .comments .media-heading span:before{
 	content:" ";
-
+	background: url(../img/);
 }
 
 .comments .media-body {
@@ -1254,9 +1296,6 @@ p{
 
 
 
-
-
-
 /* Profile */
 
 #profilePicture a{
@@ -1277,12 +1316,19 @@ p{
 	-moz-border-radius-topright: 0px;
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
+	background: url(../img/location-icon.png) no-repeat 30% center #fff;
 }
 
 
 
 
 /* Badges */
+
+.badges{
+	border-bottom: 1px solid #e5dada;
+	padding-bottom:5px;
+	margin-bottom:20px;
+}
 
 .badges h5,
 .badges p{
@@ -1322,12 +1368,81 @@ p{
 
 
 
+/* Stats */
+
+#stats .well{
+	text-align:center;
+	font-weight: bold;
+	padding:15px;
+}
+
+#stats .pull-left,
+#stats .pull-right{
+	width:45%;
+}
+
+#stats .pull-left{
+	
+}
+
+#stats .pull-right{
+
+}
+
+
+
 
 /* Photos */
 
 .photos{
 
 }
+
+
+
+
+
+
+/* People */
+
+.people{
+	margin-bottom:45px;
+}
+
+.people .btn.follow{
+	position: absolute;
+	right:10px;
+	top:0;
+}
+
+.people .thumbnail{
+	margin-bottom:5px;
+}
+
+.people .caption{
+	position: relative;
+}
+
+.people .caption h5,
+.people .caption h6{
+	color:#3a2444;
+	text-indent:10px;	
+}
+
+.people .caption h5{
+	font-weight: bold;
+	font-size:1.3em;
+	text-decoration: underline;
+}
+
+.people .caption h6{
+	line-height:2px;
+}
+
+
+
+
+/* item */
 
 .item{
 
@@ -1343,11 +1458,16 @@ p{
 .item.thumbnail{
 	margin: 10px;
 	padding:4px 22px 4px 22px;
-	width:220px;
+	width:300px;
 	float:left;
 }
 
-.item > img{
+.item .pic{
+
+}
+
+.item .pic img{
+	width:100%;
 }
 
 .item .like{
@@ -1385,8 +1505,6 @@ p{
        -o-transition-property: left, right, top;
           transition-property: left, right, top;
 }
-
-
 
 
 
@@ -1434,7 +1552,6 @@ footer ul > li {
 	padding:15px 0;
 }
 
-
 #copyright{
 	text-align: center;	
 	color:#797170;
@@ -1445,11 +1562,10 @@ footer ul > li {
 	background:#3a2444;
 }
 
-
-
 .clear{
 	clear:both;
 }
+
 
 
 

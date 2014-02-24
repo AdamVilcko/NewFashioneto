@@ -12,8 +12,18 @@
   </select>
 
   <select class="form-control" name="" id="">
-    <option value="1">Type</option>    
+    <option value="1">Type</option> 
   </select>
+
+  <label for="location">Location: </label>
+
+  <select name="location" class="form-control" name="" id="">
+    <option value="1">Czech Republic</option> 
+  </select>
+
+  <input class="form-control" type="text" placeholder="London" />
+
+  <label class="checkbox"><input type="checkbox">Hello</label>
 
   <div class="slider"></div><!-- slider -->
 
@@ -25,50 +35,117 @@
 
   <div class="col-sm-6 col-md-4">
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
     </div>
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
     </div>
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
+    </div>
+
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
+    </div>
+
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
     </div>
 
   </div>
 
-<div class="col-sm-6 col-md-4">
+  <div class="col-sm-6 col-md-4">
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
     </div>
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
     </div>
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
+    <div class="people">    
+      <div class="thumbnail">
+        <img src="img/pictures-thumbnail.jpg" alt="...">
+      </div>
+      <div class="caption">
+        <h5>Emma Geller, 21</h5>
+        <h6>New York, USA</h6>
+        <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+      </div>
     </div>
 
   </div>
-<div class="col-sm-6 col-md-4">
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
-    </div>
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
-    </div>
 
-    <div class="people thumbnail">      
-      <img src="img/pictures-thumbnail.jpg" alt="...">
-    </div>
-
-  </div>
 
 </div>
 
