@@ -166,6 +166,7 @@
                     <div class="media-body">
                       <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
                       <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                      <button type="button" class="btn btn-default like star">Like<div>25</div></button>
                     </div>
                   </div>
                 </div><!-- photoDetails -->              
@@ -207,8 +208,6 @@
                   </div><!-- media-body --> 
                 </div>
 
-                
-
             </section>            
    
           </div><!-- column -->
@@ -216,11 +215,28 @@
 
        <div class="clear"></div>
 
-       <ul class="nav nav-tabs page-tabs">
-  <li class="active"><a href="#people/explore">Explore</a></li>
-  <li><a href="#people/search">Search for people</a></li>  
-</ul>
-      </div>      
+        <ul class="nav nav-tabs page-tabs">
+          <li class="active"><a href="#people/explore">Explore</a></li>
+          <li><a href="#people/search">Search for people</a></li>  
+        </ul>
+
+        <div class="badges">
+              
+              <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+              </ul>
+        
+            </div><!-- badges -->
+
+
+
+
+      </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

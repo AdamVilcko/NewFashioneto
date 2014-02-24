@@ -21,6 +21,14 @@ h1,h2,h3,h4,h5,h6{
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(58, 36, 68,0.8)
 }
 
+textarea::-webkit-input-placeholder,
+textarea:-moz-placeholder,
+textarea::-moz-placeholder,
+textarea:-ms-input-placeholder{
+	color:#666666;
+}
+
+
 
 
 /* Modals */
@@ -31,6 +39,7 @@ h1,h2,h3,h4,h5,h6{
 
 .modal-content{
 	background: #f7f5f2;
+	border:none;
 }
 
 .modal h1{
@@ -126,7 +135,7 @@ span.underline{
 }
 
 .modal .right .horizontal {
-	margin-left:-30px;
+	margin-left: -30px;
 }
 
 .modal .left section{
@@ -256,6 +265,7 @@ section.photoframe{
 .photoHolder .paddle.left{
 	left: 5%;
 }
+
 .photoHolder .paddle.right{
 	right: 5%;
 }
@@ -267,12 +277,43 @@ section.photoframe{
 
 .photoDetails{
 	padding:18px;
+	position: relative
+}
+
+.photoDetails .like{
+	position:absolute;
+	right:40px;
+	top:30px;
+}
+
+.photoDetails .media-body p{
+	padding-right:110px;
 }
 
 #photoModal .left section{
 	padding-right:0;
 }
 
+#photoModal.modal .right .horizontal{
+	margin-left: -15px;
+}
+
+.photoDetails span{
+	color:#797170;
+	font-size:0.8em;
+}
+
+.photoDetails span:before{
+	content:" ";
+}
+
+#photoModal .badges ul{
+	padding:15px 0;
+}
+
+#photoModal .page-tabs li a{
+	line-height:20px;
+} 
 
 
 
@@ -821,6 +862,21 @@ a.addPhotosLink:before{
 }
 
 
+.btn.buy{
+	padding-left: 32px;
+}
+
+.btn.buy:before {
+	background-image: url(../img/button-buy.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	content: " ";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
 
 
 
@@ -887,8 +943,10 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 }
 
 .page-tabs li a{
-	line-height: 44px;
-	position: relative;
+	line-height: 45px;
+	position: relative;	
+	border-radius: 0;
+
 }
 
 
@@ -909,6 +967,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 .page-tabs>li.active>a:focus{
 	background:#f7f5f2;
 	color:#2d1d35;
+	border-top:2px solid transparent;
 }
 
 
@@ -1145,6 +1204,7 @@ p{
 }
 
 .comments{
+	position: relative;
 	font-size:0.9em;
 }
 
@@ -1224,38 +1284,38 @@ p{
 
 /* Badges */
 
-#badges h5,
-#badges p{
+.badges h5,
+.badges p{
 	text-align:center;
 
 }
 
-#badges h5{
+.badges h5{
 	font-weight:bold;
 }
 
-#badges p{
+.badges p{
 	font-size:0.9em;
 }
 
-#badges ul{
+.badges ul{
 	text-align:center;
 	padding:0;
 	margin: 0 0 15px 0;
 }
 
-#badges li{
+.badges li{
 	background:url(../img/badge.png) no-repeat;
 	display: inline-block;	
 	width:65px;
 	height:65px;
 }
 
-#badges a{
+.badges a{
 	display: block;
 }
 
-#badges button{
+.badges button{
 	display: block;
 	margin: 0 auto 15px auto;
 }
