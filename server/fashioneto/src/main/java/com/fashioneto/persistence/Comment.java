@@ -38,10 +38,6 @@ public class Comment implements Serializable
 {
 
 	public static final String PARENT_TYPE_FILTER = "parentTypeFilter";
-	//TODO: continue here
-
-	//http://www.nvenky.in/2010/07/hibernate-onetomany-annotation-filter.html
-	//http://docs.jboss.org/hibernate/orm/3.6/reference/en-US/html/filters.html
 	private static final long serialVersionUID = 1L;
 
 	@Id

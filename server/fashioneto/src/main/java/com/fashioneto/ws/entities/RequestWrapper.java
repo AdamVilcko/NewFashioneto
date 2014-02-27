@@ -8,16 +8,18 @@ import java.util.Map;
 public class RequestWrapper
 {
 
-	private String id;
+	private String requestId;
+	private int userId;
 	private Map<String, Object> params;
 
 	public RequestWrapper()
 	{
 	}
 
-	public RequestWrapper(String id, Map<String, Object> params)
+	public RequestWrapper(String requestId, int userId, Map<String, Object> params)
 	{
-		this.id = id;
+		this.requestId = requestId;
+		this.userId = userId;
 		this.params = params;
 	}
 
@@ -39,14 +41,24 @@ public class RequestWrapper
 		return params.containsKey(paramName);
 	}
 
-	public String getId()
+	public String getRequestId()
 	{
-		return id;
+		return requestId;
 	}
 
-	public void setId(String id)
+	public void setRequestId(String requestId)
 	{
-		this.id = id;
+		this.requestId = requestId;
+	}
+
+	public int getUserId()
+	{
+		return userId;
+	}
+
+	public void setUserId(int userId)
+	{
+		this.userId = userId;
 	}
 
 	public Map<String, Object> getParams()
