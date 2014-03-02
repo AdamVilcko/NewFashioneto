@@ -4,18 +4,30 @@ define(function(require){
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
 	$          = require("jquery"),
+	
+	template   = require("text!templates/wall/wall.hbr"),
+	Posts       = require("views/wall/posts.js");
 
-	template = require("text!templates/wall/wall.hbr");
 
-
-	return Backbone.View.extend({
-
-		el: ".wallContainer",
+	return Backbone.View.extend({	
 
 		template: Handlebars.compile( template ),
 
-		render: function(){	
+		initialize: function(){
+			this.posts = new Posts();
+			App.posts = this.posts;
+		},
+
+		cacheNodes: function(){
+			this.nodes = {};
+			this.nodes.posts = this.$el.find( "#postDisplay" );
+		},
+
+		render: function(){
 			this.$el.html( this.template() );
+			this.cacheNodes();
+			this.nodes.posts.html( this.posts.render().el );
+			return this;
 		}
 		
 	});

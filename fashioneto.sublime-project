@@ -1,0 +1,29 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "client\\collections"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "client\\css"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "client\\models"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "client\\templates"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "client\\views"
+		}
+	]
+}
