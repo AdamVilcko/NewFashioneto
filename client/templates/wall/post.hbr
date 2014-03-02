@@ -6,15 +6,13 @@
 
   <li class="list-group-item post">
     
-    <h4 class="list-group-item-heading">{{userName}}<span>25 minutes ago on the web</span></h4>
+    <h4 class="list-group-item-heading">{{userName}}<span class="date"></span></h4>
     
     <p class="list-group-item-text">{{postContent}}</p>
     
     <button type="button" class="btn btn-default like star">Like<div>25</div></button>
 
-  </li>
-
-  <li class="list-group-item"><a class="showAllComments" href="#">Show all comments (40)</a></li>
+  </li> 
 
   <li class="list-group-item comments"></div>
 

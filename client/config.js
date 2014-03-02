@@ -39,7 +39,9 @@ var require = {
         "handlebars": "lib/handlebars-v1.1.2",
         "modernizr": "lib/modernizr",
         "class": "lib/mootools-class-1.4.5",
-        "jquery.masonry": "lib/jquery.masonry.min"
+        "jquery.masonry": "lib/jquery.masonry.min",
+        "moment": "lib/moment-with-langs.min",
+        "jquery.livestamp": "lib/livestamp"
         },
 
     shim:{
@@ -63,6 +65,7 @@ var require = {
         },
 
         "jquery.masonry": ['jquery'],
+        "jquery.livestamp": ['jquery'],
 
         jqueryui: ['jquery'],
 

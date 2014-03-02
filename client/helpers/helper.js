@@ -1,5 +1,8 @@
 define(function(require){
 
+	Moment     = require("moment"),
+	LiveStamp = require("jquery.livestamp");
+
 	return {
 
 		clickState: function( target, ev ){
@@ -52,7 +55,22 @@ define(function(require){
 				slideUp( 200 );
 				el.data( 'toggle', 'collapse' );
 			}
+		},
+
+		processDate: function( options ){
+			//Setting options logic - implement if ever necessary
+			if( !options ) options = {}; //Default options obj - need to populate it
+
+			this.$el.find('.date')
+			.livestamp( this.model.get( "date" ) )
+			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );
+			}
 		}
+
+
+
+
+
 
 	};
 });

@@ -52,7 +52,7 @@ define(function(require){
 
 
 			var that = this;
-			setTimeout( that.invokeMasonry, 500 );
+			setTimeout( that.invokeMasonry, 100 );
 		},
 
 		instantiateTabs: function(){
