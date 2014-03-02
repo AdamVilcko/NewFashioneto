@@ -3,9 +3,8 @@ define(function(require){
 	var
 	Backbone        = require("backbone"),
 	Handlebars      = require("handlebars"),
-	$               = require("jquery"),
+	$               = require("jquery"),	
 	
-	template        = require("text!templates/wall/wall.hbr"),
 	PostView        = require("views/wall/post.js"),
 	PostsCollection = require("collections/wall/posts.js"),
 	mockColllectionData = require("mock/wall/mockpostscollection");

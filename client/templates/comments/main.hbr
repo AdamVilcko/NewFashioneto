@@ -1,9 +1,0 @@
-<div class="commentContainer"></div><!-- commentContainer -->
-<div class="media">
-	<a class="pull-left" href="#">
-	  <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
-	</a>
-	<div class="media-body">
-	  <textarea placeholder="Write your comment" class="well"></textarea>
-	</div><!-- media-body -->
-</div>

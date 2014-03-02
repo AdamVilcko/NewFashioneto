@@ -1,9 +1,7 @@
-<div class="media comment">
-	<a class="pull-left" href="#">
-	  <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
-	</a>
-	<div class="media-body">
-	<h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
-	  <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
-	</div>
+<a class="pull-left" href="#">
+  <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+</a>
+<div class="media-body">
+<h4 class="media-heading">{{userName}}<span>10 mins ago</span></h4>
+  <p>{{postContent}}</p>
 </div>
