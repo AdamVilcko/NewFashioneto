@@ -57,20 +57,11 @@ define(function(require){
 			}
 		},
 
-		processDate: function( options ){
-			//Setting options logic - implement if ever necessary
-			if( !options ) options = {}; //Default options obj - need to populate it
-
+		processDate: function(){
 			this.$el.find('.date')
 			.livestamp( this.model.get( "date" ) )
-			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );
-			}
+			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );			
 		}
 
-
-
-
-
-
-	};
+	}
 });
