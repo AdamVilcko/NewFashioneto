@@ -15,19 +15,26 @@ import com.google.gson.JsonSerializer;
 public class CommentJsonSerializer implements JsonSerializer<Comment>
 {
 
-	public static final String JSON_PROPERTY_NAME_ID = "id";
-	public static final String JSON_PROPERTY_NAME_CONTENT = "content";
-	public static final String JSON_PROPERTY_NAME_COMMENTS = "comments";
-	public static final String JSON_PROPERTY_NAME_USER = "senderID";
+	public static final String JSON_PROPERTY_ID = "id";
+	public static final String JSON_PROPERTY_CONTENT = "content";
+	public static final String JSON_PROPERTY_COMMENTS = "commentsWrapper";
+	public static final String JSON_PROPERTY_USER_ID = "userId";
+	public static final String JSON_PROPERTY_USER_NAME = "userName";
+	public static final String JSON_PROPERTY_LIKES = "likes";
+
+	public static final String JSON_PROPERTY_COLLECTION_COUNT = "count";
+	public static final String JSON_PROPERTY_COLLECTION_CONTENT = "collection";
 
 	private JsonElement getJsonFromComment(Comment comment)
 	{
 		JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty(JSON_PROPERTY_NAME_ID, comment.getId());
-		jsonObject.addProperty(JSON_PROPERTY_NAME_CONTENT, comment.getContent());
-		jsonObject.addProperty(JSON_PROPERTY_NAME_USER, comment.getUser().getId());
-		JsonArray jsonComments = new JsonArray();
+		jsonObject.addProperty(JSON_PROPERTY_ID, comment.getId());
+		jsonObject.addProperty(JSON_PROPERTY_CONTENT, comment.getContent());
+		jsonObject.addProperty(JSON_PROPERTY_USER_ID, comment.getUser().getId());
+		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, comment.getUser().getUsername());
+		jsonObject.addProperty(JSON_PROPERTY_LIKES, 0);
 
+		JsonArray jsonComments = new JsonArray();
 		for (Comment subComment : comment.getComments())
 		{
 			if (subComment.getId() == comment.getId())
@@ -41,7 +48,11 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 			}
 		}
 
-		jsonObject.add(JSON_PROPERTY_NAME_COMMENTS, jsonComments);
+		JsonObject jsonCollectionWrapper = new JsonObject();
+		jsonCollectionWrapper.addProperty(JSON_PROPERTY_COLLECTION_COUNT, comment.getComments().size());
+		jsonCollectionWrapper.add(JSON_PROPERTY_COLLECTION_CONTENT, jsonComments);
+
+		jsonObject.add(JSON_PROPERTY_COMMENTS, jsonCollectionWrapper);
 
 		return jsonObject;
 	}

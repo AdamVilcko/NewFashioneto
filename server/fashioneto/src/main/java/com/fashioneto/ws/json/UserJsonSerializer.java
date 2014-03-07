@@ -1,6 +1,11 @@
 package com.fashioneto.ws.json;
 
+import static com.fashioneto.ws.json.CommentJsonSerializer.JSON_PROPERTY_COLLECTION_CONTENT;
+import static com.fashioneto.ws.json.CommentJsonSerializer.JSON_PROPERTY_COLLECTION_COUNT;
+import static com.fashioneto.ws.json.CommentJsonSerializer.JSON_PROPERTY_COMMENTS;
+
 import java.lang.reflect.Type;
+import java.util.Set;
 
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.User;
@@ -23,12 +28,17 @@ public class UserJsonSerializer implements JsonSerializer<User>
 		jsonObject.addProperty("username", user.getUsername());
 
 		JsonArray jsonComments = new JsonArray();
-		for (Comment comment : user.getReceivedComments())
+		Set<Comment> comments = user.getReceivedComments();
+		for (Comment comment : comments)
 		{
 			jsonComments.add(context.serialize(comment));
 		}
 
-		jsonObject.add("comments", jsonComments);
+		JsonObject jsonCollectionWrapper = new JsonObject();
+		jsonCollectionWrapper.addProperty(JSON_PROPERTY_COLLECTION_COUNT, comments.size());
+		jsonCollectionWrapper.add(JSON_PROPERTY_COLLECTION_CONTENT, jsonComments);
+
+		jsonObject.add(JSON_PROPERTY_COMMENTS, jsonCollectionWrapper);
 
 		return jsonObject;
 	}
