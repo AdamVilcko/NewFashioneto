@@ -66,6 +66,11 @@ public class User implements Serializable
 		this.email = email;
 	}
 
+	public CommentSet getReceivedCommentsCommentSet()
+	{
+		return new CommentSet(receivedComments);
+	}
+
 	public int getId()
 	{
 		return id;
@@ -96,6 +101,13 @@ public class User implements Serializable
 		this.email = email;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "User [id=" + id + ", username=" + username + ", email=" + email + ", postedComments=" + postedComments
+				+ ", receivedComments=" + receivedComments + "]";
+	}
+
 	public Set<Comment> getPostedComments()
 	{
 		return postedComments;
@@ -114,13 +126,6 @@ public class User implements Serializable
 	public void setReceivedComments(Set<Comment> receivedComments)
 	{
 		this.receivedComments = receivedComments;
-	}
-
-	@Override
-	public String toString()
-	{
-		return "User [id=" + id + ", username=" + username + ", email=" + email + ", postedComments=" + postedComments
-				+ ", receivedComments=" + receivedComments + "]";
 	}
 
 }
