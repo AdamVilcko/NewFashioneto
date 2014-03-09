@@ -3,7 +3,6 @@ package com.fashioneto.ws.json;
 import java.lang.reflect.Type;
 
 import com.fashioneto.persistence.Comment;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
@@ -21,11 +20,9 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 	public static final String JSON_PROPERTY_USER_ID = "userId";
 	public static final String JSON_PROPERTY_USER_NAME = "userName";
 	public static final String JSON_PROPERTY_LIKES = "likes";
+	public static final String JSON_PROPERTY_DATE = "date";
 
-	public static final String JSON_PROPERTY_COLLECTION_COUNT = "count";
-	public static final String JSON_PROPERTY_COLLECTION_CONTENT = "collection";
-
-	private JsonElement getJsonFromComment(Comment comment)
+	private JsonElement getJsonFromComment(Comment comment, JsonSerializationContext context)
 	{
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty(JSON_PROPERTY_ID, comment.getId());
@@ -33,35 +30,18 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 		jsonObject.addProperty(JSON_PROPERTY_USER_ID, comment.getUser().getId());
 		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, comment.getUser().getUsername());
 		jsonObject.addProperty(JSON_PROPERTY_LIKES, 0);
+		jsonObject.addProperty(JSON_PROPERTY_DATE, "1393806426");
 
-		JsonArray jsonComments = new JsonArray();
-		for (Comment subComment : comment.getComments())
-		{
-			if (subComment.getId() == comment.getId())
-			{
-				System.out.println("Mapping error! A comment shouldn't be it's own parent. Id = " + comment.getId());
-			}
-			else
-			{
-				jsonComments.add(getJsonFromComment(subComment));
-
-			}
-		}
-
-		JsonObject jsonCollectionWrapper = new JsonObject();
-		jsonCollectionWrapper.addProperty(JSON_PROPERTY_COLLECTION_COUNT, comment.getComments().size());
-		jsonCollectionWrapper.add(JSON_PROPERTY_COLLECTION_CONTENT, jsonComments);
-
-		jsonObject.add(JSON_PROPERTY_COMMENTS, jsonCollectionWrapper);
+		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(comment.getCommentsCommentSet()));
 
 		return jsonObject;
 	}
 
 	@Override
-	public JsonElement serialize(Comment comment, Type arg1, JsonSerializationContext arg2)
+	public JsonElement serialize(Comment comment, Type arg1, JsonSerializationContext context)
 	{
 
-		return getJsonFromComment(comment);
+		return getJsonFromComment(comment, context);
 	}
 
 }

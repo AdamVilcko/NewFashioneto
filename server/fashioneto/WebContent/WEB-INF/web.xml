@@ -33,7 +33,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>StripesDispatcher</servlet-name>
-    <url-pattern>*.do</url-pattern>
+    <url-pattern>/as/*</url-pattern>
   </servlet-mapping>
   <context-param>
     <param-name>contextConfigLocation</param-name>

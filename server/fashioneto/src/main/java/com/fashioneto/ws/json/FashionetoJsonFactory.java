@@ -1,6 +1,7 @@
 package com.fashioneto.ws.json;
 
 import com.fashioneto.persistence.Comment;
+import com.fashioneto.persistence.CommentSet;
 import com.fashioneto.persistence.User;
 import com.fashioneto.ws.entities.ResponseWrapper;
 import com.google.gson.Gson;
@@ -19,6 +20,7 @@ public class FashionetoJsonFactory
 		GsonBuilder gBuilder = new GsonBuilder();
 		gBuilder.registerTypeAdapter(Comment.class, new CommentJsonSerializer());
 		gBuilder.registerTypeAdapter(User.class, new UserJsonSerializer());
+		gBuilder.registerTypeAdapter(CommentSet.class, new CommentSetJsonSerializer());
 		return gBuilder;
 	}
 
@@ -36,6 +38,12 @@ public class FashionetoJsonFactory
 	{
 		Gson gson = getGson();
 		return gson.toJson(user);
+	}
+
+	public static String getJson(CommentSet comments)
+	{
+		Gson gson = getGson();
+		return gson.toJson((CommentSet) comments);
 	}
 
 	public static String getJson(ResponseWrapper rw)

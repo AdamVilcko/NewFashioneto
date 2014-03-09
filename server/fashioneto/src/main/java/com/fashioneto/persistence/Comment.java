@@ -60,14 +60,9 @@ public class Comment implements Serializable
 	//	@OrderBy("date desc")
 	private Set<Comment> comments = new LinkedHashSet<Comment>();
 
-	public Set<Comment> getComments()
+	public CommentSet getCommentsCommentSet()
 	{
-		return comments;
-	}
-
-	public void setComments(Set<Comment> comments)
-	{
-		this.comments = comments;
+		return new CommentSet(comments);
 	}
 
 	public int getId()
@@ -105,6 +100,16 @@ public class Comment implements Serializable
 	{
 		//		return "Comment [id=" + id + ", user=" + user.getId() + ", content=" + content + "]";
 		return "Comment [id=" + id + ", content=" + content + "]";
+	}
+
+	public Set<Comment> getComments()
+	{
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments)
+	{
+		this.comments = comments;
 	}
 
 }
