@@ -6,7 +6,7 @@ define(function(require){
 	$          = require("jquery"),
 	
 	template   = require("text!templates/wall/wall.hbr"),
-	Posts       = require("views/wall/posts.js");
+	Posts      = require("views/wall/posts.js");
 
 
 	return Backbone.View.extend({	
@@ -14,8 +14,7 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		initialize: function(){
-			this.posts = new Posts();
-			App.posts = this.posts;
+			this.posts = new Posts();			
 		},
 
 		cacheNodes: function(){

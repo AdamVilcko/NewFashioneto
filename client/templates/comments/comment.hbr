@@ -3,5 +3,5 @@
 </a>
 <div class="media-body">
 <h4 class="media-heading">{{userName}}<span class="date"></span></h4>
-  <p>{{postContent}}</p>
+  <p>{{content}}</p>
 </div>

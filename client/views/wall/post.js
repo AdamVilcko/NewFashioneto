@@ -22,11 +22,12 @@ define(function(require){
 		},
 
 		render: function(){
-			this.$el.html( this.template( this.model.toJSON() ) );			
+			this.$el.html( this.template( this.model.toJSON() ) );
 			Helper.processDate.call( this );
-			if( this.model.has( "comments" ) ){
+			if( this.model.has( "commentsWrapper" ) ){
 				this.cacheNodes();
-				this.comments = new Comments( { data: this.model.get( "comments" ) } );
+				var commentData = this.model.toJSON().commentsWrapper.collection;
+				this.comments = new Comments( { data: commentData } );
 				this.nodes.comments.append( this.comments.render().el );
 			}
 			return this;

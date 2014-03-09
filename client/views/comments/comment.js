@@ -4,7 +4,7 @@ define(function(require){
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
 	$          = require("jquery"),
-	Helper = require("helper"),	
+	Helper     = require("helper"),	
 	
 	template   = require("text!templates/comments/comment.hbr");
 
