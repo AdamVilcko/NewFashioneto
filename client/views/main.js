@@ -61,8 +61,6 @@ define(function(require){
 		closeNav: function(){
 			this.ui.nav.removeActiveState();
 		}
-
-
 		
 	});
 });

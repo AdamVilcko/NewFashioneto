@@ -11,5 +11,6 @@ define(function(require){
 
 	return Backbone.Collection.extend({
 		model : Model
+		url : ""
 	});
 });

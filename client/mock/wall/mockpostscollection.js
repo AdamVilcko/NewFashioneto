@@ -2,59 +2,70 @@ define(function(require){
 
 	return [
 		{
-			userName: "Caspidge",
-			postContent: "Hello this is a post and it is on a wall!",
-			date: 1393803105,
-			comments: [
-				{			
-				    userName:"Bob",
-				    postContent:"Thisdasdsaas is a post!",
-				    date: 1393806426
-				},
-
-				{			
-				    userName:"Dave",
-				    postContent:"This idsadasdass a post!",
-				    date: 1393806426
-				},
-
-				{			
-				    userName:"Ian",
-				    postContent:"This is a posdsdsdassdat!",
-				    date: 1393806426
-				}
-			],
-
+			id: 1,
+			date: 1393806426,
+			content: "I like your pictures and your profile, man!",
+			userId: 2,
+			userName: "John Doe 1",
+			likes: 0,
+			commentsWrapper: {
+	            count: 1,
+	            collection: [
+	              {
+	                id: 2,
+	                date: 1393806426,
+	                content: "First comment",
+	                userId: 1,
+	                userName: "John Doe Comment",
+	                likes: 0,	                
+	              },
+	              {
+	                id: 3,
+	                date: 1393806426,
+	                content: "Second comment!",
+	                userId: 1,
+	                userName: "John Doe Comment",
+	                likes: 0,	                
+	              }
+	            ]
+          	}
 		},
+
 		{
-			userName: "John",
-			postContent: "Bla Bla Bla Bla Bla Bla Bla",
-			date: 986663450,
-			comments: false
+			id: 2,
+			date: 1393806426,
+			content: "I like your pictures and your profile, man!",
+			userId: 2,
+			userName: "John Doe 2",
+			likes: 0,
+			commentsWrapper: false
 		},
+
 		{
-			userName: "Dave",
-			postContent: "Random content on a wall bla bla bla bla.",
-			date: 989363450,
-			comments: [
-				{			
-				    userName:"Bob",
-				    postContent:"Thisdasdsaas is a post!",
-				    date: 1393806426
-				},
-
-				{			
-				    userName:"Dave",
-				    postContent:"This idsadasdass a post!",
-				    date: 1393806426
-				},
-
-				{			
-				    userName:"Ian",
-				    postContent:"This is a posdsdsdassdat!",
-				    date: 1393806426
-				}
-			]
+			id: 3,
+			date: 1393806426,
+			content: "I like your pictures and your profile, man!",
+			userId: 2,
+			userName: "John Doe 3",
+			likes: 0,
+			commentsWrapper: {
+	            count: 1,
+	            collection: [
+	              {
+	                id: 2,
+	                date: 1393806426,
+	                content: "Thanks!",
+	                userId: 1,
+	                userName: "John Doe Comment",
+	                likes: 0,
+	                commentsWrapper: {
+	                  count: 0,
+	                  collection: []
+	                }
+	              }
+	            ]
+          	}
 		}
+		
 	];
 });
