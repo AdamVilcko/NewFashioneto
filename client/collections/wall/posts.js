@@ -10,7 +10,7 @@ define(function(require){
 
 
 	return Backbone.Collection.extend({
-		model : Model
-		url : ""
+		model : Model,
+		url : "../fashioneto/as/comment/retrieve/USER/1"
 	});
 });

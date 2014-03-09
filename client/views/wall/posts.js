@@ -14,10 +14,13 @@ define(function(require){
 
 		initialize: function(){
 			this.collection = new PostsCollection();
-			this.collection.fetch();
+			this.collection
+			.bind( "reset", this.render, this )
+			.fetch(); 
+			App.test = this.collection;
 		},
 
-		render: function(){
+		render: function(){			
 			this.$el.empty();
 			this.collection.each( this.renderPost, this );
 			return this;

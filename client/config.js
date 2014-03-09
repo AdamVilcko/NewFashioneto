@@ -21,7 +21,9 @@ window.App = {
     content:{
         language:"EN-GB",
         title: "Fasioneto"
-    }
+    },
+
+    urlRoot: "fashioneto/as/comment/retrieve/1"
 
 };
 
@@ -42,6 +44,7 @@ var require = {
         "jquery.masonry": "lib/jquery.masonry.min",
         "moment": "lib/moment-with-langs.min",
         "jquery.livestamp": "lib/livestamp"
+        
         },
 
     shim:{
