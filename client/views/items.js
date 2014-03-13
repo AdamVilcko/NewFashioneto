@@ -32,38 +32,32 @@ define(function(require){
 
 		pageId: "items",
 
-		initialize: function(options){
-			this.options = options || {};
-			App.vent.on( "page:items", this.render, this );	
-			
-			//Register render chain
-			App.renderChain[ this.pageId ].push( this );
-		},
-		
-
 		template: Handlebars.compile( template ),
 
-		render: function( evData ){
-			this.renderChain( evData );
+		initialize: function(options){
+			this.options = options || {};
 			this.instantiateTabs();
+			App.vent.on( "page:items", this.render, this );							
+		},		
+
+		render: function( evData ){
+			this.$el.html( this.template() );
+			return this;
+			
 			
 
 			//NEEDS REFACTORING - CAN'T RELY ON TIMEOUT
 
 
-			var that = this;
-			setTimeout( that.invokeMasonry, 100 );
+			/*var that = this;
+			setTimeout( that.invokeMasonry, 100 );*/
 		},
 
-		instantiateTabs: function(){
-			if( ! this.tabs ){
-				this.tabs = [
-					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "explore", default: true }),
-					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "search" })				
-				];				
-				this.renderChain( { pageName: this.pageId } );
-			}
-
+		instantiateTabs: function(){			
+			/*this.tabs = [
+				new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "explore", default: true }),
+				new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "search" })				
+			];*/
 		},
 
 		invokeMasonry: function(){

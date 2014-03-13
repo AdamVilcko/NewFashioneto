@@ -8,14 +8,13 @@ define(function(require){
 	template = require("text!templates/photos/photos.hbr");
 
 
-	return Backbone.View.extend({
-
-		el: ".photosContainer",
+	return Backbone.View.extend({		
 
 		template: Handlebars.compile( template ),
 
 		render: function(){
 			this.$el.html( this.template() );
+			return this;
 		}
 		
 	});

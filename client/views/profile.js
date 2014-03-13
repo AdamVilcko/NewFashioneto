@@ -38,35 +38,36 @@ define(function(require){
 		initialize: function( options ){
 			this.options = options || {};			
 			App.vent.on( "page:profile", this.render, this );
-			
-			//Register render chain
-			App.renderChain[ this.pageId ].push( this );
-			
+			App.vent.on( "page:" + this.pageId, this.tabTo, this );
+			console.log( "page:" + this.pageId );
 		},
 
 		render: function( evData ){
-			this.renderChain( evData );
-
-			//Insantiate tab wrappers
-			this.instantiateTabs();
+			this.$el
+			.html( this.template() )
+			.find( "#tabContainer" )
+			.html( this.tabs[ this.activeTab ].render().el );
 		},
 
 		clickState: function( ev ){
 			Helper.clickState( ".nav-tabs a", ev );
 		},
 
-		instantiateTabs: function(){
-			if( ! this.tabs ){
-				this.tabs = [
-					new TabWrapper({ tab: new Wall(), pageId:this.pageId, tabId: "wall", default: true }),
-					new TabWrapper({ tab: new Photos(), pageId:this.pageId, tabId: "photos" }),
-					new TabWrapper({ tab: new Items(), pageId:this.pageId, tabId: "items" })
-				];
+		tabs: {
+			wall: new Wall(),
+			photos:	new Photos(),
+			items: new Items()
+		},
 
-				//Restart render chain after tab instantiated
-				this.renderChain( { pageName: this.pageId } );
-			}
-		}
+		tabTo: function( data ){
+			console.log( data );
+			this.$el
+			.find( "#tabContainer" )
+			.html( this.tabs[ data.tab ].render() );
+			this.render();
+		},
+
+		activeTab: "items" // needs to be dafault tab
 
 	});
 

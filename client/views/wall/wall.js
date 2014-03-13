@@ -9,23 +9,24 @@ define(function(require){
 	Posts      = require("views/wall/posts.js");
 
 
-	return Backbone.View.extend({	
+	return Backbone.View.extend({
+
+		nodes:{
+			posts: "#postDisplay"
+		},
 
 		template: Handlebars.compile( template ),
 
 		initialize: function(){
-			this.posts = new Posts();			
-		},
-
-		cacheNodes: function(){
-			this.nodes = {};
-			this.nodes.posts = this.$el.find( "#postDisplay" );
-		},
+			this.posts = new Posts();
+			this.posts.collection.once( "reset", this.render, this );
+		},		
 
 		render: function(){
-			this.$el.html( this.template() );
-			this.cacheNodes();
-			this.nodes.posts.html( this.posts.render().el );
+			this.$el
+			.html( this.template() )
+			.find( this.nodes.posts )
+			.html( this.posts.render().el );
 			return this;
 		}
 		
