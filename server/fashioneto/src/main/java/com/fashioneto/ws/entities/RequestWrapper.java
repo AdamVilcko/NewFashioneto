@@ -71,4 +71,10 @@ public class RequestWrapper
 		this.params = params;
 	}
 
+	@Override
+	public String toString()
+	{
+		return "RequestWrapper [requestId=" + requestId + ", userId=" + userId + ", params=" + params + "]";
+	}
+
 }

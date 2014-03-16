@@ -1,7 +1,8 @@
 package com.fashioneto.ws.rest;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -30,10 +31,16 @@ public class CommentRestBean
 	@Autowired
 	protected UserService userService;
 
-	@PUT
-	public Response getMsgPut()
+	@POST
+	//	@Produces(MediaType.APPLICATION_JSON)
+	@Path("like/{commentId}")
+	public Response addComment(@PathParam("commentId")
+	int commentId, @FormParam("userId")
+	int userId, @FormParam("sessionId")
+	String sessionId)
 	{
-		return null;
+		//curl -v -d -H "Content-Type: application/json" "{requestId: 'someWeirdId#00023456', userId:'1', params:{}}" http://localhost:8080/Fashioneto/rest/comment/like/1
+		return Response.status(Status.OK).entity("Read the json! : " + userId + " - " + commentId).build();
 	}
 
 	@GET
