@@ -25,6 +25,8 @@ import com.fashioneto.ws.json.FashionetoJsonFactory;
 public class CommentRestBean
 {
 
+	//http://localhost:8080/Fashioneto/rest/comment/USER/1
+
 	@Autowired
 	protected UserService userService;
 
@@ -41,7 +43,6 @@ public class CommentRestBean
 	CommentParentTypeEnum parentType, @PathParam("parentId")
 	int parentId)
 	{
-
 		User user = userService.getFashionetoer(parentId);
 		if (parentType.equals(CommentParentTypeEnum.USER) && user != null)
 		{
@@ -50,10 +51,8 @@ public class CommentRestBean
 
 			String jsonOutput = FashionetoJsonFactory.getJson(user.getReceivedCommentsCommentSet());
 
-			return Response.status(200).entity(jsonOutput).build();
+			return Response.status(Status.OK).entity(jsonOutput).build();
 		}
-
-		String output = "Jersey say : " + parentType.toString() + " - " + parentId;
-		return Response.status(Status.NOT_FOUND).entity(output).build();
+		return Response.status(Status.NOT_FOUND).build();
 	}
 }
