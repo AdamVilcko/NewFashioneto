@@ -10,6 +10,7 @@ create table commentary (
 package com.fashioneto.persistence;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -24,6 +25,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.FilterDef;
@@ -52,13 +54,21 @@ public class Comment implements Serializable
 	@Column(name = "content")
 	private String content;
 
+	@Column(name = "dt_comment")
+	private Date date;
+
 	//	@Enumerated(EnumType.STRING)
 	//	private CommentParentTypeEnum parentType;
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_comment"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
-	//	@OrderBy("date desc")
+	@OrderBy("date desc")
 	private Set<Comment> comments = new LinkedHashSet<Comment>();
+
+	public String getDateInTimestampString()
+	{
+		return Long.toString(date.getTime() / 1000);
+	}
 
 	public CommentSet getCommentsCommentSet()
 	{
@@ -110,6 +120,16 @@ public class Comment implements Serializable
 	public void setComments(Set<Comment> comments)
 	{
 		this.comments = comments;
+	}
+
+	public Date getDate()
+	{
+		return date;
+	}
+
+	public void setDate(Date date)
+	{
+		this.date = date;
 	}
 
 }

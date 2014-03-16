@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 import com.fashioneto.persistence.User;
 
-@Service("fashionetoerService")
+@Service("userService")
 public class UserServiceImpl implements UserService
 {
 	@PersistenceContext

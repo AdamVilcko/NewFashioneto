@@ -7,10 +7,13 @@
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:annotation-config />
+	
 	<context:component-scan base-package="com.fashioneto.dao" />
 	<context:component-scan base-package="com.fashioneto.service" />
 	<context:component-scan base-package="com.fashioneto.ws.action" />
 	<context:component-scan base-package="com.fashioneto.ws.entities" />
+	<context:component-scan base-package="com.fashioneto.ws.rest" />
+	
 
 	<bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -18,6 +21,8 @@
 			<value>/WEB-INF/classes/database.properties</value>
 		</property>
 	</bean>
+	
+	<bean id="userService" class="com.fashioneto.service.UserServiceImpl" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
@@ -43,6 +48,6 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-<!-- 	<bean id="fashionetoerService" class="com.fashioneto.service.FashionetoerServiceImpl" /> -->
+<!-- 	<bean id="manualUserService" class="com.fashioneto.service.UserServiceImpl" /> -->
 
 </beans>
