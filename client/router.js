@@ -41,7 +41,7 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 
 			'itemmodal': 'itemModal',
 			'photomodal': 'photoModal'
-
+			
 		},
 
 
@@ -53,28 +53,16 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 		},
 		
 		feed: function( tab ){
-			App.vent.trigger( 'page:feed', {
-				pageName:"feed",
-				tab: tab
-			});
+			App.vent.trigger( 'page:feed', tab );
 		},
 		people: function( tab ){
-			App.vent.trigger( 'page:people', {
-				pageName:"people",
-				tab: tab
-			});
+			App.vent.trigger( 'page:people', tab );
 		},
 		items: function( tab ){
-			App.vent.trigger( 'page:items', {
-				pageName:"items",
-				tab: tab
-			});
+			App.vent.trigger( 'page:items', tab );
 		},
 		profile: function( tab ){
-			App.vent.trigger( 'page:profile', {
-				pageName:"profile",
-				tab: tab
-			});
+			App.vent.trigger( 'page:profile', tab );
 		},
 
 		itemModal: function(){

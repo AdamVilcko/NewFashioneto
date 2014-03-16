@@ -6,24 +6,19 @@ define(function(require){
 	$          = require("jquery"),
 
 	BasePageView = require("views/basepageview"),
-	template = require("text!templates/pages/people.hbr");
+	pageTemplate = require("text!templates/pages/people.hbr");
 
 	return BasePageView.extend({
-		initialize: function(options){
+
+		template: Handlebars.compile( pageTemplate ),
+
+		pageId: "people",
+
+		initialize: function( options ){
 			this.options = options || {};
-			this.setEvents();
-
-		},
-
-		setEvents: function(){
-			App.vent.on("page:people", this.render, this);		
-		},
-
-		template: Handlebars.compile( template ),
-
-		render: function(){
-			this.$el.html( this.template() );
+			this.init( options );
 		}
+		
 	});
 
 });
