@@ -5,38 +5,24 @@ define(function(require){
 
 	return {
 
-		clickState: function( target, ev ){
-			ev.stopPropagation();
-			var				
-			active = "active",	
-			evType;
-			target = $( target );
-			
-			if ( Modernizr.touch )
-				evType = "touchstart";
-			else
-				evType = "click";		
-			target.parent().removeClass( active );
-			$( ev.target ).parent().addClass( active );
-		},
+		navState: function( pageId, tab ){
+			var
+			navAnchors = $( ".nav a" ),
+			active     = "active",
+			href;
 
-		routeState: function( route ){
-			if( route !== "route" ){
-				if( ! App.page.current ){
-				App.page.current = Backbone.history.fragment.split("/")[0];
-				} else {
-					//Save previous value and iterate to current
-					App.page.previous = App.page.current;
-					App.page.current  = Backbone.history.fragment.split("/")[0];
+			navAnchors.removeClass( active );
 
-					//If the values are identical then identical = TRUE
-					if( App.page.previous === App.page.current ){
-						App.page.identical = true;
-					} else {
-						App.page.identical = false;
-					}
+			navAnchors.each( function( i ){
+				href = $(this).attr( "href" );				
+				if( href === "#" + pageId || href === "#" + pageId + "/" + tab ){
+					$(this).parent().addClass( active );
 				}
-			}
+			} );
+
+			//Code to handle the link state properly
+			//so that tab state is updated on the main links
+
 		},
 
 		toggleMobileNav: function( ev ){

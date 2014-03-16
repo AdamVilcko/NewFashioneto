@@ -19,8 +19,8 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 			this.bind( "all", this.changeRoute );
 		},
 
-		changeRoute: function( route ){
-			Helper.routeState( route );
+		changeRoute: function(){
+			
 		},
 
 

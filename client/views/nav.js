@@ -28,11 +28,7 @@ define(function(require){
 
 		render: function(){
 			this.$el.html( this.template() );
-		},
-
-		clickState: function( ev ){			
-			Helper.clickState( this.$el.find("a"), ev );				
-		},
+		},		
 
 		toggleMobileNav: function( ev ){
 			Helper.toggleMobileNav( ev );

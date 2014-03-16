@@ -18,14 +18,20 @@ define(function(require){
 		activeTab: "wall",
 
 		init: function(){
-			App.vent.on( "page:" + this.pageId, this.render, this );
+			App.vent.on( "page:" + this.pageId, this.handle, this );
+		},
+
+		handle: function( tab ){
+			if( tab ){
+				this.activeTab = tab;
+			}
+			this.render( tab );
+			Helper.navState( this.pageId, this.activeTab );
 		},
 
 		render: function( tab ){
 
-			if( tab ){
-				this.activeTab = tab;
-			}			
+						
 
 			if( typeof this.preRender !== "undefined" ){
 				this.preRender();
@@ -63,8 +69,7 @@ define(function(require){
 		},
 
 		clickState: function( ev ){
-			console.log( "Hello" );
-			Helper.clickState( ".nav-tabs a", ev );
+			ev.stopPropagation();
 		}		
 
 	});
