@@ -18,9 +18,8 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		initialize: function(){
-			this.posts = new Posts();
-			this.posts.collection.once( "reset", this.render, this );
-		},		
+			this.posts = new Posts();		
+		},
 
 		render: function(){
 			this.$el

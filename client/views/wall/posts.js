@@ -15,11 +15,11 @@ define(function(require){
 		initialize: function(){
 			this.collection = new PostsCollection();
 			this.collection
-			.bind( "reset", this.render, this )
+			.on( "replace reset add remove", this.render, this )
 			.fetch();
 		},
 
-		render: function(){
+		render: function(){		
 			this.$el.empty();
 			this.collection.each( this.renderPost, this );
 			return this;
