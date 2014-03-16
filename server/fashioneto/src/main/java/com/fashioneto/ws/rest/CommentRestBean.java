@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import com.fashioneto.persistence.CommentParentTypeEnum;
 import com.fashioneto.persistence.User;
+import com.fashioneto.service.CommentService;
 import com.fashioneto.service.UserService;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 
@@ -30,6 +31,8 @@ public class CommentRestBean
 
 	@Autowired
 	protected UserService userService;
+	@Autowired
+	protected CommentService commentService;
 
 	@POST
 	//	@Produces(MediaType.APPLICATION_JSON)
@@ -39,8 +42,13 @@ public class CommentRestBean
 	int userId, @FormParam("sessionId")
 	String sessionId)
 	{
-		//curl -v -d -H "Content-Type: application/json" "{requestId: 'someWeirdId#00023456', userId:'1', params:{}}" http://localhost:8080/Fashioneto/rest/comment/like/1
-		return Response.status(Status.OK).entity("Read the json! : " + userId + " - " + commentId).build();
+		if (commentId > 0 && userId > 0)
+		{
+			String responseTest = Integer.toString(commentService.addLike(userId, commentId));
+			return Response.status(Status.OK).entity(responseTest).build();
+		}
+
+		return Response.status(Status.NOT_FOUND).build();
 	}
 
 	@GET

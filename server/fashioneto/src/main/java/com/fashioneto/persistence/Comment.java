@@ -65,6 +65,28 @@ public class Comment implements Serializable
 	@OrderBy("date desc")
 	private Set<Comment> comments = new LinkedHashSet<Comment>();
 
+	@OneToMany(mappedBy = "comment", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	private Set<LikeComment> likes = new LinkedHashSet<LikeComment>();
+
+	public Comment()
+	{
+
+	}
+
+	public Comment(int id)
+	{
+		this.id = id;
+	}
+
+	public int getNumberOfLikes()
+	{
+		if (likes == null)
+		{
+			return 0;
+		}
+		return likes.size();
+	}
+
 	public String getDateInTimestampString()
 	{
 		return Long.toString(date.getTime() / 1000);
@@ -130,6 +152,16 @@ public class Comment implements Serializable
 	public void setDate(Date date)
 	{
 		this.date = date;
+	}
+
+	public Set<LikeComment> getLikes()
+	{
+		return likes;
+	}
+
+	public void setLikes(Set<LikeComment> likes)
+	{
+		this.likes = likes;
 	}
 
 }

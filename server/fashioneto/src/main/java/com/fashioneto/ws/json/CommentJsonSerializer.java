@@ -29,7 +29,7 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 		jsonObject.addProperty(JSON_PROPERTY_CONTENT, comment.getContent());
 		jsonObject.addProperty(JSON_PROPERTY_USER_ID, comment.getUser().getId());
 		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, comment.getUser().getUsername());
-		jsonObject.addProperty(JSON_PROPERTY_LIKES, 0);
+		jsonObject.addProperty(JSON_PROPERTY_LIKES, comment.getNumberOfLikes());
 		jsonObject.addProperty(JSON_PROPERTY_DATE, comment.getDateInTimestampString());
 
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(comment.getCommentsCommentSet()));
