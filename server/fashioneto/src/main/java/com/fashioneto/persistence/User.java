@@ -59,6 +59,11 @@ public class User implements Serializable
 		//No args constructor
 	}
 
+	public User(int id)
+	{
+		this.id = id;
+	}
+
 	public User(int id, String username, String email)
 	{
 		this.id = id;
