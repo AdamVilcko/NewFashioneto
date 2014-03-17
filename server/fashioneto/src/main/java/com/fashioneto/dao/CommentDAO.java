@@ -8,6 +8,9 @@
  */
 package com.fashioneto.dao;
 
+import com.fashioneto.persistence.Comment;
+import com.fashioneto.persistence.LikeComment;
+
 /**
  * @author Felipe Tonon 16 Mar 2014
  **/
@@ -19,5 +22,7 @@ public interface CommentDAO
 	 */
 	public int getNumberOfLikes(int commentId);
 
-	public <T> T merge(T entity);
+	public Comment save(Comment comment);
+	
+	public LikeComment save(LikeComment likeComment);
 }

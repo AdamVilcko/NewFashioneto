@@ -16,11 +16,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fashioneto.persistence.Comment;
+import com.fashioneto.persistence.LikeComment;
+
 /**
  * @author Felipe Tonon 16 Mar 2014
  **/
 @Transactional
-@Repository
 @Service("commentDAO")
 public class CommentDAOImpl implements CommentDAO
 {
@@ -37,9 +39,13 @@ public class CommentDAOImpl implements CommentDAO
 	}
 
 	@Override
-	public <T> T merge(T entity)
-	{
-		return entityManager.merge(entity);
+	public Comment save(Comment comment) {
+		return entityManager.merge(comment);
+	}
+
+	@Override
+	public LikeComment save(LikeComment likeComment) {
+		return entityManager.merge(likeComment);
 	}
 
 }

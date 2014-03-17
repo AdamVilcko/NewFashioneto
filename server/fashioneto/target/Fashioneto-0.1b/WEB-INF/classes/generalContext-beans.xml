@@ -2,9 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:s="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.1.xsd
-	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 
 	<context:annotation-config />
 	
@@ -31,14 +33,18 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 
 		<property name="packagesToScan"
-			value="com.fashioneto.persistence,com.fashioneto.ws.entities" />
-
+			value="com.fashioneto.persistence,com.fashioneto.ws.entities,com.fashioneto.dao" />
+		<property name="persistenceUnitName" value="persistence-unit"/>
 		<property name="jpaVendorAdapter">
-			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" >
+				<property name="showSql" value="true" />
+			</bean>
 		</property>
 		<property name="jpaProperties">
 			<map>
@@ -46,6 +52,10 @@
 			</map>
 		</property>
 		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
 </beans>
