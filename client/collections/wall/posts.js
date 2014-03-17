@@ -11,6 +11,6 @@ define(function(require){
 
 	return Backbone.Collection.extend({
 		model : Model,
-		url : "../fashioneto/as/comment/retrieve/USER/1"
+		url : "../Fashioneto-0.1b/as/comment/USER/1"
 	});
 });
