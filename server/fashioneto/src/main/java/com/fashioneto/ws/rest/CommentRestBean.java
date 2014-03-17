@@ -27,7 +27,6 @@ import com.fashioneto.ws.json.FashionetoJsonFactory;
 public class CommentRestBean
 {
 
-	//http://localhost:8080/Fashioneto/rest/comment/USER/1
 
 	@Autowired
 	protected UserService userService;
@@ -42,6 +41,7 @@ public class CommentRestBean
 	int userId, @FormParam("sessionId")
 	String sessionId)
 	{
+		//http://localhost:8080/Fashioneto/rest/comment/like/1
 		if (commentId > 0 && userId > 0)
 		{
 			String responseTest = Integer.toString(commentService.addLike(userId, commentId));
@@ -58,6 +58,8 @@ public class CommentRestBean
 	CommentParentTypeEnum parentType, @PathParam("parentId")
 	int parentId)
 	{
+		//http://localhost:8080/Fashioneto/rest/comment/USER/1
+		
 		User user = userService.getFashionetoer(parentId);
 		if (parentType.equals(CommentParentTypeEnum.USER) && user != null)
 		{

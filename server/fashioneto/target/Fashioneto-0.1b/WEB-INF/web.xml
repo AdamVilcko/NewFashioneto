@@ -36,7 +36,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>StripesDispatcher</servlet-name>
-		<url-pattern>/as/*</url-pattern>
+		<url-pattern>/old/*</url-pattern>
 	</servlet-mapping>
 	<!-- Jersey definition: -->
 	<servlet>
@@ -52,7 +52,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>jersey-serlvet</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<url-pattern>/as/*</url-pattern>
 	</servlet-mapping>
 	<!-- Spring definition -->
 	<context-param>

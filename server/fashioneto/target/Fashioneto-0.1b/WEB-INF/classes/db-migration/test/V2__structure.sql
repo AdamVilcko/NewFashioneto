@@ -61,8 +61,9 @@ create table like_item (
 );
 
 create table like_comment (
+	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`id_user` int(11) unsigned not null,
-	`id_commentary` int(11) unsigned not null
+	`id_comment` int(11) unsigned not null
 );
 
 /*
@@ -80,4 +81,4 @@ insert into comment (`id`, `id_user`, `content`, `dt_comment`) values (2, 1, 'Th
 insert into comment_parent values (2, 1, null, 'COMMENT');
 
 --user 1 liking comment 1
-insert into like_comment values (1,1);
+insert into like_comment values (1, 1, 1);
