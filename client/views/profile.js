@@ -32,7 +32,7 @@ define(function(require){
 
 		initialize: function( options ){
 			this.options = options || {};	
-			this.init( options );			
+			this.init( options );
 		},
 
 		tabs: {

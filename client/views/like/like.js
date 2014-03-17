@@ -3,21 +3,20 @@ define(function(require){
 	var
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
-	$          = require("jquery")
+	$          = require("jquery"),
 	
-	model      = require("model/like/like"),
-	template   = require("templatess/like/like.hbr");	
+	model      = require("models/like/like"),
+	template   = require("text!templates/like/like.hbr");	
 	
 
-	return Backbone.View.extend({
+	 return Backbone.View.extend({
 
 		initialize: function(options){
 			this.options = options || { type: "heart", amount: 0 };
-		},
-
-		model : new Model( {
-			amount: this.options.amount
-		} ),
+			this.model = new Model( {
+				amount: this.options.amount
+			} );
+		},		
 
 		template: Handlebars.compile( template ),
 

@@ -1,8 +1,8 @@
-define(functon(require){
+define(function(require){
 
 	var Backbone = require("backbone");
 
-	return Backbone.model.extend({
+	return Backbone.Model.extend({
 		defaults:{
 			amount: 0
 		},

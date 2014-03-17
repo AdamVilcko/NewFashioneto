@@ -23,7 +23,7 @@ define(function(require){
 			//Code to handle the link state properly
 			//so that tab state is updated on the main links
 			var profile = $( '.nav a.profile' );
-			profile
+			profile;
 
 		},
 
