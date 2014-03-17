@@ -5,7 +5,7 @@ define(function(require){
 	Handlebars = require("handlebars"),
 	$          = require("jquery"),
 
-	BasePageView = require("views/basepageview"),
+	BasePageView = require("views/pages/basepageview"),
 	pageTemplate = require("text!templates/pages/people.hbr");
 
 	return BasePageView.extend({

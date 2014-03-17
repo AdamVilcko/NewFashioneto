@@ -12,7 +12,7 @@ define(function(require){
 	
 	//Base page view
 	
-	BasePageView = require("views/basepageview"),
+	BasePageView = require("views/pages/basepageview"),
 	
 	//Tab views
 	
@@ -21,7 +21,8 @@ define(function(require){
 	//Main items template 
 	
 	pageTemplate = require("text!templates/pages/items.hbr");
-	
+
+
 
 	return BasePageView.extend({
 

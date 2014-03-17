@@ -14,10 +14,10 @@ define(function(require){
 	
 	//Page views
 	
-	Feed         = require( 'views/feed' ),
-	Items        = require( 'views/items' ),
-	People       = require( 'views/people' ),
-	Profile      = require( 'views/profile' ),
+	Feed         = require( 'views/pages/feed' ),
+	Items        = require( 'views/pages/items' ),
+	People       = require( 'views/pages/people' ),
+	Profile      = require( 'views/pages/profile' ),
 
 	//Main page template
 
@@ -33,7 +33,7 @@ define(function(require){
 
 		initialize:function(){
 			this.render();
-			this.intantiateViews();			
+			this.intantiateViews();
 		},
 
 		render: function(){
@@ -52,15 +52,7 @@ define(function(require){
 				new People({ parent: this }),
 				new Profile({ parent: this })
 			];
-		},
-
-		events:{
-			"click" : "closeNav"
-		},
-
-		closeNav: function(){
-			this.ui.nav.removeActiveState();
-		}
+		}		
 		
 	});
 });

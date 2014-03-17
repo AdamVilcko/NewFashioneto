@@ -10,8 +10,8 @@ define(function(require){
 			navAnchors = $( ".nav a" ),
 			active     = "active",
 			href;
-
-			navAnchors.removeClass( active );
+			
+			navAnchors.parent().removeClass( active );
 
 			navAnchors.each( function( i ){
 				href = $(this).attr( "href" );				
@@ -22,6 +22,8 @@ define(function(require){
 
 			//Code to handle the link state properly
 			//so that tab state is updated on the main links
+			var profile = $( '.nav a.profile' );
+			profile
 
 		},
 

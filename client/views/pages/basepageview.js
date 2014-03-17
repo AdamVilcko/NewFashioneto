@@ -29,7 +29,7 @@ define(function(require){
 			Helper.navState( this.pageId, this.activeTab );
 		},
 
-		render: function(){
+		render: function(){						
 
 			if( typeof this.preRender !== "undefined" ){
 				this.preRender();
