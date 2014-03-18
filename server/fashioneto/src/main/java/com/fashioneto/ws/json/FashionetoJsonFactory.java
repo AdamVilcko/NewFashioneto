@@ -43,7 +43,7 @@ public class FashionetoJsonFactory
 	public static String getJson(CommentSet comments)
 	{
 		Gson gson = getGson();
-		return gson.toJson((CommentSet) comments);
+		return gson.toJson(comments);
 	}
 
 	public static String getJson(ResponseWrapper rw)

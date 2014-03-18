@@ -4,11 +4,15 @@
 package com.fashioneto.persistence;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,6 +24,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.FilterDef;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * @author Felipe
@@ -27,7 +34,7 @@ import org.hibernate.annotations.FilterDef;
 @Entity
 @Table(name = "fashionetoer")
 @FilterDef(name = User.PARENT_TYPE_FILTER)
-public class User implements Serializable
+public class User implements Serializable, UserDetails
 {
 	public static final String PARENT_TYPE_FILTER = "userParentTypeFilter";
 
@@ -53,6 +60,12 @@ public class User implements Serializable
 	//	@FilterJoinTable(name = User.PARENT_TYPE_FILTER, condition = "comment_parent.parent_type == USER")
 	//	@OrderBy("date desc")
 	private Set<Comment> receivedComments = new LinkedHashSet<Comment>();
+
+	@Column(length = 64, nullable = false)
+	private String password;
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	private Set<String> roles = new HashSet<String>();
 
 	public User()
 	{
@@ -131,6 +144,70 @@ public class User implements Serializable
 	public void setReceivedComments(Set<Comment> receivedComments)
 	{
 		this.receivedComments = receivedComments;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities()
+	{
+		Set<String> roles = this.getRoles();
+
+		if (roles == null)
+		{
+			return Collections.emptyList();
+		}
+
+		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+		for (String role : roles)
+		{
+			authorities.add(new SimpleGrantedAuthority(role));
+		}
+
+		return authorities;
+	}
+
+	@Override
+	public String getPassword()
+	{
+		return this.password;
+	}
+
+	@Override
+	public boolean isAccountNonExpired()
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked()
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired()
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled()
+	{
+		return true;
+	}
+
+	public Set<String> getRoles()
+	{
+		return roles;
+	}
+
+	public void setRoles(Set<String> roles)
+	{
+		this.roles = roles;
+	}
+
+	public void setPassword(String password)
+	{
+		this.password = password;
 	}
 
 }

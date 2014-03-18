@@ -1,14 +1,7 @@
-/*
- * Copyright Telrock Communications Limited 2008 * 
- *
- * $Header:  $
- * $Revision:  $
- * $Date:  $ 
- * 
- */
 package com.fashioneto.dao;
 
-import org.springframework.stereotype.Service;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.fashioneto.persistence.User;
 
@@ -16,7 +9,7 @@ import com.fashioneto.persistence.User;
  * @author Felipe Tonon 24 Jan 2014
  **/
 
-@Service("userDAO")
+//@Service("userDAO")
 public class UserDAOImpl implements UserDAO
 {
 
@@ -25,6 +18,24 @@ public class UserDAOImpl implements UserDAO
 	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public User findByName(String name)
+	{
+		return new User(1);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
+	{
+		User user = this.findByName(username);
+		if (null == user)
+		{
+			throw new UsernameNotFoundException("The user with name " + username + " was not found");
+		}
+
+		return user;
 	}
 
 }

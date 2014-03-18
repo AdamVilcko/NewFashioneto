@@ -3,6 +3,7 @@ package com.fashioneto.ws.json;
 import java.lang.reflect.Type;
 
 import com.fashioneto.persistence.Comment;
+import com.fashioneto.ws.entities.LikesWrapper;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
@@ -29,12 +30,18 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 		jsonObject.addProperty(JSON_PROPERTY_CONTENT, comment.getContent());
 		jsonObject.addProperty(JSON_PROPERTY_USER_ID, comment.getUser().getId());
 		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, comment.getUser().getUsername());
-		jsonObject.addProperty(JSON_PROPERTY_LIKES, comment.getNumberOfLikes());
 		jsonObject.addProperty(JSON_PROPERTY_DATE, comment.getDateInTimestampString());
 
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(comment.getCommentsCommentSet()));
+		jsonObject.add(JSON_PROPERTY_LIKES, context.serialize(getLikesWrapper(comment)));
 
 		return jsonObject;
+	}
+
+	private LikesWrapper getLikesWrapper(Comment comment)
+	{
+		LikesWrapper likesWrapper = new LikesWrapper(comment.getNumberOfLikes(), false);
+		return likesWrapper;
 	}
 
 	@Override

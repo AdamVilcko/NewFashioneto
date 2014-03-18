@@ -38,6 +38,39 @@ public class LikeComment implements Serializable
 	@JoinColumn(name = FIELD_NAME_COMMENT_ID)
 	private Comment comment;
 
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (user != null && comment != null && obj instanceof LikeComment)
+		{
+			User objUser = ((LikeComment) obj).getUser();
+			Comment objComment = ((LikeComment) obj).getComment();
+			return objUser != null && objComment != null && user.getId() == objUser.getId()
+					&& comment.getId() == objComment.getId();
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		if (user == null || comment == null)
+		{
+			return super.hashCode();
+		}
+		return user.getId() + comment.getId();
+	}
+
+	@Override
+	public String toString()
+	{
+		if (user == null || comment == null)
+		{
+			return "LikeComment [id=" + id + ", user=null, comment=null]";
+		}
+		return "LikeComment [id=" + id + ", user=" + user.getId() + ", comment=" + comment.getId() + "]";
+	}
+
 	public User getUser()
 	{
 		return user;

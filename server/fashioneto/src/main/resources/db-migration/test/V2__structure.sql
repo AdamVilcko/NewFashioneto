@@ -66,12 +66,21 @@ create table like_comment (
 	`id_comment` int(11) unsigned not null
 );
 
+CREATE TABLE user_roles
+(
+   `id_user` int(11) unsigned not null,
+   `roles` varchar(50)
+);
+
 /*
  * Dummy data:
  */
-insert into fashionetoer (`id`, `username`, `email`, `password`) values (1, 'John Doe1', 'john1@doe.com', '1pass123');
-insert into fashionetoer (`id`, `username`, `email`, `password`) values (2, 'John Doe2', 'john2@doe.com', '2pass123');
+insert into fashionetoer (`id`, `username`, `email`, `password`) values (1, 'user', 'john1@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91');
+insert into fashionetoer (`id`, `username`, `email`, `password`) values (2, 'user2', 'john2@doe.com', 'f82959d41f9330bd853d3e11345e08eda948544666bfc17806493df9d4b305f0');
 
+INSERT INTO user_roles (id_user,roles) VALUES (1,'user');
+INSERT INTO user_roles (id_user,roles) VALUES (2,'admin');
+INSERT INTO user_roles (id_user,roles) VALUES (2,'user');
 
 -- user 2 leaving a comment for user 1
 insert into comment (`id`, `id_user`, `content`, `dt_comment`) values (1, 2, 'I like your pictures and your profile, man!', '2014-03-09 12:30:00');
