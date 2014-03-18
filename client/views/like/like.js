@@ -16,7 +16,7 @@ define(function(require){
 			this.model = new Model( {
 				amount: this.options.amount
 			} );
-		},		
+		},
 
 		template: Handlebars.compile( template ),
 
