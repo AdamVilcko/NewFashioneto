@@ -1,0 +1,31 @@
+<div id="profilePicture">
+  <a href="#" class="thumbnail">
+    <img src="img/profile-picture.png" alt="...">
+  </a>
+  <h6 class="location well">Prague, CZ</h6>
+</div><!-- profilePicture -->
+
+<div class="badges">
+  <h5>Award Alex with badges</h5>
+  <p>You can select more than one</p>
+  <ul>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+    <li><a href="#"></a></li>
+  </ul>
+
+  <button class="btn btn-default">Send badges</button>
+
+</div><!-- badges -->
+
+<div id="stats">
+
+  <div class="well pull-left">Following 4 596</div>
+  <div class="well pull-right">Followers 219</div>
+  <div class="clear"></div>
+  <div class="well">Alex's Top</div>
+  
+</div><!-- stats -->

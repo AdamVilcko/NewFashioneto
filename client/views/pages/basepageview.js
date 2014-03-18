@@ -10,7 +10,8 @@ define(function(require){
 
 		el:"#main",
 		nodes:{
-			tabContainer: "#tabContainer"
+			tabContainer: "#tabContainer",
+			sidebar: "#sidebar"
 		},
 		pageId: "default",
 		active: null,
@@ -42,6 +43,12 @@ define(function(require){
 				this.$el
 				.find( this.nodes.tabContainer )
 				.html( this.tabs[ this.activeTab ].render().el );
+			}
+
+			if( this.sidebar ){
+				this.$el
+				.find( this.nodes.sidebar )
+				.html( this.sidebar.render().el );
 			}
 
 			if( typeof this.postRender !== "undefined" ){

@@ -80,7 +80,7 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 	//Instantiate router and start Backbone history
 
 
-	App.router   = new Router;
+	var router   = new Router;
 	Backbone.history.start();
 
 

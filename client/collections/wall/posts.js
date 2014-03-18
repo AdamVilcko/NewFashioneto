@@ -11,6 +11,7 @@ define(function(require){
 
 	return Backbone.Collection.extend({
 		model : Model,
-		url : "../Fashioneto-0.1b/as/comment/USER/1"
+		url : App.url( 'wall' )
 	});
+
 });

@@ -15,9 +15,7 @@ define(function(require){
 		initialize: function(options){
 			this.options = options || {};			
 			this.render();
-		},
-
-		el:"#nav",
+		},		
 
 		template: Handlebars.compile( template ),
 
@@ -28,6 +26,7 @@ define(function(require){
 
 		render: function(){
 			this.$el.html( this.template() );
+			return this;
 		},
 
 		toggleMobileNav: function( ev ){

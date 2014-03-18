@@ -1,33 +1,26 @@
-window.App = {
+root = "/ftest/as/";
 
-    Models:{},
-    Collections:{},
-    Views:{},
-    router:{},
-    vent: null,
+App = {
     
-    page:{
-        previous:null,
-        current:null,
-        identical: null
-    },
+    vent: null,
 
-    renderChain: {
-        profile: [],
-        items: [],
-        people: []
-    },
-
-    content:{
+    content: {
         language:"EN-GB",
         title: "Fasioneto"
+    },    
+
+    rest: {
+        wall: "comment/USER/1",
+        like: "comment/like/1"
     },
 
-    urlRoot: "fashioneto/as/comment/retrieve/1"
+    url: function( arg ){
+        return root + this.rest[ arg ];
+    }
 
-};
+}
 
-var require = {
+require = {
     
     paths: {
 
@@ -88,4 +81,4 @@ var require = {
 
     }
 
-};
+}

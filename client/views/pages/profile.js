@@ -1,27 +1,17 @@
 define(function(require){
 	
-	var
-
-	//Deps
-
-	$            = require("jquery"),
-	Backbone     = require("backbone"),
-	Handlebars   = require("handlebars"),	
-	Helper       = require('helper'),
+	var	
+	$              = require( "jquery" ),
+	Backbone       = require( "backbone" ),
+	Handlebars     = require( "handlebars" ),	
+	Helper         = require( 'helper' ),	
 	
-	//Base page view
-	
-	BasePageView = require("views/pages/basepageview"),	
-	
-	//Tab views
-	
-	Wall         = require("views/wall/wall.js"),
-	Photos       = require("views/photos/photos.js"),
-	Items        = require("views/items/items.js"),
-	
-	//Main profile template
-	
-	pageTemplate = require("text!templates/pages/profile.hbr");
+	BasePageView   = require( "views/pages/basepageview" ),	
+	Wall           = require( "views/wall/wall.js" ),
+	Photos         = require( "views/photos/photos.js" ),
+	Items          = require( "views/items/items.js" ),	
+	ProfileSidebar = require( "views/sidebar/profilesidebar" ),	
+	pageTemplate   = require( "text!templates/pages/profile.hbr" );
 	
 
 	return BasePageView.extend({
@@ -32,8 +22,10 @@ define(function(require){
 
 		initialize: function( options ){
 			this.options = options || {};	
-			this.init( options );			
+			this.init( options );
 		},
+
+		sidebar: new ProfileSidebar(),
 
 		tabs: {
 			wall: new Wall(),

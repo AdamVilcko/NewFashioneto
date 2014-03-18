@@ -1,12 +1,12 @@
 define(function(require){
 
 	var
-	Backbone   = require("backbone"),
-	Handlebars = require("handlebars"),
-	$          = require("jquery"),
+	Backbone   = require( "backbone" ),
+	Handlebars = require( "handlebars" ),
+	$          = require( "jquery" ),
 	
-	template   = require("text!templates/wall/wall.hbr"),
-	Posts      = require("views/wall/posts.js");
+	template   = require( "text!templates/wall/wall.hbr" ),
+	Posts      = require( "views/wall/posts.js" );
 
 
 	return Backbone.View.extend({
