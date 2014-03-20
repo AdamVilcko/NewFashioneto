@@ -1,5 +1,9 @@
 package com.fashioneto.dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -13,17 +17,21 @@ import com.fashioneto.persistence.User;
 public class UserDAOImpl implements UserDAO
 {
 
+	@PersistenceContext
+	private EntityManager entityManager;
+
 	@Override
 	public User getUser(int id)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.find(User.class, id);
 	}
 
 	@Override
 	public User findByName(String name)
 	{
-		return new User(1);
+		TypedQuery<User> query = entityManager.createQuery("from User where username=:username ", User.class);
+		query.setParameter("username", name);
+		return query.getSingleResult();
 	}
 
 	@Override

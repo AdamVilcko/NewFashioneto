@@ -58,6 +58,6 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 	
-	<import resource="file:securityContext-beans.xml"/>
+	<import resource="securityContext-beans.xml"/>
 	
 </beans>

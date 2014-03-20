@@ -258,11 +258,16 @@
 		</dependency>
 		
 		<!-- JERSEY/Rest dependecies:  -->
-		<dependency> 
+		<dependency>
 			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-bundle</artifactId>
+			<artifactId>jersey-json</artifactId>
 			<version>${jersey.version}</version>
 		</dependency>		
+<!-- 		<dependency>  -->
+<!-- 			<groupId>com.sun.jersey</groupId> -->
+<!-- 			<artifactId>jersey-bundle</artifactId> -->
+<!-- 			<version>${jersey.version}</version> -->
+<!-- 		</dependency>		 -->
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-spring</artifactId>
@@ -301,7 +306,6 @@
 	</dependencies>
 	
     <properties>
-    	<new.jersey.version>2.7</new.jersey.version>
         <jersey.version>1.18.1</jersey.version>
         <spring.version>3.2.3.RELEASE</spring.version>
         <spring.security.version>3.1.4.RELEASE</spring.security.version>
