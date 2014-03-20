@@ -15,6 +15,8 @@ public interface UserService
 
 	public List<User> getFashionetoers();
 
-	public User getFashionetoer(int id);
+	public User getUser(int id);
+	
+	public User getUser(String username);
 
 }

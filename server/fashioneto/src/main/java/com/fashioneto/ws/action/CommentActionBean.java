@@ -49,7 +49,7 @@ public class CommentActionBean extends BaseActionBean
 		// http://stackoverflow.com/questions/13459718/could-not-serialize-object-cause-of-hibernateproxy
 
 		FashionetoMessage message = new FashionetoMessage("Your request was successfull", MessageTypeEnum.INFO);
-		User fashionetoer = userService.getFashionetoer(Integer.parseInt(parentId));
+		User fashionetoer = userService.getUser(Integer.parseInt(parentId));
 
 		CommentParentTypeEnum commentParentType = CommentParentTypeEnum.valueOf(parentType);
 

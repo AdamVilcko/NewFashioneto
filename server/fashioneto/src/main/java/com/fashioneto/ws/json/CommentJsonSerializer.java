@@ -1,8 +1,13 @@
 package com.fashioneto.ws.json;
 
 import java.lang.reflect.Type;
+import java.util.Set;
 
 import com.fashioneto.persistence.Comment;
+import com.fashioneto.persistence.LikeComment;
+import com.fashioneto.persistence.User;
+import com.fashioneto.utils.ContextUtils;
+import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.ws.entities.LikesWrapper;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -23,7 +28,7 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 	public static final String JSON_PROPERTY_LIKES = "likes";
 	public static final String JSON_PROPERTY_DATE = "date";
 
-	private JsonElement getJsonFromComment(Comment comment, JsonSerializationContext context)
+	private JsonElement getJsonFromComment(Comment comment, JsonSerializationContext context) throws NoUserInContextException
 	{
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty(JSON_PROPERTY_ID, comment.getId());
@@ -38,17 +43,25 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 		return jsonObject;
 	}
 
-	private LikesWrapper getLikesWrapper(Comment comment)
+	private LikesWrapper getLikesWrapper(Comment comment) throws NoUserInContextException
 	{
-		LikesWrapper likesWrapper = new LikesWrapper(comment.getNumberOfLikes(), false);
+		Set<LikeComment> set = comment.getLikes();
+		User user =	ContextUtils.getUserFromAuthenticationContext();
+		LikesWrapper likesWrapper = new LikesWrapper(set.size(), set.contains(new LikeComment(user, comment)));
 		return likesWrapper;
 	}
 
 	@Override
 	public JsonElement serialize(Comment comment, Type arg1, JsonSerializationContext context)
 	{
-
-		return getJsonFromComment(comment, context);
+		JsonElement jsonElement = null;
+		try {
+			jsonElement = getJsonFromComment(comment, context);
+		} catch (NoUserInContextException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return jsonElement;
 	}
 
 }

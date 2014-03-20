@@ -1,0 +1,30 @@
+Examples of URIs:
+
+	http://localhost:8080/Fashioneto-0.1b/as/comment/USER/1 
+	http://localhost:8080/Fashioneto/as/comment/like/1 
+	http://localhost:8080/ftest/as/comment/USER/1 
+
+Manager Page:
+
+	http://localhost:8080/manager/html/
+	
+************** API	
+
+Login
+
+	POST http://localhost:8081/Fashioneto-0.1b/as/user/authenticate
+		Params:
+			username = [value]
+			password = [value]
+	
+Comments:
+
+	OBS.: possible values for {parentType} = [COMMENT, ITEM, PHOTO, USER]
+
+	GET http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{commentId}
+		Header:
+			X-Auth-Token = [token value]
+			
+  	POST http://localhost:8080/Fashioneto-0.1b/as/comment/like/{commentId}
+		Header:
+			X-Auth-Token = [token value]

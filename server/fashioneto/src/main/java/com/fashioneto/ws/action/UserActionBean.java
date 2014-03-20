@@ -36,7 +36,7 @@ public class UserActionBean extends BaseActionBean
 		// http://stackoverflow.com/questions/13459718/could-not-serialize-object-cause-of-hibernateproxy
 
 		FashionetoMessage message = new FashionetoMessage("Your request was successfull", MessageTypeEnum.INFO);
-		User fashionetoer = userService.getFashionetoer(1);
+		User fashionetoer = userService.getUser(1);
 		fashionetoer.getReceivedComments();
 		ResponseWrapper rw = new ResponseWrapper(fashionetoer, message);
 		//		Gson gson = new Gson();

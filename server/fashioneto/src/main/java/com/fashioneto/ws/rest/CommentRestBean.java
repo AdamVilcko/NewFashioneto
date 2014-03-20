@@ -11,12 +11,16 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import com.fashioneto.persistence.CommentParentTypeEnum;
 import com.fashioneto.persistence.User;
 import com.fashioneto.service.CommentService;
 import com.fashioneto.service.UserService;
+import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 /**
@@ -34,15 +38,14 @@ public class CommentRestBean
 
 	@POST
 	@Path("like/{commentId}")
-	public Response addComment(@PathParam("commentId")
-	int commentId, @FormParam("userId")
-	int userId, @FormParam("sessionId")
-	String sessionId)
+	public Response addComment(@PathParam("commentId") int commentId) throws Exception
 	{
 		//http://localhost:8080/Fashioneto/as/comment/like/1 
-		if (commentId > 0 && userId > 0)
+		if (commentId > 0)
 		{
-			String responseTest = Integer.toString(commentService.addLike(userId, commentId));
+			User user = ContextUtils.getUserFromAuthenticationContext();
+			String responseTest = Integer.toString(commentService.addLike(user.getId(), commentId));
+			
 			return Response.status(Status.OK).entity(responseTest).build();
 		}
 
@@ -58,7 +61,7 @@ public class CommentRestBean
 	{
 		//http://localhost:8080/Fashioneto/as/comment/USER/1
 
-		User user = userService.getFashionetoer(parentId);
+		User user = userService.getUser(parentId);
 		if (parentType.equals(CommentParentTypeEnum.USER) && user != null)
 		{
 

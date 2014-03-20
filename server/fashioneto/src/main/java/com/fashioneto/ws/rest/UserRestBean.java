@@ -22,9 +22,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
-import com.fashioneto.security.TokenTransfer;
-import com.fashioneto.security.TokenUtils;
-import com.fashioneto.security.UserTransfer;
+import com.fashioneto.utils.TokenUtils;
+import com.fashioneto.ws.entities.TokenTransfer;
+import com.fashioneto.ws.entities.UserTransfer;
 
 /**
  * @author Felipe Tonon 20 Mar 2014
