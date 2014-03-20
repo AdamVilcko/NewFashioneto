@@ -39,8 +39,7 @@
 			authentication-manager-ref="authenticationManager">
 		<security:custom-filter ref="authenticationTokenProcessingFilter" position="FORM_LOGIN_FILTER" />
 		<security:intercept-url pattern="/as/user/authenticate" access="permitAll" />
-<!-- 		<security:intercept-url method="GET" pattern="/as/news/**" access="hasRole('user')" /> -->
-		<security:intercept-url method="GET" pattern="/as/**" access="permitAll" />
+		<security:intercept-url method="GET" pattern="/as/**" access="hasRole('user')" />
 		<security:intercept-url method="PUT" pattern="/as/**" access="hasRole('admin')" />
 		<security:intercept-url method="POST" pattern="/as/**" access="hasRole('admin')" />
 		<security:intercept-url method="DELETE" pattern="/as/**" access="hasRole('admin')" />
