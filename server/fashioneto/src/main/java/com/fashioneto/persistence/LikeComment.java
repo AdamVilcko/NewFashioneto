@@ -38,6 +38,18 @@ public class LikeComment implements Serializable
 	@JoinColumn(name = FIELD_NAME_COMMENT_ID)
 	private Comment comment;
 
+	public LikeComment()
+	{
+		
+	}
+	
+	public LikeComment(User user, Comment comment) {
+		super();
+		this.user = user;
+		this.comment = comment;
+	}
+
+
 	@Override
 	public boolean equals(Object obj)
 	{

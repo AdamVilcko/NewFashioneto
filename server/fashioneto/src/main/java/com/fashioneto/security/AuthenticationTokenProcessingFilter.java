@@ -15,6 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.web.filter.GenericFilterBean;
 
+import com.fashioneto.utils.TokenUtils;
+
 
 public class AuthenticationTokenProcessingFilter extends GenericFilterBean {
 

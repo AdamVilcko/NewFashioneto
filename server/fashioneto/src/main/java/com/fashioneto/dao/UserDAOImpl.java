@@ -35,7 +35,7 @@ public class UserDAOImpl implements UserDAO
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
+	public User loadUserByUsername(String username) throws UsernameNotFoundException
 	{
 		User user = this.findByName(username);
 		if (null == user)
