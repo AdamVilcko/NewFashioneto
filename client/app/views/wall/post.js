@@ -3,9 +3,9 @@ define(function(require){
 	var
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
-	$          = require("jquery"),	
+	$          = require("jquery"),
 	Helper     = require('helper'),
-	
+
 	Like       = require("views/like/like"),
 	Comments   = require("views/comments/comments"),
 	template   = require("text!templates/wall/post.hbr");
@@ -44,7 +44,7 @@ define(function(require){
 			return this;
 
 		}
-		
+
 	});
 
 });

@@ -4,9 +4,9 @@ define(function(require){
 	Backbone   = require( "backbone" ),
 	Handlebars = require( "handlebars" ),
 	$          = require( "jquery" ),
-	
+
 	template   = require( "text!templates/wall/wall.hbr" ),
-	Posts      = require( "views/wall/posts.js" );
+	Posts      = require( "views/wall/posts" );
 
 
 	return Backbone.View.extend({
@@ -28,7 +28,7 @@ define(function(require){
 			.html( this.posts.render().el );
 			return this;
 		}
-		
+
 	});
 
 });

@@ -3,15 +3,13 @@ define(function(require){
 	var
 	Backbone            = require("backbone"),
 	Handlebars          = require("handlebars"),
-	$                   = require("jquery"),	
-	
-	CommentView         = require("views/comments/comment.js"),
-	CommentsCollection  = require("collections/comments/comments.js"),
-	
+	$                   = require("jquery"),
+
+	CommentView         = require("views/comments/comment"),
+	CommentsCollection  = require("collections/comments/comments"),
+
 	showAll             = require("text!templates/comments/showall.hbr"),
-	input               = require("text!templates/comments/input.hbr"),
-	
-	mockColllectionData = require("mock/comments/mockcommentscollection");
+	input               = require("text!templates/comments/input.hbr");
 
 
 	return Backbone.View.extend({
@@ -36,7 +34,7 @@ define(function(require){
 
 			//Input
 			this.$el.append( this.templates.input() );
-			
+
 			return this;
 		},
 
@@ -44,7 +42,7 @@ define(function(require){
 			var commentView = new CommentView( { model: comment } );
 			this.$el.append( commentView.render().el );
 		}
-		
+
 	});
 
 });

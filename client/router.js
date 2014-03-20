@@ -3,7 +3,7 @@ require([
 	"_",
 	'jquery',
 	'handlebars',
-	'views/main.js',
+	'appviews/main.js',
 	'helper',
 	'bootstrap',
 	'jquery.masonry'
@@ -20,7 +20,7 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 		},
 
 		changeRoute: function(){
-			
+
 		},
 
 
@@ -32,16 +32,16 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 			'': "index",
 			'profile': 'profile',
 			'profile/:tab': 'profile',
-			
+
 			'people': 'people',
 			'people/:tab': 'people',
-			
+
 			'items': 'items',
 			'items/:tab': 'items',
 
 			'itemmodal': 'itemModal',
 			'photomodal': 'photoModal'
-			
+
 		},
 
 
@@ -51,7 +51,7 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 		index:function(){
 			this.profile( "wall" );
 		},
-		
+
 		feed: function( tab ){
 			App.vent.trigger( 'page:feed', tab );
 		},
@@ -72,7 +72,7 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 		photoModal: function(){
 			$('#photoModal').modal();
 		}
-		
+
 
 	});
 
@@ -90,4 +90,4 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 
 
 
-	
+

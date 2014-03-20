@@ -3,87 +3,63 @@
 	{
 		"selected_items":
 		[
-			[
-				"comments",
-				"commentsWrapper"
-			],
-			[
-				"c",
-				"collection"
-			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "client/index.html",
-			"settings":
-			{
-				"buffer_size": 855,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/router.js",
-			"settings":
-			{
-				"buffer_size": 1302,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "client/app/config.js",
-			"settings":
-			{
-				"buffer_size": 1679,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 245.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
-				"inst",
+				"instal",
 				"Package Control: Install Package"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"synt js",
-				"Set Syntax: JavaScript"
-			],
-			[
-				"synta json",
-				"Set Syntax: JSON"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
 			],
 			[
-				"git stat",
-				"Git: Status"
+				"git push",
+				"Git: Push"
+			],
+			[
+				"Git comm",
+				"Git: Commit All…"
+			],
+			[
+				"Git push",
+				"Git: Push"
+			],
+			[
+				"Git commit",
+				"Git: Commit All…"
+			],
+			[
+				"git pul",
+				"Git: Pull"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
 			],
 			[
 				"git",
+				"Git: Commit history"
+			],
+			[
+				"git stat",
 				"Git: Status"
 			],
 			[
 				"git sta",
 				"Git: Status"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
 			]
 		],
-		"width": 332.0
+		"width": 422.0
 	},
 	"console":
 	{
@@ -104,102 +80,91 @@
 	},
 	"file_history":
 	[
-		"/var/www/Fashioneto/Fashioneto/client/app/views/like/like.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/collections/wall/posts.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/collections/comments/comments.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/wall/wall.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/wall/posts.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/wall/post.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/sidebar/widgets/profilepic.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/sidebar/widgets/basewidgetview.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/sidebar/profilesidebar.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/sidebar/basesidebarview.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/pages/profile.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/pages/people.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/pages/items.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/pages/feed.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/pages/basepageview.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/comments/comments.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/views/main.js",
-		"/var/www/Fashioneto/Fashioneto/client/app/router.js",
-		"/var/www/Fashioneto/Fashioneto/client/index.html",
-		"/var/www/Fashioneto/Fashioneto/client/views/sidebar/basesidebarview.js",
-		"/var/www/Fashioneto/Fashioneto/client/config.js",
-		"/var/www/Fashioneto/Fashioneto/client/router.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/pages/basepageview.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/sidebar/profilesidebar.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/sidebar/widgets/basewidgetview.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/pages/profile.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/wall/wall.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/main.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/sidebar/widgets/profile.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/ui/nav.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/masterbaseview.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/items.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/basepageview.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/profile.js",
-		"/var/www/Fashioneto/Fashioneto/client/templates/pages/profile.hbr",
-		"/var/www/Fashioneto.com/index.php",
-		"/var/www/Fashioneto/Fashioneto/client/collections/wall/posts.js",
-		"/var/www/Fashioneto.com/app/templates/Homepage/step3.latte",
-		"/var/www/Fashioneto.com/app/templates/Homepage/selectarea.latte",
-		"/var/www/Fashioneto.com/app/templates/Homepage/step2.latte",
-		"/var/www/Fashioneto.com/app/templates/Homepage/default.latte",
-		"/var/www/Fashioneto.com/app/templates/AdminHomepage/default.latte",
-		"/var/www/Fashioneto.com/app/templates/admin.latte",
-		"/var/www/Fashioneto.com/app/presenters/HomepagePresenter.php",
-		"/var/www/Fashioneto/Fashioneto/client/templates/sidebar/profilesidebar.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/main.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/ui/nav.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/wall/post.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/pages/items.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/pages/feed.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/like/like.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/views/comments/comment.js",
-		"/var/www/Fashioneto/Fashioneto/client/templates/comments/showall.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/wall/wall.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/comments/comment.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/templates/comments/comments.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/models/like/like.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/like/like.js",
-		"/var/www/Old/textbook-reader-master/client/views/reader.js",
-		"/var/www/Old/textbook-reader-master/client/index.html",
-		"/var/www/Old/textbook-reader-master/client/require.main.js",
-		"/var/www/Old/textbook-reader-master/client/configs.js",
-		"/var/www/Old/textbook-reader-master/app.js",
-		"/var/www/Old/textbook-reader-master/package.json",
-		"/var/www/Fashioneto/Fashioneto/client/helpers/helper.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/nav.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/wall/posts.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/people.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/wall/post.js",
-		"/var/www/Fashioneto/Fashioneto/client/models/wall/post.js",
-		"/var/www/Fashioneto/Fashioneto/client/templates/items/items.hbr",
-		"/var/www/Fashioneto/Fashioneto/client/views/tabwrapper.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/items/items.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/photos/photos.js",
-		"/var/www/Fashioneto/Fashioneto/client/models/comments/comment.js",
-		"/var/www/Fashioneto/Fashioneto/client/mock/wall/mockpostscollection.js",
-		"/var/www/Fashioneto/Fashioneto/client/views/comments/comments.js",
+		"/C/Projects/Fashioneto/client/app/collections/comments/comments.js",
+		"/C/Projects/Fashioneto/client/app/models/comments/comment.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/basepageview.js",
+		"/C/Projects/Fashioneto/client/css/bootstrap.css",
+		"/C/Projects/Fashioneto/client/app/views/wall/posts.js",
+		"/C/Projects/Fashioneto/client/app/views/like/like.js",
+		"/C/Projects/Fashioneto/client/app/views/comments/comments.js",
+		"/C/Projects/Fashioneto/client/app/views/main.js",
 		"/C/Projects/Fashioneto/client/config.js",
+		"/C/Projects/Fashioneto/client/index.html",
+		"/C/Projects/Fashioneto/client/app/collections/wall/posts.js",
+		"/C/Projects/Fashioneto/client/app/config.js",
+		"/C/Projects/Fashioneto/client/app/templates/main.hbr",
+		"/C/Projects/Fashioneto/client/app/lib/modernizr.js",
+		"/C/Projects/Fashioneto/client/app/views/wall/wall.js",
+		"/C/Projects/Fashioneto/client/app/views/wall/post.js",
+		"/C/Projects/Fashioneto/client/app/views/ui/nav.js",
+		"/C/Projects/Fashioneto/client/app/views/sidebar/widgets/profilepic.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/people.js",
+		"/C/Projects/Fashioneto/client/app/views/comments/comment.js",
+		"/C/Projects/Fashioneto/client/app/views/items/items.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/feed.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/items.js",
+		"/C/Projects/Fashioneto/client/app/views/sidebar/profilesidebar.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/profile.js",
+		"/C/Projects/Fashioneto/client/app/views/photos/photos.js",
+		"/C/Projects/Fashioneto/client/app/views/sidebar/basesidebarview.js",
+		"/C/Projects/Fashioneto/client/app/views/sidebar/widgets/basewidgetview.js",
+		"/C/Projects/Fashioneto/client/app/router.js",
+		"/C/Projects/Fashioneto/client/router.js",
+		"/C/Projects/Fashioneto/client/views/wall/post.js",
+		"/C/Projects/Fashioneto/client/views/like/like.js",
+		"/C/Projects/Fashioneto/client/views/items.js",
+		"/C/Projects/Fashioneto/client/collections/wall/posts.js",
+		"/C/Projects/Fashioneto/client/views/basepageview.js",
+		"/C/Projects/Fashioneto/client/views/nav.js",
+		"/C/Users/Caspar/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Projects/Fashioneto/client/app/lib/underscore1.5.2.js",
+		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/security/AuthenticationTokenProcessingFilter.java",
+		"/C/Projects/Fashioneto/server/fashioneto/target/Fashioneto-0.1b/WEB-INF/classes/db-migration/test/V2__structure.sql",
 		"/C/Projects/Fashioneto/client/templates/wall/wall.hbr",
+		"/C/Projects/Fashioneto/client/models/comments/comment.js",
+		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/persistence/CommentSet.java",
+		"/C/Projects/Fashioneto/client/collections/comments/comments.js",
+		"/C/Program Files (x86)/Apache Software Foundation/apache-tomcat-7.0.39/conf/tomcat-users.xml",
+		"/C/Program Files (x86)/Apache Software Foundation/apache-tomcat-7.0.39/conf/server.xml",
+		"/C/Program Files (x86)/Apache Software Foundation/apache-tomcat-7.0.39/webapps/Fashioneto-0.1b/WEB-INF/classes/database.properties",
+		"/C/Projects/Fashioneto/server/fashioneto/src/main/resources/db-migration/test/V2__structure.sql",
+		"/C/Projects/Fashioneto/git-sublime",
+		"/C/Projects/Fashioneto/client/fonts/glyphicons-halflings-regular.svg",
+		"/C/Projects/Fashioneto/client/models/like/like.js",
+		"/C/Projects/Fashioneto/client/views/profile.js",
+		"/C/Projects/Fashioneto/client/helpers/helper.js",
+		"/C/Projects/Fashioneto/client/templates/like/like.hbr",
+		"/C/Projects/Fashioneto/client/templates/wall/post.hbr",
+		"/C/Projects/Fashioneto/client/models/wall/post.js",
+		"/C/Projects/Fashioneto/client/views/main.js",
+		"/C/Projects/Fashioneto/client/views/pages/feed.js",
+		"/C/Projects/Fashioneto/client/templates/pages/feed.hbr",
+		"/C/Projects/Fashioneto/client/views/pages/items.js",
+		"/C/Projects/Fashioneto/client/views/items/items.js",
+		"/C/Projects/Fashioneto/client/views/pages/people.js",
+		"/C/Projects/Fashioneto/client/templates/pages/people.hbr",
+		"/C/Projects/Fashioneto/client/templates/pages/items.hbr",
+		"/C/Projects/Fashioneto/client/templates/items/items.hbr",
+		"/C/Projects/Fashioneto/client/views/pages/profile.js",
+		"/C/Projects/Fashioneto/client/templates/pages/profile.hbr",
+		"/C/Projects/Fashioneto/client/views/people.js",
+		"/C/Projects/Fashioneto/client/templates/main.hbr",
 		"/C/Projects/Fashioneto/client/mock/comments/mockcommentscollection.js",
+		"/C/Projects/casestudy/collections/search/searchresults.js",
+		"/C/Projects/Fashioneto/client/views/comments/comment.js",
+		"/C/Projects/Fashioneto/client/views/comments/comments.js",
+		"/C/Projects/Fashioneto/server/fashioneto/target/Fashioneto-0.1b/WEB-INF/classes/database.properties",
+		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/ws/action/BaseActionBean.java",
 		"/C/Projects/Fashioneto/client/mock/wall/mockpostscollection.js",
 		"/C/Projects/Fashioneto/client/lib/livestamp.js",
 		"/C/Projects/Fashioneto/client/lib/moment-with-langs.min.js",
 		"/C/Projects/Fashioneto/client/lib/timeago.js",
 		"/C/Projects/Fashioneto/client/views/tabwrapper.js",
-		"/C/Projects/Fashioneto/client/models/comments/comment.js",
 		"/C/Projects/Fashioneto/client/templates/comments/input.hbr",
 		"/C/Projects/Fashioneto/client/templates/comments/showall.hbr",
 		"/C/Projects/Fashioneto/client/templates/comments/comment.hbr",
-		"/C/Projects/Fashioneto/client/templates/wall/post.hbr",
 		"/C/Projects/Fashioneto/client/lib/mootools-class-1.4.5.js",
 		"/C/Projects/Fashioneto/client/lib/modernizr.js",
-		"/C/Projects/Fashioneto/client/templates/main.hbr",
-		"/C/Projects/Fashioneto/client/collections/comments/comments.js",
-		"/C/Projects/Fashioneto/client/views/items.js",
-		"/C/Projects/Fashioneto/client/collections/wall/posts.js",
 		"/C/Projects/Fashioneto/client/css/style.css",
 		"/C/Projects/casestudy/views/accountdetails/accountdetails.js",
 		"/C/Projects/casestudy/views/main.js",
@@ -208,33 +173,22 @@
 		"/C/Projects/Fashioneto/client/views/wall/posts.js",
 		"/C/Projects/Fashioneto/client/templates/comments/comments.hbr",
 		"/C/Projects/Fashioneto/client/views/wall/wall.js",
-		"/C/Projects/Fashioneto/client/views/wall/post.js",
-		"/C/Projects/Fashioneto/client/models/wall/post.js",
-		"/C/Projects/Fashioneto/client/css/bootstrap.css",
-		"/C/Projects/Fashioneto/client/views/profile.js",
 		"/C/Projects/Fashioneto/fashioneto.sublime-project",
 		"/C/Projects/Fashioneto/client/mock/wall/wallCollection.json",
 		"/C/Projects/casestudy/mock/useraccount.js",
-		"/C/Projects/casestudy/collections/search/searchresults.js",
 		"/C/Projects/casestudy/models/search/row.js",
 		"/C/Projects/Fashioneto/client/templates/comments/wall/post.js",
-		"/C/Projects/Fashioneto/client/templates/pages/profile.hbr",
-		"/C/Projects/Fashioneto/client/templates/pages/feed.hbr",
-		"/C/Projects/Fashioneto/client/views/people.js",
 		"/C/Projects/Fashioneto/client/templates/comments/main.hbr",
 		"/C/Projects/Fashioneto/client/views/feed.js",
-		"/C/Projects/Fashioneto/client/views/basepageview.js",
-		"/C/Projects/Fashioneto/git-sublime",
-		"/C/Projects/Fashioneto/Sublime-workspace.sublime-workspace",
-		"/C/Projects/Fashioneto/client/fonts/glyphicons-halflings-regular.svg"
+		"/C/Projects/Fashioneto/Sublime-workspace.sublime-workspace"
 	],
 	"find":
 	{
-		"height": 32.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
-		"height": 169.0,
+		"height": 183.0,
 		"where_history":
 		[
 			""
@@ -245,23 +199,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"../",
-			"lib/",
-			"app/collections/",
-			"app/models/",
-			"app/views/",
+			"app/app",
+			"masterbasepageview",
+			"app/app/templates/",
+			"templates/",
 			"collections/",
 			"models/",
+			"app/views/",
+			"app/app/views/",
 			"views/",
+			"/views/",
+			"http://localhost:8080",
+			"http://localhost:8080/fashioneto/as/comment/retrieve/USER/1",
+			"Context docBase",
+			"like_comment",
+			"pages/",
+			"views",
 			"{ parent: this }",
-			"other",
-			"other's",
-			"routeState",
-			"\"#tabContainer\"",
-			"\",\n",
-			"page:profile",
-			"search",
-			"search.js",
 			"986363450",
 			"masonry",
 			"new Date()",
@@ -284,13 +238,11 @@
 		"regex": false,
 		"replace_history":
 		[
-			"collections/",
-			"models/",
-			"views/",
+			"app",
+			"app/templates/",
 			"app/collections/",
 			"app/models/",
-			"app/views/",
-			"0208 321 321"
+			"app/views/"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -301,233 +253,13 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "client/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 855,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								847,
-								847
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
-							],
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		},
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 1,
-					"file": "client/router.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1302,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								237,
-								237
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "client/app/config.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1679,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								385,
-								385
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -559,7 +291,7 @@
 		"cols":
 		[
 			0.0,
-			0.428107793378,
+			0.487732940519,
 			1.0
 		],
 		"rows":
@@ -576,7 +308,7 @@
 	"project": "fashioneto.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 38.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -585,151 +317,59 @@
 		"selected_items":
 		[
 			[
+				"main",
+				"app\\views\\main.js"
+			],
+			[
 				"index",
-				"index.html"
-			],
-			[
-				"config",
-				"app/config.js"
-			],
-			[
-				"base",
-				"app/views/sidebar/basesidebarview.js"
-			],
-			[
-				"basepa",
-				"app/views/pages/basepageview.js"
-			],
-			[
-				"sidebar",
-				"views/sidebar/basesidebarview.js"
-			],
-			[
-				"basepag",
-				"views/pages/basepageview.js"
-			],
-			[
-				"basepage",
-				"client/views/pages/basepageview.js"
-			],
-			[
-				"nav",
-				"client/views/ui/nav.js"
+				"client\\index.html"
 			],
 			[
 				"router",
-				"client/router.js"
-			],
-			[
-				"wall",
-				"client/views/wall/wall.js"
-			],
-			[
-				"baseside",
-				"client/views/sidebar/basesidebarview.js"
-			],
-			[
-				"prof",
-				"client/views/profile.js"
-			],
-			[
-				"profile",
-				"client/templates/pages/profile.hbr"
-			],
-			[
-				"main",
-				"client/templates/main.hbr"
-			],
-			[
-				"confi",
-				"client/config.js"
+				"client\\router.js"
 			],
 			[
 				"inde",
-				"client/index.html"
-			],
-			[
-				"like",
-				"views/like/like.js"
-			],
-			[
-				"helper",
-				"client/helpers/helper.js"
-			],
-			[
-				"post.js",
-				"client/views/wall/post.js"
+				"client\\index.html"
 			],
 			[
 				"post",
-				"client/models/wall/post.js"
+				"views\\wall\\post.js"
+			],
+			[
+				"feed",
+				"views\\pages\\feed.js"
 			],
 			[
 				"items",
-				"client/templates/items/items.hbr"
-			],
-			[
-				"posts",
-				"client/views/wall/posts.js"
+				"views\\pages\\items.js"
 			],
 			[
 				"people",
-				"client/views/people.js"
+				"views\\pages\\people.js"
 			],
 			[
-				"basep",
-				"client/views/basepageview.js"
+				"profi",
+				"views\\pages\\profile.js"
 			],
 			[
-				"basepagev",
-				"client/views/basepageview.js"
-			],
-			[
-				"phoo",
-				"Fashioneto/client/views/photos/photos.js"
-			],
-			[
-				"photos",
-				"Fashioneto/client/views/photos/photos.js"
-			],
-			[
-				"tabwa",
-				"Fashioneto/client/views/tabwrapper.js"
-			],
-			[
-				"page",
-				"Fashioneto/client/views/basepageview.js"
-			],
-			[
-				"tabwra",
-				"Fashioneto/client/views/tabwrapper.js"
-			],
-			[
-				"post.hbr",
-				"Fashioneto/client/templates/wall/post.hbr"
-			],
-			[
-				"",
-				"Fashioneto/client/mock/wall/mockpostscollection.js"
-			],
-			[
-				"comment",
-				"Fashioneto/client/templates/comments/comment.hbr"
-			],
-			[
-				"comments",
-				"Fashioneto/client/models/comments/comment.js"
-			],
-			[
-				"mock",
-				"Fashioneto/client/mock/wall/mockpostscollection.js"
-			],
-			[
-				"posts.js",
-				"Fashioneto/client/views/wall/posts.js"
+				"nav",
+				"views\\nav.js"
 			],
 			[
 				"help",
+				"helpers\\helper.js"
+			],
+			[
+				"basepa",
+				"views\\basepageview.js"
+			],
+			[
+				"pro",
+				"C:\\Projects\\Fashioneto\\client\\views\\profile.js"
+			],
+			[
+				"helper",
 				"Fashioneto\\client\\helpers\\helper.js"
 			],
 			[
@@ -737,8 +377,20 @@
 				"Fashioneto\\client\\config.js"
 			],
 			[
+				"wall",
+				"templates\\wall\\wall.hbr"
+			],
+			[
+				"mock",
+				"Fashioneto\\client\\mock\\wall\\mockpostscollection.js"
+			],
+			[
 				"moc",
 				"Fashioneto\\client\\mock\\comments\\mockcommentscollection.js"
+			],
+			[
+				"confi",
+				"Fashioneto\\client\\config.js"
 			],
 			[
 				"timeago",
@@ -749,8 +401,20 @@
 				"templates\\comments\\comment.hbr"
 			],
 			[
+				"comments",
+				"collections\\comments\\comments.js"
+			],
+			[
+				"comment",
+				"models\\comments\\comment.js"
+			],
+			[
 				"config.",
 				"Fashioneto\\client\\config.js"
+			],
+			[
+				"post.hbr",
+				"templates\\wall\\post.hbr"
 			],
 			[
 				"style.",
@@ -773,16 +437,16 @@
 				"views\\tabwrapper.js"
 			],
 			[
+				"profile",
+				"views\\profile.js"
+			],
+			[
 				"profle",
 				"templates\\pages\\profile.hbr"
 			],
 			[
-				"profi",
-				"client\\templates\\pages\\profile.hbr"
-			],
-			[
-				"pro",
-				"client\\views\\profile.js"
+				"prof",
+				"views\\profile.js"
 			]
 		],
 		"width": 0.0
@@ -794,22 +458,18 @@
 		[
 			[
 				"",
-				"~/workspace-bmo-case-study/tms-monitoring/src/main/resources/client/case-study.sublime-project"
-			],
-			[
-				"cas",
-				"/var/www/casestudy/case-study.sublime-workspace"
+				"C:\\Projects\\Fashioneto\\Sublime-workspace.sublime-workspace"
 			]
 		],
 		"width": 380.0
 	},
 	"select_symbol":
 	{
-		"height": 392.0,
+		"height": 0.0,
 		"selected_items":
 		[
 		],
-		"width": 392.0
+		"width": 0.0
 	},
 	"settings":
 	{
@@ -818,7 +478,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 142.0,
+	"side_bar_width": 149.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

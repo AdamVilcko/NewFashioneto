@@ -1,5 +1,5 @@
 define(function(require){
-	
+
 	var
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
@@ -18,7 +18,7 @@ define(function(require){
 			this.options = options || {};
 			this.init( options );
 		}
-		
+
 	});
 
 });

@@ -1,12 +1,12 @@
 define(function(require){
-	
+
 	var
 	Backbone           = require("backbone"),
 	Handlebars         = require("handlebars"),
 	$                  = require("jquery"),
 	Helper             = require('helper'),
-	
-	MasterBasePageView = require('views/masterbasepageview');
+
+	MasterBasePageView = require('views/masterbaseview');
 
 	return MasterBasePageView.extend({
 
@@ -25,14 +25,14 @@ define(function(require){
 		},
 
 		handle: function( tab ){
-			if( tab ) this.activeTab = tab;			
+			if( tab ) this.activeTab = tab;
 			this.render();
 			Helper.navState( this.pageId, this.activeTab );
 		},
 
 		render: function(){
 
-			if( typeof this.preRender !== "undefined" ) this.preRender();			
+			if( typeof this.preRender !== "undefined" ) this.preRender();
 
 			this.$el
 			.html( this.template() );
@@ -58,7 +58,7 @@ define(function(require){
 		tabTo: function( data ){
 			this.$el
 			.find( this.nodes.tabContainer )
-			.html( this.tabs[ data.tab ].render().el );			
+			.html( this.tabs[ data.tab ].render().el );
 		},
 
 
@@ -71,7 +71,7 @@ define(function(require){
 
 		clickState: function( ev ){
 			ev.stopPropagation();
-		}		
+		}
 
 	});
 

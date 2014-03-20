@@ -8,7 +8,7 @@ define(function(require){
 	template = require("text!templates/photos/photos.hbr");
 
 
-	return Backbone.View.extend({		
+	return Backbone.View.extend({
 
 		template: Handlebars.compile( template ),
 
@@ -16,7 +16,7 @@ define(function(require){
 			this.$el.html( this.template() );
 			return this;
 		}
-		
+
 	});
 
 });

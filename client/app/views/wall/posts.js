@@ -3,11 +3,10 @@ define(function(require){
 	var
 	Backbone           = require("backbone"),
 	Handlebars         = require("handlebars"),
-	$                  = require("jquery"),	
-	
-	PostView           = require("views/wall/post.js"),
-	PostsCollection    = require("collections/wall/posts.js"),
-	mockCollectionData = require("mock/wall/mockpostscollection");
+	$                  = require("jquery"),
+
+	PostView           = require("views/wall/post"),
+	PostsCollection    = require("collections/wall/posts");
 
 
 	return Backbone.View.extend({
@@ -19,7 +18,7 @@ define(function(require){
 			.fetch();
 		},
 
-		render: function(){		
+		render: function(){
 			this.$el.empty();
 			this.collection.each( this.renderPost, this );
 			return this;
@@ -29,7 +28,7 @@ define(function(require){
 			var postView = new PostView( { model: post } );
 			this.$el.append( postView.render().el );
 		}
-		
+
 	});
 
 });

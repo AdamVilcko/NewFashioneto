@@ -1,7 +1,7 @@
 root = "/ftest/as/";
 
-App = {    
-    
+App = {
+
     vent: null,
 
     content: {
@@ -22,24 +22,29 @@ App = {
 
 require = {
 
-    baseUrl:"/client/app",
-    
+
+
     paths: {
 
+        "views": "views",
+        "models": "models",
+        "collections": "collections",
+        "templates": "templates",
+
         "helper": "helpers/helper",
-        "jquery": "lib/jquery-1.10.2",
-        "jqueryui": "lib/jquery-ui-1.10.4.custom.min",
-        "mootools": "lib/mootools-core-1.4.5-full",
-        "backbone": "lib/backbone1.1.0",
-        "_": "lib/underscore1.5.2",
-        "bootstrap": "lib/bootstrap",
-        "handlebars": "lib/handlebars-v1.1.2",
-        "modernizr": "lib/modernizr",
-        "class": "lib/mootools-class-1.4.5",
-        "jquery.masonry": "lib/jquery.masonry.min",
-        "moment": "lib/moment-with-langs.min",
-        "jquery.livestamp": "lib/livestamp"
-        
+        "jquery": "../lib/jquery-1.10.2",
+        "jqueryui": "../lib/jquery-ui-1.10.4.custom.min",
+        "mootools": "../lib/mootools-core-1.4.5-full",
+        "backbone": "../lib/backbone1.1.0",
+        "_": "../lib/underscore1.5.2",
+        "bootstrap": "../lib/bootstrap",
+        "handlebars": "../lib/handlebars-v1.1.2",
+        "modernizr": "../lib/modernizr",
+        "class": "../lib/mootools-class-1.4.5",
+        "jquery.masonry": "../lib/jquery.masonry.min",
+        "moment": "../lib/moment-with-langs.min",
+        "jquery.livestamp": "../lib/livestamp"
+
         },
 
     shim:{

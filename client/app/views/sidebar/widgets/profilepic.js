@@ -4,7 +4,7 @@ define(function(require){
 	Backbone       = require("backbone"),
 	Handlebars     = require("handlebars"),
 	$              = require("jquery"),
-	
+
 	template       = require("text!templates/wall/wall.hbr"),
 	BaseWidgetView = require("views/sidebar/widgets/basewidgetview");
 
@@ -16,7 +16,7 @@ define(function(require){
 		},
 
 		template: Handlebars.compile( template )
-		
+
 	});
 
 });
