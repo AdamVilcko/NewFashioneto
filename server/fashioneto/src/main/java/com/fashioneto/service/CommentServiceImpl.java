@@ -4,9 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.fashioneto.dao.CommentDAO;
 import com.fashioneto.persistence.Comment;
@@ -29,11 +27,16 @@ public class CommentServiceImpl implements CommentService
 	@Override
 	public int addLike(int userId, int commentId)
 	{
+		Comment comment = entityManager.find(Comment.class, commentId);
 		LikeComment like = new LikeComment();
-		like.setComment(new Comment(commentId));
+		like.setComment(comment);
 		like.setUser(new User(userId));
 
-		like = commentDAO.save(like);
+		if (!comment.getLikes().contains(like))
+		{
+			like = commentDAO.save(like);
+		}
+
 		return getNumberOfLikes(commentId);
 	}
 
