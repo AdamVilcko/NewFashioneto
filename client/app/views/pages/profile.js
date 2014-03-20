@@ -3,14 +3,14 @@ define(function(require){
 	var	
 	$              = require( "jquery" ),
 	Backbone       = require( "backbone" ),
-	Handlebars     = require( "handlebars" ),	
-	Helper         = require( 'helper' ),	
+	Handlebars     = require( "handlebars" ),
+	Helper         = require( 'helper' ),
 	
-	BasePageView   = require( "views/pages/basepageview" ),	
+	BasePageView   = require( "views/pages/basepageview" ),
 	Wall           = require( "views/wall/wall.js" ),
 	Photos         = require( "views/photos/photos.js" ),
-	Items          = require( "views/items/items.js" ),	
-	ProfileSidebar = require( "views/sidebar/profilesidebar" ),	
+	Items          = require( "views/items/items.js" ),
+	ProfileSidebar = require( "views/sidebar/profilesidebar" ),
 	pageTemplate   = require( "text!templates/pages/profile.hbr" );
 	
 

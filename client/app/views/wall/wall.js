@@ -18,7 +18,7 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		initialize: function(){
-			this.posts = new Posts();		
+			this.posts = new Posts();
 		},
 
 		render: function(){

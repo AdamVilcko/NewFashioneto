@@ -1,13 +1,13 @@
 root = "/ftest/as/";
 
-App = {
+App = {    
     
     vent: null,
 
     content: {
         language:"EN-GB",
         title: "Fasioneto"
-    },    
+    },
 
     rest: {
         wall: "comment/USER/1",
@@ -21,6 +21,8 @@ App = {
 }
 
 require = {
+
+    baseUrl:"/client/app",
     
     paths: {
 

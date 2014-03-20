@@ -19,7 +19,7 @@ define(function(require){
 			return this;
 		}
 
-		//DOM events		
+		//DOM events
 
 	});
 
