@@ -1,16 +1,19 @@
 define(function(require){
 
 	var
-	Backbone          = require("backbone"),
-	Handlebars        = require("handlebars"),
-	$                 = require("jquery"),
-	Cookie            = require("jquery.cookie"),
-	
-	MasterBaseView    = require("views/masterbaseview"),
-	loginFormTemplate = require("text!templtes/login/login.hbr");
+	Backbone          = require( "backbone" ),
+	Handlebars        = require( "handlebars" ),
+	$                 = require( "jquery" ),
+	Cookie            = require( "jquery.cookie" ),
+
+	MasterBaseView    = require( "views/masterbaseview" ),
+	mainLoginTemplate = require( "text!templates/login/mainlogin.hbr" ),
+	loginFormTemplate = require( "text!templates/login/loginform.hbr" );
 
 
-	MasterBaseView.extend({
+	return MasterBaseView.extend({
+
+		el: document.body,
 
 		initialize: function( options ){
 			this.options = options || {};
@@ -18,7 +21,7 @@ define(function(require){
 			if( this.loggedIn() ){
 				this.options.success();
 			} else {
-				this.mainLogin();
+				this.renderMainLogin();
 			}
 		},
 
@@ -36,13 +39,13 @@ define(function(require){
 
 		renderMainLogin: function(){
 			this.$el
-			.html( this.templates.mainLogin() )			
+			.html( this.templates.mainLogin() )
 			.find( ".login" )
 			.html( this.templates.loginForm() );
 		},
 
 		renderModalLogin: function(){
-			
+
 		},
 
 
@@ -61,33 +64,31 @@ define(function(require){
 
 		events: {
 			"click .loginbtn" : "submit"
-		},		
+		},
 
 		submit: function( ev ){
 			ev.preventDefault();
+			var form, loginCredentials;
 
-			var
+			form = $( ev.target ).parents( "form" );
+
 			loginCredentials = {
-				username: ev.something,
-				passowrd: ev.something
-			};
+				username: form.find( ".username" ).val(),
+				password: form.find( ".password" ).val()
+			}
 
 			$.ajax({
 				 type: "POST",
 				 context: this,
-				 url: App.rest.login,
+				 url: App.url( 'login' ),
 				 data: loginCredentials,
 
 				 success: function( data, textStatus, jqXHR ){
 				 	$.cookie("fashioneto", 1, {
 					   expires : 10,
 					   path    : '/',
-					   domain  : 'fashioneto.com',
-					   /*secure  : true*/          //If set to true the secure attribute of the cookie
-					                           //will be set and the cookie transmission will
-					                           //require a secure protocol (defaults to false).
+					   domain  : 'fashioneto.com'
 					});
-
 				 },
 
 				 complete: function( jqXHR, textStatus ){
@@ -98,7 +99,11 @@ define(function(require){
 				 },
 				 statusCode: {
 				    401: function() {
-				      //Unauthorised access
+
+				    },
+
+				    404: function(){
+				    	console.log("404 init bruv");
 				    }
 				 }
 			});

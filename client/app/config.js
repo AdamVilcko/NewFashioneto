@@ -7,10 +7,10 @@ App = {
         title: "Fasioneto"
     },
 
-    root: "/ftest/as/",
+    root: "/Fashioneto-0.1b/as/",
 
     rest: {
-        login: "",
+        login: "user/authenticate",
         wall: "comment/USER/1",
         like: "comment/like/1"
     },

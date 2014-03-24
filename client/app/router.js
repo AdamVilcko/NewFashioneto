@@ -3,20 +3,24 @@ require([
 	"_",
 	'jquery',
 	'handlebars',
+	'views/login/login',
 	'views/main',
 	'helper',
 	'bootstrap',
 	'jquery.masonry'
 ],
-function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
+function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonry ){
 
 
 	var Router = Backbone.Router.extend({
 
 
 		initialize: function(){
-			//Login
-			this.mainView = new MainView();
+			this.login = new Login({
+				success: function(){
+					this.mainView = new MainView();
+				}
+			});
 			this.bind( "all", this.changeRoute );
 		},
 
