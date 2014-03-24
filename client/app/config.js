@@ -1,5 +1,3 @@
-root = "/ftest/as/";
-
 App = {
 
     vent: null,
@@ -9,20 +7,20 @@ App = {
         title: "Fasioneto"
     },
 
+    root: "/ftest/as/",
+
     rest: {
         wall: "comment/USER/1",
         like: "comment/like/1"
     },
 
     url: function( arg ){
-        return root + this.rest[ arg ];
+        return this.root + this.rest[ arg ];
     }
 
 }
 
 require = {
-
-
 
     paths: {
 
@@ -43,9 +41,10 @@ require = {
         "class": "../lib/mootools-class-1.4.5",
         "jquery.masonry": "../lib/jquery.masonry.min",
         "moment": "../lib/moment-with-langs.min",
-        "jquery.livestamp": "../lib/livestamp"
+        "jquery.livestamp": "../lib/livestamp",
+        "jquery.cookie": "../lib/jquery.cookie"
 
-        },
+    },
 
     shim:{
 
@@ -69,6 +68,7 @@ require = {
 
         "jquery.masonry": ['jquery'],
         "jquery.livestamp": ['jquery'],
+        "jquery.cookie": ['jquery'],
 
         jqueryui: ['jquery'],
 

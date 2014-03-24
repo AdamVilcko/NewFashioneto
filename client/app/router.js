@@ -15,6 +15,8 @@ function( Backbone, _, $, Handlebars, MainView, Helper, bootstrap, masonry ){
 
 
 		initialize: function(){
+			//Login
+
 			this.mainView = new MainView();
 			this.bind( "all", this.changeRoute );
 		},

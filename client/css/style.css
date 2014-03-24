@@ -1,5 +1,5 @@
 body{
-	background: #f7f5f2;	
+	background: #f7f5f2;
 	color:#3a2444;
 	min-height: 0;
 	padding-top: 42px;
@@ -15,7 +15,7 @@ h1,h2,h3,h4,h5,h6, select{
 }
 
 .form-control{
-	border:1px solid #d0cbc7;	
+	border:1px solid #d0cbc7;
 	color:#3a2444;
 }
 
@@ -51,7 +51,7 @@ textarea:-ms-input-placeholder{
 /* Modals */
 
 .modal .row{
-	
+
 }
 
 .modal-content{
@@ -124,12 +124,12 @@ span.underline{
 	text-shadow:none;
 }
 
-.modal section{		
+.modal section{
 	padding:30px;
 }
 
-.modal section:last-child{	
-	margin-bottom:0;	
+.modal section:last-child{
+	margin-bottom:0;
 }
 
 .rule{
@@ -138,7 +138,7 @@ span.underline{
 
 .horizontal{
 	position: absolute;
-	width:100%;	
+	width:100%;
 	height:1px;
 }
 
@@ -147,7 +147,7 @@ span.underline{
 	overflow: hidden;
 }
 
-.modal .left{	
+.modal .left{
 	border-right: 1px solid #dddddd;
 }
 
@@ -222,7 +222,7 @@ section.itemDetails button.like{
 
 .viewingItem a.moreInfo span{
 	font-size:0.8em;
-	line-height: inherit;	
+	line-height: inherit;
 }
 
 .viewingItem .heading{
@@ -251,7 +251,7 @@ section.recommendations .title{
 }
 
 section.recommendations .media-heading{
-	font-size:14px;	
+	font-size:14px;
 }
 
 
@@ -333,7 +333,7 @@ section.photoframe{
 
 #photoModal .page-tabs li a{
 	line-height:20px;
-} 
+}
 
 
 
@@ -352,7 +352,7 @@ section.photoframe{
 }
 
 button.addphotos{
-	
+
 }
 
 button.addphotos{
@@ -437,6 +437,28 @@ a.addPhotosLink:before{
 
 /* Navigation */
 
+.navbar-toggle{
+	margin-top: 14px;
+}
+
+.navbar-default .navbar-toggle {
+border-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+background-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+	background-color:#fff;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar{
+	background-color:#3a2444;
+}
+
+
+
 .navbar-brand{
 	padding: 20px 15px;
 }
@@ -462,7 +484,7 @@ a.addPhotosLink:before{
 
 .navbar-default .navbar-nav>li>a {
 	color:#fff;
-	text-shadow:1px 2px 2px rgba(0,0,0,0.7);	
+	text-shadow:1px 2px 2px rgba(0,0,0,0.7);
 }
 
 .navbar-default .navbar-nav>li.active,
@@ -476,7 +498,7 @@ a.addPhotosLink:before{
 .navbar-default .navbar-nav>.active>a:hover,
 .navbar-default .navbar-nav>.active>a:focus{
 	color:#fff;
-	background:#2d1d35;	
+	background:#2d1d35;
 }
 
 .navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus {
@@ -509,9 +531,9 @@ a.addPhotosLink:before{
 	border-right:1px solid #000;
 	border-bottom:1px solid #000;
 	background:#2d1d35;
-	position: absolute;	
-	margin-top:1px;	
-	
+	position: absolute;
+	margin-top:1px;
+
 	right: -1px;
 	white-space:nowrap;
 	zoom:0.1;
@@ -528,7 +550,7 @@ a.addPhotosLink:before{
 
 #nav-right li .subMenu .body{
 	z-index:3;
-	position: relative;	
+	position: relative;
 }
 
 #nav-right li .subMenu:before{
@@ -553,7 +575,7 @@ a.addPhotosLink:before{
 	height: 15px;
 	top:0;
 	right:0px;
-	
+
 }
 
 
@@ -590,7 +612,7 @@ a.addPhotosLink:before{
 }
 
 #nav-right li.search a{
-	background-image: url(../img/nav-search.png);	
+	background-image: url(../img/nav-search.png);
 }
 
 #nav-right li.search a:hover,
@@ -599,7 +621,7 @@ a.addPhotosLink:before{
 }
 
 #nav-right li.search a{
-	
+
 }
 
 #nav-right li.search .subMenu{
@@ -650,7 +672,7 @@ a.addPhotosLink:before{
 	background-image: url(../img/nav-notifications-hover.png);
 }
 
-#nav-right li.notifications a span {	
+#nav-right li.notifications a span {
 	position: absolute;
 	display: inline-block;
 	text-indent: -2px;
@@ -662,7 +684,7 @@ a.addPhotosLink:before{
 	text-align:center;
 	border:1px solid rgba(0,0,0,0.7);
 	font-size:0.75em;
-	
+
 }
 
 
@@ -673,7 +695,7 @@ a.addPhotosLink:before{
 #nav-right li.profile > a{
 	position: relative;
 	text-indent:0px;
-	padding:15px 45px 12px 15px;	
+	padding:15px 45px 12px 15px;
 }
 
 #nav-right li.profile > a > img{
@@ -716,7 +738,7 @@ a.addPhotosLink:before{
 	right:0;
 }
 
-#nav-right li.profile .subMenu{	
+#nav-right li.profile .subMenu{
 	margin-top:2px;
 	right:1px;
 	padding:10px 18px;
@@ -765,7 +787,7 @@ a.addPhotosLink:before{
 
 .well:after{
 	border-radius: 4px;
-	content:"";	
+	content:"";
 	height: 100%;
 	width:96%;
 	display:block;
@@ -785,8 +807,8 @@ a.addPhotosLink:before{
 /* Buttons */
 
 .btn-primary{
-	position: relative;	
-	border:1px solid #000;	
+	position: relative;
+	border:1px solid #000;
 	background: #6c5377; /* Old browsers */
 	background: -moz-linear-gradient(top,  #6c5377 0%, #543761 85%, #543761 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c5377), color-stop(85%,#543761), color-stop(100%,#543761)); /* Chrome,Safari4+ */
@@ -800,7 +822,7 @@ a.addPhotosLink:before{
 
 .btn-primary:after{
 	border-radius: 4px;
-	content:"";	
+	content:"";
 	height: 100%;
 	width:100%;
 	display:block;
@@ -808,7 +830,7 @@ a.addPhotosLink:before{
 	top:0;
 	left:0;
 	z-index:10;
-	opacity: 1;	
+	opacity: 1;
 	border-top: 1px solid #8e6e9d;
 }
 
@@ -844,7 +866,7 @@ a.addPhotosLink:before{
 	background: url(../img/button-like.png) no-repeat 10px center, -o-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* Opera 11.10+ */
 	background: url(../img/button-like.png) no-repeat 10px center, -ms-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* IE10+ */
 	background: url(../img/button-like.png) no-repeat 10px center, linear-gradient(to bottom,  #f9f8f7 0%,#f3f1ef 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 ); /* IE6-9 */	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 ); /* IE6-9 */
 }
 
 .heart{
@@ -855,7 +877,7 @@ a.addPhotosLink:before{
 	background: url(../img/button-like-heart.png) no-repeat 10px center, -o-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* Opera 11.10+ */
 	background: url(../img/button-like-heart.png) no-repeat 10px center, -ms-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* IE10+ */
 	background: url(../img/button-like-heart.png) no-repeat 10px center, linear-gradient(to bottom,  #f9f8f7 0%,#f3f1ef 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 ); /* IE6-9 */	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 ); /* IE6-9 */
 
 }
 
@@ -990,7 +1012,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 
 .page-tabs li a{
 	line-height: 45px;
-	position: relative;	
+	position: relative;
 	border-radius: 0;
 }
 
@@ -1046,7 +1068,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 }
 
 #controls .slider{
-	
+
 }
 
 
@@ -1091,7 +1113,7 @@ p{
 
 /* UserTitle */
 
-#userTitle{	
+#userTitle{
 	margin-bottom:20px;
 }
 
@@ -1155,7 +1177,7 @@ p{
 }
 
 #images {
-	margin-bottom:15px;	
+	margin-bottom:15px;
 }
 
 #images img{
@@ -1257,7 +1279,7 @@ p{
 }
 
 .comments .media. .media-heading{
-	
+
 }
 
 .comments .media-heading span{
@@ -1275,7 +1297,7 @@ p{
 }
 
 .comments .media > a:after{
-	content: none!important;	
+	content: none!important;
 }
 
 .comments textarea{
@@ -1352,7 +1374,7 @@ p{
 
 .badges li{
 	background:url(../img/badge.png) no-repeat;
-	display: inline-block;	
+	display: inline-block;
 	width:65px;
 	height:65px;
 }
@@ -1382,7 +1404,7 @@ p{
 }
 
 #stats .pull-left{
-	
+
 }
 
 #stats .pull-right{
@@ -1426,7 +1448,7 @@ p{
 .people .caption h5,
 .people .caption h6{
 	color:#3a2444;
-	text-indent:10px;	
+	text-indent:10px;
 }
 
 .people .caption h5{
@@ -1553,7 +1575,7 @@ footer ul > li {
 }
 
 #copyright{
-	text-align: center;	
+	text-align: center;
 	color:#797170;
 }
 

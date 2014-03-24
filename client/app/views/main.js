@@ -38,7 +38,7 @@ define(function(require){
 
 		template: Handlebars.compile( mainTemplate ),
 
-		initialize:function(){
+		initialize: function(){
 			this.render();
 			this.invokePages();
 		},
@@ -57,7 +57,6 @@ define(function(require){
 
 		invokePages: function() {
 			this.pages = {
-				feed: new Feed(),
 				items: new Items(),
 				people: new People(),
 				profile: new Profile()

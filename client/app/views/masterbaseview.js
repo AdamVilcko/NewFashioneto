@@ -1,5 +1,5 @@
 define(function(require){
-	
+
 	var
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
@@ -7,6 +7,10 @@ define(function(require){
 	Helper     = require('helper');
 
 	return Backbone.View.extend({
+
+		render: function(){
+			this.$el.html( this.template() );
+		},
 
 		close: function(){
 			//Other close content here
