@@ -10,6 +10,7 @@ App = {
     root: "/ftest/as/",
 
     rest: {
+        login: "",
         wall: "comment/USER/1",
         like: "comment/like/1"
     },

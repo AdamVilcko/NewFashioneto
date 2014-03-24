@@ -7,11 +7,27 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "client/app/views/login/login.js",
+			"settings":
+			{
+				"buffer_size": 1417,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/app/templates/login/login.hbr",
+			"settings":
+			{
+				"buffer_size": 325,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 400.0,
 		"selected_items":
 		[
 			[
@@ -59,7 +75,7 @@
 				"Git: Status"
 			]
 		],
-		"width": 422.0
+		"width": 503.0
 	},
 	"console":
 	{
@@ -80,6 +96,11 @@
 	},
 	"file_history":
 	[
+		"/var/www/Fashioneto/Fashioneto/client/app/views/pages/items.js",
+		"/var/www/Fashioneto/Fashioneto/client/app/templates/login/login.hbr",
+		"/var/www/Fashioneto/Fashioneto/client/app/views/login/login.js",
+		"/var/www/Fashioneto/Fashioneto/client/app/router.js",
+		"/var/www/Fashioneto/Fashioneto/client/app/config.js",
 		"/C/Projects/Fashioneto/client/app/collections/comments/comments.js",
 		"/C/Projects/Fashioneto/client/app/models/comments/comment.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/basepageview.js",
@@ -253,8 +274,151 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "client/app/views/login/login.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1417,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								378,
+								378
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/app/templates/login/login.hbr",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 325,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close"
+							],
+							"syntax": "Packages/Handlebars/Handlebars.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		},
 		{
@@ -291,7 +455,7 @@
 		"cols":
 		[
 			0.0,
-			0.487732940519,
+			0.718050214315,
 			1.0
 		],
 		"rows":
@@ -317,6 +481,18 @@
 		"selected_items":
 		[
 			[
+				"items",
+				"app/views/pages/items.js"
+			],
+			[
+				"login",
+				"app/templates/login/login.hbr"
+			],
+			[
+				"lo",
+				"app/views/login/login.js"
+			],
+			[
 				"main",
 				"app\\views\\main.js"
 			],
@@ -339,10 +515,6 @@
 			[
 				"feed",
 				"views\\pages\\feed.js"
-			],
-			[
-				"items",
-				"views\\pages\\items.js"
 			],
 			[
 				"people",
@@ -458,7 +630,7 @@
 		[
 			[
 				"",
-				"C:\\Projects\\Fashioneto\\Sublime-workspace.sublime-workspace"
+				"~/workspace-bmo-case-study/tms-monitoring/src/main/resources/client/case-study.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -478,7 +650,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 149.0,
+	"side_bar_width": 124.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
