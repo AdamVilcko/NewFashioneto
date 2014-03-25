@@ -8,6 +8,8 @@ define(function(require){
 	Backbone       = require( 'backbone' ),
 	Handlebars     = require( 'handlebars' ),
 
+	Login = require( 'views/login/login' ),
+
 	//Master base view
 
 	MasterBaseView = require( 'views/masterbaseview' ),

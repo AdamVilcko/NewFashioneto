@@ -15,25 +15,28 @@ define(function(require){
 
 		el: document.body,
 
+		templates: {
+			loginForm: Handlebars.compile( loginFormTemplate ),
+			mainLogin: Handlebars.compile( mainLoginTemplate )
+		},
+
+		events: {
+			"click .loginbtn" : "login"
+		},
+
+		nodes: {
+			username: ".username",
+			password: ".password"
+		},
+
 		initialize: function( options ){
 			this.options = options || {};
 			if( this.loggedIn() ){
 				this.options.success.call( this.options.context );
 				App.vent.on( "login:sessionExpired", this.modalLogin, this );
+				App.vent.on( "login:logout", this.logout, this );
 			} else {
 				this.renderMainLogin();
-			}
-		},
-
-		loggedIn: function(){
-			var session = $.cookie("s");
-			if( session ){
-				$.ajaxSetup({
-				    headers: { 'X-Auth-Token': session.token }
-				});
-				return true;
-			} else {
-				return false;
 			}
 		},
 
@@ -48,25 +51,27 @@ define(function(require){
 
 		},
 
-
-		//DOM
-
-
-		templates: {
-			loginForm: Handlebars.compile( loginFormTemplate ),
-			mainLogin: Handlebars.compile( mainLoginTemplate )
+		loggedIn: function(){
+			var sessionToken = $.cookie("fashioneto");
+			if( sessionToken ){
+				$.ajaxSetup({
+				    headers: { 'X-Auth-Token': sessionToken }
+				});
+				return true;
+			} else {
+				return false;
+			}
 		},
 
-		nodes: {
-			username: ".username",
-			password: ".password"
+		logout: function(){
+			$.removeCookie("fashioneto");
+			//Reset application state - remove all events, clear memory!
+
+			//Exit to login
+			this.renderMainLogin();
 		},
 
-		events: {
-			"click .loginbtn" : "submit"
-		},
-
-		submit: function( ev ){
+		login: function( ev ){
 			ev.preventDefault();
 			var form, loginCredentials;
 
@@ -78,34 +83,27 @@ define(function(require){
 			}
 
 			$.ajax({
-				 type: "POST",
-				 context: this,
-				 url: App.url( 'login' ),
-				 data: loginCredentials,
+				type: "POST",
+				context: this,
+				url: App.url( 'login' ),
+				data: loginCredentials,
 
-				 success: function( data, textStatus, jqXHR ){
-				 	$.cookie("fashioneto", 1, {
-					   expires : 10,
-					   path    : '/',
-					   domain  : 'fashioneto.com'
+				success: function( data, textStatus, jqXHR ){
+					$.cookie("fashioneto", data.token, {
+						expires : 10
 					});
-				 },
+					$.ajaxSetup({
+						headers: { 'X-Auth-Token': data.token }
+					});
+					this.options.success.call( this.options.context );
+				},
 
-				 complete: function( jqXHR, textStatus ){
+				error: function( jqXHR, textStatus, errorThrown ){
+					if( jqXHR.status === 401 ){
+						alert( "Incorrect login credentials. Please try again!" );
+					}
+				}
 
-				 },
-				 error: function( jqXHR, textStatus, errorThrown ){
-
-				 },
-				 statusCode: {
-				    401: function() {
-
-				    },
-
-				    404: function(){
-				    	console.log("404 init bruv");
-				    }
-				 }
 			});
 
 		}
