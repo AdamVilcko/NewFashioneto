@@ -17,9 +17,9 @@ define(function(require){
 
 		initialize: function( options ){
 			this.options = options || {};
-			App.vent.on( "login:sessionExpired", this.modalLogin, this );
 			if( this.loggedIn() ){
-				this.options.success();
+				this.options.success.call( this.options.context );
+				App.vent.on( "login:sessionExpired", this.modalLogin, this );
 			} else {
 				this.renderMainLogin();
 			}

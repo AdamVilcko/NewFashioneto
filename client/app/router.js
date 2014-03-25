@@ -16,16 +16,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 
 		initialize: function(){
-			this.login = new Login({
-				success: function(){
-					this.mainView = new MainView();
-				}
-			});
-			this.bind( "all", this.changeRoute );
-		},
-
-		changeRoute: function(){
-
+			this.mainView = new MainView();
 		},
 
 

@@ -39,8 +39,13 @@ define(function(require){
 		template: Handlebars.compile( mainTemplate ),
 
 		initialize: function(){
-			this.render();
-			this.invokePages();
+			this.login = new Login({
+				success: function(){
+					this.render();
+					this.invokePages();
+				},
+				context: this
+			});
 		},
 
 		render: function(){
