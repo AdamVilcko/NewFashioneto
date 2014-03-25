@@ -29,9 +29,17 @@ public class UserDAOImpl implements UserDAO
 	@Override
 	public User findByName(String name)
 	{
+		System.out.println("\n\n ************ Looking for user: " + name);
 		TypedQuery<User> query = entityManager.createQuery("from User where username=:username ", User.class);
 		query.setParameter("username", name);
-		return query.getSingleResult();
+		User user = query.getSingleResult();
+		String userStri = "NULL";
+		if (user != null)
+		{
+			userStri = user.toString();
+		}
+		System.out.println("\n\n ************User found: " + userStri);
+		return user;
 	}
 
 	@Override
@@ -47,3 +55,4 @@ public class UserDAOImpl implements UserDAO
 	}
 
 }
+
