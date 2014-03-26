@@ -35,7 +35,7 @@ define(function(require){
 
 			if( this.checkLoggedIn() ){
 
-				this.alreadyLoggedIn();
+				this.proceed();
 
 			} else {
 
@@ -57,7 +57,7 @@ define(function(require){
 
 
 		//Login actions
-		
+
 
 		login: function( ev ){
 			ev.preventDefault();
@@ -83,10 +83,10 @@ define(function(require){
 					$.ajaxSetup({
 						headers: { 'X-Auth-Token': data.token }
 					});
-					this.options.success.call( this.options.context );
+					this.proceed();
 				},
 
-				error: function( jqXHR, textStatus, textStatus ){
+				error: function( jqXHR, textStatus, errorThrown ){
 					if( jqXHR.status === 401 ){
 						alert( "Incorrect login credentials. Please try again!" );
 					} else{
@@ -117,10 +117,10 @@ define(function(require){
 			}
 		},
 
-		alreadyLoggedIn: function(){
+		proceed: function(){
 			App.vent.on( "login:sessionExpired", this.modalLogin, this );
 			App.vent.on( "login:logout", this.logout, this );
-			this.options.success.call( this.options.context );			
+			this.options.success.call( this.options.context );
 		}
 
 	});
