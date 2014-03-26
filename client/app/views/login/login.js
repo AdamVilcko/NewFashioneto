@@ -30,14 +30,18 @@ define(function(require){
 		},
 
 		initialize: function( options ){
+
 			this.options = options || {};
-			if( this.loggedIn() ){
-				this.options.success.call( this.options.context );
-				App.vent.on( "login:sessionExpired", this.modalLogin, this );
-				App.vent.on( "login:logout", this.logout, this );
+
+			if( this.checkLoggedIn() ){
+
+				this.alreadyLoggedIn();
+
 			} else {
+
 				this.renderMainLogin();
 			}
+
 		},
 
 		renderMainLogin: function(){
@@ -51,25 +55,9 @@ define(function(require){
 
 		},
 
-		loggedIn: function(){
-			var sessionToken = $.cookie("fashioneto");
-			if( sessionToken ){
-				$.ajaxSetup({
-				    headers: { 'X-Auth-Token': sessionToken }
-				});
-				return true;
-			} else {
-				return false;
-			}
-		},
 
-		logout: function(){
-			$.removeCookie("fashioneto");
-			//Reset application state - remove all events, clear memory!
-
-			//Exit to login
-			this.renderMainLogin();
-		},
+		//Login actions
+		
 
 		login: function( ev ){
 			ev.preventDefault();
@@ -98,14 +86,41 @@ define(function(require){
 					this.options.success.call( this.options.context );
 				},
 
-				error: function( jqXHR, textStatus, errorThrown ){
+				error: function( jqXHR, textStatus, textStatus ){
 					if( jqXHR.status === 401 ){
 						alert( "Incorrect login credentials. Please try again!" );
+					} else{
+						alert( "Some other tings have happened that I can't explain maaan, you get me? The HTTP response is: " + textStatus  );
 					}
 				}
 
 			});
 
+		},
+
+		logout: function(){
+			$.removeCookie("fashioneto");
+			//Need to add "reset application state" process - remove all events, clear memory etc.
+			//Exit to login
+			this.renderMainLogin();
+		},
+
+		checkLoggedIn: function(){
+			var sessionToken = $.cookie("fashioneto");
+			if( sessionToken ){
+				$.ajaxSetup({
+				    headers: { 'X-Auth-Token': sessionToken }
+				});
+				return true;
+			} else {
+				return false;
+			}
+		},
+
+		alreadyLoggedIn: function(){
+			App.vent.on( "login:sessionExpired", this.modalLogin, this );
+			App.vent.on( "login:logout", this.logout, this );
+			this.options.success.call( this.options.context );			
 		}
 
 	});
