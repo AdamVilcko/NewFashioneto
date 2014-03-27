@@ -14,8 +14,7 @@ define(function(require){
 		initialize: function(){
 			this.collection = new PostsCollection();
 			this.collection
-			.on( "replace reset add remove", this.render, this )
-			.fetch();
+			.on( "replace reset add remove", this.render, this );
 		},
 
 		render: function(){

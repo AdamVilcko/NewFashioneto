@@ -16,7 +16,12 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 
 		initialize: function(){
-			this.mainView = new MainView();
+			this.login = new Login({
+				success: function(){
+					this.mainView = new MainView();
+				},
+				context: this
+			});
 		},
 
 
@@ -36,7 +41,9 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 			'items/:tab': 'items',
 
 			'itemmodal': 'itemModal',
-			'photomodal': 'photoModal'
+			'photomodal': 'photoModal',
+
+			'logout' : 'logout'
 
 		},
 
@@ -67,6 +74,10 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 		photoModal: function(){
 			$('#photoModal').modal();
+		},
+
+		logout: function(){
+			App.vent.trigger( 'login:logout' );
 		}
 
 

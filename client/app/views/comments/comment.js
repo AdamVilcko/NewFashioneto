@@ -9,6 +9,7 @@ define(function(require){
 	template   = require("text!templates/comments/comment.hbr");
 
 
+
 	return Backbone.View.extend({
 
 		className: "media comment",

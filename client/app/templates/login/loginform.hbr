@@ -1,15 +1,11 @@
-<form action="#">
-	<div class="form-group">
-		<label for="username">User name:</label>
-		<input class="username" name="username" type="text">
-	</div><!-- form-group -->
-
-	<div class="form-group">
-		<label for="password">Password:</label>
-		<input class="password" name="password" type="password">
-	</div><!-- form-group -->
-
-	<div class="form-group">
-		<button type="submit" class="btn btn-default loginbtn">Login</button>
-	</div><!-- form-group -->
+<form class="form-horizontal" role="form">
+  <div class="form-group">       
+      <input type="email" class="form-control username"  placeholder="User name">    
+  </div>
+  <div class="form-group">        
+      <input type="password" class="form-control password" placeholder="Password">   
+  </div>  
+  <div class="form-group">    
+      <button type="submit" class="btn btn-primary loginbtn">Log in</button>    
+  </div>
 </form>

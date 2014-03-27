@@ -41,13 +41,10 @@ define(function(require){
 		template: Handlebars.compile( mainTemplate ),
 
 		initialize: function(){
-			this.login = new Login({
-				success: function(){
-					this.render();
-					this.invokePages();
-				},
-				context: this
-			});
+			this.render();
+			this.invokePages();
+			this.$el.removeClass( "login" );
+			//Goto selected page or default page
 		},
 
 		render: function(){

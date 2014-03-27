@@ -26,7 +26,8 @@ define(function(require){
 
 		nodes: {
 			username: ".username",
-			password: ".password"
+			password: ".password",
+			loginContainer: ".loginform"
 		},
 
 		initialize: function( options ){
@@ -47,8 +48,10 @@ define(function(require){
 		renderMainLogin: function(){
 			this.$el
 			.html( this.templates.mainLogin() )
-			.find( ".login" )
+			.addClass( "login" )
+			.find( this.nodes.loginContainer )
 			.html( this.templates.loginForm() );
+
 		},
 
 		renderModalLogin: function(){
@@ -90,7 +93,7 @@ define(function(require){
 					if( jqXHR.status === 401 ){
 						alert( "Incorrect login credentials. Please try again!" );
 					} else{
-						alert( "Some other tings have happened that I can't explain maaan, you get me? The HTTP response is: " + textStatus  );
+						alert( jqXHR.status + ": " + errorThrown  );
 					}
 				}
 
@@ -100,8 +103,9 @@ define(function(require){
 
 		logout: function(){
 			$.removeCookie("fashioneto");
-			//Need to add "reset application state" process - remove all events, clear memory etc.
-			//Exit to login
+			$.ajaxSetup({
+				headers: { 'X-Auth-Token': "" }
+			});
 			this.renderMainLogin();
 		},
 
@@ -119,8 +123,14 @@ define(function(require){
 
 		proceed: function(){
 			App.vent.on( "login:sessionExpired", this.modalLogin, this );
-			App.vent.on( "login:logout", this.logout, this );
+			App.vent.on( "login:logout", this.logout, this );			
+
+			this.$el.css({
+				opacity:0
+			});
 			this.options.success.call( this.options.context );
+			this.$el.animate({ opacity:1 }, 1000 );
+			
 		}
 
 	});
