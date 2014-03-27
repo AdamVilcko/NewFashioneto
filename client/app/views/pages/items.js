@@ -16,7 +16,7 @@ define(function(require){
 
 	//Tab views
 
-	Items        = require("views/items/items"),
+	//Items        = require("views/items/items"),
 
 	//Main items template
 

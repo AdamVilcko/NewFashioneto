@@ -123,14 +123,12 @@ define(function(require){
 
 		proceed: function(){
 			App.vent.on( "login:sessionExpired", this.modalLogin, this );
-			App.vent.on( "login:logout", this.logout, this );			
-
-			this.$el.css({
-				opacity:0
-			});
+			App.vent.on( "login:logout", this.logout, this );
+			this.$el.css({ opacity:0 });
 			this.options.success.call( this.options.context );
 			this.$el.animate({ opacity:1 }, 1000 );
-			
+			App.vent.trigger( "login:load" );
+
 		}
 
 	});

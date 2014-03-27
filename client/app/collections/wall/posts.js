@@ -2,14 +2,13 @@ define(function(require){
 
 	//Deps
 
-	Backbone     = require( 'backbone' );
+	Backbone             = require( 'backbone' ),
 
-	//Model
+	MasterBaseCollection = require( 'collections/masterbasecollection' ),
+	Model                = require( 'models/wall/post' );
 
-	Model = require( 'models/wall/post' );
 
-
-	return Backbone.Collection.extend({
+	return MasterBaseCollection.extend({
 		model : Model,
 		url : App.url( 'wall' )
 	});

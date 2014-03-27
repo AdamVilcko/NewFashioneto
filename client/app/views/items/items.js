@@ -5,7 +5,7 @@ define(function(require){
 	Handlebars = require("handlebars"),
 	$          = require("jquery"),
 
-	template = require("text!templates/items/items.hbr");
+	template   = require("text!templates/items/items.hbr");
 
 
 	return Backbone.View.extend({

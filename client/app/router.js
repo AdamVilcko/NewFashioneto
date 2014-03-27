@@ -19,6 +19,8 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 			this.login = new Login({
 				success: function(){
 					this.mainView = new MainView();
+					//Load default page
+					window.location.hash = "profile";
 				},
 				context: this
 			});
