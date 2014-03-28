@@ -46,11 +46,14 @@ define(function(require){
 		},
 
 		renderMainLogin: function(){
+			this.$el.css({ opacity:0, "margin-left":"20px" });
 			this.$el
 			.html( this.templates.mainLogin() )
 			.addClass( "login" )
 			.find( this.nodes.loginContainer )
 			.html( this.templates.loginForm() );
+			this.$el.animate({ "margin-left":"0", opacity:1 }, 1000 );
+
 
 		},
 
