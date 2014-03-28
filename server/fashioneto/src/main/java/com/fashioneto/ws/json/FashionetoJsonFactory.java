@@ -40,6 +40,12 @@ public class FashionetoJsonFactory
 		return gson.toJson(user);
 	}
 
+	public static String getJson(Comment comment)
+	{
+		Gson gson = getGson();
+		return gson.toJson(comment);
+	}
+
 	public static String getJson(CommentSet comments)
 	{
 		Gson gson = getGson();

@@ -21,7 +21,7 @@ import com.fashioneto.ws.json.FashionetoJsonFactory;
 /**
  * @author Felipe
  */
-@UrlBinding("/as/user")
+@UrlBinding("/old/user")
 @Controller
 public class UserActionBean extends BaseActionBean
 {
@@ -42,8 +42,7 @@ public class UserActionBean extends BaseActionBean
 		//		Gson gson = new Gson();
 		//		String returnJson = gson.toJson(rw);
 		//		return new StreamingResolution("text", returnJson);
-		return new StreamingResolution("text",
-				FashionetoJsonFactory.getJson(fashionetoer.getReceivedCommentsCommentSet()));
+		return new StreamingResolution("text", FashionetoJsonFactory.getJson(fashionetoer));
 	}
 
 }

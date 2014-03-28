@@ -12,11 +12,13 @@ public class TokenUtils
 
 	public static final String MAGIC_KEY = "obfuscate";
 
+	/* Expires in TWENTY hours */
+	public static final Long MINUTES_TO_EXPIRE = 20 * 60L;
+
 	public static String createToken(UserDetails userDetails)
 	{
 
-		/* Expires in one hour */
-		long expires = System.currentTimeMillis() + 1000L * 60 * 60;
+		long expires = System.currentTimeMillis() + 1000L * 60 * MINUTES_TO_EXPIRE;
 
 		StringBuilder tokenBuilder = new StringBuilder();
 		tokenBuilder.append(userDetails.getUsername());

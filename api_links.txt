@@ -28,3 +28,15 @@ Comments:
   	POST http://localhost:8080/Fashioneto-0.1b/as/comment/like/{commentId}
 		Header:
 			X-Auth-Token = [token value]
+
+
+	POST http://localhost:8080/Fashioneto-0.1b/as/comment/add/{parentType}/{parentId}
+		Header:
+			X-Auth-Token = [token value]
+		Params:
+			content = [comment value]
+
+
+*****************
+
+OBS.: TOKEN is currently predefined to expire in 20 hours

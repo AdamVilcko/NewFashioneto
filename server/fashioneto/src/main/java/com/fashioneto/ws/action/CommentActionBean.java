@@ -22,7 +22,7 @@ import com.fashioneto.ws.json.FashionetoJsonFactory;
 /**
  * @author Felipe
  */
-@UrlBinding("/as/comment/{$event}/{parentType}/{parentId}")
+@UrlBinding("/old/comment/{$event}/{parentType}/{parentId}")
 @Controller
 public class CommentActionBean extends BaseActionBean
 {

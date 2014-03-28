@@ -1,5 +1,7 @@
 package com.fashioneto.service;
 
+import java.util.Date;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -8,8 +10,11 @@ import org.springframework.stereotype.Service;
 
 import com.fashioneto.dao.CommentDAO;
 import com.fashioneto.persistence.Comment;
+import com.fashioneto.persistence.CommentParentTypeEnum;
 import com.fashioneto.persistence.LikeComment;
 import com.fashioneto.persistence.User;
+import com.fashioneto.utils.ContextUtils;
+import com.fashioneto.utils.NoUserInContextException;
 
 /**
  * @author Felipe Tonon 16 Mar 2014
@@ -44,6 +49,18 @@ public class CommentServiceImpl implements CommentService
 	public int getNumberOfLikes(int commentId)
 	{
 		return commentDAO.getNumberOfLikes(commentId);
+	}
+
+	@Override
+	public Comment addComment(CommentParentTypeEnum parentType, int parentId, String content)
+			throws NoUserInContextException
+	{
+		Comment comment = new Comment();
+		comment.setDate(new Date());
+		comment.setUser(ContextUtils.getUserFromAuthenticationContext());
+		comment.setContent(content);
+
+		return commentDAO.saveNew(parentType, parentId, comment);
 	}
 
 }
