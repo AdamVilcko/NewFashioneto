@@ -27,8 +27,10 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 	public static final String JSON_PROPERTY_USER_NAME = "userName";
 	public static final String JSON_PROPERTY_LIKES = "likes";
 	public static final String JSON_PROPERTY_DATE = "date";
+	public static final String JSON_PROPERTY_STATUS = "status";
 
-	private JsonElement getJsonFromComment(Comment comment, JsonSerializationContext context) throws NoUserInContextException
+	private JsonElement getJsonFromComment(Comment comment, JsonSerializationContext context)
+			throws NoUserInContextException
 	{
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty(JSON_PROPERTY_ID, comment.getId());
@@ -36,6 +38,7 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 		jsonObject.addProperty(JSON_PROPERTY_USER_ID, comment.getUser().getId());
 		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, comment.getUser().getUsername());
 		jsonObject.addProperty(JSON_PROPERTY_DATE, comment.getDateInTimestampString());
+		jsonObject.addProperty(JSON_PROPERTY_STATUS, comment.getStatus().toString());
 
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(comment.getCommentsCommentSet()));
 		jsonObject.add(JSON_PROPERTY_LIKES, context.serialize(getLikesWrapper(comment)));
@@ -46,7 +49,7 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 	private LikesWrapper getLikesWrapper(Comment comment) throws NoUserInContextException
 	{
 		Set<LikeComment> set = comment.getLikes();
-		User user =	ContextUtils.getUserFromAuthenticationContext();
+		User user = ContextUtils.getUserFromAuthenticationContext();
 		LikesWrapper likesWrapper = new LikesWrapper(set.size(), set.contains(new LikeComment(user, comment)));
 		return likesWrapper;
 	}
@@ -55,9 +58,12 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 	public JsonElement serialize(Comment comment, Type arg1, JsonSerializationContext context)
 	{
 		JsonElement jsonElement = null;
-		try {
+		try
+		{
 			jsonElement = getJsonFromComment(comment, context);
-		} catch (NoUserInContextException e) {
+		}
+		catch (NoUserInContextException e)
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

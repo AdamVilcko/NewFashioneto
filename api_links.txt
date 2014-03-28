@@ -36,6 +36,9 @@ Comments:
 		Params:
 			content = [comment value]
 
+	DELETE http://localhost:8080/Fashioneto-0.1b/as/comment/{commentId}
+		Header:
+			X-Auth-Token = [token value]
 
 *****************
 

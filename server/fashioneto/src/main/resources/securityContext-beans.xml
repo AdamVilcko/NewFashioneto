@@ -44,7 +44,8 @@
 		<security:intercept-url method="GET" pattern="/as/**" access="hasRole('user')" />
 		<security:intercept-url method="PUT" pattern="/as/**" access="hasRole('user')" />
 		<security:intercept-url method="POST" pattern="/as/**" access="hasRole('user')" />
-		<security:intercept-url method="DELETE" pattern="/as/**" access="hasRole('admin')" />
+		<security:intercept-url method="DELETE" pattern="/as/**" access="hasRole('user')" />
+<!-- 		<security:intercept-url method="DELETE" pattern="/as/**" access="hasRole('admin')" /> -->
 	</security:http>
 
 	<bean id="unauthorizedEntryPoint" class="com.fashioneto.security.UnauthorizedEntryPoint" />

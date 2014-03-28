@@ -1,5 +1,6 @@
 package com.fashioneto.ws.rest;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -34,6 +35,33 @@ public class CommentRestBean
 	protected UserService userService;
 	@Autowired
 	protected CommentService commentService;
+
+	@DELETE
+	@Path("{commentId}")
+	public Response delete(@PathParam("commentId")
+	int commentId)
+	{
+		Comment comment = commentService.getComment(commentId);
+
+		if (comment != null)
+		{
+			try
+			{
+				User loggedUser = ContextUtils.getUserFromAuthenticationContext();
+				if (loggedUser.getId() == comment.getUser().getId())
+				{
+					comment = commentService.deleteComment(commentId);
+					return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(comment)).build();
+				}
+			}
+			catch (NoUserInContextException e)
+			{
+				e.printStackTrace();
+			}
+			return Response.status(Status.UNAUTHORIZED).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
+	}
 
 	@POST
 	@Path("add/{parentType}/{parentId}")

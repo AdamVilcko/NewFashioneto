@@ -45,6 +45,7 @@ create table comment (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`id_user` int(11) unsigned not null,
 	`dt_comment` DATETIME not null,
+	`status` varchar(20) not null,
 	`content` varchar(200) not null
 );
 

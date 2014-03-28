@@ -30,4 +30,8 @@ public interface CommentService
 	 */
 	public Comment addComment(CommentParentTypeEnum parentType, int parentId, String content)
 			throws NoUserInContextException;
+
+	public Comment deleteComment(int commentId);
+
+	public Comment getComment(int commentId);
 }

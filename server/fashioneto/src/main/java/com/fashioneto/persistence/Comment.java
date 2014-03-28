@@ -17,6 +17,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -57,8 +59,8 @@ public class Comment implements Serializable
 	@Column(name = "dt_comment")
 	private Date date;
 
-	//	@Enumerated(EnumType.STRING)
-	//	private CommentParentTypeEnum parentType;
+	@Enumerated(EnumType.STRING)
+	private CommentStatus status;
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_comment"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
@@ -162,6 +164,16 @@ public class Comment implements Serializable
 	public void setLikes(Set<LikeComment> likes)
 	{
 		this.likes = likes;
+	}
+
+	public CommentStatus getStatus()
+	{
+		return status;
+	}
+
+	public void setStatus(CommentStatus status)
+	{
+		this.status = status;
 	}
 
 }
