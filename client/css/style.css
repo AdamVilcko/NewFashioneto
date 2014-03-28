@@ -80,9 +80,9 @@ body.login p.para{
 
 .loginform{
 	border-radius: 5px;
-	padding: 50px;	
+	padding: 50px;
 	width: 350px;
-	margin: 0px auto;	
+	margin: 0px auto;
 }
 
 .loginform button{
@@ -1493,7 +1493,10 @@ p{
 /* People */
 
 .people{
-	margin-bottom:45px;
+
+	width:300px;
+	height: 416px;
+
 }
 
 .people .btn.follow{
@@ -1651,6 +1654,11 @@ footer ul > li {
 
 .clear{
 	clear:both;
+}
+
+.masonry{
+	width:auto;
+	padding:0 30px;
 }
 
 

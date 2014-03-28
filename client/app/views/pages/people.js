@@ -17,6 +17,16 @@ define(function(require){
 		initialize: function( options ){
 			this.options = options || {};
 			this.init( options );
+		},
+
+		postRender: function(){
+
+			this.$el.find("#tabContainer")
+			.addClass( "masonryContainer" )
+			.masonry({
+			  itemSelector: '.people',
+			  columnWidth: 160
+			});
 		}
 
 	});

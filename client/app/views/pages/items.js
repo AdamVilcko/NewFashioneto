@@ -33,21 +33,6 @@ define(function(require){
 		initialize: function( options ){
 			this.options = options || {};
 			this.init( options );
-		},
-
-		invokeMasonry: function(){
-
-			//NEEDS REFACTORING - NEEDS TO USE EL AND OPTNIOS NEED OPTIMISING
-
-
-			var $container = $('#tabContainer');
-			// initialize
-			$container.masonry({
-			  columnWidth: 60,
-			  itemSelector: '.item',
-			  "gutter": 20,
-			  isFitWidth: true
-			});
 		}
 
 	});
