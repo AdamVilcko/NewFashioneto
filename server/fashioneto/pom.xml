@@ -115,24 +115,24 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.7.0</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.7.0</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.0</version>
-			<scope>runtime</scope>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.slf4j</groupId> -->
+<!-- 			<artifactId>jcl-over-slf4j</artifactId> -->
+<!-- 			<version>1.7.0</version> -->
+<!-- 			<scope>runtime</scope> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.slf4j</groupId> -->
+<!-- 			<artifactId>slf4j-api</artifactId> -->
+<!-- 			<version>1.7.0</version> -->
+<!-- 			<scope>runtime</scope> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.slf4j</groupId> -->
+<!-- 			<artifactId>slf4j-log4j12</artifactId> -->
+<!-- 			<version>1.7.0</version> -->
+<!-- 			<scope>runtime</scope> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -256,7 +256,16 @@
 			<artifactId>gson</artifactId>
 			<version>1.7.1</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.3.175</version>
+		</dependency>			
+		<dependency>
+			<groupId>com.googlecode.flyway</groupId>
+			<artifactId>flyway-maven-plugin</artifactId>
+			<version>2.3</version>
+		</dependency>
 		<!-- JERSEY/Rest dependecies:  -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
