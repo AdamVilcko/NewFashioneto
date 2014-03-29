@@ -5,6 +5,7 @@ define(function(require){
 	Handlebars        = require( "handlebars" ),
 	$                 = require( "jquery" ),
 	Cookie            = require( "jquery.cookie" ),
+	Transit            = require( "jquery.transit" ),
 
 	MasterBaseView    = require( "views/masterbaseview" ),
 	mainLoginTemplate = require( "text!templates/login/mainlogin.hbr" ),

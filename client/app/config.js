@@ -43,7 +43,8 @@ require = {
         "jquery.masonry": "../lib/jquery.masonry.min",
         "moment": "../lib/moment-with-langs.min",
         "jquery.livestamp": "../lib/livestamp",
-        "jquery.cookie": "../lib/jquery.cookie"
+        "jquery.cookie": "../lib/jquery.cookie",
+        "jquery.transit": "../lib/jquery.transit"
 
     },
 
@@ -70,6 +71,7 @@ require = {
         "jquery.masonry": ['jquery'],
         "jquery.livestamp": ['jquery'],
         "jquery.cookie": ['jquery'],
+        "jquery.transit": ['jquery'],
 
         jqueryui: ['jquery'],
 
