@@ -18,6 +18,7 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	public static final String JSON_PROPERTY_ITEMS = "itemsWrapper";
 	public static final String JSON_PROPERTY_PHOTOS = "photosWrapper";
 	public static final String JSON_PROPERTY_USER_NAME = "userName";
+	public static final String JSON_PROPERTY_ID = "id";
 	
 	public static final String JSON_PROPERTY_DETAILS = "details";
 	
@@ -32,7 +33,7 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	public JsonElement serialize(User user, Type arg1, JsonSerializationContext context)
 	{
 		JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, user.getUsername());
+		jsonObject.addProperty(JSON_PROPERTY_ID, user.getId());
 		
 		jsonObject.add(JSON_PROPERTY_DETAILS, getUserDetails(user));
 		jsonObject.add(JSON_PROPERTY_ITEMS, getItemsWrapper());
@@ -46,6 +47,7 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	private JsonElement getUserDetails(User user)
 	{
 		JsonObject jsonObject = new JsonObject();
+		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, user.getUsername());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_CITY, user.getCity());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_COUNTRY, user.getCountry());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWERS_COUNT, 219);

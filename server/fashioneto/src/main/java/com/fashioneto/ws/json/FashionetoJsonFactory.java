@@ -6,6 +6,7 @@ import com.fashioneto.persistence.User;
 import com.fashioneto.ws.entities.ResponseWrapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 
 /**
  * @author Felipe Tonon 6 Feb 2014
@@ -39,6 +40,13 @@ public class FashionetoJsonFactory
 		Gson gson = getGson();
 		return gson.toJson(user);
 	}
+	
+	public static JsonElement getJsonElement(User user)
+	{
+		Gson gson = getGson();
+		return gson.toJsonTree(user);
+	}
+	
 
 	public static String getJson(Comment comment)
 	{
@@ -51,6 +59,12 @@ public class FashionetoJsonFactory
 		Gson gson = getGson();
 		return gson.toJson(comments);
 	}
+	
+	public static String getJson(JsonElement jsonElement)
+	{
+		Gson gson = getGson();
+		return gson.toJson(jsonElement);
+	}	
 
 	public static String getJson(ResponseWrapper rw)
 	{

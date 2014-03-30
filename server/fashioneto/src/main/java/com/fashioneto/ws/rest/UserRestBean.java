@@ -31,6 +31,8 @@ import com.fashioneto.utils.TokenUtils;
 import com.fashioneto.ws.entities.TokenTransfer;
 import com.fashioneto.ws.entities.UserTransfer;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 /**
  * @author Felipe Tonon 20 Mar 2014
@@ -97,7 +99,7 @@ public class UserRestBean
 	@Path("authenticate")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
-	public TokenTransfer authenticate(@FormParam("username")
+	public Response authenticate(@FormParam("username")
 	String username, @FormParam("password")
 	String password)
 	{
@@ -112,8 +114,22 @@ public class UserRestBean
 		 * token generation
 		 */
 		UserDetails userDetails = this.userService.loadUserByUsername(username);
-
-		return new TokenTransfer(TokenUtils.createToken(userDetails));
+		
+		User user = null;
+		
+		if (userDetails instanceof User)
+		{
+			user = (User) userDetails;
+		}
+		
+		TokenTransfer tokenTransfer = new TokenTransfer(TokenUtils.createToken(userDetails));
+		
+		JsonObject jsonObject = new JsonObject();
+		
+		jsonObject.add("user",  FashionetoJsonFactory.getJsonElement(user));
+		jsonObject.addProperty("token", tokenTransfer.getToken());
+		
+		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(jsonObject)).build(); 
 	}
 
 	private Map<String, Boolean> createRoleMap(UserDetails userDetails)
