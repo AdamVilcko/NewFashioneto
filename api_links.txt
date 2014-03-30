@@ -17,6 +17,12 @@ Login
 			username = [value]
 			password = [value]
 	
+Users:
+
+	GET http://localhost:8080/Fashioneto-0.1b/as/user/{userId}
+		Header:
+			X-Auth-Token = [token value]
+	
 Comments:
 
 	OBS.: possible values for {parentType} = [COMMENT, ITEM, PHOTO, USER]
@@ -43,3 +49,128 @@ Comments:
 *****************
 
 OBS.: TOKEN is currently predefined to expire in 20 hours
+
+
+**********************
+
+    {
+      "username": "user1",
+	  "details" : {
+		  "age" : -1,
+		  "city": "London",
+		  "country": "CZ",
+		  "followersCount": 219,
+		  "followingCount": 4596,
+		  "displayName" : "John Doe"
+	  }
+	  "itemsWrapper" : {
+		"count": 1,
+        "collection": [
+          {
+            "id": 1,
+            "commentsWrapper": {
+              "count": 1,
+              "collection": [
+                {
+                  "id": 30,
+                  "content": "This Item sucks!",
+                  "userId": 1,
+                  "userName": "user1",
+                  "date": "1394368200",
+                  "status": "ACTIVE",
+                  "commentsWrapper": {
+                    "count": 0,
+                    "collection": []
+                  },
+                  "likes": {
+                    "count": 0,
+                    "actioned": false
+                  }
+                }
+              ]
+            },
+            "likes": {
+              "count": 0,
+              "actioned": false
+            }
+          }
+        ]
+	  },	  
+	  "photosWrapper" : {
+		"count": 1,
+        "collection": [
+          {
+            "id": 1,
+			"description": "Photo of something",
+            "date": "1394368200",
+            "status": "ACTIVE",
+			"uriPath": "images/thumb/1",
+            "commentsWrapper": {
+              "count": 1,
+              "collection": [
+                {
+                  "id": 20,
+                  "content": "Cool Picture!",
+                  "userId": 1,
+                  "userName": "user1",
+                  "date": "1394368200",
+                  "status": "ACTIVE",
+                  "commentsWrapper": {
+                    "count": 0,
+                    "collection": []
+                  },
+                  "likes": {
+                    "count": 0,
+                    "actioned": false
+                  }
+                }
+              ]
+            },
+            "likes": {
+              "count": 0,
+              "actioned": false
+            }
+          }
+        ]
+	  },
+      "commentsWrapper": {
+        "count": 1,
+        "collection": [
+          {
+            "id": 1,
+            "content": "I like your pictures and your profile, man!",
+            "userId": 2,
+            "userName": "admin",
+            "date": "1394368200",
+            "status": "ACTIVE",
+            "commentsWrapper": {
+              "count": 1,
+              "collection": [
+                {
+                  "id": 2,
+                  "content": "Thanks!",
+                  "userId": 1,
+                  "userName": "user1",
+                  "date": "1394368200",
+                  "status": "ACTIVE",
+                  "commentsWrapper": {
+                    "count": 0,
+                    "collection": []
+                  },
+                  "likes": {
+                    "count": 0,
+                    "actioned": false
+                  }
+                }
+              ]
+            },
+            "likes": {
+              "count": 1,
+              "actioned": true
+            }
+          }
+        ]
+      }
+    }
+
+
