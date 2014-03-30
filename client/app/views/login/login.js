@@ -54,8 +54,6 @@ define(function(require){
 			.find( this.nodes.loginContainer )
 			.html( this.templates.loginForm() );
 			this.$el.animate({ "margin-left":"0", opacity:1 }, 1000 );
-
-
 		},
 
 		renderModalLogin: function(){

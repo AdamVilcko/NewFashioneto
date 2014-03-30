@@ -79,7 +79,6 @@ body.login p.para{
 }
 
 .loginform{
-	/* -webkit-filter: blur(2px); */
 	border-radius: 5px;
 	padding: 50px;
 	width: 350px;
