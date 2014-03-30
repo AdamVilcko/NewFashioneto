@@ -7,9 +7,12 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,9 +25,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
+import com.fashioneto.persistence.User;
+import com.fashioneto.service.UserService;
 import com.fashioneto.utils.TokenUtils;
 import com.fashioneto.ws.entities.TokenTransfer;
 import com.fashioneto.ws.entities.UserTransfer;
+import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 /**
  * @author Felipe Tonon 20 Mar 2014
@@ -35,6 +41,9 @@ public class UserRestBean
 {
 	@Autowired
 	private UserDetailsService userService;
+	
+	@Autowired
+	private UserService userServiceImpl;
 
 	@Autowired
 	@Qualifier("authenticationManager")
@@ -61,6 +70,21 @@ public class UserRestBean
 		return new UserTransfer(userDetails.getUsername(), this.createRoleMap(userDetails));
 	}
 
+	@GET
+	@Path("{userId}")
+	public Response getUserById(@PathParam("userId")
+	int userId)
+	{
+		User user = userServiceImpl.getUser(userId);
+		
+		if (user == null)
+		{
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		
+		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(user)).build();
+	}
+	
 	/**
 	 * Authenticates a user and creates an authentication token.
 	 * 

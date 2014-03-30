@@ -67,6 +67,39 @@ public class User implements Serializable, UserDetails
 	@ElementCollection(fetch = FetchType.EAGER)
 	private Set<String> roles = new HashSet<String>();
 
+	@Column(name = "display_name")
+	private String displayName;	
+	
+	@Column(name = "city")
+	private String city;	
+	
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	@Column(name = "country")
+	private String country;	
+	
 	public User()
 	{
 		//No args constructor

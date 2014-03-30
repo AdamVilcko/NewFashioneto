@@ -9,7 +9,10 @@ create table fashionetoer (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`username` varchar(100) not null,
 	`email` varchar(100) not null,
-	`password` varchar(200) not null
+	`password` varchar(200) not null,
+	`display_name` varchar(100) not null,
+	`city` varchar(100),
+	`country` varchar(100)
 );
 
 create table image (
