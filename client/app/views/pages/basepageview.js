@@ -35,7 +35,7 @@ define(function(require){
 			if( typeof this.preRender !== "undefined" ) this.preRender();
 
 			this.$el
-			.html( this.template() );
+			.html( this.template( App.data[ this.pageId ] ) );
 
 			if( this.tabs ){
 				this.$el

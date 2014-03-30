@@ -21,7 +21,7 @@ define(function(require){
 		initialize: function( options ){
 			this.options = options || {};
 			this.init( options );
-		},
+		},		
 
 		sidebar: new ProfileSidebar(),
 

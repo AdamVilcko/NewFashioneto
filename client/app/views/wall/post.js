@@ -19,18 +19,24 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		nodes:{
-			comments: ".comments"
+			comments: ".comments",
+			like: ".likeContainer"
 		},
 
 		initialize: function(){
 			this.like = new Like( {
-				type: "heart"
+				type: "heart",
+				amount : 5
 			} );
 		},
 
 		render: function(){
+			this.$el
+			.html( this.template( this.model.toJSON() ) );
 
-			this.$el.html( this.template( this.model.toJSON() ) );
+			this.$el
+			.find( this.nodes.like )
+			.html( this.like.render().el );		
 
 			Helper.processDate.call( this );
 

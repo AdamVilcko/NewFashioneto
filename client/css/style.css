@@ -99,7 +99,11 @@ body.login footer{
 	position:fixed;
 	bottom:0;
 	width:100%;
+	display: none;
+}
 
+body.login #bottomBar{
+	display: none;
 }
 
 #logofull{
@@ -1370,7 +1374,7 @@ p{
 	padding:8px!important;
 }
 
-#postDisplay .like{
+#postDisplay .likeContainer{
 	position: absolute;
 	right: 46px;
 	top: 30px;

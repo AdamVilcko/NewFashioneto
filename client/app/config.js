@@ -10,6 +10,7 @@ App = {
     root: "/Fashioneto-0.1b/as/",
 
     rest: {
+        user: "user",
         login: "user/authenticate",
         wall: "comment/USER/1",
         like: "comment/like/1"
@@ -17,6 +18,12 @@ App = {
 
     url: function( arg ){
         return this.root + this.rest[ arg ];
+    },
+
+    data: {
+        profile:{},
+        items:{},
+        people:{}
     }
 
 }

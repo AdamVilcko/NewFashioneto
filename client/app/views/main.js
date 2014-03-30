@@ -44,9 +44,7 @@ define(function(require){
 			this.render();
 			this.invokePages();
 			this.$el
-			.removeClass( "login" )
-			.addClass( "loggedin" );
-			//Goto selected page or default page
+			.removeClass( "login" );
 		},
 
 		render: function(){

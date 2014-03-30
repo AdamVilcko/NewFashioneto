@@ -9,8 +9,8 @@
     <h4 class="list-group-item-heading">{{userName}}<span class="date"></span></h4>
     
     <p class="list-group-item-text">{{content}}</p>
-    
-    <button type="button" class="btn btn-default like star">Like<div>25</div></button>
+
+    <div class="likeContainer"></div>    
 
   </li> 
 

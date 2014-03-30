@@ -5,7 +5,7 @@ define(function(require){
 	Handlebars        = require( "handlebars" ),
 	$                 = require( "jquery" ),
 	Cookie            = require( "jquery.cookie" ),
-	Transit            = require( "jquery.transit" ),
+	Transit           = require( "jquery.transit" ),
 
 	MasterBaseView    = require( "views/masterbaseview" ),
 	mainLoginTemplate = require( "text!templates/login/mainlogin.hbr" ),
@@ -32,18 +32,12 @@ define(function(require){
 		},
 
 		initialize: function( options ){
-
 			this.options = options || {};
-
 			if( this.checkLoggedIn() ){
-
 				this.proceed();
-
 			} else {
-
 				this.renderMainLogin();
 			}
-
 		},
 
 		renderMainLogin: function(){
@@ -76,7 +70,7 @@ define(function(require){
 			}
 
 			$.ajax({
-				type: "POST",
+				type: "POST",				
 				context: this,
 				url: App.url( 'login' ),
 				data: loginCredentials,
@@ -88,6 +82,7 @@ define(function(require){
 					$.ajaxSetup({
 						headers: { 'X-Auth-Token': data.token }
 					});
+					App.data = data.user;
 					this.proceed();
 				},
 
@@ -130,8 +125,7 @@ define(function(require){
 			this.options.success.call( this.options.context );
 			this.$el.animate({ opacity:1 }, 1000 );
 			App.vent.trigger( "login:load" );
-		}
-		
+		}		
 
 	});
 
