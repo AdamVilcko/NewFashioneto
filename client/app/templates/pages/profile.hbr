@@ -1,40 +1,40 @@
 <div class="container topMargin">
       <div class="row row-offcanvas row-offcanvas-right">
-        
+
           <div class="col-xs-12 col-sm-9">
-        
+
             <section id="userTitle" class="row">
-        
+
               <div class="col-md-6">
-        
-                <h1><span class="name">Alex Langdon</span>, <span class="age">23</span></h1>
-                
+
+                <h1><span class="name">{{details.displayName}}</span></h1>
+
               </div>
-        
-               <div class="col-md-6 options">              
+
+               <div class="col-md-6 options">
                     <button class="follow btn btn-primary btn-md" href="../navbar/">Follow</button>
                     <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
                     <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
                     <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
                </div>
-        
+
             </section><!-- userTitle -->
-        
+
             <ul class="nav nav-tabs" style="margin-bottom: 15px;">
               <li><a href="#profile/wall" data-toggle="tab">Wall</a></li>
               <li><a href="#profile/photos" data-toggle="tab">Photos (432)</a></li>
               <li><a href="#profile/items" data-toggle="tab">Items</a></li>
               <!-- <li><a href="profile/info" data-toggle="tab">Information</a></li> -->
             </ul>
-        
-            <div id="tabContainer">            
-        
+
+            <div id="tabContainer">
+
             </div><!-- tabContainer -->
-        
+
           </div><!--/span-->
-        
+
           <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation"></div><!--/span-->
-        
+
         </div><!--/row-->
-        
+
 </div><!-- container -->

@@ -34,7 +34,7 @@ define(function(require){
 		initialize: function( options ){
 			this.options = options || {};
 			if( this.checkLoggedIn() ){
-				this.proceed();
+				this.getUser();
 			} else {
 				this.renderMainLogin();
 			}
@@ -70,7 +70,7 @@ define(function(require){
 			}
 
 			$.ajax({
-				type: "POST",				
+				type: "POST",
 				context: this,
 				url: App.url( 'login' ),
 				data: loginCredentials,
@@ -82,7 +82,7 @@ define(function(require){
 					$.ajaxSetup({
 						headers: { 'X-Auth-Token': data.token }
 					});
-					App.data = data.user;
+					App.data = { profile: data.user };
 					this.proceed();
 				},
 
@@ -103,6 +103,7 @@ define(function(require){
 			$.ajaxSetup({
 				headers: { 'X-Auth-Token': "" }
 			});
+			App.data = null;
 			this.renderMainLogin();
 		},
 
@@ -119,13 +120,32 @@ define(function(require){
 		},
 
 		proceed: function(){
+			App.vent.trigger( "login:load" );
 			App.vent.on( "login:sessionExpired", this.modalLogin, this );
 			App.vent.on( "login:logout", this.logout, this );
 			this.$el.css({ opacity:0 });
 			this.options.success.call( this.options.context );
 			this.$el.animate({ opacity:1 }, 1000 );
-			App.vent.trigger( "login:load" );
-		}		
+		},
+
+		getUser: function(){
+			$.ajax({
+				type: "GET",
+				context: this,
+				url: App.url( 'user' ),
+				dataType: "JSON",
+
+				success: function( data, textStatus, jqXHR ){
+					App.data.profile = data;
+					this.proceed();
+				},
+
+				error: function( jqXHR, textStatus, errorThrown ){
+					alert( jqXHR.status + ": " + errorThrown  );
+				}
+
+			});
+		}
 
 	});
 

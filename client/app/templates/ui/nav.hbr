@@ -53,7 +53,7 @@
         <li class="profile">
           <a href="#profile">
             <img src="img/nav-avatar.png" />
-            <span>Alex Langdon<br />2557 pts (1st in city)</span>
+            <span>{{displayName}}<br />2557 pts (1st in city)</span>
             <div class="handle">
               <div class="lineFix"></div>
             </div>

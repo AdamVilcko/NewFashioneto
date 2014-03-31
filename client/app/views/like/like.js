@@ -12,10 +12,8 @@ define(function(require){
 	 return Backbone.View.extend({
 
 		initialize: function(options){
-			this.options = options || { type: "heart", amount: 0 };
-			this.model = new Model( {
-				amount: this.options.amount
-			} );
+			this.options = options || { type: "heart", count: 0 };
+			this.model = new Model( this.options.data );
 		},
 
 		template: Handlebars.compile( template ),

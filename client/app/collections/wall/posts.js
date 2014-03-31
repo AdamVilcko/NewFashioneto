@@ -10,7 +10,14 @@ define(function(require){
 
 	return MasterBaseCollection.extend({
 		model : Model,
-		url : App.url( 'wall' )
+		url : App.url( 'wall' ),
+		initialize: function(){
+			App.vent.on( "login:load", this.handle, this );
+		},
+
+		handle: function(){
+			this.add( App.data.profile.commentsWrapper );
+		}
 	});
 
 });

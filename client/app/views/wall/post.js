@@ -26,8 +26,9 @@ define(function(require){
 		initialize: function(){
 			this.like = new Like( {
 				type: "heart",
-				amount : 5
+				data: this.model.toJSON().likes
 			} );
+
 		},
 
 		render: function(){
@@ -36,7 +37,7 @@ define(function(require){
 
 			this.$el
 			.find( this.nodes.like )
-			.html( this.like.render().el );		
+			.html( this.like.render().el );
 
 			Helper.processDate.call( this );
 
@@ -48,7 +49,6 @@ define(function(require){
 			}
 
 			return this;
-
 		}
 
 	});

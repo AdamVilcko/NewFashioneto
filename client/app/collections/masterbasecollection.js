@@ -8,7 +8,9 @@ define(function(require){
 	return Backbone.Collection.extend({
 
 		initialize: function(){
-			App.vent.on( "login:load", this.fetch, this );
+
+			//App.vent.on( "login:load", );
+
 		}
 
 	});

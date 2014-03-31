@@ -4,8 +4,8 @@ define(function(require){
 
 	return Backbone.Model.extend({
 		defaults:{
-			amount: 0,
-			liked: null
+			count: 0,
+			actioned: null
 		},
 
 		url: App.rest.like
