@@ -1,6 +1,6 @@
 define(function(require){
 
-	Moment     = require("moment"),
+	Moment    = require("moment"),
 	LiveStamp = require("jquery.livestamp");
 
 	return {
@@ -14,7 +14,7 @@ define(function(require){
 			navAnchors.parent().removeClass( active );
 
 			navAnchors.each( function( i ){
-				href = $(this).attr( "href" );				
+				href = $(this).attr( "href" );		
 				if( href === "#" + pageId || href === "#" + pageId + "/" + tab ){
 					$(this).parent().addClass( active );
 				}

@@ -9,24 +9,24 @@ define(function(require){
 	Handlebars     = require( 'handlebars' ),
 
 	Login = require( 'views/login/login' ),
-
+	
 	//Master base view
-
+	
 	MasterBaseView = require( 'views/masterbaseview' ),
-
+	
 	//UI views
-
+	
 	Nav            = require( 'views/ui/nav' ),
-
+	
 	//Page views
-
+	
 	Feed           = require( 'views/pages/feed' ),
 	Items          = require( 'views/pages/items' ),
 	People         = require( 'views/pages/people' ),
 	Profile        = require( 'views/pages/profile' ),
-
+	
 	//Main page template
-
+	
 	mainTemplate   = require( 'text!templates/main.hbr' );
 
 

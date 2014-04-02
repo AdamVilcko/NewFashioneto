@@ -24,6 +24,11 @@ App = {
         profile:{},
         items:{},
         people:{}
+    },
+
+    user:{
+        username:null,
+        id:null
     }
 
 }
