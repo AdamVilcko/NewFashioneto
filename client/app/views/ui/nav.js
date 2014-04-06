@@ -25,7 +25,6 @@ define(function(require){
 		},
 
 		render: function(){
-			console.log(App.data.profile.details);
 			this.$el.html( this.template( App.data.profile.details ) );
 			return this;
 		},

@@ -33,16 +33,23 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 		routes:{
 
 			'': "index",
-			'profile': 'profile',
-			'profile/:tab': 'profile',
+
+			'profile': 'myProfile',
+
+			'profile/:tab': 'myProfile',
 
 			'people': 'people',
-			'people/:tab': 'people',
+
+			'people/:user': 'profile',
+
+			'people/:user/:tab': 'profile',
 
 			'items': 'items',
+
 			'items/:tab': 'items',
 
 			'itemmodal': 'itemModal',
+
 			'photomodal': 'photoModal',
 
 			'logout' : 'logout'
@@ -58,16 +65,23 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 		},
 
 		feed: function( tab ){
-			App.vent.trigger( 'page:feed', tab );
+			App.vent.trigger( 'page:feed', { tab: tab } );
 		},
+
 		people: function( tab ){
-			App.vent.trigger( 'page:people', tab );
+			App.vent.trigger( 'page:people', { tab: tab } );
 		},
+
 		items: function( tab ){
-			App.vent.trigger( 'page:items', tab );
+			App.vent.trigger( 'page:items', { tab: tab } );
 		},
-		profile: function( tab ){
-			App.vent.trigger( 'page:profile', tab );
+
+		myProfile: function( tab ){
+			App.vent.trigger( 'page:profile', { tab: tab, myProfile: true } );
+		},
+
+		profile: function( user, tab ){
+			App.vent.trigger( 'page:profile', { user: user , tab: tab, myProfile: false } );
 		},
 
 		itemModal: function(){

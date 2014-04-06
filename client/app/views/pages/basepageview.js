@@ -24,15 +24,23 @@ define(function(require){
 			App.vent.on( "page:" + this.pageId, this.handle, this );
 		},
 
-		handle: function( tab ){
-			if( tab ) this.activeTab = tab;
-			this.render();
+		handle: function( pageState ){
+			if( typeof this.customHandle !== "undefined" ){
+				this.customHandle( pageState );
+			} else {
+				this.loadPage( pageState );
+			}
+		},
+
+		loadPage: function( pageState ){
+			if( typeof pageState.tab !== "undefined" ) this.activeTab = pageState.tab;
+			this.render( pageState );
 			Helper.navState( this.pageId, this.activeTab );
 		},
 
 		render: function(){
 
-			if( typeof this.preRender !== "undefined" ) this.preRender();
+			if( typeof this.preRender !== "undefined" ) this.preRender( pageState );
 
 			this.$el
 			.html( this.template( App.data[ this.pageId ] ) );
@@ -49,7 +57,7 @@ define(function(require){
 				.html( this.sidebar.render().el );
 			}
 
-			if( typeof this.postRender !== "undefined" ) this.postRender();
+			if( typeof this.postRender !== "undefined" ) this.postRender( pageState );
 
 			return this;
 

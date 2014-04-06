@@ -32,8 +32,9 @@ define(function(require){
 		},
 
 		initialize: function( options ){
+			App.login = this;
 			this.options = options || {};
-			if( this.checkLoggedIn() ){
+			if( this.checkSessionCookie() ){
 				this.getUser();
 			} else {
 				this.renderMainLogin();
@@ -65,8 +66,8 @@ define(function(require){
 			form = $( ev.target ).parents( "form" );
 
 			loginCredentials = {
-				username: form.find( ".username" ).val(),
-				password: form.find( ".password" ).val()
+				username: form.find( this.nodes.username ).val(),
+				password: form.find( this.nodes.password ).val()
 			}
 
 			$.ajax({
@@ -82,7 +83,8 @@ define(function(require){
 					$.ajaxSetup({
 						headers: { 'X-Auth-Token': data.token }
 					});
-					App.data = { profile: data.user };
+					App.data.profile = data.user;
+					console.log( data );
 					this.proceed();
 				},
 
@@ -90,7 +92,7 @@ define(function(require){
 					if( jqXHR.status === 401 ){
 						alert( "Incorrect login credentials. Please try again!" );
 					} else{
-						alert( jqXHR.status + ": " + errorThrown  );
+						alert( "login method: " + jqXHR.status + ": " + errorThrown  );
 					}
 				}
 
@@ -103,11 +105,15 @@ define(function(require){
 			$.ajaxSetup({
 				headers: { 'X-Auth-Token': "" }
 			});
-			App.data = null;
+			App.data = {
+		        profile:{},
+		        items:{},
+		        people:{}
+		    }
 			this.renderMainLogin();
 		},
 
-		checkLoggedIn: function(){
+		checkSessionCookie: function(){
 			var sessionToken = $.cookie("fashioneto");
 			if( sessionToken ){
 				$.ajaxSetup({
@@ -117,15 +123,6 @@ define(function(require){
 			} else {
 				return false;
 			}
-		},
-
-		proceed: function(){
-			App.vent.trigger( "login:load" );
-			App.vent.on( "login:sessionExpired", this.modalLogin, this );
-			App.vent.on( "login:logout", this.logout, this );
-			this.$el.css({ opacity:0 });
-			this.options.success.call( this.options.context );
-			this.$el.animate({ opacity:1 }, 1000 );
 		},
 
 		getUser: function(){
@@ -141,10 +138,24 @@ define(function(require){
 				},
 
 				error: function( jqXHR, textStatus, errorThrown ){
-					alert( jqXHR.status + ": " + errorThrown  );
+					if( jqXHR.status === 401 ){
+						this.renderMainLogin();
+					} else {
+						alert( "getUser method: " + jqXHR.status + ": " + errorThrown  );
+					}
+
 				}
 
 			});
+		},
+
+		proceed: function(){
+			App.vent.trigger( "login:load" );
+			App.vent.on( "login:sessionExpired", this.modalLogin, this );
+			App.vent.on( "login:logout", this.logout, this );
+			this.$el.css({ opacity:0 });
+			this.options.success.call( this.options.context );
+			this.$el.animate({ opacity:1 }, 1000 );
 		}
 
 	});
