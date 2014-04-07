@@ -11,7 +11,7 @@ define(function(require){
 	return MasterBaseCollection.extend({
 		model : Model,
 		url : App.url( 'wall' ),
-		initialize: function(){
+		init: function(){
 			App.vent.on( "login:load", this.handle, this );
 		},
 

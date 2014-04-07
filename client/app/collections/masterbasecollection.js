@@ -7,8 +7,13 @@ define(function(require){
 
 	return Backbone.Collection.extend({
 
-		initialize: function(){
-			App.vent.on( "login:logout", this.reset, this );
+		initialize: function(){			
+			App.vent.on( "login:logout", this.logout, this );
+			if( typeof this.init !== "undefined") this.init();
+		},
+
+		logout: function(){			
+			this.reset();
 		}
 
 	});

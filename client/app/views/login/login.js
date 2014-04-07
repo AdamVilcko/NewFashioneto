@@ -42,13 +42,13 @@ define(function(require){
 		},
 
 		renderMainLogin: function(){
-			this.$el.css({ opacity:0, "margin-left":"20px" });
+			this.$el.css( { opacity:0, "margin-left":"20px" } );
 			this.$el
 			.html( this.templates.mainLogin() )
 			.addClass( "login" )
 			.find( this.nodes.loginContainer )
 			.html( this.templates.loginForm() );
-			this.$el.animate({ "margin-left":"0", opacity:1 }, 1000 );
+			this.$el.animate( { "margin-left":"0", opacity:1 }, 1000 );
 		},
 
 		renderModalLogin: function(){
@@ -77,7 +77,7 @@ define(function(require){
 				data: loginCredentials,
 
 				success: function( data, textStatus, jqXHR ){
-					$.cookie("fashioneto", data.token, {
+					$.cookie( "fashioneto", data.token, {
 						expires : 10
 					});
 					$.ajaxSetup({

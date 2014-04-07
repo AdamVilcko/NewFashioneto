@@ -38,7 +38,7 @@ define(function(require){
 			Helper.navState( this.pageId, this.activeTab );
 		},
 
-		render: function(){
+		render: function( pageState ){
 
 			if( typeof this.preRender !== "undefined" ) this.preRender( pageState );
 
