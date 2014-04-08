@@ -5,8 +5,20 @@ define(function(require){
 	return Backbone.Model.extend({
 		defaults: {
 			id: 1,
+			date: new Date(), //Needs to be timestamp
+			content: "This is the default model!",
+			userId: 2,
+			userName: "John Doe2",
+			likes: 0,
+			commentsWrapper: null
+		}
+	});
+});
+
+/*defaults: {
+			id: 1,
 			date: 1393806426,
-			content: "I like your pictures and your profile, man!",
+			content: "This is the default model!",
 			userId: 2,
 			userName: "John Doe2",
 			likes: 0,
@@ -27,6 +39,4 @@ define(function(require){
 	              }
 	            ]
           	}
-		}
-	});
-});
+		}*/

@@ -12,13 +12,18 @@ define(function(require){
 	return Backbone.View.extend({
 
 		nodes:{
-			posts: "#postDisplay"
+			posts: "#postDisplay",
+			textarea: "textarea"
 		},
 
 		template: Handlebars.compile( template ),
 
 		initialize: function(){
-			this.posts = new Posts();
+			App.vent.on( "login:load", this.handle, this );
+		},
+
+		handle: function(){
+			this.posts = new Posts(  App.data.profile.commentsWrapper.collection );
 		},
 
 		render: function(){
@@ -27,6 +32,15 @@ define(function(require){
 			.find( this.nodes.posts )
 			.html( this.posts.render().el );
 			return this;
+		},
+
+		events:{
+			"click textarea" : "post"
+		},
+
+		post: function( ev ){
+			var textarea = this.$el.find( this.nodes.textarea ).val();
+			this.posts.collection.add( { content: textarea } );
 		}
 
 	});

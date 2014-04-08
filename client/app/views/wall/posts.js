@@ -14,13 +14,21 @@ define(function(require){
 		initialize: function(){
 			this.collection = new PostsCollection();
 			this.collection
-			.on( "replace reset add remove", this.render, this );
+			.on( "replace add remove", this.render, this );
 		},
 
 		render: function(){
+			console.log( this.collection.toJSON() );
 			this.$el.empty();
-			this.collection.each( this.renderPost, this );
+			if( this.collection.length > 0 ){
+				this.collection.each( this.renderPost, this );
+			} else {
+				//Render no comments template
+				this.$el.html( "<h1 style='text-align:center'>This user has no posts yet</h1>" );
+			}			
+
 			return this;
+			
 		},
 
 		renderPost: function( post ){

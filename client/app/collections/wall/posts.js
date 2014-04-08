@@ -12,11 +12,7 @@ define(function(require){
 		model : Model,
 		url : App.url( 'wall' ),
 		init: function(){
-			App.vent.on( "login:load", this.handle, this );
-		},
-
-		handle: function(){
-			this.add( App.data.profile.commentsWrapper );
+			
 		}
 	});
 

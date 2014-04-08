@@ -1,1 +1,2 @@
-<button type="button" class="btn btn-default like {{type}}">Like<div>{{amount}}</div></button>
+<button {{#if data.actioned}}disabled="disabled"{{/if}} type="button" class="btn btn-default like {{type}}">Like<div>{{data.count}}</div></button>
+

@@ -84,7 +84,6 @@ define(function(require){
 						headers: { 'X-Auth-Token': data.token }
 					});
 					App.data.profile = data.user;
-					console.log( data );
 					this.proceed();
 				},
 
@@ -129,7 +128,7 @@ define(function(require){
 			$.ajax({
 				type: "GET",
 				context: this,
-				url: App.url( 'user' ),
+				url: App.url( 'user' ) + "/" + "1",
 				dataType: "JSON",
 
 				success: function( data, textStatus, jqXHR ){

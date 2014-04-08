@@ -7,7 +7,8 @@ define(function(require){
 
 	return Backbone.Collection.extend({
 
-		initialize: function(){			
+		initialize: function( options ){
+			this.options = options || {};		
 			App.vent.on( "login:logout", this.logout, this );
 			if( typeof this.init !== "undefined") this.init();
 		},

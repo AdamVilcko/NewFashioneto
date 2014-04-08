@@ -12,8 +12,8 @@ App = {
     rest: {
         user: "user",
         login: "user/authenticate",
-        wall: "comment/USER/1",
-        like: "comment/like/1"
+        wall: "comment/USER",
+        like: "comment/like"
     },
 
     url: function( arg ){

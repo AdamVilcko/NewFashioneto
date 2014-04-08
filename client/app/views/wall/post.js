@@ -28,7 +28,6 @@ define(function(require){
 				type: "heart",
 				data: this.model.toJSON().likes
 			} );
-
 		},
 
 		render: function(){
