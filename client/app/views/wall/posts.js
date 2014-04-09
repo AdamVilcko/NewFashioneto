@@ -11,8 +11,9 @@ define(function(require){
 
 	return Backbone.View.extend({
 
-		initialize: function(){
-			this.collection = new PostsCollection();
+		initialize: function( options ){
+			this.options = options || {};
+			this.collection = new PostsCollection( App.data.profile.commentsWrapper.collection );
 			this.collection
 			.on( "replace add remove", this.render, this );
 		},
@@ -25,7 +26,7 @@ define(function(require){
 			} else {
 				//Render no comments template
 				this.$el.html( "<h1 style='text-align:center'>This user has no posts yet</h1>" );
-			}			
+			}
 
 			return this;
 			

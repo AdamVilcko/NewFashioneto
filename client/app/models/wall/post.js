@@ -3,6 +3,12 @@ define(function(require){
 	Backbone = require( 'backbone' );
 
 	return Backbone.Model.extend({
+
+		initialize:function(){
+			
+		},
+
+
 		defaults: {
 			id: 1,
 			date: new Date(), //Needs to be timestamp

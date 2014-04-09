@@ -23,7 +23,7 @@ define(function(require){
 		},
 
 		handle: function(){
-			this.posts = new Posts(  App.data.profile.commentsWrapper.collection );
+			this.posts = new Posts();
 		},
 
 		render: function(){
@@ -40,7 +40,7 @@ define(function(require){
 
 		post: function( ev ){
 			var textarea = this.$el.find( this.nodes.textarea ).val();
-			this.posts.collection.add( { content: textarea } );
+			this.posts.collection.create( { content: textarea } );
 		}
 
 	});
