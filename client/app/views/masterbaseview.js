@@ -9,7 +9,8 @@ define(function(require){
 	return Backbone.View.extend({
 
 		initialize: function( options ){
-			this.options = options || {};		
+			this.options = options || {};
+			if( this.options.master ) this.master = this.options.master;
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
 		},

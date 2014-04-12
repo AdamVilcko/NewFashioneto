@@ -20,6 +20,8 @@ App = {
         return this.root + this.rest[ arg ];
     },
 
+    pages:{},
+
     data: {
         profile:{},
         items:{},

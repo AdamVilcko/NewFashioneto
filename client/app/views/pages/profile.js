@@ -18,12 +18,12 @@ define(function(require){
 
 		pageId: "profile",
 
-		sidebar: new ProfileSidebar(),
+		sidebar: new ProfileSidebar( { master: this } ),
 
 		tabs: {
-			wall: new Wall(),
-			photos:	new Photos(),
-			items: new Items()
+			wall: new Wall( { master: this } ),
+			photos:	new Photos( { master: this } ),
+			items: new Items( { master: this } )
 		},
 
 		myProfile: null,

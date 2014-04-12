@@ -22,6 +22,7 @@ define(function(require){
 
 		init: function(){
 			App.vent.on( "page:" + this.pageId, this.handle, this );
+			App.pages[ this.pageId ] = this;
 		},
 
 		handle: function( pageState ){
