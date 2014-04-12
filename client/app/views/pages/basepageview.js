@@ -34,6 +34,7 @@ define(function(require){
 		},
 
 		loadPage: function( pageState ){
+			if( ! this.tabs ) this.loadTabs();
 			if( typeof pageState.tab !== "undefined" ) this.activeTab = pageState.tab;
 			this.render( pageState );
 			Helper.navState( this.pageId, this.activeTab );

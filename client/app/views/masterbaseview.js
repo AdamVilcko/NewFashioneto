@@ -10,7 +10,7 @@ define(function(require){
 
 		initialize: function( options ){
 			this.options = options || {};
-			if( this.options.master ) this.master = this.options.master;
+			if( this.options.data ) this.pageId = this.options.pageId;
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
 		},

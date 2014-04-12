@@ -20,12 +20,9 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		init: function(){
-			App.vent.on( "login:load", this.handle, this );
-		},
-
-		handle: function(){
 			this.posts = new Posts();
-		},
+			console.log( this.options );
+		},		
 
 		render: function(){
 			this.$el

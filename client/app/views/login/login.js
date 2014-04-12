@@ -83,7 +83,8 @@ define(function(require){
 						headers: { 'X-Auth-Token': data.token }
 					});
 					App.data.profile = data.user;
-					this.proceed();
+
+					this.proceed( data.user );
 				},
 
 				error: function( jqXHR, textStatus, errorThrown ){
@@ -147,8 +148,8 @@ define(function(require){
 			});
 		},
 
-		proceed: function(){
-			App.vent.trigger( "login:load" );
+		proceed: function( data ){
+			App.vent.trigger( "login:load", data );
 			App.vent.on( "login:sessionExpired", this.modalLogin, this );
 			App.vent.on( "login:logout", this.logout, this );
 			this.$el.css({ opacity:0 });

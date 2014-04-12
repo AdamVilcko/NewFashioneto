@@ -1,22 +1,23 @@
 define(function(require){
 
 	var
-	Backbone           = require("backbone"),
-	Handlebars         = require("handlebars"),
-	$                  = require("jquery"),
-
-	MasterBaseView = require( 'views/masterbaseview' ),
-	PostView           = require("views/wall/post"),
-	PostsCollection    = require("collections/wall/posts");
+	Backbone        = require("backbone"),
+	Handlebars      = require("handlebars"),
+	$               = require("jquery"),
+	
+	MasterBaseView  = require( 'views/masterbaseview' ),
+	PostView        = require("views/wall/post"),
+	PostsCollection = require("collections/wall/posts");
 
 
 	return MasterBaseView.extend({
 
 		init: function(){
+			console.log( this.options );
 			this.collection = new PostsCollection( App.data.profile.commentsWrapper.collection );
 			this.collection
 			.on( "sync", this.render, this );
-		},		
+		},
 
 		render: function(){
 			this.$el.empty();

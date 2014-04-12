@@ -18,15 +18,18 @@ define(function(require){
 
 		pageId: "profile",
 
+		data: App.data.profile,
+
 		sidebar: new ProfileSidebar( { master: this } ),
 
-		tabs: {
-			wall: new Wall( { master: this } ),
-			photos:	new Photos( { master: this } ),
-			items: new Items( { master: this } )
-		},
-
 		myProfile: null,
+
+		loadTabs: function() {
+			this.tabs        = {};
+			this.tabs.wall   = new Wall( { master: this } ),
+			this.tabs.photos = new Photos( { master: this } ),
+			this.tabs.items  = new Items( { master: this } )
+		},		
 
 		customHandle: function( pageState ){
 			if( pageState.myProfile === false ){
