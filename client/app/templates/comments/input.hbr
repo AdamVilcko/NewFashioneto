@@ -3,7 +3,15 @@
 	  <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
 	</a>
 	<div class="media-body">
-	  <textarea placeholder="Write your comment" class="well"></textarea>
+		<div class="row">
+			<div class="col-md-10">
+				<textarea placeholder="Write your comment" class="well"></textarea>
+			</div>
+			
+			<div class="col-md-2"><button class="btn btn-primary sendComment">Post</button></div>
+
+		</div>
+	  
 	</div><!-- media-body -->
 
 </div>

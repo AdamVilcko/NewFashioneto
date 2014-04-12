@@ -14,7 +14,7 @@ define(function(require){
 
 		init: function(){
 			this.collection = new PostsCollection( App.data.profile.commentsWrapper.collection );
-			this.collection			
+			this.collection
 			.on( "sync", this.render, this );
 		},		
 

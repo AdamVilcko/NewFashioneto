@@ -15,13 +15,20 @@ define(function(require){
 
 	return MasterBaseView.extend({
 
-		init: function(){			
-			this.collection = new CommentsCollection( this.options.data );
+		init: function(){
+			this.collection = new CommentsCollection( this.options.data )
+			this.collection			
+			.on( "sync", this.render, this );
+			console.log( this.options )
 		},
 
 		templates:{
 			showAll: Handlebars.compile( showAll ),
 			input: Handlebars.compile( input )
+		},
+
+		nodes:{
+			textarea : "textarea"
 		},
 
 		render: function(){
@@ -41,6 +48,20 @@ define(function(require){
 		renderComments: function( comment ){
 			var commentView = new CommentView( { model: comment } );
 			this.$el.append( commentView.render().el );
+		},
+
+		events:{
+			"click .sendComment" : "post"
+		},
+
+		post: function( ev ){
+			var textarea = this.$el.find( this.nodes.textarea );
+			content = textarea.val();
+			textarea.val( "" );
+			this.collection.create( { content: content },
+			{
+				url: this.collection.url + "/" + this.options.parentId
+			} );
 		}
 
 	});

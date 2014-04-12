@@ -9,6 +9,7 @@ define(function(require){
 
 
 	return MasterBaseCollection.extend({
-		model : Model
+		model : Model,
+		url : App.url( "wallComments" )
 	});
 });

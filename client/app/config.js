@@ -13,6 +13,7 @@ App = {
         user: "user",
         login: "user/authenticate",
         wall: "comment/USER",
+        wallComments: "comment/COMMENT",
         like: "comment/like"
     },
 
