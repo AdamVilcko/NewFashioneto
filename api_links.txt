@@ -40,7 +40,7 @@ Comments:
 			X-Auth-Token = [token value]
 
 
-	PUT http://localhost:8080/Fashioneto-0.1b/as/comment/add/{parentType}/{parentId}
+	POST http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{parentId}
 		Header:
 			X-Auth-Token = [token value]
 		Params:
