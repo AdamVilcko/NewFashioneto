@@ -14,6 +14,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import net.sourceforge.stripes.util.StringUtil;
+
+import org.h2.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -58,7 +61,7 @@ public class UserRestBean
 	 */
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public UserTransfer getUser()
+	public Response getUser()
 	{
 
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -67,17 +70,23 @@ public class UserRestBean
 		{
 			throw new WebApplicationException(401);
 		}
-		UserDetails userDetails = (UserDetails) principal;
-
-		return new UserTransfer(userDetails.getUsername(), this.createRoleMap(userDetails));
+		User user = (User) principal;
+		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(user)).build();
 	}
 
 	@GET
-	@Path("{userId}")
-	public Response getUserById(@PathParam("userId")
-	int userId)
+	@Path("{username}")
+	public Response getUserById(@PathParam("username")
+	String username)
 	{
-		User user = userServiceImpl.getUser(userId);
+		User user;
+		if (StringUtils.isNumber(username))
+		{
+			user = userServiceImpl.getUser(Integer.parseInt(username) );
+		} else 
+		{
+			user = userServiceImpl.getUser(username);
+		}
 		
 		if (user == null)
 		{
@@ -85,7 +94,7 @@ public class UserRestBean
 		}
 		
 		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(user)).build();
-	}
+	}	
 	
 	/**
 	 * Authenticates a user and creates an authentication token.

@@ -1,6 +1,7 @@
 package com.fashioneto.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
@@ -32,7 +33,14 @@ public class UserDAOImpl implements UserDAO
 		System.out.println("\n\n ************ Looking for user: " + name);
 		TypedQuery<User> query = entityManager.createQuery("from User where username=:username ", User.class);
 		query.setParameter("username", name);
-		User user = query.getSingleResult();
+		
+		User user = null;
+		try {
+			user = query.getSingleResult();
+		} catch (NoResultException e) {
+			// No user found
+		}
+		
 		String userStri = "NULL";
 		if (user != null)
 		{
