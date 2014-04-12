@@ -43,7 +43,6 @@ define(function(require){
 
 			if( this.model.has( "commentsWrapper" ) ){
 				var commentData = this.model.toJSON().commentsWrapper.collection;
-				console.log( commentData );
 				this.comments = new Comments( { data: commentData, parentId: this.model.get( "id" ) } );
 				this.$el.find( this.nodes.comments )
 				.append( this.comments.render().el );

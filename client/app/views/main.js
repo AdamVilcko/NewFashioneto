@@ -41,8 +41,9 @@ define(function(require){
 		template: Handlebars.compile( mainTemplate ),
 
 		init: function(){
-			this.render();
-			this.invokePages();
+			this
+			.render()
+			.loadPages();
 			this.$el.removeClass( "login" );
 		},
 
@@ -58,12 +59,12 @@ define(function(require){
 			nav: new Nav()
 		},
 
-		invokePages: function() {
-			this.pages = {
-				items: new Items(),
-				people: new People(),
-				profile: new Profile()
-			};
+		loadPages: function() {
+			this.pages = {};
+			this.pages.items = new Items();
+			this.pages.people = new People();
+			this.pages.profile = new Profile( { data: App.data.profile } );
+			return this;
 		}
 
 	});

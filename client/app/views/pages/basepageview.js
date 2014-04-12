@@ -1,11 +1,11 @@
 define(function(require){
 
 	var
-	Backbone           = require("backbone"),
-	Handlebars         = require("handlebars"),
-	$                  = require("jquery"),
-	Helper             = require('helper'),
-
+	Backbone       = require("backbone"),
+	Handlebars     = require("handlebars"),
+	$              = require("jquery"),
+	Helper         = require('helper'),
+	
 	MasterBaseView = require('views/masterbaseview');
 
 	return MasterBaseView.extend({
@@ -34,7 +34,8 @@ define(function(require){
 		},
 
 		loadPage: function( pageState ){
-			if( ! this.tabs ) this.loadTabs();
+			if( this.loadSidebar ) this.loadSidebar();
+			if( this.loadTabs ) this.loadTabs();
 			if( typeof pageState.tab !== "undefined" ) this.activeTab = pageState.tab;
 			this.render( pageState );
 			Helper.navState( this.pageId, this.activeTab );
@@ -71,6 +72,9 @@ define(function(require){
 			.html( this.tabs[ data.tab ].render().el );
 		},
 
+		data: function(){
+			return this.options.data;
+		},
 
 		//DOM events
 

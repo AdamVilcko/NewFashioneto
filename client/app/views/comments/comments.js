@@ -19,7 +19,7 @@ define(function(require){
 			this.collection = new CommentsCollection( this.options.data )
 			this.collection			
 			.on( "sync", this.render, this );
-			console.log( this.options )
+			
 		},
 
 		templates:{

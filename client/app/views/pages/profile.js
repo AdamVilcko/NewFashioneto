@@ -18,11 +18,11 @@ define(function(require){
 
 		pageId: "profile",
 
-		data: App.data.profile,
-
-		sidebar: new ProfileSidebar( { master: this } ),
-
 		myProfile: null,
+
+		loadSidebar: function(){
+			this.sidebar = new ProfileSidebar( { master: this } );
+		},		
 
 		loadTabs: function() {
 			this.tabs        = {};

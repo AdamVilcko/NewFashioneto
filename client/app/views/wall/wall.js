@@ -20,8 +20,7 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		init: function(){
-			this.posts = new Posts();
-			console.log( this.options );
+			this.posts = new Posts( { master: this.master } );
 		},		
 
 		render: function(){
