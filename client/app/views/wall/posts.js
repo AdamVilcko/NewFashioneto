@@ -14,14 +14,14 @@ define(function(require){
 
 		init: function(){
 			this.collection = new PostsCollection( App.data.profile.commentsWrapper.collection );
-			this.collection
-			.on( "replace add remove", this.render, this );			
+			this.collection			
+			.on( "sync", this.render, this );
 		},		
 
 		render: function(){
 			this.$el.empty();
 			if( ! this.collection.isEmpty() ){
-				this.collection.each( this.renderPost, this );
+				this.collection.sort().each( this.renderPost, this );
 			} else {
 				//Render no comments template
 				this.$el.html( "<h1 style='text-align:center'>This user has no posts yet</h1>" );

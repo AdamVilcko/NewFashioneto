@@ -13,6 +13,10 @@ define(function(require){
 		url : App.url( 'wall' ),
 		init: function(){
 			
+		},
+
+		comparator: function( model ){
+			 return -model.get( "id" ); // Note the minus!
 		}
 
 	});

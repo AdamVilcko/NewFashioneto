@@ -1287,6 +1287,11 @@ p{
 	min-height: 85px;
 }
 
+#wall .sendPost{
+	width: 100%;
+	height: 76px;
+}
+
 #wall .media:after{
 	content:" ";
 	clear:both;

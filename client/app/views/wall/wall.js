@@ -36,12 +36,14 @@ define(function(require){
 		},
 
 		events:{
-			"click textarea" : "post"
+			"click .sendPost" : "post"
 		},
 
 		post: function( ev ){
-			var textarea = this.$el.find( this.nodes.textarea ).val();
-			this.posts.collection.create( { content: textarea },
+			var textarea = this.$el.find( this.nodes.textarea );
+			content = textarea.val();
+			textarea.val( "" );
+			this.posts.collection.create( { content: content },
 			{
 				url: this.posts.collection.url + "/" + App.data.profile.id
 			} );
