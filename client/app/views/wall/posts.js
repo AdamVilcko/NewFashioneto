@@ -16,12 +16,13 @@ define(function(require){
 			this.collection = new PostsCollection( App.data.profile.commentsWrapper.collection );
 			this.collection
 			.on( "replace add remove", this.render, this );
-		},
+			this.$el.attr( "data-view", this.cid );
+		},		
 
 		render: function(){
 			console.log( this.collection.toJSON() );
 			this.$el.empty();
-			if( this.collection.length > 0 ){
+			if( ! this.collection.isEmpty() ){
 				this.collection.each( this.renderPost, this );
 			} else {
 				//Render no comments template

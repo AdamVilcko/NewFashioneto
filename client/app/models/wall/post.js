@@ -9,8 +9,7 @@ define(function(require){
 		},
 
 
-		defaults: {
-			id: 1,
+		defaults: {			
 			date: new Date(), //Needs to be timestamp
 			content: "This is the default model!",
 			userId: 2,

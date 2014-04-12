@@ -17,6 +17,8 @@ define(function(require){
 			this.remove();
 		}
 
+
+
 	});
 
 });

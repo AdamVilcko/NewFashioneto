@@ -16,6 +16,10 @@ define(function(require){
 
 		el: document.body,
 
+		attributes: {
+			"data-view" : "pants"		
+		},
+
 		templates: {
 			loginForm: Handlebars.compile( loginFormTemplate ),
 			mainLogin: Handlebars.compile( mainLoginTemplate )
@@ -155,6 +159,7 @@ define(function(require){
 			this.$el.css({ opacity:0 });
 			this.options.success.call( this.options.context );
 			this.$el.animate({ opacity:1 }, 1000 );
+			/*this.close();*/
 		}
 
 	});
