@@ -43,8 +43,8 @@ Comments:
 	POST http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{parentId}
 		Header:
 			X-Auth-Token = [token value]
-		Params:
-			content = [comment value]
+		Body:
+			{ content : [comment value] }
 
 	DELETE http://localhost:8080/Fashioneto-0.1b/as/comment/{commentId}
 		Header:

@@ -1,5 +1,6 @@
 package com.fashioneto.ws.rest;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -21,6 +22,7 @@ import com.fashioneto.service.CommentService;
 import com.fashioneto.service.UserService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
+import com.fashioneto.ws.entities.ContentWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 /**
@@ -65,12 +67,12 @@ public class CommentRestBean
 
 	@POST
 	@Path("{parentType}/{parentId}")
+	@Consumes("application/json")
 	public Response addComment(@PathParam("parentType")
 	CommentParentTypeEnum parentType, @PathParam("parentId")
-	int parentId, @FormParam(value = "content")
-	String content) throws NoUserInContextException
+	int parentId, ContentWrapper content) throws NoUserInContextException
 	{
-		Comment comment = commentService.addComment(parentType, parentId, content);
+		Comment comment = commentService.addComment(parentType, parentId, content.getContent());
 		if (comment != null)
 		{
 			return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(comment)).build();
