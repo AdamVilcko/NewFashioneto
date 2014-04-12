@@ -21,6 +21,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.FilterDef;
@@ -58,7 +59,7 @@ public class User implements Serializable, UserDetails
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_user"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
 	//	@FilterJoinTable(name = User.PARENT_TYPE_FILTER, condition = "comment_parent.parent_type == USER")
-	//	@OrderBy("date desc")
+	@OrderBy("date desc")
 	private Set<Comment> receivedComments = new LinkedHashSet<Comment>();
 
 	@Column(length = 64, nullable = false)
