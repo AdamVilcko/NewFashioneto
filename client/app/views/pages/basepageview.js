@@ -6,9 +6,9 @@ define(function(require){
 	$                  = require("jquery"),
 	Helper             = require('helper'),
 
-	MasterBasePageView = require('views/masterbaseview');
+	MasterBaseView = require('views/masterbaseview');
 
-	return MasterBasePageView.extend({
+	return MasterBaseView.extend({
 
 		el:"#main",
 		nodes:{

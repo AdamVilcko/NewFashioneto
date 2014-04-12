@@ -5,10 +5,11 @@ define(function(require){
 	Handlebars = require("handlebars"),
 	$          = require("jquery"),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	template = require("text!templates/photos/photos.hbr");
 
 
-	return Backbone.View.extend({
+	return MasterBaseView.extend({
 
 		template: Handlebars.compile( template ),
 

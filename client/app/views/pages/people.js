@@ -14,11 +14,6 @@ define(function(require){
 
 		pageId: "people",
 
-		initialize: function( options ){
-			this.options = options || {};
-			this.init( options );
-		},
-
 		postRender: function(){
 
 			this.$el.find("#tabContainer")

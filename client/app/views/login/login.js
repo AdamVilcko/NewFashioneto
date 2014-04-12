@@ -35,9 +35,8 @@ define(function(require){
 			loginContainer: ".loginform"
 		},
 
-		initialize: function( options ){
-			App.login = this;
-			this.options = options || {};
+		init: function(){
+			App.login = this;			
 			if( this.checkSessionCookie() ){
 				this.getUser();
 			} else {

@@ -40,11 +40,10 @@ define(function(require){
 
 		template: Handlebars.compile( mainTemplate ),
 
-		initialize: function(){
+		init: function(){
 			this.render();
 			this.invokePages();
-			this.$el
-			.removeClass( "login" );
+			this.$el.removeClass( "login" );
 		},
 
 		render: function(){

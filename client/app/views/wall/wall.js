@@ -5,11 +5,12 @@ define(function(require){
 	Handlebars = require( "handlebars" ),
 	$          = require( "jquery" ),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	template   = require( "text!templates/wall/wall.hbr" ),
 	Posts      = require( "views/wall/posts" );
 
 
-	return Backbone.View.extend({
+	return MasterBaseView.extend({
 
 		nodes:{
 			posts: "#postDisplay",
@@ -18,7 +19,7 @@ define(function(require){
 
 		template: Handlebars.compile( template ),
 
-		initialize: function(){
+		init: function(){
 			App.vent.on( "login:load", this.handle, this );
 		},
 

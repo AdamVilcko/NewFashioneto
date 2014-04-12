@@ -6,12 +6,13 @@ define(function(require){
 	$          = require("jquery"),
 	Helper     = require('helper'),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	Like       = require("views/like/like"),
 	Comments   = require("views/comments/comments"),
 	template   = require("text!templates/wall/post.hbr");
 
 
-	return Backbone.View.extend({
+	return MasterBaseView.extend({
 
 		tagName: "article",
 		className: "media",
@@ -23,7 +24,7 @@ define(function(require){
 			like: ".likeContainer"
 		},
 
-		initialize: function(){
+		init: function(){
 			this.like = new Like( {
 				type: "heart",
 				data: this.model.toJSON().likes

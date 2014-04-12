@@ -18,11 +18,6 @@ define(function(require){
 
 		pageId: "profile",
 
-		initialize: function( options ){
-			this.options = options || {};
-			this.init( options );
-		},
-
 		sidebar: new ProfileSidebar(),
 
 		tabs: {

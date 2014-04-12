@@ -7,13 +7,13 @@ define(function(require){
 	Modernizr  = require("modernizr"),
 	Helper     = require('helper'),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	template   = require("text!templates/ui/nav.hbr");
 
 
-	return Backbone.View.extend({
+	return MasterBaseView.extend({
 
-		initialize: function(options){
-			this.options = options || {};
+		init: function(options){
 			this.render();
 		},
 

@@ -6,11 +6,12 @@ define(function(require){
 	$          = require("jquery"),
 	Helper     = require("helper"),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	template   = require("text!templates/comments/comment.hbr");
 
 
 
-	return Backbone.View.extend({
+	return MasterBaseView.extend({
 
 		className: "media comment",
 

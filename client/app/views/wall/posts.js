@@ -5,18 +5,17 @@ define(function(require){
 	Handlebars         = require("handlebars"),
 	$                  = require("jquery"),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	PostView           = require("views/wall/post"),
 	PostsCollection    = require("collections/wall/posts");
 
 
-	return Backbone.View.extend({
+	return MasterBaseView.extend({
 
-		initialize: function( options ){
-			this.options = options || {};
+		init: function(){
 			this.collection = new PostsCollection( App.data.profile.commentsWrapper.collection );
 			this.collection
-			.on( "replace add remove", this.render, this );
-			this.$el.attr( "data-view", this.cid );
+			.on( "replace add remove", this.render, this );			
 		},		
 
 		render: function(){

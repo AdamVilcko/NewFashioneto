@@ -5,14 +5,15 @@ define(function(require){
 	Handlebars = require("handlebars"),
 	$          = require("jquery"),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	model      = require("models/like/like"),
 	template   = require("text!templates/like/like.hbr");
 
 
-	 return Backbone.View.extend({
+	 return MasterBaseView.extend({
 
-		initialize: function( options ){
-			this.options = options || { type: "heart", data: { count: 0, actioned: null } };
+		init: function( options ){
+			this.options = ! _.isEmpty( options ) || { type: "heart", data: { count: 0, actioned: null } };
 			this.model = new Model( this.options );
 		},
 

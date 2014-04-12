@@ -5,6 +5,7 @@ define(function(require){
 	Handlebars          = require("handlebars"),
 	$                   = require("jquery"),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	CommentView         = require("views/comments/comment"),
 	CommentsCollection  = require("collections/comments/comments"),
 
@@ -12,10 +13,9 @@ define(function(require){
 	input               = require("text!templates/comments/input.hbr");
 
 
-	return Backbone.View.extend({
+	return MasterBaseView.extend({
 
-		initialize: function( options ){
-			this.options = options || {};
+		init: function(){			
 			this.collection = new CommentsCollection( this.options.data );
 		},
 

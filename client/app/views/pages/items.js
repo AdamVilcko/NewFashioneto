@@ -28,12 +28,7 @@ define(function(require){
 
 		template: Handlebars.compile( pageTemplate ),
 
-		pageId: "items",
-
-		initialize: function( options ){
-			this.options = options || {};
-			this.init( options );
-		}
+		pageId: "items"		
 
 	});
 

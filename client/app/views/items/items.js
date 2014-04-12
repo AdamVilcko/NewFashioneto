@@ -6,10 +6,11 @@ define(function(require){
 	$          = require("jquery"),
 	Masonry    = require("jquery.masonry"),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	template   = require("text!templates/items/items.hbr");
 
 
-	return Backbone.View.extend({
+	return MasterBaseView.extend({
 
 		template: Handlebars.compile( template ),
 
