@@ -64,7 +64,7 @@ public class CommentRestBean
 		return Response.status(Status.NOT_FOUND).build();
 	}
 
-	@PUT
+	@POST
 	@Path("add/{parentType}/{parentId}")
 	public Response addComment(@PathParam("parentType")
 	CommentParentTypeEnum parentType, @PathParam("parentId")
