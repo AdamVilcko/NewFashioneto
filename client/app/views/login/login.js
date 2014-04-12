@@ -16,10 +16,6 @@ define(function(require){
 
 		el: document.body,
 
-		attributes: {
-			"data-view" : "pants"		
-		},
-
 		templates: {
 			loginForm: Handlebars.compile( loginFormTemplate ),
 			mainLogin: Handlebars.compile( mainLoginTemplate )
@@ -131,7 +127,7 @@ define(function(require){
 			$.ajax({
 				type: "GET",
 				context: this,
-				url: App.url( 'user' ) + "/" + "1",
+				url: App.url( 'user' ),
 				dataType: "JSON",
 
 				success: function( data, textStatus, jqXHR ){

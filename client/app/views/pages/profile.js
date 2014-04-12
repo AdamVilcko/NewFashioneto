@@ -47,7 +47,6 @@ define(function(require){
 
 				success: function( data, textStatus, jqXHR ){
 					App.data.profile = data;
-					console.log( data );
 					this.loadPage( pageState );
 				},
 

@@ -10,12 +10,7 @@ define(function(require){
 
 
 		defaults: {			
-			date: new Date(), //Needs to be timestamp
-			content: "This is the default model!",
-			userId: 2,
-			userName: "John Doe2",
-			likes: 0,
-			commentsWrapper: null
+			content: "This is the default model!"			
 		}
 	});
 });

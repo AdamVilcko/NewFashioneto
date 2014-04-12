@@ -20,17 +20,8 @@ define(function(require){
 		},
 
 		renderToDom: function(){
-
-			//Get current element type
-
-			//Cache view element target in DOM
-			var el = $( "div[data-view=" + this.cid + "]" );
-
-			//Get contents of view el property to render - maybe using $.content()?
-
-			//Render contents into cached el container
-			//el.html();
-
+			var el = $( this.tagname + "[data-view=" + this.cid + "]" );
+			el.replaceWith( this.render().el );
 		},
 
 		close: function(){

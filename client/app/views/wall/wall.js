@@ -41,7 +41,10 @@ define(function(require){
 
 		post: function( ev ){
 			var textarea = this.$el.find( this.nodes.textarea ).val();
-			this.posts.collection.create( { content: textarea } );
+			this.posts.collection.create( { content: textarea },
+			{
+				url: this.posts.collection.url + "/" + App.data.profile.id
+			} );
 		}
 
 	});
