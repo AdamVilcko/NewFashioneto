@@ -1394,6 +1394,10 @@ p{
 
 /* Profile */
 
+#profilePicture{
+	margin-bottom: 20px;
+}
+
 #profilePicture a{
 	margin-bottom: 0px;
 	z-index:5;
@@ -1424,6 +1428,7 @@ p{
 	border-bottom: 1px solid #e5dada;
 	padding-bottom:5px;
 	margin-bottom:20px;
+	display:none;
 }
 
 .badges h5,
