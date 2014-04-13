@@ -4,11 +4,10 @@ define(function(require){
 
 	return Backbone.Model.extend({
 		defaults:{
-			count: 0,
-			actioned: null
+			count: 0		
 		},
 
-		url: App.rest.like
+		url: App.url( "like" )
 
 	});
 

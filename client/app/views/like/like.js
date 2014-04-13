@@ -13,7 +13,8 @@ define(function(require){
 	 return MasterBaseView.extend({
 
 		init: function( options ){
-			this.options = ! _.isEmpty( options ) || { type: "heart", data: { count: 0, actioned: null } };
+			this.options = options || { type: "heart", data: { count: 0, actioned: null } };
+			console.log( this.options );
 			this.model = new Model( this.options );
 		},
 
