@@ -2,7 +2,7 @@
   <a href="#" class="thumbnail">
     <img src="img/profile-picture.png" alt="...">
   </a>
-  <h6 class="location well">Prague, CZ</h6>
+  <h6 class="location well">{{city}}, {{country}}</h6>
 </div><!-- profilePicture -->
 
 <div class="badges">
@@ -23,9 +23,9 @@
 
 <div id="stats">
 
-  <div class="well pull-left">Following 4 596</div>
-  <div class="well pull-right">Followers 219</div>
+  <div class="well pull-left">Following {{followingCount}}</div>
+  <div class="well pull-right">Followers {{followersCount}}</div>
   <div class="clear"></div>
-  <div class="well">Alex's Top</div>
+  <div class="well">{{displayName}}'s Top</div>
   
 </div><!-- stats -->

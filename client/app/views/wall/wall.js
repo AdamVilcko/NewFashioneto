@@ -21,7 +21,7 @@ define(function(require){
 
 		init: function(){
 			this.posts = new Posts( { master: this.master } );
-		},		
+		},
 
 		render: function(){
 			this.$el
