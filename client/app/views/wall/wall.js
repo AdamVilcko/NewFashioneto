@@ -41,8 +41,9 @@ define(function(require){
 			textarea.val( "" );
 			this.posts.collection.create( { content: content },
 			{
-				url: this.posts.collection.url + "/" + App.data.myprofile.id
+				url: this.posts.collection.url + "/" + this.master.data().id
 			} );
+
 		}
 
 	});
