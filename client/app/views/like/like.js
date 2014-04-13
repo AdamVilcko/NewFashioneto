@@ -14,7 +14,6 @@ define(function(require){
 
 		init: function( options ){
 			this.options = options || { type: "heart", data: { count: 0, actioned: null } };
-			console.log( this.options );
 			this.model = new Model( this.options );
 		},
 

@@ -83,6 +83,7 @@ define(function(require){
 						headers: { 'X-Auth-Token': data.token }
 					});
 					App.data.myprofile = data.user;
+					App.userId = data.user.id;
 
 					this.proceed( data.user );
 				},
@@ -134,6 +135,7 @@ define(function(require){
 
 				success: function( data, textStatus, jqXHR ){
 					App.data.myprofile = data;
+					App.userId = data.id;
 					this.proceed();
 				},
 

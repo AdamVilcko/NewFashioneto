@@ -4,7 +4,7 @@ define(function(require){
 	
 	return BaseProfile.extend({
 		pageId: "guestprofile",
-		myProfile: null
+		myProfile: false
 	});
 
 });

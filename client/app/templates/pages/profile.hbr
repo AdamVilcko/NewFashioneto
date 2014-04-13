@@ -11,12 +11,14 @@
 
               </div>
 
-               <div class="col-md-6 options">
-                    <button class="follow btn btn-primary btn-md" href="../navbar/">Follow</button>
-                    <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
-                    <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
-                    <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
-               </div>
+              {{#unless myprofile }}
+                 <div class="col-md-6 options">
+                      <button class="follow btn btn-primary btn-md" href="../navbar/">Follow</button>
+                      <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
+                      <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
+                      <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
+                 </div>
+               {{/unless}}
 
             </section><!-- userTitle -->
 

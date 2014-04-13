@@ -13,8 +13,6 @@ define(function(require){
 	return MasterBaseView.extend({
 
 		init: function(){
-			var hello = this.master.data();
-			console.log( hello );
 			this.collection = new PostsCollection( this.master.data().commentsWrapper.collection );
 			this.collection
 			.on( "sync", this.render, this );
@@ -25,7 +23,6 @@ define(function(require){
 			if( ! this.collection.isEmpty() ){
 				this.collection.sort().each( this.renderPost, this );
 			} else {
-				//Render no comments template
 				this.$el.html( "<h1 style='text-align:center'>This user has no posts yet</h1>" );
 			}
 
