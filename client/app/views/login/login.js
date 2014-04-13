@@ -82,7 +82,7 @@ define(function(require){
 					$.ajaxSetup({
 						headers: { 'X-Auth-Token': data.token }
 					});
-					App.data.profile = data.user;
+					App.data.myprofile = data.user;
 
 					this.proceed( data.user );
 				},
@@ -105,7 +105,8 @@ define(function(require){
 				headers: { 'X-Auth-Token': "" }
 			});
 			App.data = {
-		        profile:{},
+		        myprofile:{},
+		        guestprofile:{},
 		        items:{},
 		        people:{}
 		    }
@@ -132,7 +133,7 @@ define(function(require){
 				dataType: "JSON",
 
 				success: function( data, textStatus, jqXHR ){
-					App.data.profile = data;
+					App.data.myprofile = data;
 					this.proceed();
 				},
 

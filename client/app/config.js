@@ -24,7 +24,8 @@ App = {
     pages:{},
 
     data: {
-        profile:{},
+        myprofile:{},
+        guestprofile:{},
         items:{},
         people:{}
     },

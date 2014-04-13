@@ -73,7 +73,7 @@ define(function(require){
 		},
 
 		data: function(){
-			return this.options.data;
+			return App.data[ this.options.data ];
 		},
 
 		//DOM events

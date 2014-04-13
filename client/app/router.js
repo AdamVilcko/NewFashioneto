@@ -40,9 +40,9 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 			'people': 'people',
 
-			'people/:user': 'profile',
+			'people/:user': 'guestProfile',
 
-			'people/:user/:tab': 'profile',
+			'people/:user/:tab': 'guestProfile',
 
 			'items': 'items',
 
@@ -77,11 +77,11 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 		},
 
 		myProfile: function( tab ){
-			App.vent.trigger( 'page:profile', { tab: tab, myProfile: true } );
+			App.vent.trigger( 'page:myprofile', { tab: tab, myProfile: true } );
 		},
 
-		profile: function( user, tab ){
-			App.vent.trigger( 'page:profile', { user: user , tab: tab, myProfile: false } );
+		guestProfile: function( user, tab ){
+			App.vent.trigger( 'page:guestprofile', { user: user , tab: tab, myProfile: false } );
 		},
 
 		itemModal: function(){

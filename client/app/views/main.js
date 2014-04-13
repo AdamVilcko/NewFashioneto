@@ -23,7 +23,8 @@ define(function(require){
 	Feed           = require( 'views/pages/feed' ),
 	Items          = require( 'views/pages/items' ),
 	People         = require( 'views/pages/people' ),
-	Profile        = require( 'views/pages/profile' ),
+	MyProfile        = require( 'views/pages/myprofile' ),
+	GuestProfile        = require( 'views/pages/guestprofile' ),
 	
 	//Main page template
 	
@@ -63,7 +64,9 @@ define(function(require){
 			this.pages = {};
 			this.pages.items = new Items();
 			this.pages.people = new People();
-			this.pages.profile = new Profile( { data: App.data.profile } );
+			this.pages.myprofile = new MyProfile( { data: "myprofile" } );
+			this.pages.guestprofile = new GuestProfile( { data: "guestprofile" } );
+			
 			return this;
 		}
 

@@ -13,6 +13,8 @@ define(function(require){
 	return MasterBaseView.extend({
 
 		init: function(){
+			var hello = this.master.data();
+			console.log( hello );
 			this.collection = new PostsCollection( this.master.data().commentsWrapper.collection );
 			this.collection
 			.on( "sync", this.render, this );
