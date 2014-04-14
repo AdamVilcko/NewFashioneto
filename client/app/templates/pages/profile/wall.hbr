@@ -59,8 +59,9 @@
 
         <div class="row">
           <div class="col-md-10"> <textarea placeholder="Write on Alex's wall" class="well"></textarea></div>
-          <div class="col-md-2"><a class="uploadphoto pull-right" href="#">Upload photo</a></div>        
-          
+          {{#unless myprofile }}
+            <div class="col-md-2"><a class="uploadphoto pull-right" href="#">Upload photo</a></div>
+          {{/unless}}          
         </div>
         
       </div>

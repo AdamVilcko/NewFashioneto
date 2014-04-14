@@ -12,20 +12,22 @@
               </div>
 
               {{#unless myprofile }}
+
                  <div class="col-md-6 options">
                       <button class="follow btn btn-primary btn-md" href="../navbar/">Follow</button>
                       <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
                       <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
                       <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
                  </div>
+               
                {{/unless}}
 
             </section><!-- userTitle -->
 
             <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-              <li><a href="#profile/wall" data-toggle="tab">Wall</a></li>
-              <li><a href="#profile/photos" data-toggle="tab">Photos (432)</a></li>
-              <li><a href="#profile/items" data-toggle="tab">Items</a></li>
+              <li><a href="#{{#if myprofile}}profile{{else}}people/{{details.userName}}{{/if}}/wall" data-toggle="tab">Wall</a></li>
+              <li><a href="#{{#if myprofile}}profile{{else}}people/{{details.userName}}{{/if}}/photos" data-toggle="tab">Photos (432)</a></li>
+              <li><a href="#{{#if myprofile}}profile{{else}}people/{{details.userName}}{{/if}}/items" data-toggle="tab">Items</a></li>
               <!-- <li><a href="profile/info" data-toggle="tab">Information</a></li> -->
             </ul>
 

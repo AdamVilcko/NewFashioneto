@@ -20,7 +20,8 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 				success: function(){
 					this.mainView = new MainView();
 					//Load default page
-					window.location.hash = "profile";
+					
+					//window.location.hash = "profile";
 				},
 				context: this
 			});
@@ -61,7 +62,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 
 		index:function(){
-			this.profile( "wall" );
+			window.location.hash = "profile";
 		},
 
 		feed: function( tab ){

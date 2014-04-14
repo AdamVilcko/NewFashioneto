@@ -6,7 +6,7 @@ define(function(require){
 	$          = require("jquery"),
 
 	MasterBaseView = require( 'views/masterbaseview' ),
-	model      = require("models/like/like"),
+	Model      = require("models/like/like"),
 	template   = require("text!templates/like/like.hbr");
 
 
@@ -30,6 +30,7 @@ define(function(require){
 
 		registerLike: function(){
 			this.model.save();
+			//ID  needs to be passed to model to dynamically set the rught
 		}
 
 	});
