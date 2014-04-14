@@ -73,7 +73,9 @@ define(function(require){
 		},
 
 		data: function(){
-			return App.data[ this.options.data ];
+			var data = App.data[ this.options.data ];
+			if( data.id === App.userId ) data.myprofile = true;
+			return data;
 		},
 
 		//DOM events
