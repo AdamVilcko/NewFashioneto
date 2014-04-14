@@ -64,7 +64,7 @@ public class Comment implements Serializable
 
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_comment"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
-	@OrderBy("date desc")
+	@OrderBy("date asc")
 	private Set<Comment> comments = new LinkedHashSet<Comment>();
 
 	@OneToMany(mappedBy = "comment", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)

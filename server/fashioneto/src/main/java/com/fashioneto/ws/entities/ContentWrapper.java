@@ -9,6 +9,11 @@ package com.fashioneto.ws.entities;
  */
 public class ContentWrapper {
 
+	@Override
+	public String toString() {
+		return "ContentWrapper [content=" + content + "]";
+	}
+
 	private String content;
 
 	public String getContent() {

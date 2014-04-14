@@ -70,8 +70,8 @@
 			<version>5.1.9</version>
 		</dependency>
 		<!-- Huh? Spring Jdbc is suddenly marked as provided by spring-orm? -->
-		 <dependency>
-		     <groupId>org.springframework</groupId>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
@@ -79,7 +79,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
-		</dependency>		
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -106,33 +106,33 @@
 			<version>${spring.security.version}</version>
 		</dependency>
 		<dependency>
-        	<groupId>org.springframework.security</groupId>
-        	<artifactId>spring-security-config</artifactId>
-        	<version>${spring.security.version}</version>
-    	</dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.2.2</version>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>jcl-over-slf4j</artifactId> -->
-<!-- 			<version>1.7.0</version> -->
-<!-- 			<scope>runtime</scope> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-api</artifactId> -->
-<!-- 			<version>1.7.0</version> -->
-<!-- 			<scope>runtime</scope> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.slf4j</groupId> -->
-<!-- 			<artifactId>slf4j-log4j12</artifactId> -->
-<!-- 			<version>1.7.0</version> -->
-<!-- 			<scope>runtime</scope> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.slf4j</groupId> -->
+		<!-- <artifactId>jcl-over-slf4j</artifactId> -->
+		<!-- <version>1.7.0</version> -->
+		<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.slf4j</groupId> -->
+		<!-- <artifactId>slf4j-api</artifactId> -->
+		<!-- <version>1.7.0</version> -->
+		<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.slf4j</groupId> -->
+		<!-- <artifactId>slf4j-log4j12</artifactId> -->
+		<!-- <version>1.7.0</version> -->
+		<!-- <scope>runtime</scope> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -173,14 +173,14 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
-<!-- 			<scope>provided</scope> -->
+			<!-- <scope>provided</scope> -->
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>javax.servlet</groupId> -->
-<!-- 			<artifactId>jsp-api</artifactId> -->
-<!-- 			<version>2.0</version> -->
-<!-- 			<scope>provided</scope> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>javax.servlet</groupId> -->
+		<!-- <artifactId>jsp-api</artifactId> -->
+		<!-- <version>2.0</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>taglibs</groupId> -->
 		<!-- <artifactId>standard</artifactId> -->
@@ -260,28 +260,35 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.3.175</version>
-		</dependency>			
+		</dependency>
 		<dependency>
 			<groupId>com.googlecode.flyway</groupId>
 			<artifactId>flyway-maven-plugin</artifactId>
 			<version>2.3</version>
 		</dependency>
-		<!-- JERSEY/Rest dependecies:  -->
+		<dependency>
+			<groupId>org.imgscalr</groupId>
+			<artifactId>imgscalr-lib</artifactId>
+			<version>4.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<!-- JERSEY/Rest dependecies: -->
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-json</artifactId>
 			<version>${jersey.version}</version>
-		</dependency>		
-<!-- 		<dependency>  -->
-<!-- 			<groupId>com.sun.jersey</groupId> -->
-<!-- 			<artifactId>jersey-bundle</artifactId> -->
-<!-- 			<version>${jersey.version}</version> -->
-<!-- 		</dependency>		 -->
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>com.sun.jersey</groupId> -->
+		<!-- <artifactId>jersey-bundle</artifactId> -->
+		<!-- <version>${jersey.version}</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-spring</artifactId>
 			<version>${jersey.version}</version>
- 			<exclusions> 
+			<exclusions>
 				<exclusion>
 					<groupId>org.springframework</groupId>
 					<artifactId>spring</artifactId>
@@ -311,13 +318,13 @@
 					<artifactId>spring-asm</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>		
+		</dependency>
 	</dependencies>
-	
-    <properties>
-        <jersey.version>1.18.1</jersey.version>
-        <spring.version>3.2.3.RELEASE</spring.version>
-        <spring.security.version>3.1.4.RELEASE</spring.security.version>
-    </properties>
+
+	<properties>
+		<jersey.version>1.18.1</jersey.version>
+		<spring.version>3.2.3.RELEASE</spring.version>
+		<spring.security.version>3.1.4.RELEASE</spring.security.version>
+	</properties>
 
 </project>

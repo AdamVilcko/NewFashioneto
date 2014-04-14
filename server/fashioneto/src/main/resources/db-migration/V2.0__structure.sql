@@ -11,15 +11,17 @@ create table fashionetoer (
 	`email` varchar(100) not null,
 	`password` varchar(200) not null,
 	`display_name` varchar(100) not null,
+	`id_profile_image` int(11) unsigned null,
 	`city` varchar(100),
 	`country` varchar(100)
 );
 
 create table image (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
+	`id_user` int(11) unsigned not null,
 	`filename` varchar(200) not null, 
-	`description` varchar(100) not null,
-	`type` varchar(50) not null
+	`date` DATETIME not null,
+	`description` varchar(100) not null
 );
 
 create table item (
@@ -38,12 +40,6 @@ create table item_image (
 	`id_image` int(11) unsigned not null
 );
 
-create table fashionetoer_image (
-	`id_fashionetoer` int(11) unsigned not null,
-	`id_image` int(11) unsigned not null
-);
-
-
 create table comment (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`id_user` int(11) unsigned not null,
@@ -56,6 +52,7 @@ create table comment_parent (
 	`id_comment` int(11) unsigned not null primary key,
 	`id_parent_comment` int(11) unsigned,
 	`id_parent_user` int(11) unsigned,
+	`id_parent_image` int(11) unsigned,
 	`parent_type` varchar(50) not null
 );
 
@@ -65,6 +62,12 @@ create table like_item (
 );
 
 create table like_comment (
+	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
+	`id_user` int(11) unsigned not null,
+	`id_comment` int(11) unsigned not null
+);
+
+create table like_image (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`id_user` int(11) unsigned not null,
 	`id_comment` int(11) unsigned not null

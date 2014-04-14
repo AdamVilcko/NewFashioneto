@@ -20,6 +20,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
@@ -74,6 +75,18 @@ public class User implements Serializable, UserDetails
 	@Column(name = "city")
 	private String city;	
 	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_profile_image")
+	private Image profileImage;
+	
+	public Image getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(Image profileImage) {
+		this.profileImage = profileImage;
+	}
+
 	public String getDisplayName() {
 		return displayName;
 	}

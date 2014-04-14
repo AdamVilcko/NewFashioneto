@@ -18,10 +18,10 @@ INSERT INTO User_roles VALUES (7, 6,'user');
 
 -- user 2 leaving a comment for user 1
 insert into comment (`id`, `id_user`, `content`, `dt_comment`, `status`) values (1, 2, 'I like your pictures and your profile, man!', '2014-03-09 12:30:00', 'ACTIVE');
-insert into comment_parent values (1, null, 1, 'USER');	
+insert into comment_parent values (1, null, 1, null, 'USER');	
 -- user 1 leaving a reply for comment above
 insert into comment (`id`, `id_user`, `content`, `dt_comment`, `status`) values (2, 1, 'Thanks!', '2014-03-09 12:30:00', 'ACTIVE');
-insert into comment_parent values (2, 1, null, 'COMMENT');
+insert into comment_parent values (2, 1, null, null, 'COMMENT');
 
 --user 1 liking comment 1
 insert into like_comment values (1, 1, 1);
