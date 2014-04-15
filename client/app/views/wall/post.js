@@ -27,7 +27,8 @@ define(function(require){
 		init: function(){
 			this.like = new Like( {
 				type: "heart",
-				data: this.model.toJSON().likes
+				data: this.model.toJSON().likes,
+				parentId: this.model.get( "id" )
 			} );
 		},
 

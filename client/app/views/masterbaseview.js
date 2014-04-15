@@ -20,7 +20,7 @@ define(function(require){
 		},
 
 		renderToDom: function(){
-			var el = $( this.tagname + "[data-view=" + this.cid + "]" );
+			var el = $( this.tagName + "[data-view=" + this.cid + "]" );
 			el.replaceWith( this.render().el );
 		},
 

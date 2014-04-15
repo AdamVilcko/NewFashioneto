@@ -1,2 +1,2 @@
-<button {{#if data.actioned}}disabled="disabled"{{/if}} type="button" class="btn btn-default like {{type}}">Like<div>{{data.count}}</div></button>
+<button {{#if actioned}}disabled="disabled"{{/if}} type="button" class="btn btn-default like {{type}}">Like<div>{{count}}</div></button>
 
