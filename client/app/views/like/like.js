@@ -14,14 +14,23 @@ define(function(require){
 
 		init: function( options ){
 			this.options = options || { type: "heart", data: { count: 0, actioned: null } };
-			this.model = new Model( this.options );
+			this.model = new Model( this.options.data );
+			this.model.on( "sync", this.update, this );
+			App.like = this;
 		},
 
 		template: Handlebars.compile( template ),
 
 		render: function(){
-			this.$el.html( this.template( this.options ) );
+			var insert = this.model.toJSON();
+			insert.type = this.options.type;
+			this.$el.html( this.template( insert ) );
 			return this;
+		},
+
+		update: function(){
+			this.model.set( "count", this.model.get( "count" ) + 1 );
+			this.renderToDom();
 		},
 
 		events: {
@@ -29,8 +38,8 @@ define(function(require){
 		},
 
 		registerLike: function(){
-			this.model.save();
-			//ID  needs to be passed to model to dynamically set the rught
+			console.log( this.cid );
+			this.model.persist( this.options.parentId );			
 		}
 
 	});
