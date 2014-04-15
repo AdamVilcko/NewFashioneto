@@ -15,24 +15,26 @@ import com.fashioneto.persistence.Image;
 
 /**
  * @author felipe
- *
  */
-@Service("userService")
-public class ImageServiceImpl implements ImageService {
+@Service("imageService")
+public class ImageServiceImpl implements ImageService
+{
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
-	public ByteArrayOutputStream getImageContent(int id, String size) {
+	public ByteArrayOutputStream getImageContent(int id, String size)
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Image> getImages(int userId) {
+	public List<Image> getImages(int userId)
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }

@@ -25,6 +25,10 @@ public class FashionetoJsonFactory
 		return gBuilder;
 	}
 
+	/**
+	 * @TODO: REFACTOR THIS CLASS!!!!!!
+	 */
+
 	private static Gson getGson()
 	{
 		GsonBuilder gBuilder = getGsonBuilder();
@@ -40,13 +44,12 @@ public class FashionetoJsonFactory
 		Gson gson = getGson();
 		return gson.toJson(user);
 	}
-	
+
 	public static JsonElement getJsonElement(User user)
 	{
 		Gson gson = getGson();
 		return gson.toJsonTree(user);
 	}
-	
 
 	public static String getJson(Comment comment)
 	{
@@ -59,16 +62,26 @@ public class FashionetoJsonFactory
 		Gson gson = getGson();
 		return gson.toJson(comments);
 	}
-	
+
 	public static String getJson(JsonElement jsonElement)
 	{
 		Gson gson = getGson();
 		return gson.toJson(jsonElement);
-	}	
+	}
 
 	public static String getJson(ResponseWrapper rw)
 	{
 		Gson gson = getGson();
 		return gson.toJson(rw);
+	}
+
+	/**
+	 * @param object
+	 * @return
+	 */
+	public static String getJsonFromObject(Object object)
+	{
+		Gson gson = getGson();
+		return gson.toJson(object);
 	}
 }

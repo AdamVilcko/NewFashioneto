@@ -12,7 +12,7 @@ Manager Page:
 
 Login
 
-	POST http://localhost:8081/Fashioneto-0.1b/as/user/authenticate
+	POST http://localhost:8080/Fashioneto-0.1b/as/user/authenticate
 		Params:
 			username = [value]
 			password = [value]

@@ -2,7 +2,6 @@ package com.fashioneto.ws.rest;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -23,6 +22,7 @@ import com.fashioneto.service.UserService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.ws.entities.ContentWrapper;
+import com.fashioneto.ws.entities.LikesWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 /**
@@ -89,9 +89,11 @@ public class CommentRestBean
 		if (commentId > 0)
 		{
 			User user = ContextUtils.getUserFromAuthenticationContext();
-			String responseTest = Integer.toString(commentService.addLike(user.getId(), commentId));
 
-			return Response.status(Status.OK).entity(responseTest).build();
+			int likesCount = commentService.addLike(user.getId(), commentId);
+
+			LikesWrapper likesWrapper = new LikesWrapper(likesCount, true);
+			return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(likesWrapper)).build();
 		}
 
 		return Response.status(Status.NOT_FOUND).build();
