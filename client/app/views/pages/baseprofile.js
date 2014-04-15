@@ -49,7 +49,7 @@ define(function(require){
 				url: App.url( 'user' ) + "/" + pageState.user,
 
 				success: function( data, textStatus, jqXHR ){
-					if( App.data.guestprofile.id === App.data.myprofile.id ){
+					if( data.id === App.data.myprofile.id ){
 						App.data.myprofile = data;
 					} else {
 						App.data.guestprofile = data;
