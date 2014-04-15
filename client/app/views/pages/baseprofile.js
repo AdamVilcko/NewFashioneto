@@ -33,12 +33,12 @@ define(function(require){
 
 		customHandle: function( pageState ){
 			if( pageState.myProfile === false ){
-				this.myProfile = false;
-				this.getUser( pageState );
+				this.myProfile = false;				
 			} else {
 				this.myProfile = true;
-				this.loadPage( pageState );
+				pageState.user = App.data.myprofile.details.userName
 			}
+			this.getUser( pageState );
 		},
 
 		getUser: function( pageState ){
@@ -49,7 +49,11 @@ define(function(require){
 				url: App.url( 'user' ) + "/" + pageState.user,
 
 				success: function( data, textStatus, jqXHR ){
-					App.data.guestprofile = data;
+					if( App.data.guestprofile.id === App.data.myprofile.id ){
+						App.data.myprofile = data;
+					} else {
+						App.data.guestprofile = data;
+					}					
 					this.loadPage( pageState );
 				},
 

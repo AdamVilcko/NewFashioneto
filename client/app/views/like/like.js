@@ -15,30 +15,24 @@ define(function(require){
 		init: function( options ){
 			this.options = options || { type: "heart", data: { count: 0, actioned: null } };
 			this.model = new Model( this.options.data );
-			this.model.on( "sync", this.update, this );
-			App.like = this;
+			this.model.on( "sync", this.renderToDom, this );
 		},
 
 		template: Handlebars.compile( template ),
 
 		render: function(){
+			//Need to create method on master base view for merging data before passing into template 
 			var insert = this.model.toJSON();
 			insert.type = this.options.type;
 			this.$el.html( this.template( insert ) );
 			return this;
-		},
-
-		update: function(){
-			this.model.set( "count", this.model.get( "count" ) + 1 );
-			this.renderToDom();
-		},
+		},		
 
 		events: {
 			'click' : 'registerLike'
 		},
 
 		registerLike: function(){
-			console.log( this.cid );
 			this.model.persist( this.options.parentId );			
 		}
 
