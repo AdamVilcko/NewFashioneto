@@ -53,7 +53,7 @@ define(function(require){
 						App.data.myprofile = data;
 					} else {
 						App.data.guestprofile = data;
-					}					
+					}
 					this.loadPage( pageState );
 				},
 

@@ -66,6 +66,9 @@ define(function(require){
 			this.pages.people = new People();
 			this.pages.myprofile = new MyProfile( { data: "myprofile" } );
 			this.pages.guestprofile = new GuestProfile( { data: "guestprofile" } );
+
+			window.location.hash = "";
+			window.location.hash = "profile";			
 			
 			return this;
 		}

@@ -32,7 +32,6 @@ define(function(require){
 		},
 
 		init: function(){
-			App.login = this;			
 			if( this.checkSessionCookie() ){
 				this.getUser();
 			} else {
@@ -155,9 +154,7 @@ define(function(require){
 			App.vent.trigger( "login:load", data );
 			App.vent.on( "login:sessionExpired", this.modalLogin, this );
 			App.vent.on( "login:logout", this.logout, this );
-			this.$el.css({ opacity:0 });
 			this.options.success.call( this.options.context );
-			this.$el.animate({ opacity:1 }, 1000 );
 			/*this.close();*/
 		}
 
