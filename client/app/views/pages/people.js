@@ -1,10 +1,12 @@
 define(function(require){
 
 	var
-	Backbone   = require("backbone"),
-	Handlebars = require("handlebars"),
-	$          = require("jquery"),
+	Backbone     = require("backbone"),
+	Handlebars   = require("handlebars"),
+	$            = require("jquery"),
 
+	People = require("views/people/people"),
+	
 	BasePageView = require("views/pages/basepageview"),
 	pageTemplate = require("text!templates/pages/people.hbr");
 
@@ -14,9 +16,18 @@ define(function(require){
 
 		pageId: "people",
 
-		postRender: function(){
+		initSubviews: function(){
+			this.people = new People();
+		},
 
-			this.$el.find("#tabContainer")
+		postRender: function(){
+			var tabContainer = this.$el.find("#tabContainer");
+
+			tabContainer.empty();
+
+			tabContainer.html( this.people.render().el );
+
+			tabContainer
 			.addClass( "masonryContainer" )
 			.masonry({
 			  itemSelector: '.people',

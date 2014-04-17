@@ -13,10 +13,12 @@ define(function(require){
 			if( this.options.master ) this.master = this.options.master;
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
+			if( typeof this.initSubviews !== "undefined" ) this.initSubviews();
 		},
 
 		render: function(){
 			this.$el.html( this.template() );
+			return this;
 		},
 
 		renderToDom: function(){

@@ -79,7 +79,8 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 		},
 
 		guestProfile: function( user, tab ){
-			App.vent.trigger( 'page:guestprofile', { user: user , tab: tab, myProfile: false } );
+			$("#main").empty();
+			App.vent.trigger( 'page:guestprofile', { user: user , tab: tab, myProfile: false } );			
 		},
 
 		itemModal: function(){
