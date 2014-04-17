@@ -25,6 +25,7 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 	public static final String JSON_PROPERTY_COMMENTS = "commentsWrapper";
 	public static final String JSON_PROPERTY_USER_ID = "userId";
 	public static final String JSON_PROPERTY_DISPLAY_NAME = "displayName";
+	public static final String JSON_PROPERTY_IMAGE_ID = "imageId";
 	public static final String JSON_PROPERTY_LIKES = "likes";
 	public static final String JSON_PROPERTY_DATE = "date";
 	public static final String JSON_PROPERTY_STATUS = "status";
@@ -39,6 +40,11 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 		jsonObject.addProperty(JSON_PROPERTY_DISPLAY_NAME, comment.getUser().getDisplayName());
 		jsonObject.addProperty(JSON_PROPERTY_DATE, comment.getDateInTimestampString());
 		jsonObject.addProperty(JSON_PROPERTY_STATUS, comment.getStatus().toString());
+
+		if (comment.getUser().getProfileImage() != null)
+		{
+			jsonObject.addProperty(JSON_PROPERTY_IMAGE_ID, comment.getUser().getProfileImage().getId());
+		}
 
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(comment.getCommentsCommentSet()));
 		jsonObject.add(JSON_PROPERTY_LIKES, context.serialize(getLikesWrapper(comment)));

@@ -19,7 +19,8 @@ create table fashionetoer (
 create table image (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`id_user` int(11) unsigned not null,
-	`filename` varchar(200) not null, 
+	`filename` varchar(200) not null,
+	`file_extension` varchar(4) not null,
 	`date` DATETIME not null,
 	`description` varchar(100) not null
 );
