@@ -3,7 +3,6 @@ package com.fashioneto.ws.json;
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.CommentSet;
 import com.fashioneto.persistence.User;
-import com.fashioneto.ws.entities.ResponseWrapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -67,12 +66,6 @@ public class FashionetoJsonFactory
 	{
 		Gson gson = getGson();
 		return gson.toJson(jsonElement);
-	}
-
-	public static String getJson(ResponseWrapper rw)
-	{
-		Gson gson = getGson();
-		return gson.toJson(rw);
 	}
 
 	/**

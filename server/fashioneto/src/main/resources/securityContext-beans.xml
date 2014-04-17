@@ -41,7 +41,6 @@
 		<security:custom-filter ref="authenticationTokenProcessingFilter" position="FORM_LOGIN_FILTER" />
 		<security:intercept-url pattern="/as/user/authenticate" access="permitAll" />
 		<security:intercept-url pattern="/as/image/**" access="permitAll" />
-		<security:intercept-url pattern="/old/**" access="permitAll" />
 		<security:intercept-url method="GET" pattern="/as/**" access="hasRole('user')" />
 		<security:intercept-url method="PUT" pattern="/as/**" access="hasRole('user')" />
 		<security:intercept-url method="POST" pattern="/as/**" access="hasRole('user')" />
