@@ -46,6 +46,7 @@ define(function(require){
 			if( typeof this.preRender !== "undefined" ) this.preRender( pageState );
 
 			this.$el
+			.attr( "data-view", this.cid ) //Needs to be here as the el is shared
 			.html( this.template( App.data[ this.pageId ] ) );
 
 			if( this.tabs ){

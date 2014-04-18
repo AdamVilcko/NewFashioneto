@@ -13,17 +13,14 @@ define(function(require){
 			
 			navAnchors.parent().removeClass( active );
 
+			if( pageId === "guestprofile" ) pageId = "people"; // Bodge to make people still highlight even though id name is guestprofile
+
 			navAnchors.each( function( i ){
-				href = $(this).attr( "href" );		
+				href = $(this).attr( "href" );
 				if( href === "#" + pageId || href === "#" + pageId + "/" + tab ){
 					$(this).parent().addClass( active );
 				}
 			} );
-
-			//Code to handle the link state properly
-			//so that tab state is updated on the main links
-			var profile = $( '.nav a.profile' );
-			profile;
 
 		},
 

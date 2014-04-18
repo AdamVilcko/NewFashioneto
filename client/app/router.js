@@ -32,9 +32,9 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 			'': "index",
 
-			'profile': 'myProfile',
+			'myprofile': 'myProfile',
 
-			'profile/:tab': 'myProfile',
+			'myprofile/:tab': 'myProfile',
 
 			'people': 'people',
 
@@ -75,6 +75,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 		},
 
 		myProfile: function( tab ){
+			$("#main").empty();
 			App.vent.trigger( 'page:myprofile', { tab: tab, myProfile: true } );
 		},
 

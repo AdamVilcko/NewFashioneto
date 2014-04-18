@@ -51,6 +51,7 @@ define(function(require){
 				success: function( data, textStatus, jqXHR ){
 					if( data.id === App.data.myprofile.id ){
 						App.data.myprofile = data;
+						App.data.guestprofile = data;
 					} else {
 						App.data.guestprofile = data;
 					}

@@ -9,18 +9,9 @@ define(function(require){
 	$            = require("jquery"),
 	Masonry      = require("jquery.masonry"),
 
-
-	//Base page view
-
 	BasePageView = require("views/pages/basepageview"),
-
-	//Tab views
-
-	//Items        = require("views/items/items"),
-
-	//Main items template
-
-	pageTemplate = require("text!templates/pages/items.hbr");
+	pageTemplate = require("text!templates/pages/items.hbr"),
+	Items = require("text!items/items");
 
 
 
@@ -28,7 +19,17 @@ define(function(require){
 
 		template: Handlebars.compile( pageTemplate ),
 
-		pageId: "items"		
+		pageId: "items",
+
+		initSubviews: function(){
+			this.items = new Items();
+		},
+
+		postRender: function(){
+			var tabContainer = this.$el.find("#tabContainer");
+			tabContainer.empty();
+			tabContainer.html( this.items.render().el );
+		}
 
 	});
 
