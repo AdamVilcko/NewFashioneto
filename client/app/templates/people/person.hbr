@@ -1,0 +1,10 @@
+<div class="people">
+  <div class="thumbnail">
+    <a href="#people/{{userName}}"><img src="{{imgUrl}}" alt="..."></a>
+  </div>
+  <div class="caption">
+    <h5><a href="#people/{{userName}}">{{displayName}}</a></h5>
+    <h6>{{location}}</h6>
+    <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+  </div>
+</div>
