@@ -1,33 +1,19 @@
 define(function(require){
 
-	var
-
-	//Deps
+	var	
 
 	$              = require( 'jquery' ),
 	Backbone       = require( 'backbone' ),
 	Handlebars     = require( 'handlebars' ),
 
-	Login = require( 'views/login/login' ),
-	
-	//Master base view
-	
-	MasterBaseView = require( 'views/masterbaseview' ),
-	
-	//UI views
-	
-	Nav            = require( 'views/ui/nav' ),
-	
-	//Page views
-	
+	Login          = require( 'views/login/login' ),	
+	MasterBaseView = require( 'views/masterbaseview' ),	
+	Nav            = require( 'views/ui/nav' ),	
 	Feed           = require( 'views/pages/feed' ),
 	Items          = require( 'views/pages/items' ),
 	People         = require( 'views/pages/people' ),
-	MyProfile        = require( 'views/pages/myprofile' ),
-	GuestProfile        = require( 'views/pages/guestprofile' ),
-	
-	//Main page template
-	
+	MyProfile      = require( 'views/pages/myprofile' ),
+	GuestProfile   = require( 'views/pages/guestprofile' ),	
 	mainTemplate   = require( 'text!templates/main.hbr' );
 
 
@@ -68,7 +54,7 @@ define(function(require){
 			this.pages.guestprofile = new GuestProfile( { data: "guestprofile" } );
 
 			window.location.hash = "";
-			window.location.hash = "profile";			
+			window.location.hash = "myprofile";			
 			
 			return this;
 		}

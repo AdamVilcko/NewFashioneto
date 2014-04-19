@@ -12,6 +12,8 @@ define(function(require){
 
 		template: Handlebars.compile( template ),
 
+		className: "people",
+
 		render: function(){
 			this.$el.html( this.template( this.model.toJSON() ) );
 			return this;
