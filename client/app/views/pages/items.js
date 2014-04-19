@@ -11,7 +11,7 @@ define(function(require){
 
 	BasePageView = require("views/pages/basepageview"),
 	pageTemplate = require("text!templates/pages/items.hbr"),
-	Items = require("text!items/items");
+	Items = require("views/items/items");
 
 
 
@@ -29,6 +29,13 @@ define(function(require){
 			var tabContainer = this.$el.find("#tabContainer");
 			tabContainer.empty();
 			tabContainer.html( this.items.render().el );
+
+			tabContainer
+			.addClass( "masonryContainer" )
+			.masonry({
+			  itemSelector: '.item',
+			  columnWidth: 160
+			});
 		}
 
 	});

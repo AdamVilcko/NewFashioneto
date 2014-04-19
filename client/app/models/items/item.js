@@ -6,10 +6,9 @@ define(function(require){
 
 		defaults: {
 			id: 1,
-			userName: "user1",
-			displayName: "Emma Davis",
-			location: "London, UK",
-			imgUrl: "img/pictures-thumbnail.jpg"
+			itemTitle: "Default title",
+			itemMaker: "Default maker",
+			imgUrl: "img/thumbnail.jpg"
 		}
 		
 	});
