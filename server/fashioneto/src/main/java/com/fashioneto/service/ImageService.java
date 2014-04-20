@@ -4,23 +4,22 @@
 package com.fashioneto.service;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 import com.fashioneto.persistence.Image;
+import com.fashioneto.ws.entities.ImageSizeEnum;
 
 /**
  * @author felipe
- *
  */
-public interface ImageService {
+public interface ImageService
+{
 
-	public static final String THUMBNAIL = "thumbnail";
-	public static final String SMALL = "small";
-	public static final String MEDIUM = "medium";
-	public static final String LARGE = "large";
-	
-	public ByteArrayOutputStream getImageContent(int id, String size);
-	
+	public ByteArrayOutputStream getImageContent(int id, ImageSizeEnum size) throws IOException;
+
 	public List<Image> getImages(int userId);
-	
+
+	public String getImagePath(int userId);
+
 }

@@ -14,8 +14,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import net.sourceforge.stripes.util.StringUtil;
-
 import org.h2.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,9 +30,7 @@ import com.fashioneto.persistence.User;
 import com.fashioneto.service.UserService;
 import com.fashioneto.utils.TokenUtils;
 import com.fashioneto.ws.entities.TokenTransfer;
-import com.fashioneto.ws.entities.UserTransfer;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 /**
@@ -46,7 +42,7 @@ public class UserRestBean
 {
 	@Autowired
 	private UserDetailsService userService;
-	
+
 	@Autowired
 	private UserService userServiceImpl;
 
@@ -82,20 +78,21 @@ public class UserRestBean
 		User user;
 		if (StringUtils.isNumber(username))
 		{
-			user = userServiceImpl.getUser(Integer.parseInt(username) );
-		} else 
+			user = userServiceImpl.getUser(Integer.parseInt(username));
+		}
+		else
 		{
 			user = userServiceImpl.getUser(username);
 		}
-		
+
 		if (user == null)
 		{
 			return Response.status(Status.NOT_FOUND).build();
 		}
-		
+
 		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(user)).build();
-	}	
-	
+	}
+
 	/**
 	 * Authenticates a user and creates an authentication token.
 	 * 
@@ -123,22 +120,22 @@ public class UserRestBean
 		 * token generation
 		 */
 		UserDetails userDetails = this.userService.loadUserByUsername(username);
-		
+
 		User user = null;
-		
+
 		if (userDetails instanceof User)
 		{
 			user = (User) userDetails;
 		}
-		
+
 		TokenTransfer tokenTransfer = new TokenTransfer(TokenUtils.createToken(userDetails));
-		
+
 		JsonObject jsonObject = new JsonObject();
-		
-		jsonObject.add("user",  FashionetoJsonFactory.getJsonElement(user));
+
+		jsonObject.add("user", FashionetoJsonFactory.getJsonElement(user));
 		jsonObject.addProperty("token", tokenTransfer.getToken());
-		
-		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(jsonObject)).build(); 
+
+		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(jsonObject)).build();
 	}
 
 	private Map<String, Boolean> createRoleMap(UserDetails userDetails)

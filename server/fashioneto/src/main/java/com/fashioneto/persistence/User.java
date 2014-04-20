@@ -70,50 +70,58 @@ public class User implements Serializable, UserDetails
 	private Set<String> roles = new HashSet<String>();
 
 	@Column(name = "display_name")
-	private String displayName;	
-	
+	private String displayName;
+
 	@Column(name = "city")
-	private String city;	
-	
+	private String city;
+
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_profile_image")
 	private Image profileImage;
-	
-	public Image getProfileImage() {
+
+	public Image getProfileImage()
+	{
 		return profileImage;
 	}
 
-	public void setProfileImage(Image profileImage) {
+	public void setProfileImage(Image profileImage)
+	{
 		this.profileImage = profileImage;
 	}
 
-	public String getDisplayName() {
+	public String getDisplayName()
+	{
 		return displayName;
 	}
 
-	public void setDisplayName(String displayName) {
+	public void setDisplayName(String displayName)
+	{
 		this.displayName = displayName;
 	}
 
-	public String getCity() {
+	public String getCity()
+	{
 		return city;
 	}
 
-	public void setCity(String city) {
+	public void setCity(String city)
+	{
 		this.city = city;
 	}
 
-	public String getCountry() {
+	public String getCountry()
+	{
 		return country;
 	}
 
-	public void setCountry(String country) {
+	public void setCountry(String country)
+	{
 		this.country = country;
 	}
 
 	@Column(name = "country")
-	private String country;	
-	
+	private String country;
+
 	public User()
 	{
 		//No args constructor
