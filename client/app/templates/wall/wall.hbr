@@ -53,7 +53,7 @@
     <div class="media">
     
       <a class="pull-left img-thumbnail" href="#">
-        <img class="media-object" src="img/wall-avatar.jpg" alt="...">
+        <img class="media-object" src="{{imageUrl}}" alt="...">
       </a>
       <div class="media-body well">
 

@@ -33,8 +33,12 @@ define(function(require){
 		},
 
 		render: function(){
+
+			var data = this.model.toJSON();
+			data.imageUrl = App.url( "image" ) + "THUMBNAIL/" + data.imageId;
+
 			this.$el
-			.html( this.template( this.model.toJSON() ) );
+			.html( this.template( data ) );
 
 			this.$el
 			.find( this.nodes.like )

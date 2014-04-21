@@ -33,6 +33,9 @@ define(function(require){
 
 		render: function(){
 
+			var data = {};
+			data.imageUrl = App.url( "image" ) + "THUMBNAIL/" + App.data.myprofile.details.imageId;
+
 			//Show all comments
 			this.$el.html( this.templates.showAll() );
 
@@ -40,7 +43,7 @@ define(function(require){
 			this.collection.each( this.renderComments, this );
 
 			//Input
-			this.$el.append( this.templates.input() );
+			this.$el.append( this.templates.input( data ) );
 
 			return this;
 		},

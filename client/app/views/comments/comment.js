@@ -18,7 +18,11 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		render: function(){
-			this.$el.html( this.template( this.model.toJSON() ) );
+
+			var data = this.model.toJSON();
+			data.imageUrl = App.url( "image" ) + "THUMBNAIL/" + data.imageId;
+
+			this.$el.html( this.template( data ) );
 			Helper.processDate.call( this );
 			return this;
 		}

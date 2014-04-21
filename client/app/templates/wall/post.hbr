@@ -1,5 +1,5 @@
 <a class="pull-left img-thumbnail" href="#">
-  <img class="media-object" src="img/wall-avatar.jpg" alt="...">
+  <img class="media-object" src="{{imageUrl}}" alt="...">
 </a>
 
 <ul class="list-group media-body list-group">

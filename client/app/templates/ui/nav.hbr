@@ -19,7 +19,7 @@
       </ul>
 
       <ul id="nav-right" class="nav navbar-nav navbar-right">
-        <li class="inbox">
+        <li class="inbox toggle">
           <a href="#inbox">Static top<div></div></a>
           <div class="subMenu">
             <div class="body">
@@ -28,7 +28,7 @@
           </div><!-- subMenu -->
         </li>
 
-        <li class="notifications">
+        <li class="notifications toggle">
           <a href="#notifications">Static top<span>100</span>
           <div></div></a>
           <div class="subMenu">
@@ -38,7 +38,7 @@
           </div><!-- subMenu -->
         </li>
 
-        <li class="search"><a href="#">Fixed top<div></div></a>
+        <li class="search toggle"><a href="#">Fixed top<div></div></a>
         <div class="subMenu">
           <div class="body">
             <div class="input-group">
@@ -53,19 +53,20 @@
         <li class="profile">
           <a href="#myprofile">
             <img src="img/nav-avatar.png" />
-            <span>{{displayName}}<br />2557 pts (1st in city)</span>
-            <div class="handle">
-              <div class="lineFix"></div>
-            </div>
-          </a>
-          <div class="subMenu">
-            <div class="body">
-              <a class="myprofile" href="#">My profile</a>
-              <a class="stats" href="#">Statistics</a>
-              <a class="settings" href="#">Settings</a>
-              <a class="logout" href="#logout">Logout</a>
-            </div>
-          </div><!-- subMenu -->
+            <span>{{displayName}}<br />2557 pts (1st in city)</span>            
+          </a>          
+        </li>
+
+        <li class="handle toggle">
+        	<A href="#"><div class="handle"></div></a>
+	        <div class="subMenu">
+	            <div class="body">
+	              <a class="myprofile" href="#">My profile</a>
+	              <a class="stats" href="#">Statistics</a>
+	              <a class="settings" href="#">Settings</a>
+	              <a class="logout" href="#logout">Logout</a>
+	            </div>
+	        </div><!-- subMenu -->
         </li>
       </ul>
 

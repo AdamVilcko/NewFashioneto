@@ -1,6 +1,6 @@
 <div id="profilePicture">
   <a href="#" class="thumbnail">
-    <img src="img/profile-picture.png" alt="...">
+    <img src="{{imageUrl}}" alt="...">
   </a>
   <h6 class="location well">{{city}}, {{country}}</h6>
 </div><!-- profilePicture -->

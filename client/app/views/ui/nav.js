@@ -21,7 +21,8 @@ define(function(require){
 
 		events: {
 			'click .navbar-toggle' : 'toggleMobileNav',
-			'click .subMenu' : 'stopProp'
+			'click .subMenu' : 'stopProp',
+			'click .toggle' : "toggle"
 		},
 
 		render: function(){
@@ -35,6 +36,11 @@ define(function(require){
 
 		stopProp: function( ev ){
 			ev.stopPropagation();
+		},
+
+		toggle: function( ev ){
+			this.$el.find( ".toggle" ).removeClass( "active" );
+			$( ev.target ).parent().addClass( "active" );
 		}
 
 	});

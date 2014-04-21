@@ -15,7 +15,8 @@ App = {
         wall: "comment/USER",
         wallComments: "comment/COMMENT",
         like: "comment/like",
-        people: ""
+        people: "",
+        image: "image/"
     },
 
     url: function( arg ){

@@ -15,8 +15,11 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		render: function(){
+			var data = this.master.data().details;
+			data.imageUrl = App.url( "image" ) + data.imageId;
+
 			this.$el
-			.html( this.template( this.master.data().details ) );
+			.html( this.template( data ) );
 			return this;
 		},
 

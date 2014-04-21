@@ -1,5 +1,5 @@
 <a class="pull-left" href="#">
-  <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+  <img class="media-object img-thumbnail" src="{{imageUrl}}" alt="...">
 </a>
 <div class="media-body">
 <h4 class="media-heading">{{displayName}}<span class="date"></span></h4>

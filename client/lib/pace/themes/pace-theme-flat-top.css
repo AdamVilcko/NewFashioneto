@@ -14,7 +14,7 @@
   top: 0;
   left: 0;
   height: 4px;
-  background: #6E6672;
+  background: #fff;
   box-shadow: 0px 0px 3px #fff;
 
   -webkit-transition: -webkit-transform .3s, width 1s;

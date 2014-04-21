@@ -557,7 +557,7 @@ background-color: #fff;
 }
 
 .navbar-default .navbar-nav>li.active,
-.navbar-default .navbar-nav>li.active .handle{
+.navbar-default .navbar-nav>li.handle.active{
 	border-right:1px solid #000;
 	border-left:1px solid #000;
 	background:#2d1d35;
@@ -602,18 +602,12 @@ background-color: #fff;
 	background:#2d1d35;
 	position: absolute;
 	margin-top:1px;
-
 	right: -1px;
 	white-space:nowrap;
-	zoom:0.1;
-	visibility: hidden;
-	transition: zoom 300ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
-	-webkit-transition: zoom 300ms cubic-bezier(0.770, 0.000, 0.175, 1.000); /* Safari */
-
+	visibility: hidden;	
 }
 
 #nav-right li.active .subMenu{
-	zoom:1;
 	visibility: visible;
 }
 
@@ -781,12 +775,11 @@ background-color: #fff;
 
 #nav-right li.profile.active,
 #nav-right li.profile.active > a{
-	background:transparent;
+	
 	border:none;
 }
 
-#nav-right li.profile a div.handle,
-#nav-right li.profile.active a div.handle{
+#nav-right li.handle a{
 	background-image:url(../img/nav-profile-chevron.png);
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -800,21 +793,21 @@ background-color: #fff;
 	left:auto;
 }
 
-#nav-right li.profile.active a div.lineFix{
+#nav-right li.handle.active a div.lineFix{
 	bottom: -5px;
 	height: 10px;
 	left:0;
 	right:0;
 }
 
-#nav-right li.profile .subMenu{
+#nav-right li.handle .subMenu{
 	margin-top:2px;
 	right:1px;
 	padding:10px 18px;
 
 }
 
-.profile .subMenu .body > a{
+.handle .subMenu .body > a{
 	color:#fff;
 	display: block;
 	background-position: left center;
@@ -824,16 +817,16 @@ background-color: #fff;
 	line-height: 25px
 }
 
-.profile .subMenu .body > a.myprofile{
+.handle .subMenu .body > a.myprofile{
 	background-image: url(../img/nav-profile-myprofile.png);
 }
-.profile .subMenu .body > a.stats{
+.handle .subMenu .body > a.stats{
 	background-image: url(../img/nav-profile-statistics.png);
 }
-.profile .subMenu .body > a.settings{
+.handle .subMenu .body > a.settings{
 	background-image: url(../img/nav-profile-settings.png);
 }
-.profile .subMenu .body > a.logout{
+.handle .subMenu .body > a.logout{
 	background-image: url(../img/nav-profile-logout.png);
 }
 
@@ -1243,6 +1236,7 @@ p{
 	margin:15px 0;
 	padding-bottom:15px;
 	border-bottom:1px solid #e5dada;
+	display:none;
 }
 
 #images {
@@ -1521,6 +1515,10 @@ p{
 
 .people .thumbnail{
 	margin-bottom:5px;
+}
+
+.people .thumbnail img{
+	width:100%;
 }
 
 .people .caption{
