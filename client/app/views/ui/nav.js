@@ -14,8 +14,10 @@ define(function(require){
 	return MasterBaseView.extend({
 
 		init: function(options){
-			this.render();
+			this.render();			
 		},
+
+		el: "#nav",
 
 		template: Handlebars.compile( template ),
 
@@ -26,7 +28,8 @@ define(function(require){
 		},
 
 		render: function(){
-			this.$el.html( this.template( App.data.myprofile.details ) );
+			console.log( this.merge() );
+			this.$el.html( this.template( this.merge() ) );
 			return this;
 		},
 

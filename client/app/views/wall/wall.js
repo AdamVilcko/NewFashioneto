@@ -24,12 +24,8 @@ define(function(require){
 		},
 
 		render: function(){
-
-			var data = this.master.data().details;
-			data.imageUrl = App.url( "image" ) + "THUMBNAIL/" + data.imageId;
-
 			this.$el
-			.html( this.template( data ) )
+			.html( this.template( this.merge() ) )
 			.find( this.nodes.posts )
 			.html( this.posts.render().el );
 			return this;

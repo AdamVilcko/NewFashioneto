@@ -6,6 +6,7 @@ define(function(require){
 	$                 = require( "jquery" ),
 	Cookie            = require( "jquery.cookie" ),
 	Transit           = require( "jquery.transit" ),
+	Helper = require( "helper" ),
 
 	MasterBaseView    = require( "views/masterbaseview" ),
 	mainLoginTemplate = require( "text!templates/login/mainlogin.hbr" ),
@@ -81,7 +82,8 @@ define(function(require){
 					$.ajaxSetup({
 						headers: { 'X-Auth-Token': data.token }
 					});
-					App.data.myprofile = data.user;
+					
+					App.data.myprofile = Helper.createImageUrl( data.user );
 					App.userId = data.user.id;
 
 					this.proceed( data.user );
@@ -133,7 +135,7 @@ define(function(require){
 				dataType: "JSON",
 
 				success: function( data, textStatus, jqXHR ){
-					App.data.myprofile = data;
+					App.data.myprofile = Helper.createImageUrl( data );
 					App.userId = data.id;
 					this.proceed();
 				},

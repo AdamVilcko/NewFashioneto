@@ -46,6 +46,15 @@ define(function(require){
 			this.$el.find('.date')
 			.livestamp( this.model.get( "date" ) )
 			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );			
+		},
+
+		createImageUrl: function( data ){
+			console.log( data );
+			data.details.image = {};
+			data.details.image.thumbnail = App.url( "image" ) + "THUMBNAIL/" + data.details.imageId;
+			data.details.image.small = App.url( "image" ) + "SMALL/" + data.details.imageId;
+			data.details.image.standard = App.url( "image" ) + "STANDARD/" + data.details.imageId;
+			return data;
 		}
 
 	}

@@ -53,7 +53,7 @@
     <div class="media">
     
       <a class="pull-left img-thumbnail" href="#">
-        <img class="media-object" src="{{imageUrl}}" alt="...">
+        <img class="media-object" src="{{details.image.thumbnail}}" alt="...">
       </a>
       <div class="media-body well">
 

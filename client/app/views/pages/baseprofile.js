@@ -3,6 +3,7 @@ define(function(require){
 	var
 	$              = require( "jquery" ),
 	Handlebars     = require( "handlebars" ),
+	Helper = require( "helper" ),
 
 	BasePageView   = require( "views/pages/basepageview" ),
 	Wall           = require( "views/wall/wall" ),
@@ -49,6 +50,7 @@ define(function(require){
 				url: App.url( 'user' ) + "/" + pageState.user,
 
 				success: function( data, textStatus, jqXHR ){
+					data = Helper.createImageUrl( data );
 					if( data.id === App.data.myprofile.id ){
 						App.data.myprofile = data;
 						App.data.guestprofile = data;
@@ -68,8 +70,6 @@ define(function(require){
 
 			});
 		}
-
-
 
 	});
 

@@ -52,8 +52,8 @@
         </li>
         <li class="profile">
           <a href="#myprofile">
-            <img src="img/nav-avatar.png" />
-            <span>{{displayName}}<br />2557 pts (1st in city)</span>            
+            <img src="{{details.image.thumbnail}}" />
+            <span>{{details.displayName}}<br />2557 pts (1st in city)</span>            
           </a>          
         </li>
 

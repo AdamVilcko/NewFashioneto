@@ -29,6 +29,14 @@ define(function(require){
 		close: function(){
 			//Other close content here
 			this.remove();
+		},
+
+		data: {},
+
+		merge: function( data ){
+			data = data || {};
+			data.details = App.data.myprofile.details;
+			return data;
 		}
 
 

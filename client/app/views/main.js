@@ -33,23 +33,18 @@ define(function(require){
 		init: function(){
 			this
 			.render()
-			.loadPages();
+			.invokeCompenents();
 			this.$el.removeClass( "login" );			
 		},
 
 		render: function(){
 			this.$el
-			.html( this.template() )
-			.find( this.nodes.nav )
-			.html( this.ui.nav.render().el );
+			.html( this.template() );			
 			return this;
 		},
 
-		ui: {
-			nav: new Nav()
-		},
-
-		loadPages: function() {
+		invokeCompenents: function() {
+			this.nav = new Nav();
 			this.pages = {};
 			this.pages.items = new Items();
 			this.pages.people = new People();
@@ -57,8 +52,9 @@ define(function(require){
 			this.pages.guestprofile = new GuestProfile( { data: "guestprofile" } );
 
 			window.location.hash = "";
-			window.location.hash = "myprofile";			
-			
+			window.location.hash = "myprofile";
+
+
 			return this;
 		}
 
