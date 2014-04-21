@@ -49,20 +49,18 @@ require = {
 
         "helper": "helpers/helper",
         "jquery": "../lib/jquery-1.10.2",
-        "jqueryui": "../lib/jquery-ui-1.10.4.custom.min",
-        "mootools": "../lib/mootools-core-1.4.5-full",
+        "jqueryui": "../lib/jquery-ui-1.10.4.custom.min",        
         "backbone": "../lib/backbone1.1.0",
         "_": "../lib/underscore1.5.2",
         "bootstrap": "../lib/bootstrap",
         "handlebars": "../lib/handlebars-v1.1.2",
-        "modernizr": "../lib/modernizr",
-        "class": "../lib/mootools-class-1.4.5",
+        "modernizr": "../lib/modernizr",       
         "jquery.masonry": "../lib/jquery.masonry.min",
         "moment": "../lib/moment-with-langs.min",
         "jquery.livestamp": "../lib/livestamp",
         "jquery.cookie": "../lib/jquery.cookie",
-        "jquery.transit": "../lib/jquery.transit"
-
+        "jquery.transit": "../lib/jquery.transit",
+        "jquery.avgrund": "../lib/avgrund/jquery.avgrund.min"
     },
 
     shim:{
@@ -89,6 +87,7 @@ require = {
         "jquery.livestamp": ['jquery'],
         "jquery.cookie": ['jquery'],
         "jquery.transit": ['jquery'],
+        "jquery.avgrund": ['jquery'],
 
         jqueryui: ['jquery'],
 

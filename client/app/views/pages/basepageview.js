@@ -11,6 +11,7 @@ define(function(require){
 	return MasterBaseView.extend({
 
 		el:"#main",
+		className: "avgrund-ready",
 		nodes:{
 			tabContainer: "#tabContainer",
 			sidebar: "#sidebar"

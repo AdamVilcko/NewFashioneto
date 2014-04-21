@@ -16,6 +16,9 @@ define(function(require){
 	GuestProfile   = require( 'views/pages/guestprofile' ),	
 	mainTemplate   = require( 'text!templates/main.hbr' );
 
+	avgrund = require( "jquery.avgrund" );
+
+
 
 	return MasterBaseView.extend({
 
@@ -31,7 +34,7 @@ define(function(require){
 			this
 			.render()
 			.loadPages();
-			this.$el.removeClass( "login" );
+			this.$el.removeClass( "login" );			
 		},
 
 		render: function(){
