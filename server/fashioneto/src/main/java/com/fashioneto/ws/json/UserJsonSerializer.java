@@ -2,9 +2,14 @@ package com.fashioneto.ws.json;
 
 import java.lang.reflect.Type;
 
+import com.fashioneto.persistence.Comment;
+import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.User;
+import com.fashioneto.ws.entities.DefaultSet;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
@@ -46,8 +51,17 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	protected void addWrappedSubOjects(JsonObject jsonObject, User user, JsonSerializationContext context)
 	{
 		jsonObject.add(JSON_PROPERTY_ITEMS, getItemsWrapper());
-		jsonObject.add(JSON_PROPERTY_PHOTOS, getPhotosWrapper());
-		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(user.getReceivedCommentsCommentSet()));
+
+		DefaultSet<Image> imageSet = new DefaultSet<Image>(user.getImages());
+
+		jsonObject.add(JSON_PROPERTY_PHOTOS, context.serialize(imageSet));
+
+		//		CommentSet commentSet = new CommentSet(user.getReceivedComments());
+
+		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
+
+		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
+		//		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
 	}
 
 	private JsonElement getUserDetails(User user)
@@ -69,9 +83,17 @@ public class UserJsonSerializer implements JsonSerializer<User>
 		return jsonObject;
 	}
 
-	private JsonElement getPhotosWrapper()
+	private JsonElement getPhotosWrapper(User user)
 	{
-		return new JsonObject();
+		JsonArray jsonArray = new JsonArray();
+
+		for (Image image : user.getImages())
+		{
+			JsonPrimitive jsonId = new JsonPrimitive(image.getId());
+			jsonArray.add(jsonId);
+		}
+
+		return jsonArray;
 	}
 
 	private JsonElement getItemsWrapper()

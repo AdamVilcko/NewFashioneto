@@ -63,6 +63,10 @@ public class User implements Serializable, UserDetails
 	@OrderBy("date desc")
 	private Set<Comment> receivedComments = new LinkedHashSet<Comment>();
 
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@OrderBy("date desc")
+	private Set<Image> images = new LinkedHashSet<Image>();
+
 	@Column(length = 64, nullable = false)
 	private String password;
 
@@ -137,11 +141,6 @@ public class User implements Serializable, UserDetails
 		this.id = id;
 		this.username = username;
 		this.email = email;
-	}
-
-	public CommentSet getReceivedCommentsCommentSet()
-	{
-		return new CommentSet(receivedComments);
 	}
 
 	public int getId()
@@ -263,6 +262,28 @@ public class User implements Serializable, UserDetails
 	public void setPassword(String password)
 	{
 		this.password = password;
+	}
+
+	public Set<Image> getImages()
+	{
+		return images;
+	}
+
+	public Set<Integer> getImageIDs()
+	{
+		Set<Integer> ids = new HashSet<Integer>();
+
+		for (Image image : images)
+		{
+			ids.add(image.getId());
+		}
+
+		return ids;
+	}
+
+	public void setImages(Set<Image> images)
+	{
+		this.images = images;
 	}
 
 }

@@ -3,8 +3,9 @@ package com.fashioneto.ws.json;
 import java.util.List;
 
 import com.fashioneto.persistence.Comment;
-import com.fashioneto.persistence.CommentSet;
+import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.User;
+import com.fashioneto.ws.entities.DefaultSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -22,7 +23,8 @@ public class FashionetoJsonFactory
 		GsonBuilder gBuilder = new GsonBuilder();
 		gBuilder.registerTypeAdapter(Comment.class, new CommentJsonSerializer());
 		gBuilder.registerTypeAdapter(User.class, new UserJsonSerializer());
-		gBuilder.registerTypeAdapter(CommentSet.class, new CommentSetJsonSerializer());
+		gBuilder.registerTypeAdapter(Image.class, new ImageJsonSerializer());
+		gBuilder.registerTypeAdapter(DefaultSet.class, new DefaultSetJsonSerializer());
 		return gBuilder;
 	}
 
@@ -66,10 +68,10 @@ public class FashionetoJsonFactory
 		return gson.toJson(comment);
 	}
 
-	public static String getJson(CommentSet comments)
+	public static String getJson(DefaultSet<?> set)
 	{
 		Gson gson = getGson();
-		return gson.toJson(comments);
+		return gson.toJson(set);
 	}
 
 	public static String getJson(JsonElement jsonElement)

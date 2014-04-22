@@ -31,6 +31,10 @@ Images:
     
 Users:
 
+    GET http://localhost:8080/Fashioneto-0.1b/as/people
+        Header:
+        X-Auth-Token = [token value]
+
 	GET http://localhost:8080/Fashioneto-0.1b/as/user/{userId}
 		Header:
 			X-Auth-Token = [token value]
@@ -69,6 +73,7 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
 
 **********************
 
+{
     "user": {
         "id": 1,
         "details": {
@@ -78,28 +83,36 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
             "followersCount": 219,
             "followingCount": 4596,
             "age": -1,
-            "displayName": "Felipe Tonon"
+            "displayName": "Felipe Tonon",
+            "imageId": 1
         },
         "itemsWrapper": {},
-        "photosWrapper": {},
+        "photosWrapper": {
+            "count": 1,
+            "collection": [{
+                "id": 1
+            }]
+        },
         "commentsWrapper": {
             "count": 1,
             "collection": [{
                 "id": 1,
                 "content": "I like your pictures and your profile, man!",
                 "userId": 2,
-                "userName": "admin",
+                "displayName": "Caspar Sambrook-Smith",
                 "date": "1394368200",
                 "status": "ACTIVE",
+                "imageId": 2,
                 "commentsWrapper": {
                     "count": 1,
                     "collection": [{
                         "id": 2,
                         "content": "Thanks!",
                         "userId": 1,
-                        "userName": "user1",
+                        "displayName": "Felipe Tonon",
                         "date": "1394368200",
                         "status": "ACTIVE",
+                        "imageId": 1,
                         "commentsWrapper": {
                             "count": 0,
                             "collection": []
@@ -116,6 +129,6 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                 }
             }]
         }
-    }
-
-
+    },
+    "token": "user1:1398245512934:ac356397bd916b5b976c1960f936b5b1"
+}

@@ -22,6 +22,7 @@ import com.fashioneto.service.UserService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.ws.entities.ContentWrapper;
+import com.fashioneto.ws.entities.DefaultSet;
 import com.fashioneto.ws.entities.LikesWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 
@@ -111,10 +112,8 @@ public class CommentRestBean
 		User user = userService.getUser(parentId);
 		if (parentType.equals(CommentParentTypeEnum.USER) && user != null)
 		{
-
-			user.getReceivedComments();
-
-			String jsonOutput = FashionetoJsonFactory.getJson(user.getReceivedCommentsCommentSet());
+			DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
+			String jsonOutput = FashionetoJsonFactory.getJson(commentSet);
 
 			return Response.status(Status.OK).entity(jsonOutput).build();
 		}

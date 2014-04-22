@@ -8,6 +8,7 @@ import com.fashioneto.persistence.LikeComment;
 import com.fashioneto.persistence.User;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
+import com.fashioneto.ws.entities.DefaultSet;
 import com.fashioneto.ws.entities.LikesWrapper;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -46,7 +47,9 @@ public class CommentJsonSerializer implements JsonSerializer<Comment>
 			jsonObject.addProperty(JSON_PROPERTY_IMAGE_ID, comment.getUser().getProfileImage().getId());
 		}
 
-		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(comment.getCommentsCommentSet()));
+		//		CommentSet commentSet = new CommentSet(comment.getComments());
+		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(comment.getComments());
+		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
 		jsonObject.add(JSON_PROPERTY_LIKES, context.serialize(getLikesWrapper(comment)));
 
 		return jsonObject;

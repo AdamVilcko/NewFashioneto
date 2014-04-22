@@ -94,11 +94,6 @@ public class Comment implements Serializable
 		return Long.toString(date.getTime() / 1000);
 	}
 
-	public CommentSet getCommentsCommentSet()
-	{
-		return new CommentSet(comments);
-	}
-
 	public int getId()
 	{
 		return id;
