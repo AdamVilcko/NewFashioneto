@@ -19,6 +19,10 @@ Login
 	
 Images:
 
+    GET http://localhost:8080/Fashioneto-0.1b/as/image/s/{userId}
+
+        OBS.: Returns an array of image IDs
+
     GET http://localhost:8080/Fashioneto-0.1b/as/image/{imageId}
 
     GET http://localhost:8080/Fashioneto-0.1b/as/image/{imageSize}/{imageId}

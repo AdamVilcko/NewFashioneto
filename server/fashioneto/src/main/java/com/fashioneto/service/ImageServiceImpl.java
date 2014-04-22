@@ -7,14 +7,17 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fashioneto.dao.ImageDAO;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.ws.entities.ImageSizeEnum;
 
@@ -24,8 +27,10 @@ import com.fashioneto.ws.entities.ImageSizeEnum;
 @Service("imageService")
 public class ImageServiceImpl implements ImageService
 {
-
 	private static final String PATH = "/uploads/images/";
+
+	@Autowired
+	private ImageDAO imageDAO;
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -49,8 +54,22 @@ public class ImageServiceImpl implements ImageService
 	@Override
 	public List<Image> getImages(int userId)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return imageDAO.getImages(userId);
+	}
+
+	@Override
+	public List<Integer> getImageIds(int userId)
+	{
+		List<Integer> ids = new ArrayList<Integer>();
+		List<Image> images = imageDAO.getImages(userId);
+		if (images != null)
+		{
+			for (Image image : imageDAO.getImages(userId))
+			{
+				ids.add(image.getId());
+			}
+		}
+		return ids;
 	}
 
 	@Override

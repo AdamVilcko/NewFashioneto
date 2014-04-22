@@ -22,4 +22,6 @@ public interface ImageService
 
 	public String getImagePath(int userId);
 
+	public List<Integer> getImageIds(int userId);
+
 }

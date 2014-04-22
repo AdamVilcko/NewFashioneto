@@ -1,16 +1,15 @@
-/**
- * 
- */
 package com.fashioneto.ws.rest;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,12 +17,13 @@ import org.springframework.stereotype.Component;
 import com.fashioneto.service.CommentService;
 import com.fashioneto.service.ImageService;
 import com.fashioneto.ws.entities.ImageSizeEnum;
+import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 /**
- * @author felipe
+ * @author Felipe
  */
-@Path("/image")
 @Component
+@Path("/image")
 public class ImageRestBean
 {
 
@@ -31,6 +31,15 @@ public class ImageRestBean
 	protected CommentService commentService;
 	@Autowired
 	private ImageService imageService;
+
+	@GET
+	@Path("s/{userId}")
+	public Response getImageList(@PathParam("userId")
+	int userId) throws IOException
+	{
+		List<Integer> imageIds = imageService.getImageIds(userId);
+		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(imageIds)).build();
+	}
 
 	@GET
 	@Path("{imageId}")
