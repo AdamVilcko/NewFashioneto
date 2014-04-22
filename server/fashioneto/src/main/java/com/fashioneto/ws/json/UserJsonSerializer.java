@@ -87,19 +87,6 @@ public class UserJsonSerializer implements JsonSerializer<User>
 		return jsonObject;
 	}
 
-	private JsonElement getPhotosWrapper(User user)
-	{
-		JsonArray jsonArray = new JsonArray();
-
-		for (Image image : user.getImages())
-		{
-			JsonPrimitive jsonId = new JsonPrimitive(image.getId());
-			jsonArray.add(jsonId);
-		}
-
-		return jsonArray;
-	}
-
 	private JsonElement getItemsWrapper()
 	{
 		return new JsonObject();
