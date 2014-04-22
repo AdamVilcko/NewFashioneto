@@ -1,5 +1,6 @@
 package com.fashioneto.ws.json;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.fashioneto.persistence.Comment;
@@ -38,16 +39,24 @@ public class FashionetoJsonFactory
 		return gBuilder.create();
 	}
 
-	public static String getJson(List<User> users)
+	public static JsonElement getJsonElement(Collection<User> users)
 	{
-		GsonBuilder gBuilder = new GsonBuilder();
+		GsonBuilder gBuilder = getGsonBuilder();
+		
+		//overrides the serializer for class User:
 		gBuilder.registerTypeAdapter(User.class, new UserSimplifiedJsonSerializer());
+		
 		if (PRETTY_PRINT)
 		{
 			gBuilder.setPrettyPrinting();
 		}
 		Gson gson = gBuilder.create();
-		return gson.toJson(users);
+		return gson.toJsonTree(users);
+	}	
+	
+	public static String getJson(Collection<User> users)
+	{
+		return getGson().toJson(getJsonElement(users));
 	}
 
 	public static String getJson(User user)

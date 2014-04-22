@@ -22,6 +22,8 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	public static final String JSON_PROPERTY_COMMENTS = "commentsWrapper";
 	public static final String JSON_PROPERTY_ITEMS = "itemsWrapper";
 	public static final String JSON_PROPERTY_PHOTOS = "photosWrapper";
+	public static final String JSON_PROPERTY_FOLLOWERS = "followersWrapper";
+	public static final String JSON_PROPERTY_FOLLOWING = "followingWrapper";
 
 	public static final String JSON_PROPERTY_USER_NAME = "userName";
 	public static final String JSON_PROPERTY_ID = "id";
@@ -53,15 +55,17 @@ public class UserJsonSerializer implements JsonSerializer<User>
 		jsonObject.add(JSON_PROPERTY_ITEMS, getItemsWrapper());
 
 		DefaultSet<Image> imageSet = new DefaultSet<Image>(user.getImages());
-
 		jsonObject.add(JSON_PROPERTY_PHOTOS, context.serialize(imageSet));
 
-		//		CommentSet commentSet = new CommentSet(user.getReceivedComments());
-
 		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
-
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
-		//		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
+		
+		DefaultSet<User> followersSet = new DefaultSet<User>(user.getFollowers());
+		jsonObject.add(JSON_PROPERTY_FOLLOWERS, FashionetoJsonFactory.getJsonElement(followersSet));
+		
+		DefaultSet<User> followingSet = new DefaultSet<User>(user.getFollowing());
+		jsonObject.add(JSON_PROPERTY_FOLLOWING, FashionetoJsonFactory.getJsonElement(followingSet));
+		
 	}
 
 	private JsonElement getUserDetails(User user)
@@ -70,8 +74,8 @@ public class UserJsonSerializer implements JsonSerializer<User>
 		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, user.getUsername());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_CITY, user.getCity());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_COUNTRY, user.getCountry());
-		jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWERS_COUNT, 219);
-		jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWING_COUNT, 4596);
+		jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWERS_COUNT, user.getFollowers().size());
+		jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWING_COUNT, user.getFollowing().size());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_AGE, -1);
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_DISPLAY_NAME, user.getDisplayName());
 

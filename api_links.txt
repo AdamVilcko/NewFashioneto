@@ -80,8 +80,8 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
             "userName": "user1",
             "city": "Florianopolis",
             "country": "BR",
-            "followersCount": 219,
-            "followingCount": 4596,
+            "followersCount": 5,
+            "followingCount": 1,
             "age": -1,
             "displayName": "Felipe Tonon",
             "imageId": 1
@@ -128,7 +128,86 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                     "actioned": true
                 }
             }]
+        },
+        "followersWrapper": {
+            "count": 5,
+            "collection": [{
+                "id": 3,
+                "details": {
+                    "userName": "user3",
+                    "city": "London",
+                    "country": "UK",
+                    "followersCount": 0,
+                    "followingCount": 2,
+                    "age": -1,
+                    "displayName": "Ondra Winter",
+                    "imageId": 3
+                }
+            }, {
+                "id": 4,
+                "details": {
+                    "userName": "user4",
+                    "city": "London",
+                    "country": "UK",
+                    "followersCount": 0,
+                    "followingCount": 1,
+                    "age": -1,
+                    "displayName": "Adam Amram",
+                    "imageId": 4
+                }
+            }, {
+                "id": 5,
+                "details": {
+                    "userName": "user5",
+                    "city": "London",
+                    "country": "UK",
+                    "followersCount": 0,
+                    "followingCount": 1,
+                    "age": -1,
+                    "displayName": "John Doe 6",
+                    "imageId": 5
+                }
+            }, {
+                "id": 2,
+                "details": {
+                    "userName": "user2",
+                    "city": "London",
+                    "country": "UK",
+                    "followersCount": 2,
+                    "followingCount": 1,
+                    "age": -1,
+                    "displayName": "Caspar Sambrook-Smith",
+                    "imageId": 2
+                }
+            }, {
+                "id": 6,
+                "details": {
+                    "userName": "admin",
+                    "city": "London",
+                    "country": "UK",
+                    "followersCount": 0,
+                    "followingCount": 1,
+                    "age": -1,
+                    "displayName": "Administrator"
+                }
+            }]
+        },
+        "followingWrapper": {
+            "count": 1,
+            "collection": [{
+                "id": 2,
+                "details": {
+                    "userName": "user2",
+                    "city": "London",
+                    "country": "UK",
+                    "followersCount": 2,
+                    "followingCount": 1,
+                    "age": -1,
+                    "displayName": "Caspar Sambrook-Smith",
+                    "imageId": 2
+                }
+            }]
         }
     },
-    "token": "user1:1398245512934:ac356397bd916b5b976c1960f936b5b1"
+    "token": "user1:1398271942322:e28cdf65962d9bdf2650513dd559eb0b"
 }

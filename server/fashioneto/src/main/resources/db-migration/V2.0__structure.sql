@@ -25,6 +25,13 @@ create table image (
 	`description` varchar(100) not null
 );
 
+create table follow_user (
+	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
+	`id_user` int(11) unsigned not null,
+	`id_followed_user` int(11) unsigned not null,
+	`date` DATETIME not null
+);
+
 create table item (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`type` varchar(50) not null

@@ -63,6 +63,14 @@ public class User implements Serializable, UserDetails
 	@OrderBy("date desc")
 	private Set<Comment> receivedComments = new LinkedHashSet<Comment>();
 
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinTable(name = "follow_user", joinColumns = @JoinColumn(name = "id_followed_user"), inverseJoinColumns = @JoinColumn(name = "id_user"))
+	private Set<User> followers = new LinkedHashSet<User>();
+	
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@JoinTable(name = "follow_user", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_followed_user"))
+	private Set<User> following = new LinkedHashSet<User>();
+	
 	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@OrderBy("date desc")
 	private Set<Image> images = new LinkedHashSet<Image>();
@@ -83,6 +91,22 @@ public class User implements Serializable, UserDetails
 	@JoinColumn(name = "id_profile_image")
 	private Image profileImage;
 
+	public Set<User> getFollowers() {
+		return followers;
+	}
+
+	public void setFollowers(Set<User> followers) {
+		this.followers = followers;
+	}
+
+	public Set<User> getFollowing() {
+		return following;
+	}
+
+	public void setFollowing(Set<User> following) {
+		this.following = following;
+	}	
+	
 	public Image getProfileImage()
 	{
 		return profileImage;

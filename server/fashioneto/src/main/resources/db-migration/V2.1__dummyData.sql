@@ -37,3 +37,17 @@ insert into image (`id`, `id_user`, `filename`, `file_extension`, `date`, `descr
 insert into image (`id`, `id_user`, `filename`, `file_extension`, `date`, `description`) 
 	values (5, 5, 'user_zero-profile_picture', 'jpg', '2014-04-17 14:06:00', 'My cool picture from last winter!');
 
+	/*
+	 * 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
+	`id_user` int(11) unsigned not null,
+	`id_followed_user` int(11) unsigned not null,
+	`date` DATETIME not null
+	 */
+	
+insert into follow_user (`id_user`, `id_followed_user`, `date`) values (2, 1, '2014-04-22 21:00:00');
+insert into follow_user (`id_user`, `id_followed_user`, `date`) values (3, 1, '2014-04-22 21:00:00');
+insert into follow_user (`id_user`, `id_followed_user`, `date`) values (4, 1, '2014-04-22 21:00:00');
+insert into follow_user (`id_user`, `id_followed_user`, `date`) values (5, 1, '2014-04-22 21:00:00');
+insert into follow_user (`id_user`, `id_followed_user`, `date`) values (6, 1, '2014-04-22 21:00:00');
+insert into follow_user (`id_user`, `id_followed_user`, `date`) values (1, 2, '2014-04-22 21:00:00');
+insert into follow_user (`id_user`, `id_followed_user`, `date`) values (3, 2, '2014-04-22 21:00:00');
