@@ -17,9 +17,9 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	public static final String JSON_PROPERTY_COMMENTS = "commentsWrapper";
 	public static final String JSON_PROPERTY_ITEMS = "itemsWrapper";
 	public static final String JSON_PROPERTY_PHOTOS = "photosWrapper";
+
 	public static final String JSON_PROPERTY_USER_NAME = "userName";
 	public static final String JSON_PROPERTY_ID = "id";
-
 	public static final String JSON_PROPERTY_DETAILS = "details";
 
 	public static final String JSON_PROPERTY_DETAILS_DISPLAY_NAME = "displayName";
@@ -37,12 +37,17 @@ public class UserJsonSerializer implements JsonSerializer<User>
 		jsonObject.addProperty(JSON_PROPERTY_ID, user.getId());
 
 		jsonObject.add(JSON_PROPERTY_DETAILS, getUserDetails(user));
-		jsonObject.add(JSON_PROPERTY_ITEMS, getItemsWrapper());
-		jsonObject.add(JSON_PROPERTY_PHOTOS, getPhotosWrapper());
 
-		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(user.getReceivedCommentsCommentSet()));
+		addWrappedSubOjects(jsonObject, user, context);
 
 		return jsonObject;
+	}
+
+	protected void addWrappedSubOjects(JsonObject jsonObject, User user, JsonSerializationContext context)
+	{
+		jsonObject.add(JSON_PROPERTY_ITEMS, getItemsWrapper());
+		jsonObject.add(JSON_PROPERTY_PHOTOS, getPhotosWrapper());
+		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(user.getReceivedCommentsCommentSet()));
 	}
 
 	private JsonElement getUserDetails(User user)

@@ -13,7 +13,7 @@ import com.fashioneto.persistence.User;
 public interface UserService
 {
 
-	public List<User> getFashionetoers();
+	public List<User> getUsers();
 
 	public User getUser(int id);
 	

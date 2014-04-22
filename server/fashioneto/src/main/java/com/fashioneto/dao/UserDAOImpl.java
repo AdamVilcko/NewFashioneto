@@ -1,11 +1,12 @@
 package com.fashioneto.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.fashioneto.persistence.User;
@@ -33,14 +34,17 @@ public class UserDAOImpl implements UserDAO
 		System.out.println("\n\n ************ Looking for user: " + name);
 		TypedQuery<User> query = entityManager.createQuery("from User where username=:username ", User.class);
 		query.setParameter("username", name);
-		
+
 		User user = null;
-		try {
+		try
+		{
 			user = query.getSingleResult();
-		} catch (NoResultException e) {
+		}
+		catch (NoResultException e)
+		{
 			// No user found
 		}
-		
+
 		String userStri = "NULL";
 		if (user != null)
 		{
@@ -62,5 +66,11 @@ public class UserDAOImpl implements UserDAO
 		return user;
 	}
 
-}
+	@Override
+	public List<User> findAll()
+	{
+		TypedQuery<User> query = entityManager.createQuery("FROM User", User.class);
+		return query.getResultList();
+	}
 
+}
