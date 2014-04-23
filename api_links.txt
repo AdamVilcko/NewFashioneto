@@ -17,6 +17,14 @@ Login
 			username = [value]
 			password = [value]
 	
+Follows
+
+	POST http://localhost:8080/Fashioneto-0.1b/as/follow/{followedUserId}
+		Header:
+			X-Auth-Token = [token value]	
+		OBS: 
+			the "follower" user is going to be obtained by the auth-token
+	
 Images:
 
     GET http://localhost:8080/Fashioneto-0.1b/as/image/s/{userId}

@@ -91,6 +91,19 @@ public class User implements Serializable, UserDetails
 	@JoinColumn(name = "id_profile_image")
 	private Image profileImage;
 
+	
+	@Override
+	public boolean equals(Object obj) {
+
+		if (obj instanceof User)
+		{
+			User user = (User)obj;
+			return user.getId() == this.id && user.getUsername().equals(this.username) && user.getEmail().equals(this.email);
+		}
+		
+		return false;
+	}
+	
 	public Set<User> getFollowers() {
 		return followers;
 	}
