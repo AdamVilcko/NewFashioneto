@@ -41,7 +41,7 @@ Users:
 
     GET http://localhost:8080/Fashioneto-0.1b/as/people
         Header:
-        X-Auth-Token = [token value]
+            X-Auth-Token = [token value]
 
 	GET http://localhost:8080/Fashioneto-0.1b/as/user/{userId}
 		Header:

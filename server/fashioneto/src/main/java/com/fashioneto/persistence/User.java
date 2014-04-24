@@ -66,11 +66,11 @@ public class User implements Serializable, UserDetails
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "follow_user", joinColumns = @JoinColumn(name = "id_followed_user"), inverseJoinColumns = @JoinColumn(name = "id_user"))
 	private Set<User> followers = new LinkedHashSet<User>();
-	
+
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "follow_user", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_followed_user"))
 	private Set<User> following = new LinkedHashSet<User>();
-	
+
 	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@OrderBy("date desc")
 	private Set<Image> images = new LinkedHashSet<Image>();
@@ -91,35 +91,46 @@ public class User implements Serializable, UserDetails
 	@JoinColumn(name = "id_profile_image")
 	private Image profileImage;
 
-	
 	@Override
-	public boolean equals(Object obj) {
+	public int hashCode()
+	{
+		return id;
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
 
 		if (obj instanceof User)
 		{
-			User user = (User)obj;
-			return user.getId() == this.id && user.getUsername().equals(this.username) && user.getEmail().equals(this.email);
+			User user = (User) obj;
+			return user.getId() == this.id && user.getUsername().equals(this.username)
+					&& user.getEmail().equals(this.email);
 		}
-		
+
 		return false;
 	}
-	
-	public Set<User> getFollowers() {
+
+	public Set<User> getFollowers()
+	{
 		return followers;
 	}
 
-	public void setFollowers(Set<User> followers) {
+	public void setFollowers(Set<User> followers)
+	{
 		this.followers = followers;
 	}
 
-	public Set<User> getFollowing() {
+	public Set<User> getFollowing()
+	{
 		return following;
 	}
 
-	public void setFollowing(Set<User> following) {
+	public void setFollowing(Set<User> following)
+	{
 		this.following = following;
-	}	
-	
+	}
+
 	public Image getProfileImage()
 	{
 		return profileImage;
