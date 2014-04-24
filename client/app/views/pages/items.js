@@ -4,14 +4,17 @@ define(function(require){
 
 	//Deps
 
-	Backbone     = require("backbone"),
-	Handlebars   = require("handlebars"),
-	$            = require("jquery"),
-	Masonry      = require("jquery.masonry"),
-
-	BasePageView = require("views/pages/basepageview"),
-	pageTemplate = require("text!templates/pages/items.hbr"),
-	Items = require("views/items/items");
+	Backbone            = require("backbone"),
+	Handlebars          = require("handlebars"),
+	$                   = require("jquery"),
+	Masonry             = require("jquery.masonry"),
+	Imagesloaded        = require("jquery.imageloaded"),
+	masonryImagesReveal = require("jquery.masonryImagesReveal"),
+	
+	
+	BasePageView        = require("views/pages/basepageview"),
+	pageTemplate        = require("text!templates/pages/items.hbr"),
+	Items               = require("views/items/items");
 
 
 
@@ -26,16 +29,27 @@ define(function(require){
 		},
 
 		postRender: function(){
+
 			var tabContainer = this.$el.find("#tabContainer");
+
 			tabContainer.empty();
-			tabContainer.html( this.items.render().el );
 
 			tabContainer
 			.addClass( "masonryContainer" )
 			.masonry({
 			  itemSelector: '.item',
-			  columnWidth: 160
+			  isFitWidth: true
+			  
 			});
+
+			tabContainer.masonryImagesReveal( this.items.render().$el );
+
+			tabContainer.resize();
+
+			window.tab = tabContainer;
+			window.contents = this.items;
+
+			
 		}
 
 	});

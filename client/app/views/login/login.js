@@ -142,7 +142,7 @@ define(function(require){
 
 				error: function( jqXHR, textStatus, errorThrown ){
 					if( jqXHR.status === 401 ){
-						this.renderMainLogin();
+						App.vent.trigger( "login:logout" );
 					} else {
 						alert( "getUser method: " + jqXHR.status + ": " + errorThrown  );
 					}

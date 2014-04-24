@@ -1,13 +1,13 @@
 define(function(require){
 
 	var
-	Backbone   = require("backbone"),
-	Handlebars = require("handlebars"),
-	$          = require("jquery"),
-
+	Backbone       = require("backbone"),
+	Handlebars     = require("handlebars"),
+	$              = require("jquery"),
+	
 	MasterBaseView = require( 'views/masterbaseview' ),
-	Model      = require("models/like/like"),
-	template   = require("text!templates/like/like.hbr");
+	Model          = require("models/like/like"),
+	template       = require("text!templates/like/like.hbr");
 
 
 	 return MasterBaseView.extend({

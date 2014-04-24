@@ -33,8 +33,7 @@ define(function(require){
 
 				{
 					id: 4,
-					itemTitle: "Jacket",
-					
+					itemTitle: "Jacket"					
 				}
 			]);
 		},

@@ -1,8 +1,10 @@
 define(function(require){
 
-	var Backbone = require("backbone");
+	var Backbone = require("backbone"),
 
-	return Backbone.Model.extend({
+	MasterBaseModel = require( "models/masterbasemodel" );
+
+	return MasterBaseModel.extend({
 
 		defaults: {
 			id: 1,

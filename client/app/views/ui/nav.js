@@ -28,7 +28,6 @@ define(function(require){
 		},
 
 		render: function(){
-			console.log( this.merge() );
 			this.$el.html( this.template( this.merge() ) );
 			return this;
 		},

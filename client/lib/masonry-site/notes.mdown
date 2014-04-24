@@ -1,0 +1,9 @@
+
+
+## update to v2.0
+
+
+`animate` option is now `isAnimated`
+`resizable` option is now `isResizable`
+
+filtering is removed. Use Isotope

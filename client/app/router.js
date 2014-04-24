@@ -7,11 +7,11 @@ require([
 	'views/main',
 	'helper',
 	'bootstrap',
-	'jquery.masonry',
-	'text!templates/items/itemmodal.hbr',
-	'jquery.avgrund'
+	'jquery.masonry'
+	
+	
 ],
-function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonry, itemTemplate ){
+function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonry ){
 
 
 	var Router = Backbone.Router.extend({
@@ -50,9 +50,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 			'itemmodal': 'itemModal',
 
-			'photomodal': 'photoModal',
-
-			'avgrund' : 'avgrund',
+			'photomodal': 'photoModal',			
 
 			'logout' : 'logout'
 

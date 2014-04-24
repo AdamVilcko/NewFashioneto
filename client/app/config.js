@@ -61,7 +61,10 @@ require = {
         "jquery.livestamp": "../lib/livestamp",
         "jquery.cookie": "../lib/jquery.cookie",
         "jquery.transit": "../lib/jquery.transit",
-        "jquery.avgrund": "../lib/avgrund/jquery.avgrund.min"
+        "jquery.imageloaded" : "../lib/imagesloaded.pkgd.min",
+        "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal"
+
+
     },
 
     shim:{
@@ -88,7 +91,8 @@ require = {
         "jquery.livestamp": ['jquery'],
         "jquery.cookie": ['jquery'],
         "jquery.transit": ['jquery'],
-        "jquery.avgrund": ['jquery'],
+        "jquery.imageloaded": ['jquery'],
+        "jquery.masonryImagesReveal": ['jquery', "jquery.imageloaded" ],
 
         jqueryui: ['jquery'],
 

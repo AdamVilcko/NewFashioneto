@@ -1,10 +1,15 @@
 define(function(require){	
 
-	Backbone = require( 'backbone' );
+	Backbone = require( 'backbone' ),
 
-	return Backbone.Model.extend({
+	MasterBaseModel = require( "models/masterbasemodel" );
+
+	return MasterBaseModel.extend({
 		defaults: {
             content: "Default content!"            
-		}
+		},
+
+		imageType: "THMUMBNAIL"
+		
 	});
 });

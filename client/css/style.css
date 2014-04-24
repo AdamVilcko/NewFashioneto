@@ -1572,10 +1572,9 @@ p{
 /* People */
 
 .people{
-
-	width:300px;
-	height: 416px;
-
+	width:250px;
+	margin-bottom:30px;
+	float:left;
 }
 
 .people .btn.follow{
@@ -1590,6 +1589,7 @@ p{
 
 .people .thumbnail img{
 	width:100%;
+	display:block;
 }
 
 .people .caption{
@@ -1658,7 +1658,7 @@ p{
 .item.w3 { width: 33.33%; }
 .item.w4 { width: 25%; }
 
-.masonry,
+/* .masonry,
 .masonry .masonry-brick {
   -webkit-transition-duration: 0.7s;
      -moz-transition-duration: 0.7s;
@@ -1681,8 +1681,7 @@ p{
       -ms-transition-property: left, right, top;
        -o-transition-property: left, right, top;
           transition-property: left, right, top;
-}
-
+} */
 
 
 
@@ -1744,8 +1743,8 @@ footer ul > li {
 }
 
 .masonry{
-	width:auto;
-	padding:0 30px;
+	/* width:1024px;
+	padding:0 30px; */
 }
 
 

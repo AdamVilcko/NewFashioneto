@@ -4,6 +4,7 @@ define(function(require){
 	Backbone     = require("backbone"),
 	Handlebars   = require("handlebars"),
 	$            = require("jquery"),
+	Imagesloaded = require("jquery.imageloaded"),
 
 	People = require("views/people/people"),
 	
@@ -21,18 +22,28 @@ define(function(require){
 		},
 
 		postRender: function(){
+
 			var tabContainer = this.$el.find("#tabContainer");
 
 			tabContainer.empty();
 
-			tabContainer.html( this.people.render().el );
-
 			tabContainer
-			.addClass( "masonryContainer" )
-			.masonry({
-			  itemSelector: '.people',
-			  columnWidth: 160
-			});
+				.addClass( "masonryContainer" )
+				.masonry({
+				  itemSelector: '.people',
+				  gutterWidth: 25,
+
+      isFitWidth: true
+				});
+
+
+
+			tabContainer.masonryImagesReveal( this.people.render().$el );
+
+		tabContainer.resize();
+
+
+			
 		}
 
 	});

@@ -1,10 +1,10 @@
 define(function(require){
 
 	var
-	$              = require( "jquery" ),
-	Handlebars     = require( "handlebars" ),
+	$               = require( "jquery" ),
+	Handlebars      = require( "handlebars" ),
 	
-	MasterBaseModel = require( "collections/pages/masterbasemodel" ),	
+	MasterBaseModel = require( "models/masterbasemodel" );	
 
 
 	return MasterBaseModel.extend({
