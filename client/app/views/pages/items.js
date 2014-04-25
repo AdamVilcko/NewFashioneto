@@ -40,11 +40,11 @@ define(function(require){
 			  itemSelector: '.item',
 			  isFitWidth: true
 			  
-			});
+			}).resize();
 
 			tabContainer.masonryImagesReveal( this.items.render().$el );
 
-			tabContainer.resize();
+			
 
 			window.tab = tabContainer;
 			window.contents = this.items;

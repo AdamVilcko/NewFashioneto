@@ -15,10 +15,12 @@ $.fn.masonryImagesReveal = function( $items ) {
     // get item
     // image is imagesLoaded class, not <img>, <img> is image.img
     var $item = $( image.img ).parents( itemSelector );
-    // un-hide item
-    $item.show();
+    
     // masonry does its thing
     msnry.appended( $item );
+
+    // un-hide item
+    $item.delay(700).fadeIn("slow");
   });
   
   return this;

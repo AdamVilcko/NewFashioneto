@@ -32,9 +32,8 @@ define(function(require){
 				.masonry({
 				  itemSelector: '.people',
 				  gutterWidth: 25,
-
-      isFitWidth: true
-				});
+				  isFitWidth: true
+				}).resize();
 
 
 
