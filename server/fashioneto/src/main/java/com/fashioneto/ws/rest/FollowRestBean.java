@@ -19,14 +19,15 @@ import com.fashioneto.utils.NoUserInContextException;
 
 @Component
 @Path("/follow")
-public class FollowRestBean {
-	
+public class FollowRestBean
+{
+
 	@Autowired
 	private FollowService followService;
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Path("{idFollowedUser}")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -35,19 +36,21 @@ public class FollowRestBean {
 	{
 		User user = ContextUtils.getUserFromAuthenticationContext();
 		User followedUser = userService.getUser(idFollowedUser);
-		
+
 		if (user == null || followedUser == null)
 		{
 			return Response.status(Status.NOT_FOUND).build();
-		} else if (user.getId() == followedUser.getId()) 
-		{
-			return Response.status(Status.UNAUTHORIZED).build();
 		}
-		
-		if (followService.follow(user, followedUser)) 
+		else if (user.getId() == followedUser.getId())
+		{
+			return Response.status(Status.FORBIDDEN).build();
+		}
+
+		if (followService.follow(user, followedUser))
 		{
 			return Response.status(Status.OK).build();
 		}
-		return Response.status(Status.NOT_MODIFIED).build();
+		// 208 = Already reported
+		return Response.status(208).build();
 	}
 }
