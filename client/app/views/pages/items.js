@@ -24,6 +24,8 @@ define(function(require){
 
 		pageId: "items",
 
+		url: App.url( "items" ),
+
 		initSubviews: function(){
 			this.items = new Items();
 		},

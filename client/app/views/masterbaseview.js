@@ -10,7 +10,10 @@ define(function(require){
 
 		initialize: function( options ){
 			this.options = options || {};
-			if( this.options.master ) this.master = this.options.master;
+			if( this.options.master ){
+				this.master = this.options.master;
+				if( typeof this.master.data ) this.data = this.master.data;
+			}
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
 			if( typeof this.initSubviews !== "undefined" ) this.initSubviews();
@@ -27,7 +30,6 @@ define(function(require){
 		},
 
 		close: function(){
-			//Other close content here
 			this.remove();
 		},
 
@@ -35,7 +37,7 @@ define(function(require){
 
 		merge: function( data ){
 			data = data || {};
-			data.details = App.data.myprofile.details;
+			data.details = this.data.details;
 			return data;
 		}
 

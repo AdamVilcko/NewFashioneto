@@ -8,6 +8,7 @@ define(function(require){
 	Transit           = require( "jquery.transit" ),
 	Helper = require( "helper" ),
 
+	User = require( "models/user" ),
 	MasterBaseView    = require( "views/masterbaseview" ),
 	mainLoginTemplate = require( "text!templates/login/mainlogin.hbr" ),
 	loginFormTemplate = require( "text!templates/login/loginform.hbr" );
@@ -157,7 +158,6 @@ define(function(require){
 			App.vent.on( "login:sessionExpired", this.modalLogin, this );
 			App.vent.on( "login:logout", this.logout, this );
 			this.options.success.call( this.options.context );
-			/*this.close();*/
 		}
 
 	});

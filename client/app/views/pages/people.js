@@ -17,8 +17,14 @@ define(function(require){
 
 		pageId: "people",
 
+		url: App.url( "people" ),
+
 		initSubviews: function(){
 			this.people = new People();
+		},
+
+		preRender: function(){
+			
 		},
 
 		postRender: function(){

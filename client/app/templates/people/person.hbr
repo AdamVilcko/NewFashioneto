@@ -4,5 +4,5 @@
   <div class="caption">
     <h5><a href="#people/{{userName}}">{{displayName}}</a></h5>
     <h6>{{location}}</h6>
-    <button class="follow btn btn-primary btn-md" href="#">Follow</button>
+    <div class="followContainer"></div>
   </div>

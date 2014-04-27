@@ -21,29 +21,46 @@ define(function(require){
 		activeTab: "wall",
 
 		init: function(){
-			App.vent.on( "page:" + this.pageId, this.handle, this );
+			App.vent.on( "page:" + this.pageId, this.getData, this );
 			App.pages[ this.pageId ] = this;
 		},
 
-		handle: function( pageState ){
-			if( typeof this.customHandle !== "undefined" ){
-				this.customHandle( pageState );
-			} else {
-				this.loadPage( pageState );
+		getData: function( state ){
+			this.state = state;
+			$.ajax({
+				type: "GET",
+				context: this,
+				dataType: "JSON",
+				url: this.url,
+				success: this.success,
+				error: this.error
+			});
+		},
+
+		success: function( data, textStatus, jqXHR ){
+			this.data = data;
+			this.loadComponents();
+		},
+
+		error: function( jqXHR, textStatus, errorThrown ){
+			if( jqXHR.status === 401 ){
+				alert( "Incorrect login credentials. Please try again!" );
+			} else{
+				alert( "profile getUser: " + jqXHR.status + ": " + errorThrown  );
 			}
 		},
 
-		loadPage: function( pageState ){
+		loadComponents: function(){
 			if( this.loadSidebar ) this.loadSidebar();
 			if( this.loadTabs ) this.loadTabs();
-			if( typeof pageState.tab !== "undefined" ) this.activeTab = pageState.tab;
-			this.render( pageState );
+			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
+			this.render();
 			Helper.navState( this.pageId, this.activeTab );
 		},
 
-		render: function( pageState ){
+		render: function(){
 
-			if( typeof this.preRender !== "undefined" ) this.preRender( pageState );
+			if( typeof this.preRender !== "undefined" ) this.preRender();
 
 			this.$el
 			.attr( "data-view", this.cid ) //Needs to be here as the el is shared
@@ -61,7 +78,7 @@ define(function(require){
 				.html( this.sidebar.render().el );
 			}
 
-			if( typeof this.postRender !== "undefined" ) this.postRender( pageState );
+			if( typeof this.postRender !== "undefined" ) this.postRender();
 
 			return this;
 
@@ -71,13 +88,8 @@ define(function(require){
 			this.$el
 			.find( this.nodes.tabContainer )
 			.html( this.tabs[ data.tab ].render().el );
-		},
+		},	
 
-		data: function(){
-			var data = App.data[ this.options.data ];
-			if( data.id === App.userId ) data.myprofile = true;
-			return data;
-		},
 
 		//DOM events
 

@@ -1577,7 +1577,7 @@ p{
 	float:left;
 }
 
-.people .btn.follow{
+.people div.followContainer{
 	position: absolute;
 	right:10px;
 	top:0;

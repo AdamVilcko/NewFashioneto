@@ -19,6 +19,8 @@ define(function(require){
 
 		pageId: "profile",
 
+		url: App.url( "user" ),
+
 		myProfile: null,
 
 		loadSidebar: function(){
@@ -32,44 +34,15 @@ define(function(require){
 			this.tabs.items  = new Items( { master: this } )
 		},		
 
-		customHandle: function( pageState ){
+		handle: function( pageState ){
 			if( pageState.myProfile === false ){
 				this.myProfile = false;				
 			} else {
 				this.myProfile = true;
 				pageState.user = App.data.myprofile.details.userName
 			}
-			this.getUser( pageState );
-		},
-
-		getUser: function( pageState ){
-			$.ajax({
-				type: "GET",
-				context: this,
-				dataType: "JSON",
-				url: App.url( 'user' ) + "/" + pageState.user,
-
-				success: function( data, textStatus, jqXHR ){
-					data = Helper.createImageUrl( data );
-					if( data.id === App.data.myprofile.id ){
-						App.data.myprofile = data;
-						App.data.guestprofile = data;
-					} else {
-						App.data.guestprofile = data;
-					}
-					this.loadPage( pageState );
-				},
-
-				error: function( jqXHR, textStatus, errorThrown ){
-					if( jqXHR.status === 401 ){
-						alert( "Incorrect login credentials. Please try again!" );
-					} else{
-						alert( "profile getUser: " + jqXHR.status + ": " + errorThrown  );
-					}
-				}
-
-			});
-		}
+			this.getData( pageState );
+		}		
 
 	});
 

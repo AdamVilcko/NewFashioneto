@@ -20,7 +20,7 @@ $.fn.masonryImagesReveal = function( $items ) {
     msnry.appended( $item );
 
     // un-hide item
-    $item.delay(700).fadeIn("slow");
+    $item.fadeIn("slow");
   });
   
   return this;
