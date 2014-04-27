@@ -46,15 +46,15 @@ define(function(require){
 			this.remove();
 		},
 
-		data: {},
-
 		merge: function( data ){
 			data = data || {};
 			if( this.model ) data.model = this.model.toJSON();
 			data.user = App.user.toJSON();
 			data.content = App.content;
 			return data;
-		}
+		},
+
+		data: {}
 
 	});
 

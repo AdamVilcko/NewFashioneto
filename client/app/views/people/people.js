@@ -4,9 +4,9 @@ define(function(require){
 
 	Collection   = require("collections/people/people"),
 	Person       = require("views/people/person"),
-	BasePageView = require("views/pages/basepageview");
+	MasterBaseView = require("views/masterbaseview");
 
-	return BasePageView.extend({
+	return MasterBaseView.extend({
 
 		model: Person,
 

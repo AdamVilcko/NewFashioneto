@@ -25,24 +25,24 @@ define(function(require){
 
 		loadSidebar: function(){
 			this.sidebar = new ProfileSidebar( { master: this } );
-		},		
+		},
 
 		loadTabs: function() {
 			this.tabs        = {};
 			this.tabs.wall   = new Wall( { master: this } ),
 			this.tabs.photos = new Photos( { master: this } ),
 			this.tabs.items  = new Items( { master: this } )
-		},		
+		},
 
 		handle: function( pageState ){
 			if( pageState.myProfile === false ){
-				this.myProfile = false;				
+				this.myProfile = false;
 			} else {
 				this.myProfile = true;
 				pageState.user = App.data.myprofile.details.userName
 			}
 			this.getData( pageState );
-		}		
+		}
 
 	});
 

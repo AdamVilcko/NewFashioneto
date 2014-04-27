@@ -19,7 +19,6 @@ define(function(require){
 
 		render: function(){
 			this.$el.html( this.template( this.merge() ) );
-			console.log( this.merge() );
 			Helper.processDate.call( this );
 			return this;
 		}

@@ -17,7 +17,7 @@ define(function(require){
 			}
 		},
 
-		imageType: "SMALL"
+		imageType: "STANDARD"
 
 	});
 

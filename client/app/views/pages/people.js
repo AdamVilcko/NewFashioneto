@@ -41,9 +41,15 @@ define(function(require){
 				  itemSelector: '.people',
 				  gutterWidth: 25,
 				  isFitWidth: true
-				});
+				}).resize();
 
-			this.people.renderCollection();
+			tabContainer.masonryImagesReveal( this.people.renderCollection().$el );
+
+
+
+			//tabContainer.masonry( "appended", this.people.renderCollection().el );
+
+
 		}
 
 	});

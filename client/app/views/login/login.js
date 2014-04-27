@@ -1,19 +1,15 @@
 define(function(require){
 
 	var
-	Backbone          = require( "backbone" ),
+
 	Handlebars        = require( "handlebars" ),
 	$                 = require( "jquery" ),
 	Cookie            = require( "jquery.cookie" ),
-	Transit           = require( "jquery.transit" ),
-	Helper            = require( "helper" ),
 
 	User              = require( "models/user" ),
 	MasterBaseView    = require( "views/masterbaseview" ),
 	mainLoginTemplate = require( "text!templates/login/mainlogin.hbr" ),
 	loginFormTemplate = require( "text!templates/login/loginform.hbr" );
-
-
 
 
 	return MasterBaseView.extend({
@@ -85,8 +81,10 @@ define(function(require){
 					$.ajaxSetup({
 						headers: { 'X-Auth-Token': data.token }
 					});
-					console.log( data );
-					App.user = new User( data.user );
+
+					//Gonna get Felipe to refactor so details and id are returned only
+					data.user.details.id = data.user.id;
+					App.user = new User( data.user.details );
 					this.proceed( data.user );
 				},
 
