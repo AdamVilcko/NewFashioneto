@@ -1,4 +1,4 @@
-define(function(require){	
+define(function(require){
 
 	Backbone = require( 'backbone' ),
 
@@ -6,10 +6,10 @@ define(function(require){
 
 	return MasterBaseModel.extend({
 		defaults: {
-            content: "Default content!"            
+            content: "Default content!"
 		},
 
-		imageType: "THMUMBNAIL"
-		
+		imageType: "THUMBNAIL"
+
 	});
 });

@@ -27,6 +27,19 @@ define(function(require){
 		renderToDom: function(){
 			var el = $( this.tagName + "[data-view=" + this.cid + "]" );
 			el.replaceWith( this.render().el );
+			return this;
+		},
+
+		renderCollection: function(){
+			this.$el.empty();
+			this.collection.each( this.renderModel, this );
+			return this;
+		},
+
+		renderModel: function( model ){
+			var modelView = new this.model( { model: model } );
+			this.$el.append( modelView.render().el );
+			return this;
 		},
 
 		close: function(){
@@ -37,11 +50,11 @@ define(function(require){
 
 		merge: function( data ){
 			data = data || {};
-			data.details = this.data.details;
+			if( this.model ) data.model = this.model.toJSON();
+			data.user = App.user.toJSON();
+			data.content = App.content;
 			return data;
 		}
-
-
 
 	});
 

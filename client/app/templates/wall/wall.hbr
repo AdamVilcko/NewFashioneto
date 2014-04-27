@@ -1,12 +1,6 @@
 <section id="headlineGallery">
-              
+
   <div class="row" id="images">
-    
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
 
     <div class="col-xs-2">
       <a href="#" class="img-thumbnail">
@@ -37,11 +31,17 @@
         <img src="img/profile-photo.jpg" alt="...">
       </a>
     </div>
-  
+
+    <div class="col-xs-2">
+      <a href="#" class="img-thumbnail">
+        <img src="img/profile-photo.jpg" alt="...">
+      </a>
+    </div>
+
   </div><!-- row -->
 
   <button class="btn btn-primary pull-right">Show all photos</button>
-  
+
   <div class="clear"></div>
 
 </section><!-- headlineGallery -->
@@ -51,26 +51,26 @@
   <div id="postCreate">
 
     <div class="media">
-    
+
       <a class="pull-left img-thumbnail" href="#">
-        <img class="media-object" src="{{details.image.thumbnail}}" alt="...">
+        <img class="media-object" src="{{user.imageUrl}}" alt="...">
       </a>
       <div class="media-body well">
 
         <div class="row">
-          <div class="col-md-8"> <textarea placeholder="Write on Alex's wall" class="well"></textarea></div>
+          <div class="col-md-8"> <textarea placeholder="Write on {{user.displayName}}'s wall" class="well"></textarea></div>
           <div class="col-md-2"><button class="btn btn-primary sendPost">Post</button></div>
-          <div class="col-md-2"><a class="uploadphoto pull-right" href="#">Upload photo</a></div>        
-          
+          <div class="col-md-2"><a class="uploadphoto pull-right" href="#">Upload photo</a></div>
+
         </div>
-        
+
       </div>
-      
-    </div><!-- media -->  
+
+    </div><!-- media -->
 
   </div><!-- postCreate -->
 
-  <div id="postDisplay">    
+  <div id="postDisplay">
 
     <button class="btn btn-default loadmore">Load more...</button>
 

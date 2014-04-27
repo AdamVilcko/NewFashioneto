@@ -1,6 +1,8 @@
 App = {
 
     vent: null,
+    pages:{},
+    user:{},
 
     content: {
         language:"EN-GB",
@@ -23,20 +25,6 @@ App = {
 
     url: function( arg ){
         return this.root + this.rest[ arg ];
-    },
-
-    pages:{},
-
-    data: {
-        myprofile:{},
-        guestprofile:{},
-        items:{},
-        people:{}
-    },
-
-    user:{
-        username:null,
-        id:null
     }
 
 }
@@ -52,12 +40,12 @@ require = {
 
         "helper": "helpers/helper",
         "jquery": "../lib/jquery-1.10.2",
-        "jqueryui": "../lib/jquery-ui-1.10.4.custom.min",        
+        "jqueryui": "../lib/jquery-ui-1.10.4.custom.min",
         "backbone": "../lib/backbone1.1.0",
         "_": "../lib/underscore1.5.2",
         "bootstrap": "../lib/bootstrap",
         "handlebars": "../lib/handlebars-v1.1.2",
-        "modernizr": "../lib/modernizr",       
+        "modernizr": "../lib/modernizr",
         "jquery.masonry": "../lib/jquery.masonry.min",
         "moment": "../lib/moment-with-langs.min",
         "jquery.livestamp": "../lib/livestamp",

@@ -5,12 +5,12 @@ define(function(require){
 	Handlebars     = require("handlebars"),
 	$              = require("jquery"),
 	Helper         = require('helper'),
-	
+
 	MasterBaseView = require('views/masterbaseview');
 
 	return MasterBaseView.extend({
 
-		el:"#main",		
+		el:"#main",
 		nodes:{
 			tabContainer: "#tabContainer",
 			sidebar: "#sidebar"
@@ -22,7 +22,6 @@ define(function(require){
 
 		init: function(){
 			App.vent.on( "page:" + this.pageId, this.getData, this );
-			App.pages[ this.pageId ] = this;
 		},
 
 		getData: function( state ){
@@ -32,9 +31,14 @@ define(function(require){
 				context: this,
 				dataType: "JSON",
 				url: this.url,
+				beforeSend:this.beforeSend,
 				success: this.success,
 				error: this.error
 			});
+		},
+
+		beforeSend: function(){
+
 		},
 
 		success: function( data, textStatus, jqXHR ){
@@ -64,7 +68,7 @@ define(function(require){
 
 			this.$el
 			.attr( "data-view", this.cid ) //Needs to be here as the el is shared
-			.html( this.template( App.data[ this.pageId ] ) );
+			.html( this.template( this.merge( this.data ) ) );
 
 			if( this.tabs ){
 				this.$el
@@ -88,7 +92,7 @@ define(function(require){
 			this.$el
 			.find( this.nodes.tabContainer )
 			.html( this.tabs[ data.tab ].render().el );
-		},	
+		},
 
 
 		//DOM events

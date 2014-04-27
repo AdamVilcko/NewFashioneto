@@ -1,20 +1,24 @@
 define(function(require){
 
 	var
-	Backbone        = require("backbone"),
-	
+
 	MasterBaseModel = require( "models/masterbasemodel" );
 
 	return MasterBaseModel.extend({
 
-		defaults: {
-			id: 1,
-			userName: "user1",
-			displayName: "Emma Davis",
-			location: "London, UK",
-			imgUrl: "img/pictures-thumbnail.jpg"
-		}
-		
+		init: function(){
+			this.createImageUrl();
+			this.on( "all", this.createImageUrl, this );
+		},
+
+		createImageUrl: function( args ){
+			if( this.has( "id" ) && ! this.has( "imageUrl" ) ){
+				this.set( "imageUrl", App.url( "image" ) + this.imageType + "/" + this.get( "id" ) );
+			}
+		},
+
+		imageType: "SMALL"
+
 	});
 
 });

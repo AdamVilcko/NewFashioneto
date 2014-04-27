@@ -17,9 +17,9 @@ define(function(require){
 
 		init: function(){
 			this.collection = new CommentsCollection( this.options.data )
-			this.collection			
+			this.collection
 			.on( "sync", this.render, this );
-			
+
 		},
 
 		templates:{
@@ -33,17 +33,14 @@ define(function(require){
 
 		render: function(){
 
-			var data = {};
-			data.imageUrl = App.url( "image" ) + "THUMBNAIL/" + App.data.myprofile.details.imageId;
-
 			//Show all comments
-			this.$el.html( this.templates.showAll() );
+			this.$el.html( /*this.templates.showAll()*/ );
 
 			//Each through posts
 			this.collection.each( this.renderComments, this );
 
 			//Input
-			this.$el.append( this.templates.input( data ) );
+			this.$el.append( this.templates.input( this.merge() ) );
 
 			return this;
 		},

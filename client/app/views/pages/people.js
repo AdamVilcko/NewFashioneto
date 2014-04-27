@@ -4,10 +4,10 @@ define(function(require){
 	Backbone     = require("backbone"),
 	Handlebars   = require("handlebars"),
 	$            = require("jquery"),
+	Masonry      = require("jquery.masonry"),
 	Imagesloaded = require("jquery.imageloaded"),
 
-	People = require("views/people/people"),
-	
+	People       = require("views/people/people"),
 	BasePageView = require("views/pages/basepageview"),
 	pageTemplate = require("text!templates/pages/people.hbr");
 
@@ -21,10 +21,12 @@ define(function(require){
 
 		initSubviews: function(){
 			this.people = new People();
+			this.people.collection.on( "sync", this.loadComponents, this );
 		},
 
-		preRender: function(){
-			
+		beforeSend: function(){
+			this.people.collection.fetch();
+			return false;
 		},
 
 		postRender: function(){
@@ -39,16 +41,9 @@ define(function(require){
 				  itemSelector: '.people',
 				  gutterWidth: 25,
 				  isFitWidth: true
-				}).resize();
+				});
 
-
-
-			tabContainer.masonryImagesReveal( this.people.render().$el );
-
-		tabContainer.resize();
-
-
-			
+			this.people.renderCollection();
 		}
 
 	});

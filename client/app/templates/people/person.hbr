@@ -1,8 +1,8 @@
   <div class="thumbnail">
-    <a href="#people/{{userName}}"><img src="{{imgUrl}}" alt="..."></a>
+    <a href="#people/{{details.userName}}"><img src="{{imageUrl}}" alt="..."></a>
   </div>
   <div class="caption">
-    <h5><a href="#people/{{userName}}">{{displayName}}</a></h5>
-    <h6>{{location}}</h6>
+    <h5><a href="#people/{{details.userName}}">{{details.displayName}}</a></h5>
+    <h6>{{details.country}}</h6>
     <div class="followContainer"></div>
   </div>

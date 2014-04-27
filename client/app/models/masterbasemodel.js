@@ -2,7 +2,7 @@ define(function(require){
 
 	var
 	$          = require( "jquery" ),
-	Handlebars = require( "handlebars" ),	
+	Handlebars = require( "handlebars" ),
 	Backbone   = require( "backbone" );
 
 
@@ -17,7 +17,7 @@ define(function(require){
 
 		imageType: "THUMBNAIL",
 
-		createImageUrl: function(){
+		createImageUrl: function( args ){
 			if( this.has( "imageId" ) && ! this.has( "imageUrl" ) ){
 				this.set( "imageUrl", App.url( "image" ) + this.imageType + "/" + this.get( "imageId" ) );
 			}
@@ -33,7 +33,7 @@ define(function(require){
 
 		}
 
-		
+
 
 	});
 

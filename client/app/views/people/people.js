@@ -1,22 +1,18 @@
 define(function(require){
 
 	var
-	Backbone   = require("backbone"),
-	Handlebars = require("handlebars"),
-	$          = require("jquery"),
-	
-	Collection = require("collections/people/people"),
-	Person     = require("views/people/person"),
-	
-	ItemView   = require( 'views/itemview' );
 
-	return ItemView.extend({
+	Collection   = require("collections/people/people"),
+	Person       = require("views/people/person"),
+	BasePageView = require("views/pages/basepageview");
 
-		item: Person,
-		
+	return BasePageView.extend({
+
+		model: Person,
+
 		init: function(){
 			this.collection = new Collection();
-		}		
+		}
 
 	});
 
