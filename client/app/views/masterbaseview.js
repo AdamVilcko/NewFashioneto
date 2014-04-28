@@ -1,9 +1,9 @@
 define(function(require){
 
 	var
+	$          = require("jquery"),
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
-	$          = require("jquery"),
 	Helper     = require('helper');
 
 	return Backbone.View.extend({

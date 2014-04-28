@@ -2,8 +2,8 @@ define(function(require){
 
 	var
 
-	Handlebars        = require( "handlebars" ),
 	$                 = require( "jquery" ),
+	Handlebars        = require( "handlebars" ),
 	Cookie            = require( "jquery.cookie" ),
 
 	User              = require( "models/user" ),
@@ -140,7 +140,7 @@ define(function(require){
 
 				error: function( jqXHR, textStatus, errorThrown ){
 					if( jqXHR.status === 401 ){
-						App.vent.trigger( "login:logout" );
+						this.logout();
 					} else {
 						alert( "getUser method: " + jqXHR.status + ": " + errorThrown  );
 					}
