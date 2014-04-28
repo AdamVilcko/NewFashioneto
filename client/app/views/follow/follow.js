@@ -1,13 +1,14 @@
 define(function(require){
 
 	var
+
 	$              = require("jquery"),
 	
 	MasterBaseView = require( 'views/masterbaseview' ),
-	Model          = require("models/follow/follow");
+	Model          = require( "models/follow/follow" );
 
 
-	 return MasterBaseView.extend({
+	return MasterBaseView.extend({
 
 	 	tagName: "button",
 

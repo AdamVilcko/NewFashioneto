@@ -1,15 +1,17 @@
 define(function(require){
 
 	var
+
+	$            = require("jquery"),
 	Backbone     = require("backbone"),
 	Handlebars   = require("handlebars"),
-	$            = require("jquery"),
 	Masonry      = require("jquery.masonry"),
 	Imagesloaded = require("jquery.imageloaded"),
 
 	People       = require("views/people/people"),
 	BasePageView = require("views/pages/basepageview"),
 	pageTemplate = require("text!templates/pages/people.hbr");
+
 
 	return BasePageView.extend({
 
@@ -30,26 +32,17 @@ define(function(require){
 		},
 
 		postRender: function(){
-
-			var tabContainer = this.$el.find("#tabContainer");
-
+			var
+			tabContainer = this.$el.find("#tabContainer");
 			tabContainer.empty();
-
+			tabContainer.html( this.people.renderCollection().el );
 			tabContainer
-				.addClass( "masonryContainer" )
-				.masonry({
-				  itemSelector: '.people',
-				  gutterWidth: 25,
-				  isFitWidth: true
-				}).resize();
-
-			tabContainer.masonryImagesReveal( this.people.renderCollection().$el );
-
-
-
-			//tabContainer.masonry( "appended", this.people.renderCollection().el );
-
-
+			.addClass( "masonryContainer" )
+			.masonry({
+			  itemSelector: '.people',
+			  gutterWidth: 25,
+			  isFitWidth: true
+			}).resize();			
 		}
 
 	});

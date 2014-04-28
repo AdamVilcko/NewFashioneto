@@ -18,11 +18,11 @@ App = {
         login: "user/authenticate",
         wall: "comment/USER",
         wallComments: "comment/COMMENT",
-        like: "comment/like",
         people: "people/",
         items: "items/",
         image: "image/",
-        follow: "follow/"
+        like: "comment/like",
+        follow: "follow"
     },
 
     url: function( arg ){

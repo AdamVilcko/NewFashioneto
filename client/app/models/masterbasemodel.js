@@ -24,16 +24,11 @@ define(function(require){
 		},
 
 		persist: function( id ){
-			this.url = this.url + "/" + id;
+			var url = this.url + "/" + id;
 			return this.save( null, {
-				success: function(){
-
-				}
+				url : url		
 			} );
-
 		}
-
-
 
 	});
 
