@@ -3,7 +3,7 @@ define(function(require){
 	var
 
 	$              = require("jquery"),
-	
+
 	MasterBaseView = require( 'views/masterbaseview' ),
 	Model          = require( "models/follow/follow" );
 
@@ -17,7 +17,7 @@ define(function(require){
 	 	label: App.content.follow,
 
 		init: function( options ){
-			this.model = new Model( this.options.data );
+			this.model = new Model( this.options );
 			this.model.on( "sync", this.update, this );
 		},
 
@@ -28,16 +28,29 @@ define(function(require){
 			this.renderToDom();
 		},
 
-		preRender: function(){
-			this.delegateEvents();
-		},
-
 		events: {
 			'click' : 'registerFollow'
 		},
 
 		registerFollow: function( ev ){
-			this.model.persist( this.options.parentId );
+			this.model.persist( null, {
+				error: function( view, jqXHR, xhr ){
+					if( jqXHR.status === 404 ){
+						//User doesn't exist
+
+					}
+					if( jqXHR.status === 403 ){
+						//Tries to follow themselves
+
+					}
+					if( jqXHR.status === 208 ){
+						//Already reported
+					}
+
+					console.log( jqXHR.status );
+
+				}
+			} );
 		}
 
 	});

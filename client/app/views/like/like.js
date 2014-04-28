@@ -1,18 +1,18 @@
 define(function(require){
 
 	var
-	
+
 	$              = require("jquery"),
 	Backbone       = require("backbone"),
 	Handlebars     = require("handlebars"),
-	
+
 	MasterBaseView = require( 'views/masterbaseview' ),
 	Model          = require("models/like/like"),
 	template       = require("text!templates/like/like.hbr");
 
 
 	return MasterBaseView.extend({
-		
+
 		template: Handlebars.compile( template ),
 
 		init: function( options ){
@@ -22,7 +22,7 @@ define(function(require){
 		},
 
 		render: function(){
-			//Need to create method on master base view for merging data before passing into template 
+			//Need to create method on master base view for merging data before passing into template
 			var insert = this.model.toJSON();
 			insert.type = this.options.type;
 			this.$el.html( this.template( insert ) );
@@ -34,7 +34,7 @@ define(function(require){
 		},
 
 		registerLike: function(){
-			this.model.persist( this.options.parentId );			
+			this.model.persist( this.options.parentId );
 		}
 
 	});

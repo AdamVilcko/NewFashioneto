@@ -5,7 +5,13 @@ define(function(require){
 	MasterBaseModel = require( "models/masterbasemodel" );
 
 	return MasterBaseModel.extend({
-		url: App.url( "follow" )
+
+		url: App.url( "follow" ),
+
+		defaults:{
+			isFollowed : false
+		}
+
 	});
 
 });

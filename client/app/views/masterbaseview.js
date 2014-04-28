@@ -1,7 +1,7 @@
 define(function(require){
 
 	var
-	
+
 	$          = require("jquery"),
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
@@ -42,10 +42,10 @@ define(function(require){
 		},
 
 		renderModel: function( model ){
-			var modelView = new this.model( { model: model } );
+			var modelView = new this.modelView( { model: model } );
 			this.$el.append( modelView.render().el );
 			return this;
-		},		
+		},
 
 		merge: function( data ){
 			data = data || {};
@@ -55,7 +55,7 @@ define(function(require){
 			return data;
 		},
 
-		data: {}		
+		data: {}
 
 	});
 

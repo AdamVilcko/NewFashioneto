@@ -22,6 +22,8 @@ define(function(require){
 
 		},
 
+		modelView: CommentView,
+
 		templates:{
 			showAll: Handlebars.compile( showAll ),
 			input: Handlebars.compile( input )
@@ -31,23 +33,21 @@ define(function(require){
 			textarea : "textarea"
 		},
 
+
+
 		render: function(){
 
 			//Show all comments
 			this.$el.html( /*this.templates.showAll()*/ );
 
 			//Each through posts
-			this.collection.each( this.renderComments, this );
+			this.collection.each( this.renderCollection, this );
 
 			//Input
 			this.$el.append( this.templates.input( this.merge() ) );
 
 			return this;
-		},
 
-		renderComments: function( comment ){
-			var commentView = new CommentView( { model: comment } );
-			this.$el.append( commentView.render().el );
 		},
 
 		events:{

@@ -1,12 +1,15 @@
 define(function(require){
 
 	var
+
 	$          = require( "jquery" ),
 	Handlebars = require( "handlebars" ),
 	Backbone   = require( "backbone" );
 
 
 	return Backbone.Model.extend({
+
+		imageType: "THUMBNAIL", //Default
 
 		initialize: function( options ){
 			this.options = options || {};
@@ -15,19 +18,27 @@ define(function(require){
 			if( typeof this.init !== "undefined" ) this.init();
 		},
 
-		imageType: "THUMBNAIL",
-
 		createImageUrl: function( args ){
 			if( this.has( "imageId" ) && ! this.has( "imageUrl" ) ){
 				this.set( "imageUrl", App.url( "image" ) + this.imageType + "/" + this.get( "imageId" ) );
 			}
 		},
 
-		persist: function( id ){
+		persist: function( id, options ){
+
+			options = options || {};
+			id = id || this.get( "id" );
 			var url = this.url + "/" + id;
-			return this.save( null, {
-				url : url		
-			} );
+
+			var defaults = {
+				type: "POST",
+				url : url
+			};
+
+			$.extend( defaults, options );
+
+
+			return this.save( null, defaults );
 		}
 
 	});

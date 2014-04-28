@@ -5,7 +5,7 @@ define(function(require){
 	$              = require("jquery"),
 	Backbone       = require("backbone"),
 	Handlebars     = require("handlebars"),
-	
+
 	Follow         = require("views/follow/follow"),
 	template       = require("text!templates/people/person.hbr"),
 	MasterBaseView = require( 'views/masterbaseview' );
@@ -19,8 +19,8 @@ define(function(require){
 
 		init: function(){
 			this.follow = new Follow({
-				isFollowed: false,
-				parentId: this.model.get( "id" )
+				isFollowed: this.model.get( "isFollowed" ),
+				id: this.model.get( "id" )
 			});
 		},
 
@@ -31,4 +31,4 @@ define(function(require){
 
 	});
 
-});x
+});

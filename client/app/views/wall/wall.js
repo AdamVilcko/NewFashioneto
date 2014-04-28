@@ -25,7 +25,7 @@ define(function(require){
 
 		render: function(){
 			this.$el
-			.html( this.template( this.merge() ) )
+			.html( this.template( this.merge( this.data ) ) )
 			.find( this.nodes.posts )
 			.html( this.posts.render().el );
 			return this;
