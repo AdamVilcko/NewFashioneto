@@ -6,7 +6,9 @@ App = {
 
     content: {
         language:"EN-GB",
-        title: "Fasioneto"
+        title: "Fasioneto",
+
+        follow: "Follow"
     },
 
     root: "/Fashioneto-0.1b/as/",

@@ -1,11 +1,11 @@
 define(function(require){
 
 	var
+	$              = require("jquery"),
 	Backbone       = require("backbone"),
 	Handlebars     = require("handlebars"),
-	$              = require("jquery"),
 	
-	Follow = require("views/follow/follow"),
+	Follow         = require("views/follow/follow"),
 	template       = require("text!templates/people/person.hbr"),
 	MasterBaseView = require( 'views/masterbaseview' );
 
@@ -16,19 +16,16 @@ define(function(require){
 		className: "people",
 
 		init: function(){
-			/*this.follow = new Follow({
+			this.follow = new Follow({
 				data: this.model,
 				parentId: this.model.get( "id" )
-			});*/
+			});			
 		},
 
-		render: function(){
-			this.$el
-			.html( this.template( this.model.toJSON() ) )
-			/*.find( ".followContainer" )
-			.html( this.follow.render().el )*/;
-			return this;
-		},
+		postRender: function(){
+			this.$el.find( '.followContainer' )
+			.html( this.follow.render().el );
+		}
 
 	});
 

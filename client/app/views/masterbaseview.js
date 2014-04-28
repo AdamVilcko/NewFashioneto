@@ -20,7 +20,10 @@ define(function(require){
 		},
 
 		render: function(){
-			this.$el.html( this.template() );
+			if( typeof this.preRender !== "undefined" ) this.preRender();
+			if( this.template ){ this.$el.html( this.template( this.merge() ) ); }
+			else if( this.label ) { this.$el.html( this.label );  }
+			if( typeof this.postRender !== "undefined" ) this.postRender();
 			return this;
 		},
 
@@ -40,11 +43,7 @@ define(function(require){
 			var modelView = new this.model( { model: model } );
 			this.$el.append( modelView.render().el );
 			return this;
-		},
-
-		close: function(){
-			this.remove();
-		},
+		},		
 
 		merge: function( data ){
 			data = data || {};
@@ -54,7 +53,7 @@ define(function(require){
 			return data;
 		},
 
-		data: {}
+		data: {}		
 
 	});
 

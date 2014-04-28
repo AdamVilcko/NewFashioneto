@@ -1,8 +1,6 @@
 define(function(require){
 
 	var
-	Backbone       = require("backbone"),
-	Handlebars     = require("handlebars"),
 	$              = require("jquery"),
 	
 	MasterBaseView = require( 'views/masterbaseview' ),
@@ -12,10 +10,12 @@ define(function(require){
 	 return MasterBaseView.extend({
 
 	 	tagName: "button",
-	 	
+
 	 	className: "follow btn btn-primary btn-md",
 
-		init: function( options ){	
+	 	label: App.content.follow,
+
+		init: function( options ){
 			this.model = new Model( this.options.data );
 			this.model.on( "sync", this.update, this );
 		},
@@ -24,14 +24,19 @@ define(function(require){
 			this.attributes = {
 				disabled : "disabled"
 			}
-		},		
+			this.renderToDom();
+		},
+
+		preRender: function(){
+			this.delegateEvents();
+		},
 
 		events: {
 			'click' : 'registerFollow'
 		},
 
-		registerFollow: function(){
-			this.model.persist( this.options.parentId );			
+		registerFollow: function( ev ){
+			this.model.persist( this.options.parentId );
 		}
 
 	});
