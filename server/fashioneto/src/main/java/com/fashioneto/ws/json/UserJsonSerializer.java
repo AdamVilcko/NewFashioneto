@@ -5,11 +5,11 @@ import java.lang.reflect.Type;
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.User;
+import com.fashioneto.utils.ContextUtils;
+import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.ws.entities.DefaultSet;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
@@ -28,6 +28,7 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	public static final String JSON_PROPERTY_USER_NAME = "userName";
 	public static final String JSON_PROPERTY_ID = "id";
 	public static final String JSON_PROPERTY_DETAILS = "details";
+	public static final String JSON_PROPERTY_FOLLOWED = "isFollowed";
 
 	public static final String JSON_PROPERTY_DETAILS_DISPLAY_NAME = "displayName";
 	public static final String JSON_PROPERTY_DETAILS_IMAGE_ID = "imageId";
@@ -42,6 +43,15 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	{
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty(JSON_PROPERTY_ID, user.getId());
+
+		try
+		{
+			jsonObject.addProperty(JSON_PROPERTY_FOLLOWED, ContextUtils.isFollowed(user));
+		}
+		catch (NoUserInContextException e)
+		{
+			e.printStackTrace();
+		}
 
 		jsonObject.add(JSON_PROPERTY_DETAILS, getUserDetails(user));
 
@@ -59,13 +69,13 @@ public class UserJsonSerializer implements JsonSerializer<User>
 
 		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
-		
+
 		DefaultSet<User> followersSet = new DefaultSet<User>(user.getFollowers());
 		jsonObject.add(JSON_PROPERTY_FOLLOWERS, FashionetoJsonFactory.getJsonElement(followersSet));
-		
+
 		DefaultSet<User> followingSet = new DefaultSet<User>(user.getFollowing());
 		jsonObject.add(JSON_PROPERTY_FOLLOWING, FashionetoJsonFactory.getJsonElement(followingSet));
-		
+
 	}
 
 	private JsonElement getUserDetails(User user)
