@@ -3,9 +3,8 @@ $.fn.masonryImagesReveal = function( $items ) {
   var itemSelector = msnry.options.itemSelector;
 
   //BACKBONE remove outer wrapper container
-  
+
   $items = $( $items.html() );
-  console.log( $items );
 
   // hide by default
   $items.hide();
@@ -15,13 +14,13 @@ $.fn.masonryImagesReveal = function( $items ) {
     // get item
     // image is imagesLoaded class, not <img>, <img> is image.img
     var $item = $( image.img ).parents( itemSelector );
-    
+
     // masonry does its thing
     msnry.appended( $item );
 
     // un-hide item
-    $item.delay(700).fadeIn("slow");
+    $item.fadeIn("slow");
   });
-  
+
   return this;
 };

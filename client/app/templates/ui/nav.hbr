@@ -52,9 +52,9 @@
         </li>
         <li class="profile">
           <a href="#myprofile">
-            <img src="{{details.image.thumbnail}}" />
-            <span>{{details.displayName}}<br />2557 pts (1st in city)</span>            
-          </a>          
+            <img src="{{user.imageUrl}}" />
+            <span>{{user.displayName}}<br />2557 pts (1st in city)</span>
+          </a>
         </li>
 
         <li class="handle toggle">

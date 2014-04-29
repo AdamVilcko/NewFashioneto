@@ -1,14 +1,14 @@
 Examples of URIs:
 
-	http://localhost:8080/Fashioneto-0.1b/as/comment/USER/1 
-	http://localhost:8080/Fashioneto/as/comment/like/1 
-	http://localhost:8080/ftest/as/comment/USER/1 
+	http://localhost:8080/Fashioneto-0.1b/as/comment/USER/1
+	http://localhost:8080/Fashioneto/as/comment/like/1
+	http://localhost:8080/ftest/as/comment/USER/1
 
 Manager Page:
 
 	http://localhost:8080/manager/html/
-	
-************** API	
+
+************** API
 
 Login
 
@@ -16,15 +16,15 @@ Login
 		Params:
 			username = [value]
 			password = [value]
-	
+
 Follows
 
 	POST http://localhost:8080/Fashioneto-0.1b/as/follow/{followedUserId}
 		Header:
-			X-Auth-Token = [token value]	
-		OBS: 
+			X-Auth-Token = [token value]
+		OBS:
 			the "follower" user is going to be obtained by the auth-token
-	
+
 Images:
 
     GET http://localhost:8080/Fashioneto-0.1b/as/image/s/{userId}
@@ -34,9 +34,9 @@ Images:
     GET http://localhost:8080/Fashioneto-0.1b/as/image/{imageId}
 
     GET http://localhost:8080/Fashioneto-0.1b/as/image/{imageSize}/{imageId}
-    
+
         OBS.: possible values for {imageSize} = [THUMBNAIL, SMALL, STANDARD]
-    
+
 Users:
 
     GET http://localhost:8080/Fashioneto-0.1b/as/people
@@ -46,11 +46,11 @@ Users:
 	GET http://localhost:8080/Fashioneto-0.1b/as/user/{userId}
 		Header:
 			X-Auth-Token = [token value]
-			
+
 	GET http://localhost:8080/Fashioneto-0.1b/as/user/{username}
 		Header:
-			X-Auth-Token = [token value]	
-	
+			X-Auth-Token = [token value]
+
 Comments:
 
 	OBS.: possible values for {parentType} = [COMMENT, ITEM, PHOTO, USER]
@@ -58,7 +58,7 @@ Comments:
 	GET http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{commentId}
 		Header:
 			X-Auth-Token = [token value]
-			
+
   	POST http://localhost:8080/Fashioneto-0.1b/as/comment/like/{commentId}
 		Header:
 			X-Auth-Token = [token value]

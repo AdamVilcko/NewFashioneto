@@ -14,7 +14,7 @@ define(function(require){
 	return MasterBaseView.extend({
 
 		init: function(options){
-			this.render();			
+			this.render();
 		},
 
 		el: "#nav",

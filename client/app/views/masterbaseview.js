@@ -1,45 +1,61 @@
 define(function(require){
 
 	var
+
+	$          = require("jquery"),
 	Backbone   = require("backbone"),
 	Handlebars = require("handlebars"),
-	$          = require("jquery"),
 	Helper     = require('helper');
+
 
 	return Backbone.View.extend({
 
 		initialize: function( options ){
 			this.options = options || {};
-			if( this.options.master ) this.master = this.options.master;
+			if( this.options.master ){
+				this.master = this.options.master;
+				if( typeof this.master.data ) this.data = this.master.data;
+			}
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
 			if( typeof this.initSubviews !== "undefined" ) this.initSubviews();
 		},
 
 		render: function(){
-			this.$el.html( this.template() );
+			if( typeof this.preRender !== "undefined" ) this.preRender();
+			if( this.template ){ this.$el.html( this.template( this.merge() ) ); }
+			else if( this.label ) { this.$el.html( this.label );  }
+			if( typeof this.postRender !== "undefined" ) this.postRender();
 			return this;
 		},
 
 		renderToDom: function(){
 			var el = $( this.tagName + "[data-view=" + this.cid + "]" );
 			el.replaceWith( this.render().el );
+			return this;
 		},
 
-		close: function(){
-			//Other close content here
-			this.remove();
+		renderCollection: function(){
+			this.$el.empty();
+			this.collection.each( this.renderModel, this );
+			return this;
 		},
 
-		data: {},
+		renderModel: function( model ){
+			var modelView = new this.modelView( { model: model } );
+			this.$el.append( modelView.render().el );
+			return this;
+		},
 
 		merge: function( data ){
 			data = data || {};
-			data.details = App.data.myprofile.details;
+			if( this.model ) data.model = this.model.toJSON();
+			data.user = App.user.toJSON();
+			data.content = App.content;
 			return data;
-		}
+		},
 
-
+		data: {}
 
 	});
 

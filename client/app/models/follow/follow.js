@@ -1,15 +1,17 @@
 define(function(require){
 
-	Backbone = require( 'backbone' ),
+	var Backbone = require("backbone"),
 
 	MasterBaseModel = require( "models/masterbasemodel" );
 
 	return MasterBaseModel.extend({
-		defaults: {
-            content: "Default content!"
-		},
 
-		imageType: "THUMBNAIL"
+		url: App.url( "follow" ),
+
+		defaults:{
+			isFollowed : false
+		}
 
 	});
+
 });

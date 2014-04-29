@@ -13,7 +13,7 @@ define(function(require){
 	return MasterBaseView.extend({
 
 		init: function(){
-			this.collection = new PostsCollection( this.master.data().commentsWrapper.collection );
+			this.collection = new PostsCollection( this.master.data.commentsWrapper.collection );
 			this.collection
 			.on( "sync", this.render, this );
 		},

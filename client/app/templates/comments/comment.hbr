@@ -1,7 +1,7 @@
 <a class="pull-left" href="#">
-  <img class="media-object img-thumbnail" src="{{imageUrl}}" alt="...">
+  <img class="media-object img-thumbnail" src="{{model.imageUrl}}" alt="...">
 </a>
 <div class="media-body">
-<h4 class="media-heading">{{displayName}}<span class="date"></span></h4>
-  <p>{{content}}</p>
+<h4 class="media-heading">{{model.displayName}}<span class="date"></span></h4>
+  <p>{{model.content}}</p>
 </div>

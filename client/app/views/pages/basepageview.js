@@ -1,16 +1,18 @@
 define(function(require){
 
 	var
+	
+	$              = require("jquery"),
 	Backbone       = require("backbone"),
 	Handlebars     = require("handlebars"),
-	$              = require("jquery"),
 	Helper         = require('helper'),
-	
+
 	MasterBaseView = require('views/masterbaseview');
+
 
 	return MasterBaseView.extend({
 
-		el:"#main",		
+		el:"#main",
 		nodes:{
 			tabContainer: "#tabContainer",
 			sidebar: "#sidebar"
@@ -21,33 +23,54 @@ define(function(require){
 		activeTab: "wall",
 
 		init: function(){
-			App.vent.on( "page:" + this.pageId, this.handle, this );
-			App.pages[ this.pageId ] = this;
+			App.vent.on( "page:" + this.pageId, this.getData, this );
 		},
 
-		handle: function( pageState ){
-			if( typeof this.customHandle !== "undefined" ){
-				this.customHandle( pageState );
-			} else {
-				this.loadPage( pageState );
+		getData: function( state ){
+			this.state = state;
+			$.ajax({
+				type: "GET",
+				context: this,
+				dataType: "JSON",
+				url: this.url,
+				beforeSend:this.beforeSend,
+				success: this.success,
+				error: this.error
+			});
+		},
+
+		beforeSend: function(){
+
+		},
+
+		success: function( data, textStatus, jqXHR ){
+			this.data = data;
+			this.loadComponents();
+		},
+
+		error: function( jqXHR, textStatus, errorThrown ){
+			if( jqXHR.status === 401 ){
+				alert( "Incorrect login credentials. Please try again!" );
+			} else{
+				alert( "profile getUser: " + jqXHR.status + ": " + errorThrown  );
 			}
 		},
 
-		loadPage: function( pageState ){
+		loadComponents: function(){
 			if( this.loadSidebar ) this.loadSidebar();
 			if( this.loadTabs ) this.loadTabs();
-			if( typeof pageState.tab !== "undefined" ) this.activeTab = pageState.tab;
-			this.render( pageState );
+			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
+			this.render();
 			Helper.navState( this.pageId, this.activeTab );
 		},
 
-		render: function( pageState ){
+		render: function(){
 
-			if( typeof this.preRender !== "undefined" ) this.preRender( pageState );
+			if( typeof this.preRender !== "undefined" ) this.preRender();
 
 			this.$el
 			.attr( "data-view", this.cid ) //Needs to be here as the el is shared
-			.html( this.template( App.data[ this.pageId ] ) );
+			.html( this.template( this.merge( this.data ) ) );
 
 			if( this.tabs ){
 				this.$el
@@ -61,7 +84,7 @@ define(function(require){
 				.html( this.sidebar.render().el );
 			}
 
-			if( typeof this.postRender !== "undefined" ) this.postRender( pageState );
+			if( typeof this.postRender !== "undefined" ) this.postRender();
 
 			return this;
 
@@ -73,11 +96,6 @@ define(function(require){
 			.html( this.tabs[ data.tab ].render().el );
 		},
 
-		data: function(){
-			var data = App.data[ this.options.data ];
-			if( data.id === App.userId ) data.myprofile = true;
-			return data;
-		},
 
 		//DOM events
 

@@ -25,7 +25,7 @@ define(function(require){
 
 		render: function(){
 			this.$el
-			.html( this.template( this.merge() ) )
+			.html( this.template( this.merge( this.data ) ) )
 			.find( this.nodes.posts )
 			.html( this.posts.render().el );
 			return this;
@@ -41,7 +41,7 @@ define(function(require){
 			textarea.val( "" );
 			this.posts.collection.create( { content: content },
 			{
-				url: this.posts.collection.url + "/" + this.master.data().id,
+				url: this.posts.collection.url + "/" + this.master.data.id,
 				wait: true
 			} );
 

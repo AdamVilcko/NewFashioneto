@@ -1,13 +1,12 @@
 define(function(require){
 
 	var
-	Backbone          = require( "backbone" ),
-	Handlebars        = require( "handlebars" ),
-	$                 = require( "jquery" ),
-	Cookie            = require( "jquery.cookie" ),
-	Transit           = require( "jquery.transit" ),
-	Helper = require( "helper" ),
 
+	$                 = require( "jquery" ),
+	Handlebars        = require( "handlebars" ),
+	Cookie            = require( "jquery.cookie" ),
+
+	User              = require( "models/user" ),
 	MasterBaseView    = require( "views/masterbaseview" ),
 	mainLoginTemplate = require( "text!templates/login/mainlogin.hbr" ),
 	loginFormTemplate = require( "text!templates/login/loginform.hbr" );
@@ -82,10 +81,10 @@ define(function(require){
 					$.ajaxSetup({
 						headers: { 'X-Auth-Token': data.token }
 					});
-					
-					App.data.myprofile = Helper.createImageUrl( data.user );
-					App.userId = data.user.id;
 
+					//Gonna get Felipe to refactor so details and id are returned only
+					data.user.details.id = data.user.id;
+					App.user = new User( data.user.details );
 					this.proceed( data.user );
 				},
 
@@ -135,14 +134,13 @@ define(function(require){
 				dataType: "JSON",
 
 				success: function( data, textStatus, jqXHR ){
-					App.data.myprofile = Helper.createImageUrl( data );
-					App.userId = data.id;
+					App.user = new User( data.details );
 					this.proceed();
 				},
 
 				error: function( jqXHR, textStatus, errorThrown ){
 					if( jqXHR.status === 401 ){
-						App.vent.trigger( "login:logout" );
+						this.logout();
 					} else {
 						alert( "getUser method: " + jqXHR.status + ": " + errorThrown  );
 					}
@@ -157,7 +155,6 @@ define(function(require){
 			App.vent.on( "login:sessionExpired", this.modalLogin, this );
 			App.vent.on( "login:logout", this.logout, this );
 			this.options.success.call( this.options.context );
-			/*this.close();*/
 		}
 
 	});

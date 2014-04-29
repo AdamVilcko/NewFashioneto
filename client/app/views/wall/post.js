@@ -34,11 +34,8 @@ define(function(require){
 
 		render: function(){
 
-			var data = this.model.toJSON();
-			data.imageUrl = App.url( "image" ) + "THUMBNAIL/" + data.imageId;
-
 			this.$el
-			.html( this.template( data ) );
+			.html( this.template( this.merge() ) );
 
 			this.$el
 			.find( this.nodes.like )

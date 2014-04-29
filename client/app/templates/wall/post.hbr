@@ -1,18 +1,18 @@
 <a class="pull-left img-thumbnail" href="#">
-  <img class="media-object" src="{{imageUrl}}" alt="...">
+  <img class="media-object" src="{{model.imageUrl}}" alt="...">
 </a>
 
 <ul class="list-group media-body list-group">
 
   <li class="list-group-item post">
-    
-    <h4 class="list-group-item-heading">{{displayName}}<span class="date"></span></h4>
-    
-    <p class="list-group-item-text">{{content}}</p>
 
-    <div class="likeContainer"></div>    
+    <h4 class="list-group-item-heading">{{model.displayName}}<span class="date"></span></h4>
 
-  </li> 
+    <p class="list-group-item-text">{{model.content}}</p>
+
+    <div class="likeContainer"></div>
+
+  </li>
 
   <li class="list-group-item comments"></div>
 

@@ -8,9 +8,6 @@ define(function(require){
 
 		url: App.url( "like" )
 
-		
-
-
 	});
 
 });
