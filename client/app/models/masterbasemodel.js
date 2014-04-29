@@ -37,7 +37,6 @@ define(function(require){
 
 			$.extend( defaults, options );
 
-
 			return this.save( null, defaults );
 		}
 

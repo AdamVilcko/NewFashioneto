@@ -10,7 +10,7 @@ define(function(require){
 			navAnchors = $( ".nav a" ),
 			active     = "active",
 			href;
-			
+
 			navAnchors.parent().removeClass( active );
 
 			if( pageId === "guestprofile" ) pageId = "people"; // Bodge to make people still highlight even though id name is guestprofile
@@ -45,7 +45,7 @@ define(function(require){
 		processDate: function(){
 			this.$el.find('.date')
 			.livestamp( this.model.get( "date" ) )
-			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );			
+			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );
 		},
 
 		createImageUrl: function( data ){
