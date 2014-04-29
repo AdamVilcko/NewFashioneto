@@ -1,10 +1,9 @@
 package com.fashioneto.ws.rest;
 
+import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -30,8 +29,7 @@ public class FollowRestBean
 
 	@Path("{idFollowedUser}")
 	@POST
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response authenticate(@PathParam("idFollowedUser")
+	public Response follow(@PathParam("idFollowedUser")
 	int idFollowedUser) throws NoUserInContextException
 	{
 		User user = ContextUtils.getUserFromAuthenticationContext();
@@ -47,6 +45,31 @@ public class FollowRestBean
 		}
 
 		if (followService.follow(user, followedUser))
+		{
+			return Response.status(Status.OK).build();
+		}
+		// 208 = Already reported
+		return Response.status(208).build();
+	}
+
+	@Path("{idFollowedUser}")
+	@DELETE
+	public Response unfollow(@PathParam("idFollowedUser")
+	int idFollowedUser) throws NoUserInContextException
+	{
+		User user = ContextUtils.getUserFromAuthenticationContext();
+		User followedUser = userService.getUser(idFollowedUser);
+
+		if (user == null || followedUser == null)
+		{
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		else if (user.getId() == followedUser.getId())
+		{
+			return Response.status(Status.FORBIDDEN).build();
+		}
+
+		if (followService.unfollow(user, followedUser))
 		{
 			return Response.status(Status.OK).build();
 		}

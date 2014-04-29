@@ -14,25 +14,37 @@ import com.fashioneto.persistence.User;
 
 /**
  * @author felipe
- *
  */
 @Service("followService")
-public class FollowServiceImpl implements FollowService {
+public class FollowServiceImpl implements FollowService
+{
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Autowired
 	private FollowDAO followDAO;
-	
+
 	@Override
-	public boolean follow(User user, User followedUser) {
-		
+	public boolean follow(User user, User followedUser)
+	{
+
 		if (followedUser.getFollowers().contains(user))
 		{
 			return false;
 		}
 		return followDAO.follow(user.getId(), followedUser.getId()) > 0;
+	}
+
+	@Override
+	public boolean unfollow(User user, User followedUser)
+	{
+
+		if (!followedUser.getFollowers().contains(user))
+		{
+			return false;
+		}
+		return followDAO.unfollow(user.getId(), followedUser.getId()) > 0;
 	}
 
 }
