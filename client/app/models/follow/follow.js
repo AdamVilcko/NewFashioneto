@@ -9,7 +9,7 @@ define(function(require){
 		url: App.url( "follow" ),
 
 		defaults:{
-			isFollowed : false
+			isFollowed : null
 		}
 
 	});

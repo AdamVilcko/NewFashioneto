@@ -7,7 +7,6 @@ App = {
     content: {
         language:"EN-GB",
         title: "Fasioneto",
-
         follow: "Follow"
     },
 
