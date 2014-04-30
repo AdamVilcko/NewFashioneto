@@ -1,7 +1,6 @@
 package com.fashioneto.ws.json;
 
 import java.util.Collection;
-import java.util.List;
 
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Image;
@@ -10,6 +9,7 @@ import com.fashioneto.ws.entities.DefaultSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 /**
  * @author Felipe Tonon 6 Feb 2014
@@ -42,18 +42,18 @@ public class FashionetoJsonFactory
 	public static JsonElement getJsonElement(Collection<User> users)
 	{
 		GsonBuilder gBuilder = getGsonBuilder();
-		
+
 		//overrides the serializer for class User:
 		gBuilder.registerTypeAdapter(User.class, new UserSimplifiedJsonSerializer());
-		
+
 		if (PRETTY_PRINT)
 		{
 			gBuilder.setPrettyPrinting();
 		}
 		Gson gson = gBuilder.create();
 		return gson.toJsonTree(users);
-	}	
-	
+	}
+
 	public static String getJson(Collection<User> users)
 	{
 		return getGson().toJson(getJsonElement(users));
@@ -87,6 +87,19 @@ public class FashionetoJsonFactory
 	{
 		Gson gson = getGson();
 		return gson.toJson(jsonElement);
+	}
+
+	/**
+	 * Test for Casp
+	 */
+	public static String getFollowTest(int userId)
+	{
+		JsonObject jsonObject = new JsonObject();
+
+		jsonObject.addProperty("id", userId);
+		jsonObject.addProperty("isFollowed", true);
+
+		return jsonObject.toString();
 	}
 
 	/**

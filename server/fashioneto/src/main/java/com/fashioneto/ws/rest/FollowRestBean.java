@@ -15,6 +15,7 @@ import com.fashioneto.service.FollowService;
 import com.fashioneto.service.UserService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
+import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 @Component
 @Path("/follow")
@@ -46,7 +47,7 @@ public class FollowRestBean
 
 		if (followService.follow(user, followedUser))
 		{
-			return Response.status(Status.OK).build();
+			return Response.status(Status.OK).entity(FashionetoJsonFactory.getFollowTest(idFollowedUser)).build();
 		}
 		// 208 = Already reported
 		return Response.status(208).build();
