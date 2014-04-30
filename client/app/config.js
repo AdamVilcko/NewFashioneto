@@ -26,9 +26,17 @@ App = {
 
     url: function( arg ){
         return this.root + this.rest[ arg ];
+    },
+
+    constants: {
+
     }
 
 }
+
+
+
+
 
 require = {
 
@@ -54,7 +62,6 @@ require = {
         "jquery.transit": "../lib/jquery.transit",
         "jquery.imageloaded" : "../lib/imagesloaded.pkgd.min",
         "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal"
-
 
     },
 

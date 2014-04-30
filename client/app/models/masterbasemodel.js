@@ -26,7 +26,16 @@ define(function(require){
 
 		persist: function( id, options ){
 
+			//Options
 			options = options || {};
+
+			//Loop through object code
+			/*for (var key in p) {
+			  if (p.hasOwnProperty(key)) {
+			    alert(key + " -> " + p[key]);
+			  }
+			}*/
+
 			id = id || this.get( "id" );
 			var url = this.url + "/" + id;
 

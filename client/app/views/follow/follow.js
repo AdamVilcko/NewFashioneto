@@ -18,81 +18,64 @@ define(function(require){
 
 		init: function( options ){
 			this.model = new Model( this.options );
-			this.model.on( "change", this.update, this );
+			this.model.on( "sync", this.updateRender, this );
 			this.updateViewState();
 		},
 
-		update: function(){
+		updateRender: function(){
 			this.updateViewState();
 			this.renderToDom();
 		},
 
 		updateViewState: function(){
-			if( this.model.get( "isFollowed" ) )
-				this.$el.attr( "disabled", true );
-			else 
-				this.$el.attr( "disabled", false );			
-		},		
+			if( this.model.get( "isFollowed" ) ){
+				this.$el.addClass( "following" );
+				this.label = "Following";
+			} else {
+				this.$el.removeClass( "following" );
+				this.label = "Follow";
+			}
+		},
 
 		events: {
 			'click' : 'followUnfollow'
 		},
 
 		followUnfollow: function( ev ){
-			var options;
+			var options, action, type, label = {};
+			
+			label.follow = "follow";
+			label.unfollow = "unfollow";
+			label.isFollowed = "isFollowed";
 
-			if( ! this.model.get( "isFollowed" ) ){
-
-				//Follow
-				options = {
-					type: "POST",
-					success: function( model, response, options ){
-						this.model.set( "isFollowed", true );
-					},
-					error: function( view, jqXHR, xhr ){
-						if( jqXHR.status === 404 ){
-							//User doesn't exist
-							console.log( jqXHR.status );
-
-						}
-						if( jqXHR.status === 403 ){
-							//Tries to follow themselves
-							console.log( jqXHR.status );
-
-						}
-						if( jqXHR.status === 208 ){
-							//Following that person already
-							console.log( jqXHR.status );
-						}
-					}
-				}				
-
+			if( ! this.model.get( label.isFollowed ) ){
+				action = label.follow,
+				type: "POST";
 			} else {
+				action = label.unfollow,
+				type: "DELETE"
+			}
+				
+			options = {
+				type: type,	
 
-				//Unfollow
-				options = {
-					type: "DELETE",
-					error: function( view, jqXHR, xhr ){
-						if( jqXHR.status === 404 ){
-							//User doesn't exist
-							console.log( jqXHR.status );
-
-						}
-						if( jqXHR.status === 403 ){
-							//Tries to unfollow themselves
-							console.log( jqXHR.status );
-
-						}
-						if( jqXHR.status === 208 ){
-							//Unfollow someone you are not following anyway
-							console.log( jqXHR.status );
-						}				
-
+				error: function( view, jqXHR, xhr ){
+					if( jqXHR.status === 404 ){
+						//User doesn't exist
+						console.log( jqXHR.status );
+					}
+					if( jqXHR.status === 403 ){
+						//Tries to follow themselves
+						console.log( jqXHR.status );
+					}
+					if( jqXHR.status === 208 ){
+						//Following that person already
+						this.model.set( label.isFollowed, ( action === label.follow ) );						
+						this.updateRender();
 					}
 				}
-
 			}
-
+		
 			this.model.persist( null, options );
 			
 		}
