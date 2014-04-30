@@ -15,6 +15,7 @@ import com.fashioneto.service.FollowService;
 import com.fashioneto.service.UserService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
+import com.fashioneto.ws.entities.FollowWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 @Component
@@ -47,7 +48,8 @@ public class FollowRestBean
 
 		if (followService.follow(user, followedUser))
 		{
-			return Response.status(Status.OK).entity(FashionetoJsonFactory.getFollowTest(idFollowedUser)).build();
+			FollowWrapper followWrapper = new FollowWrapper(idFollowedUser, true);
+			return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(followWrapper)).build();
 		}
 		// 208 = Already reported
 		return Response.status(208).build();
@@ -72,7 +74,8 @@ public class FollowRestBean
 
 		if (followService.unfollow(user, followedUser))
 		{
-			return Response.status(Status.OK).build();
+			FollowWrapper followWrapper = new FollowWrapper(idFollowedUser, false);
+			return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(followWrapper)).build();
 		}
 		// 208 = Already reported
 		return Response.status(208).build();

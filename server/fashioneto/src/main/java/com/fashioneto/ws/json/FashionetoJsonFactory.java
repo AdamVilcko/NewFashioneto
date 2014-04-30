@@ -9,7 +9,6 @@ import com.fashioneto.ws.entities.DefaultSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 /**
  * @author Felipe Tonon 6 Feb 2014
@@ -87,19 +86,6 @@ public class FashionetoJsonFactory
 	{
 		Gson gson = getGson();
 		return gson.toJson(jsonElement);
-	}
-
-	/**
-	 * Test for Casp
-	 */
-	public static String getFollowTest(int userId)
-	{
-		JsonObject jsonObject = new JsonObject();
-
-		jsonObject.addProperty("id", userId);
-		jsonObject.addProperty("isFollowed", true);
-
-		return jsonObject.toString();
 	}
 
 	/**
