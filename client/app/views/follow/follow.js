@@ -42,24 +42,24 @@ define(function(require){
 		},
 
 		followUnfollow: function( ev ){
-			var options, action, type, label = {};
+			var options, action, type, constant = {}, view = this;
 			
-			label.follow = "follow";
-			label.unfollow = "unfollow";
-			label.isFollowed = "isFollowed";
+			constant.follow = "follow";
+			constant.unfollow = "unfollow";
+			constant.isFollowed = "isFollowed";
 
-			if( ! this.model.get( label.isFollowed ) ){
-				action = label.follow,
-				type: "POST";
+			if( ! this.model.get( constant.isFollowed ) ){
+				action = constant.follow,
+				type = "POST";
 			} else {
-				action = label.unfollow,
-				type: "DELETE"
+				action = constant.unfollow,
+				type = "DELETE";
 			}
 				
 			options = {
 				type: type,	
 
-				error: function( view, jqXHR, xhr ){
+				error: function( model, jqXHR, xhr ){
 					if( jqXHR.status === 404 ){
 						//User doesn't exist
 						console.log( jqXHR.status );
@@ -70,8 +70,8 @@ define(function(require){
 					}
 					if( jqXHR.status === 208 ){
 						//Following that person already
-						this.model.set( label.isFollowed, ( action === label.follow ) );						
-						this.updateRender();
+						model.set( constant.isFollowed, ( action === constant.follow ) );						
+						view.updateRender();
 					}
 				}
 			}

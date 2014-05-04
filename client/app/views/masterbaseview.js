@@ -19,6 +19,7 @@ define(function(require){
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
 			if( typeof this.initSubviews !== "undefined" ) this.initSubviews();
+			this.domEl = this.tagName + "[data-view=" + this.cid + "]";
 		},
 
 		render: function(){
@@ -30,8 +31,7 @@ define(function(require){
 		},
 
 		renderToDom: function(){
-			var el = $( this.tagName + "[data-view=" + this.cid + "]" );
-			el.replaceWith( this.render().el );
+			$( this.domEl ).replaceWith( this.render().el );
 			return this;
 		},
 
@@ -44,6 +44,11 @@ define(function(require){
 		renderModel: function( model ){
 			var modelView = new this.modelView( { model: model } );
 			this.$el.append( modelView.render().el );
+			return this;
+		},
+
+		renderTemplate: function(){
+			this.$el.html( this.template( this.merge() ) );
 			return this;
 		},
 

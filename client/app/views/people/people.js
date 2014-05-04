@@ -12,6 +12,20 @@ define(function(require){
 
 		init: function(){
 			this.collection = new Collection();
+		},
+
+		masonry: function(){
+			var
+			target = $( "#tabContainer" );
+			target.empty();
+			target.html( this.renderCollection().el );
+			target
+			.addClass( "masonryContainer" )
+			.masonry({
+			  itemSelector: '.people',
+			  gutterWidth: 25,
+			  isFitWidth: true
+			}).resize();
 		}
 
 	});

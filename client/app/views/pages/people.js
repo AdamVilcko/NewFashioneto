@@ -32,17 +32,7 @@ define(function(require){
 		},
 
 		postRender: function(){
-			var
-			tabContainer = this.$el.find("#tabContainer");
-			tabContainer.empty();
-			tabContainer.html( this.people.renderCollection().el );
-			tabContainer
-			.addClass( "masonryContainer" )
-			.masonry({
-			  itemSelector: '.people',
-			  gutterWidth: 25,
-			  isFitWidth: true
-			}).resize();			
+			this.people.masonry();			
 		}
 
 	});

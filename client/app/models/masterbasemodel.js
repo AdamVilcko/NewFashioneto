@@ -41,7 +41,8 @@ define(function(require){
 
 			var defaults = {
 				type: "POST",
-				url : url
+				url : url,
+				context: this
 			};
 
 			$.extend( defaults, options );
