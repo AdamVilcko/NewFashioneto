@@ -25,30 +25,29 @@ define(function(require){
 		},
 
 		persist: function( id, options ){
+			var url, defaults, settings;
 
-			//Options
-			options = options || {};
+			options = options || {},;
+			id      = id || this.get( "id" );
+			url     = this.url + "/" + id;
 
-			//Loop through object code
-			/*for (var key in p) {
-			  if (p.hasOwnProperty(key)) {
-			    alert(key + " -> " + p[key]);
-			  }
-			}*/
-
-			id = id || this.get( "id" );
-			var url = this.url + "/" + id;
-
-			var defaults = {
+			defaults = {
 				type: "POST",
 				url : url,
 				context: this
 			};
 
-			$.extend( defaults, options );
+			settings = $.extend( {}, defaults, options );
 
-			return this.save( null, defaults );
+			return this.save( null, settings );
 		}
+
+		//Loop through object code
+		/*for (var key in p) {
+		  if (p.hasOwnProperty(key)) {
+		    alert(key + " -> " + p[key]);
+		  }
+		}*/
 
 	});
 
