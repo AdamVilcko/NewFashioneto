@@ -2,10 +2,10 @@ define(function(require){
 
 	var
 
-	$          = require("jquery"),
-	Backbone   = require("backbone"),
-	Handlebars = require("handlebars"),
-	Helper     = require('helper');
+	$                 = require("jquery"),
+	Backbone          = require("backbone"),
+	Handlebars        = require("handlebars"),
+	Helper            = require('helper');
 
 
 	return Backbone.View.extend({
@@ -55,8 +55,9 @@ define(function(require){
 		merge: function( data ){
 			data = data || {};
 			if( this.model ) data.model = this.model.toJSON();
-			data.user = App.user.toJSON();
-			data.content = App.content;
+			data.user        = App.user.toJSON();
+			data.content     = App.content;
+			data.viewContext = this;
 			return data;
 		},
 

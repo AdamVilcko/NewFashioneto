@@ -1,22 +1,24 @@
 define(function(require){
 
-	var	
+	var
 
-	$              = require( 'jquery' ),
-	Backbone       = require( 'backbone' ),
-	Handlebars     = require( 'handlebars' ),
-	
-	Login          = require( 'views/login/login' ),	
-	MasterBaseView = require( 'views/masterbaseview' ),	
-	Nav            = require( 'views/ui/nav' ),	
-	//Feed         = require( 'views/pages/feed' ),
-	Items          = require( 'views/pages/items' ),
-	People         = require( 'views/pages/people' ),
-	MyProfile      = require( 'views/pages/myprofile' ),
-	GuestProfile   = require( 'views/pages/guestprofile' ),	
-	mainTemplate   = require( 'text!templates/main.hbr' );
-	
-	
+	$                 = require( 'jquery' ),
+	Backbone          = require( 'backbone' ),
+	Handlebars        = require( 'handlebars' ),
+	MasterBaseView    = require( 'views/masterbaseview' ),
+	handlebarsHelpers = require( "helpers/handlebarshelpers" ),
+
+	Login             = require( 'views/login/login' ),
+
+	Nav               = require( 'views/ui/nav' ),
+	//Feed            = require( 'views/pages/feed' ),
+	Items             = require( 'views/pages/items' ),
+	People            = require( 'views/pages/people' ),
+	MyProfile         = require( 'views/pages/myprofile' ),
+	GuestProfile      = require( 'views/pages/guestprofile' ),
+	mainTemplate      = require( 'text!templates/main.hbr' );
+
+
 
 
 
@@ -34,24 +36,24 @@ define(function(require){
 			this
 			.render()
 			.invokeCompenents();
-			this.$el.removeClass( "login" );			
+			this.$el.removeClass( "login" );
 		},
 
 		render: function(){
 			this.$el
-			.html( this.template() );			
+			.html( this.template() );
 			return this;
 		},
 
 		invokeCompenents: function() {
 			this.nav                = new Nav();
-			
+
 			this.pages              = {};
 			this.pages.items        = new Items();
 			this.pages.people       = new People();
 			this.pages.myprofile    = new MyProfile();
 			this.pages.guestprofile = new GuestProfile();
-			
+
 			window.location.hash    = "";
 			window.location.hash    = "myprofile";
 

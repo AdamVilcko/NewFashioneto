@@ -1,15 +1,15 @@
 define(function(require){
 
 	var
-	Backbone   = require("backbone"),
-	Handlebars = require("handlebars"),
-	$          = require("jquery"),
-	Helper     = require('helper'),
+	Backbone       = require("backbone"),
+	Handlebars     = require("handlebars"),
+	$              = require("jquery"),
+	Helper         = require('helper'),
 
 	MasterBaseView = require( 'views/masterbaseview' ),
-	Like       = require("views/like/like"),
-	Comments   = require("views/comments/comments"),
-	template   = require("text!templates/wall/post.hbr");
+	Like           = require("views/like/like"),
+	Comments       = require("views/comments/comments"),
+	template       = require("text!templates/wall/post.hbr");
 
 
 	return MasterBaseView.extend({
@@ -25,18 +25,10 @@ define(function(require){
 		},
 
 		init: function(){
-			this.like = new Like( {
-				type: "heart",
-				data: this.model.toJSON().likes,
-				parentId: this.model.get( "id" )
-			} );
+
 		},
 
-		render: function(){
-
-			this.$el
-			.html( this.template( this.merge() ) );
-
+		postRender: function(){
 			this.$el
 			.find( this.nodes.like )
 			.html( this.like.render().el );

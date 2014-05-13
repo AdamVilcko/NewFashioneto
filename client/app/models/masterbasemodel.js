@@ -27,7 +27,7 @@ define(function(require){
 		persist: function( id, options ){
 			var url, defaults, settings;
 
-			options = options || {},;
+			options = options || {},
 			id      = id || this.get( "id" );
 			url     = this.url + "/" + id;
 

@@ -43,7 +43,7 @@ define(function(require){
 
 		followUnfollow: function( ev ){
 			var options, action, type, constant = {}, view = this;
-			
+
 			constant.follow = "follow";
 			constant.unfollow = "unfollow";
 			constant.isFollowed = "isFollowed";
@@ -55,9 +55,9 @@ define(function(require){
 				action = constant.unfollow,
 				type = "DELETE";
 			}
-				
+
 			options = {
-				type: type,	
+				type: type,
 
 				error: function( model, jqXHR, xhr ){
 					if( jqXHR.status === 404 ){
@@ -70,14 +70,14 @@ define(function(require){
 					}
 					if( jqXHR.status === 208 ){
 						//Following that person already
-						model.set( constant.isFollowed, ( action === constant.follow ) );						
+						model.set( constant.isFollowed, ( action === constant.follow ) );
 						view.updateRender();
 					}
 				}
 			}
-		
+
 			this.model.persist( null, options );
-			
+
 		}
 
 	});

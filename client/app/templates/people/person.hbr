@@ -4,5 +4,7 @@
   <div class="caption">
     <h5><a href="#people/{{model.details.userName}}">{{model.details.displayName}}</a></h5>
     <h6>{{model.details.country}}</h6>
-    <div class="followContainer"></div>
+
+    <div class="followContainer">{{follow}}</div>
+
   </div>
