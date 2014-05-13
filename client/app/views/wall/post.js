@@ -20,21 +20,11 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		nodes:{
-			comments: ".comments",
-			like: ".likeContainer"
-		},
-
-		init: function(){
-
+			comments: ".comments"
 		},
 
 		postRender: function(){
-			this.$el
-			.find( this.nodes.like )
-			.html( this.like.render().el );
-
 			Helper.processDate.call( this );
-
 			if( this.model.has( "commentsWrapper" ) ){
 				var commentData = this.model.toJSON().commentsWrapper.collection;
 				this.comments = new Comments( { data: commentData, parentId: this.model.get( "id" ) } );

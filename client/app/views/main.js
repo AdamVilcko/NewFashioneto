@@ -9,9 +9,7 @@ define(function(require){
 	handlebarsHelpers = require( "helpers/handlebarshelpers" ),
 
 	Login             = require( 'views/login/login' ),
-
 	Nav               = require( 'views/ui/nav' ),
-	//Feed            = require( 'views/pages/feed' ),
 	Items             = require( 'views/pages/items' ),
 	People            = require( 'views/pages/people' ),
 	MyProfile         = require( 'views/pages/myprofile' ),
