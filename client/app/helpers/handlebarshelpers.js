@@ -10,7 +10,7 @@ define(function(require){
 
 	//Like helper
 
-	Handlebars.registerHelper('like', function() {
+	Handlebars.registerHelper( 'like', function() {
 		var view = this.viewContext;
 
 		if( !view.like ){
@@ -23,15 +23,15 @@ define(function(require){
 		}
 
 		_.defer( function(){
-			$( "#replace" + view.like.cid ).replaceWith( view.like.render().$el );
+			view.like.renderToDom();
 		} );
 
-		return  new Handlebars.SafeString('<div id="replace' + view.like.cid + '"></div>');
+		return  new Handlebars.SafeString('<' + view.like.tagName +' data-view="' + view.like.cid + '"></'+ view.like.tagName +'>');
 	});
 
 	//Follow helper
 
-	Handlebars.registerHelper('follow', function() {
+	Handlebars.registerHelper( 'follow', function() {
 		var view = this.viewContext;
 
 		if( !view.follow ){
@@ -42,12 +42,11 @@ define(function(require){
 		}
 
 		_.defer( function(){
-			$( "#replace" + view.follow.cid ).replaceWith( view.follow.render().$el );
+			view.follow.renderToDom();
 		} );
 
-		return  new Handlebars.SafeString('<div id="replace' + view.follow.cid + '"></div>');
+		return  new Handlebars.SafeString('<' + view.follow.tagName +' data-view="' + view.follow.cid + '"></'+ view.follow.tagName +'>');
 	});
-
 
 
 });
