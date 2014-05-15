@@ -8,11 +8,7 @@ define(function(require){
 
 	return MasterBaseView.extend({
 
-		modelView: Person,
-
-		init: function(){
-			this.collection = new Collection();
-		},
+		ModelViewType: Person,
 
 		masonry: function(){
 			var

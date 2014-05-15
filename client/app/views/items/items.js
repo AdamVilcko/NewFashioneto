@@ -11,14 +11,9 @@ define(function(require){
 
 	return ItemView.extend({
 
-		item : Item,
-
-		init: function(){
-			this.collection = new Collection();
-			this.collection.on();
-		}
-
+		ModelViewType: Item,
 		
+		CollectionType: Collection
 
 	});
 

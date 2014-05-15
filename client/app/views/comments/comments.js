@@ -1,16 +1,16 @@
 define(function(require){
 
 	var
-	Backbone            = require("backbone"),
-	Handlebars          = require("handlebars"),
-	$                   = require("jquery"),
-
-	MasterBaseView = require( 'views/masterbaseview' ),
-	CommentView         = require("views/comments/comment"),
-	CommentsCollection  = require("collections/comments/comments"),
-
-	showAll             = require("text!templates/comments/showall.hbr"),
-	input               = require("text!templates/comments/input.hbr");
+	Backbone           = require("backbone"),
+	Handlebars         = require("handlebars"),
+	$                  = require("jquery"),
+	
+	MasterBaseView     = require( 'views/masterbaseview' ),
+	CommentView        = require("views/comments/comment"),
+	CommentsCollection = require("collections/comments/comments"),
+	
+	showAll            = require("text!templates/comments/showall.hbr"),
+	input              = require("text!templates/comments/input.hbr");
 
 
 	return MasterBaseView.extend({
@@ -22,7 +22,7 @@ define(function(require){
 
 		},
 
-		modelView: CommentView,
+		ModelViewType: CommentView,
 
 		templates:{
 			showAll: Handlebars.compile( showAll ),

@@ -18,6 +18,7 @@ define(function(require){
 			}
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
+			if( typeof this.CollectionType !== "undefined" ) this.collection = new this.CollectionType();
 			if( typeof this.initSubviews !== "undefined" ) this.initSubviews();
 			this.domEl = this.tagName + "[data-view=" + this.cid + "]";
 		},
@@ -42,7 +43,7 @@ define(function(require){
 		},
 
 		renderModel: function( model ){
-			var modelView = new this.modelView( { model: model } );
+			var modelView = new this.ModelViewType( { model: model } );
 			this.$el.append( modelView.render().el );
 			return this;
 		},
