@@ -34,18 +34,7 @@ create table follow_user (
 
 create table item (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
-	`type` varchar(50) not null
-);
-
-create table badge (
-	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
-	`id_image` int(11) unsigned not null,
-	`type` varchar(50) not null
-);
-
-create table item_image (
-	`id_item` int(11) unsigned not null,
-	`id_image` int(11) unsigned not null
+	`indexing_date` DATETIME not null
 );
 
 create table comment (
@@ -65,8 +54,9 @@ create table comment_parent (
 );
 
 create table like_item (
-	`id_fashionetoer` int(11) unsigned not null,
-	`id_item` int(11) unsigned not null
+	`id_user` int(11) unsigned not null,
+	`id_item` int(11) unsigned not null,	
+	`date` DATETIME not null
 );
 
 create table like_comment (

@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Image;
+import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.User;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
@@ -62,13 +63,14 @@ public class UserJsonSerializer implements JsonSerializer<User>
 
 	protected void addWrappedSubOjects(JsonObject jsonObject, User user, JsonSerializationContext context)
 	{
-		jsonObject.add(JSON_PROPERTY_ITEMS, getItemsWrapper());
-
 		DefaultSet<Image> imageSet = new DefaultSet<Image>(user.getImages());
 		jsonObject.add(JSON_PROPERTY_PHOTOS, context.serialize(imageSet));
 
 		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
+		
+		DefaultSet<Item> likedItems = new DefaultSet<Item>(user.getItems());
+		jsonObject.add(JSON_PROPERTY_ITEMS,  context.serialize(likedItems));			
 
 		DefaultSet<User> followersSet = new DefaultSet<User>(user.getFollowers());
 		jsonObject.add(JSON_PROPERTY_FOLLOWERS, FashionetoJsonFactory.getJsonElement(followersSet));
@@ -97,9 +99,5 @@ public class UserJsonSerializer implements JsonSerializer<User>
 		return jsonObject;
 	}
 
-	private JsonElement getItemsWrapper()
-	{
-		return new JsonObject();
-	}
 
 }

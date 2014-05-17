@@ -84,6 +84,7 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
 {
     "user": {
         "id": 1,
+        "isFollowed": false,
         "details": {
             "userName": "user1",
             "city": "Florianopolis",
@@ -94,7 +95,6 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
             "displayName": "Felipe Tonon",
             "imageId": 1
         },
-        "itemsWrapper": {},
         "photosWrapper": {
             "count": 1,
             "collection": [{
@@ -137,10 +137,46 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                 }
             }]
         },
+        "itemsWrapper": {
+            "count": 3,
+            "collection": [{
+                "id": 442719185,
+                "likes": {
+                    "count": 2,
+                    "actioned": true
+                }
+            }, {
+                "id": 442698073,
+                "likes": {
+                    "count": 2,
+                    "actioned": true
+                }
+            }, {
+                "id": 443435217,
+                "likes": {
+                    "count": 3,
+                    "actioned": true
+                }
+            }]
+        },
         "followersWrapper": {
             "count": 5,
             "collection": [{
+                "id": 2,
+                "isFollowed": true,
+                "details": {
+                    "userName": "user2",
+                    "city": "London",
+                    "country": "UK",
+                    "followersCount": 2,
+                    "followingCount": 1,
+                    "age": -1,
+                    "displayName": "Caspar Sambrook-Smith",
+                    "imageId": 2
+                }
+            }, {
                 "id": 3,
+                "isFollowed": false,
                 "details": {
                     "userName": "user3",
                     "city": "London",
@@ -153,6 +189,7 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                 }
             }, {
                 "id": 4,
+                "isFollowed": false,
                 "details": {
                     "userName": "user4",
                     "city": "London",
@@ -165,6 +202,7 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                 }
             }, {
                 "id": 5,
+                "isFollowed": false,
                 "details": {
                     "userName": "user5",
                     "city": "London",
@@ -176,19 +214,8 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                     "imageId": 5
                 }
             }, {
-                "id": 2,
-                "details": {
-                    "userName": "user2",
-                    "city": "London",
-                    "country": "UK",
-                    "followersCount": 2,
-                    "followingCount": 1,
-                    "age": -1,
-                    "displayName": "Caspar Sambrook-Smith",
-                    "imageId": 2
-                }
-            }, {
                 "id": 6,
+                "isFollowed": false,
                 "details": {
                     "userName": "admin",
                     "city": "London",
@@ -204,6 +231,7 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
             "count": 1,
             "collection": [{
                 "id": 2,
+                "isFollowed": true,
                 "details": {
                     "userName": "user2",
                     "city": "London",
@@ -217,5 +245,5 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
             }]
         }
     },
-    "token": "user1:1398271942322:e28cdf65962d9bdf2650513dd559eb0b"
+    "token": "user1:1400391482401:babfe6bae36ab1dea1b5e38057f29804"
 }

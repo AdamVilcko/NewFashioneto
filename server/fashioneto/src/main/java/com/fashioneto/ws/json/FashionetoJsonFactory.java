@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Image;
+import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.User;
 import com.fashioneto.ws.entities.DefaultSet;
 import com.google.gson.Gson;
@@ -24,6 +25,7 @@ public class FashionetoJsonFactory
 		gBuilder.registerTypeAdapter(Comment.class, new CommentJsonSerializer());
 		gBuilder.registerTypeAdapter(User.class, new UserJsonSerializer());
 		gBuilder.registerTypeAdapter(Image.class, new ImageJsonSerializer());
+		gBuilder.registerTypeAdapter(Item.class, new ItemJsonSerializer());
 		gBuilder.registerTypeAdapter(DefaultSet.class, new DefaultSetJsonSerializer());
 		return gBuilder;
 	}
@@ -38,11 +40,12 @@ public class FashionetoJsonFactory
 		return gBuilder.create();
 	}
 
+	//method used to override the serializer for class User for simplified serializations
 	public static JsonElement getJsonElement(Collection<User> users)
 	{
 		GsonBuilder gBuilder = getGsonBuilder();
 
-		//overrides the serializer for class User:
+		
 		gBuilder.registerTypeAdapter(User.class, new UserSimplifiedJsonSerializer());
 
 		if (PRETTY_PRINT)
