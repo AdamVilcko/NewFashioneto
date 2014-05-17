@@ -17,6 +17,20 @@ Login:
 			username = [value]
 			password = [value]
 
+Items:
+
+	POST http://localhost:8080/Fashioneto-0.1b/as/like/{itemId}
+		Header:
+			X-Auth-Token = [token value]
+		OBS:
+			Returs a "likeWrapper" object = {"count": 2,"actioned": true}
+
+	DELETE http://localhost:8080/Fashioneto-0.1b/as/like/{itemId}
+		Header:
+			X-Auth-Token = [token value]
+		OBS:
+			Returs a "likeWrapper" object			
+			
 Follow:
 
 	POST http://localhost:8080/Fashioneto-0.1b/as/follow/{followedUserId}

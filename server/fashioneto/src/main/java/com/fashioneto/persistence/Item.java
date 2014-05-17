@@ -36,7 +36,7 @@ public class Item implements Serializable {
 	@Column(name = "indexing_date")
 	private Date indexingDate;
 
-	@ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
 	@JoinTable(name = "like_item", joinColumns = @JoinColumn(name = "id_item"), inverseJoinColumns = @JoinColumn(name = "id_user"))
 //	@OrderBy("date desc")
 	private Set<User> likedBy = new LinkedHashSet<User>();
@@ -54,6 +54,22 @@ public class Item implements Serializable {
 		this.indexingDate = indexingDate;
 	}
 
+	public void addLiker(User user)
+	{
+		if (!likedBy.contains(user))
+		{
+			likedBy.add(user);
+		}
+	}
+	
+	public void removeLiker(User user)
+	{
+		if (likedBy.contains(user))
+		{
+			likedBy.remove(user);
+		}
+	}	
+	
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", indexingDate=" + indexingDate + "]";

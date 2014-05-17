@@ -13,10 +13,12 @@ import com.fashioneto.ws.entities.DefaultSet;
  */
 public interface ItemService {
 
-	public DefaultSet<Item> getItems(User user);
+	public Item getItem(int itemId);
 
-	public DefaultSet<Item> getItems(int userId);
+	public int like(User user, Item item);
 
-	public int like(int userId, int itemId);
+	public int dislike(User user, Item item);
+
+	public Item createItem(int itemId);
 	
 }

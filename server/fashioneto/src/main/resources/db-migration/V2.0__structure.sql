@@ -55,8 +55,7 @@ create table comment_parent (
 
 create table like_item (
 	`id_user` int(11) unsigned not null,
-	`id_item` int(11) unsigned not null,	
-	`date` DATETIME not null
+	`id_item` int(11) unsigned not null	
 );
 
 create table like_comment (

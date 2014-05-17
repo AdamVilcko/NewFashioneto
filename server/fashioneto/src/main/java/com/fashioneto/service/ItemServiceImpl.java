@@ -3,43 +3,52 @@
  */
 package com.fashioneto.service;
 
+import java.util.Date;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.fashioneto.dao.UserDAO;
 import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.User;
-import com.fashioneto.ws.entities.DefaultSet;
 
 /**
  * @author Felipe
  *
  */
 @Service("itemService")
+@Transactional
 public class ItemServiceImpl implements ItemService {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 	
-	@Override
-	public DefaultSet<Item> getItems(int userId) {
-		User user = entityManager.find(User.class, userId);
-		return getItems(user);
-	}	
 	
 	@Override
-	public DefaultSet<Item> getItems(User user) {
-		// TODO Auto-generated method stub
-		return null;
+	public int like(User user, Item item) {
+		item.addLiker(user);
+		entityManager.merge(item);
+		return item.getLikedBy().size();
 	}
 
 	@Override
-	public int like(int userId, int itemId) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int dislike(User user, Item item) {
+		item.removeLiker(user);
+		entityManager.merge(item);
+		return item.getLikedBy().size();
+	}
+
+	@Override
+	public Item getItem(int itemId) {
+		return entityManager.find(Item.class, itemId);
+	}
+
+	@Override
+	public Item createItem(int itemId) {
+		Item item = new Item(itemId, new Date());
+		return entityManager.merge(item);
 	}
 	
 	
