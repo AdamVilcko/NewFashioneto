@@ -1,8 +1,8 @@
       
 <div class="caption">
-  <h6><strong>{{itemTitle}}</strong><br /> {{itemMaker}}</h6>   
+  <h6><strong>{{name}}</strong><br /> {{brandName}}</h6>   
 </div>
 <div class="pic">
-  <img src="{{imgUrl}}" alt="...">
+  <img src="{{images.5.url}}" alt="...">
 </div>
 <div class="likeContainer"></div>

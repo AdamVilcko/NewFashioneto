@@ -11,7 +11,7 @@ define(function(require){
 	
 	BasePageView        = require("views/pages/basepageview"),
 	pageTemplate        = require("text!templates/pages/items.hbr"),
-	Items               = require("views/items/items");
+	Items               = require("views/items/items");	
 
 
 	return BasePageView.extend({
@@ -24,24 +24,21 @@ define(function(require){
 
 		initSubviews: function(){
 			this.items = new Items();
+			this.items.collection.on( "sync", this.loadComponents, this );
+		},
+
+		beforeSend: function(){
+			this.items.collection.fetch( {
+				dataType: "jsonp",
+				success: function( collection, response, options){
+					console.log( response.products );
+				}
+			} );
+			return false;
 		},
 
 		postRender: function(){
-
-			var tabContainer = this.$el.find("#tabContainer");
-
-			tabContainer.empty();
-
-			tabContainer
-			.addClass( "masonryContainer" )
-			.masonry({
-			  itemSelector: '.item',
-			  isFitWidth: true
-			  
-			}).resize();
-
-			tabContainer.masonryImagesReveal( this.items.render().$el );
-
+			this.items.masonry();
 		}
 
 	});

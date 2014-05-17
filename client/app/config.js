@@ -21,10 +21,14 @@ App = {
         items: "items/",
         image: "image/",
         like: "comment/like",
-        follow: "follow"
+        follow: "follow",
+        content: "http://api.shopstyle.com/action/apiSearch?pid=uid8569-24941587-78&fts=women&count=50&site=www.shopstyle.co.uk&format=jsonp"
     },
 
     url: function( arg ){
+        if( arg === "content" ){
+            return this.rest[ arg ];
+        }
         return this.root + this.rest[ arg ];
     },
 

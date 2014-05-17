@@ -6,12 +6,7 @@ define(function(require){
 
 	return MasterBaseModel.extend({
 
-		defaults: {
-			id: 1,
-			itemTitle: "Default title",
-			itemMaker: "Default maker",
-			imgUrl: "img/thumbnail.jpg"
-		}
+		
 		
 	});
 

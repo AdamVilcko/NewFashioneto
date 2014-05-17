@@ -9,7 +9,14 @@ define(function(require){
 
 
 	return MasterBaseCollection.extend({
+
 		model : Model,
-		url : App.url( "items" )
+
+		url : App.url( "content" ),
+
+		parse: function( response ){
+			return response.products;
+		}
+		
 	});
 });

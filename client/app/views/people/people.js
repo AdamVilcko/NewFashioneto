@@ -2,12 +2,12 @@ define(function(require){
 
 	var
 
-	_ = require("_"),
-
+	_              = require("_"),
+	
 	Collection     = require("collections/people/people"),
 	Person         = require("views/people/person"),
 	MasterBaseView = require("views/masterbaseview"),
-	Imagesloaded = require("jquery.imageloaded");
+	Imagesloaded   = require("jquery.imageloaded");
 
 
 	return MasterBaseView.extend({
@@ -32,7 +32,8 @@ define(function(require){
 			target.imagesLoaded( function(){
 
 				setTimeout( function(){
-					target					
+
+					target
 					.masonry({
 					  itemSelector: '.people',
 					  gutterWidth: 25,
