@@ -7,7 +7,8 @@ define(function(require){
 	Handlebars     = require("handlebars"),
 	Helper         = require('helper'),
 
-	MasterBaseView = require('views/masterbaseview');
+	MasterBaseView = require('views/masterbaseview'),
+	MasterBaseModel = require('models/masterbasemodel');
 
 
 	return MasterBaseView.extend({
@@ -45,6 +46,7 @@ define(function(require){
 
 		success: function( data, textStatus, jqXHR ){
 			this.data = data;
+			this.model = new MasterBaseModel( data );
 			this.loadComponents();
 		},
 
