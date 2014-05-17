@@ -10,14 +10,14 @@ Manager Page:
 
 ************** API
 
-Login
+Login:
 
 	POST http://localhost:8080/Fashioneto-0.1b/as/user/authenticate
 		Params:
 			username = [value]
 			password = [value]
 
-Follows
+Follow:
 
 	POST http://localhost:8080/Fashioneto-0.1b/as/follow/{followedUserId}
 		Header:
@@ -25,6 +25,10 @@ Follows
 		OBS:
 			the "follower" user is going to be obtained by the auth-token
 
+	DELETE http://localhost:8080/Fashioneto-0.1b/as/follow/{followedUserId}
+		Header:
+			X-Auth-Token = [token value]		
+			
 Images:
 
     GET http://localhost:8080/Fashioneto-0.1b/as/image/s/{userId}
