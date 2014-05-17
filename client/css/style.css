@@ -1117,6 +1117,10 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 
 /* Tabs */
 
+#tabContainer{
+	
+}
+
 .nav-tabs{
 	border-bottom:1px solid #e5dada;
 	color:#6d5478;
@@ -1575,6 +1579,7 @@ p{
 	width:250px;
 	margin-bottom:30px;
 	float:left;
+	opacity:0;
 }
 
 .people div.followContainer{

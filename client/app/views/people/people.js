@@ -2,9 +2,13 @@ define(function(require){
 
 	var
 
-	Collection   = require("collections/people/people"),
-	Person       = require("views/people/person"),
-	MasterBaseView = require("views/masterbaseview");
+	_ = require("_"),
+
+	Collection     = require("collections/people/people"),
+	Person         = require("views/people/person"),
+	MasterBaseView = require("views/masterbaseview"),
+	Imagesloaded = require("jquery.imageloaded");
+
 
 	return MasterBaseView.extend({
 
@@ -15,17 +19,34 @@ define(function(require){
 		},
 
 		masonry: function(){
-			var
+			var target, people;
+
 			target = $( "#tabContainer" );
-			target.empty();
-			target.html( this.renderCollection().el );
 			target
-			.addClass( "masonryContainer" )
-			.masonry({
-			  itemSelector: '.people',
-			  gutterWidth: 25,
-			  isFitWidth: true
-			}).resize();
+			.empty()			
+			.html( this.renderCollection().el )
+			.addClass( "masonryContainer" );
+
+			people = $(".people");
+			
+			target.imagesLoaded( function(){
+
+				setTimeout( function(){
+					target					
+					.masonry({
+					  itemSelector: '.people',
+					  gutterWidth: 25,
+					  isFitWidth: true
+					});
+
+					people
+					.each( function( i ){
+						$(this).delay( i * 25 ).animate( { opacity: 1 }, 1200 );
+					} );
+
+				}, 500 );				
+
+			} );
 		}
 
 	});

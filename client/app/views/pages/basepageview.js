@@ -2,12 +2,12 @@ define(function(require){
 
 	var
 	
-	$              = require("jquery"),
-	Backbone       = require("backbone"),
-	Handlebars     = require("handlebars"),
-	Helper         = require('helper'),
-
-	MasterBaseView = require('views/masterbaseview'),
+	$               = require("jquery"),
+	Backbone        = require("backbone"),
+	Handlebars      = require("handlebars"),
+	Helper          = require('helper'),
+	
+	MasterBaseView  = require('views/masterbaseview'),
 	MasterBaseModel = require('models/masterbasemodel');
 
 
