@@ -8,11 +8,10 @@ require([
 	'helper',
 	'bootstrap',
 	'jquery.masonry'
-	
-	
 ],
 function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonry ){
 
+	window.App.vent = _.extend({}, Backbone.Events);
 
 	var Router = Backbone.Router.extend({
 
@@ -50,7 +49,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 			'itemmodal': 'itemModal',
 
-			'photomodal': 'photoModal',			
+			'photomodal': 'photoModal',
 
 			'logout' : 'logout'
 
@@ -61,7 +60,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 
 		index:function(){
-			
+
 		},
 
 		feed: function( tab ){
@@ -83,7 +82,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 		guestProfile: function( user, tab ){
 			$("#main").empty();
-			App.vent.trigger( 'page:guestprofile', { user: user , tab: tab, myProfile: false } );			
+			App.vent.trigger( 'page:guestprofile', { user: user , tab: tab, myProfile: false } );
 		},
 
 		itemModal: function(){
@@ -92,7 +91,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 		photoModal: function(){
 			$('#photoModal').modal();
-		},		
+		},
 
 		logout: function(){
 			App.vent.trigger( 'login:logout' );

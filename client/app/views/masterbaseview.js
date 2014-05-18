@@ -63,9 +63,9 @@ define(function(require){
 		},
 
 		masonry: function( item ){
-			var target = this.$( "#tabContainer" );
+			var target = $( "#tabContainer" );
 			target
-			.empty()			
+			.empty()
 			.html( this.renderCollection().el )
 			.addClass( "masonryContainer" );
 			target.imagesLoaded( function(){
