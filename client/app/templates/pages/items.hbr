@@ -1,19 +1,28 @@
-<ul class="nav nav-tabs page-tabs">
+<!-- <ul class="nav nav-tabs page-tabs">
   <li class="active"><a href="#items/recommendations">Tailored recommendations</a></li>
   <li><a href="#items/search">Search for items</a></li>  
-</ul>
+</ul> -->
 
 <div id="controls">
 
-  <select class="form-control" name="" id="">
-    <option value="1">Male</option>
-    <option value="2">Female</option>
-    <option value="3">Unisex</option>
+  <select class="form-control gender" name="" id="">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="unisex">Unisex</option>
   </select>
+  
+  <div class="control-group">
+    <div class="input-group search-group">
+      <input type="text" class="form-control search" placeholder="Search">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- control-group -->
 
-  <select class="form-control" name="" id="">
+  <!-- <select class="form-control" name="" id="">
     <option value="1">Type</option>    
-  </select>
+  </select> -->
 
   <div class="slider"></div><!-- slider -->
 
@@ -22,4 +31,3 @@
 <div class="wrap">
   <div style="margin: 0 auto;" id="tabContainer"></div><!-- content -->
 </div><!-- wrap -->
-

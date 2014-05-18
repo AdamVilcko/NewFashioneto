@@ -24,11 +24,19 @@ define(function(require){
 		activeTab: "wall",
 
 		init: function(){
-			App.vent.on( "page:" + this.pageId, this.getData, this );
+			App.vent.on( "page:" + this.pageId, this.handler, this );
 		},
 
-		getData: function( state ){
+		handler: function( state ){
 			this.state = state;
+			if( this.pageId === "items" ){
+				this.loadComponents();
+			} else {
+				this.getData();
+			}
+		},
+
+		getData: function(){			
 			$.ajax({
 				type: "GET",
 				context: this,

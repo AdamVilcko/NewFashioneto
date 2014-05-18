@@ -8,10 +8,10 @@ define(function(require){
 	
 	Collection = require("collections/items/items"),
 	Item       = require("views/items/item"),
-	ItemView   = require( 'views/itemview' );
+	MasterBaseView   = require( 'views/masterbaseview' );
 	
 
-	return ItemView.extend({
+	return MasterBaseView.extend({
 
 		modelView: Item,
 
@@ -46,7 +46,7 @@ define(function(require){
 						$(this).delay( i * 25 ).animate( { opacity: 1 }, 1200 );
 					} );
 
-				}, 500 );				
+				}, 200 );				
 
 			} );
 		}		

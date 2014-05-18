@@ -2,7 +2,8 @@ define(function(require){
 
 	//Deps
 
-	Backbone             = require( 'backbone' );
+	Backbone             = require( 'backbone' ),
+	Helper             = require( 'helper' ),
 
 	MasterBaseCollection = require( 'collections/masterbasecollection' ),
 	Model                = require( 'models/items/item' );
@@ -16,7 +17,18 @@ define(function(require){
 
 		parse: function( response ){
 			return response.products;
+		},
+
+		search: function( ev, args ){
+			this.reset();
+			this.url = Helper.queryBuilder( args );
+			this.fetch( {
+				dataType: "jsonp"				
+			} );
+
 		}
+
+
 		
 	});
 });

@@ -1,7 +1,8 @@
 define(function(require){
 
 	Moment    = require("moment"),
-	LiveStamp = require("jquery.livestamp");
+	LiveStamp = require("jquery.livestamp"),
+	_ = require("_");
 
 	return {
 
@@ -54,7 +55,47 @@ define(function(require){
 			data.details.image.small = App.url( "image" ) + "SMALL/" + data.details.imageId;
 			data.details.image.standard = App.url( "image" ) + "STANDARD/" + data.details.imageId;
 			return data;
-		}
+		},
+
+		queryBuilder: function( args ){
+            var
+            args = args || {},
+            root     = "http://api.shopstyle.com/action/apiSearch?",
+            defaults = {
+                fts: "default",
+                count: "",
+                format:"jsonp",
+                site: "www.shopstyle.co.uk",
+                pid: "uid8569-24941587-78",
+                filters:{
+                    b : null, //brand
+                    r : null, //retailer
+                    p : null, //price
+                    d : null, //sale
+                    s : null, //size
+                    c : null  //color
+                }
+            }
+
+            args = _.extend( defaults, args );
+
+            function build(){
+                var string = root;
+                _.each( args, function( value, key, list ){
+                    if( _.isObject( value ) ){
+                    	_.each( value, function( value, key, list ){
+                    		if( _.isString( value ) ){
+                    			string += "fl=" + key + value + "&";
+                    		}  		
+                    	} );
+                    } else {
+                    	string += key + "=" + value + "&";
+                    } 
+                } );
+				return string;
+            };
+            return build();
+        }
 
 	}
 });
