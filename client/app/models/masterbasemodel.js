@@ -20,7 +20,7 @@ define(function(require){
 
 		createImageUrl: function( args ){
 			if( this.has( "imageId" ) && ! this.has( "imageUrl" ) ){
-				this.set( "imageUrl", App.url( "image" ) + this.imageType + "/" + this.get( "imageId" ) );
+				this.set( "imageUrl", App.api.get( "image" ) + this.imageType + "/" + this.get( "imageId" ) );
 			}
 		},
 
@@ -40,14 +40,7 @@ define(function(require){
 			settings = $.extend( {}, defaults, options );
 
 			return this.save( null, settings );
-		}
-
-		//Loop through object code
-		/*for (var key in p) {
-		  if (p.hasOwnProperty(key)) {
-		    alert(key + " -> " + p[key]);
-		  }
-		}*/
+		}		
 
 	});
 

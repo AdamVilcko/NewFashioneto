@@ -13,7 +13,7 @@ define(function(require){
 
 		createImageUrl: function( args ){
 			if( this.has( "id" ) && ! this.has( "imageUrl" ) ){
-				this.set( "imageUrl", App.url( "image" ) + this.imageType + "/" + this.get( "id" ) );
+				this.set( "imageUrl", App.api.get( "image" ) + this.imageType + "/" + this.get( "id" ) );
 			}
 		},
 

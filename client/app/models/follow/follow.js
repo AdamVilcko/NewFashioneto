@@ -6,7 +6,7 @@ define(function(require){
 
 	return MasterBaseModel.extend({
 
-		url: App.url( "follow" ),
+		url: App.api.get( "follow" ),
 
 		defaults:{
 			isFollowed : null

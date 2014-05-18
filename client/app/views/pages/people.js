@@ -19,7 +19,7 @@ define(function(require){
 
 		pageId: "people",
 
-		url: App.url( "people" ),
+		url: App.api.get( "people" ),
 
 		initSubviews: function(){
 			this.people = new People();
@@ -32,7 +32,7 @@ define(function(require){
 		},
 
 		postRender: function(){
-			this.people.masonry();			
+			this.people.masonry( ".people" );
 		}
 
 	});

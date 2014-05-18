@@ -16,7 +16,7 @@ define(function(require){
 
 		render: function(){
 			var data = this.master.data.details;
-			data.imageUrl = App.url( "image" ) + data.imageId;
+			data.imageUrl = App.api.get( "image" ) + data.imageId;
 
 			this.$el
 			.html( this.template( data ) );

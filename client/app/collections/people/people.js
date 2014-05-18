@@ -10,6 +10,6 @@ define(function(require){
 
 	return MasterBaseCollection.extend({
 		model : Model,
-		url : App.url( "people" )
+		url : App.api.get( "people" )
 	});
 });

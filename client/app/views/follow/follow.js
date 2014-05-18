@@ -14,7 +14,7 @@ define(function(require){
 
 	 	className: "follow btn btn-primary btn-md",
 
-	 	label: App.content.follow,
+	 	label: App.locale.get( "follow" ),
 
 		init: function( options ){
 			this.model = new Model( this.options );

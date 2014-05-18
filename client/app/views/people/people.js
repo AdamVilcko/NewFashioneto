@@ -16,39 +16,7 @@ define(function(require){
 
 		init: function(){
 			this.collection = new Collection();
-		},
-
-		masonry: function(){
-			var target, people;
-
-			target = $( "#tabContainer" );
-			target
-			.empty()			
-			.html( this.renderCollection().el )
-			.addClass( "masonryContainer" );
-
-			people = $(".people");
-			
-			target.imagesLoaded( function(){
-
-				setTimeout( function(){
-
-					target
-					.masonry({
-					  itemSelector: '.people',
-					  gutterWidth: 25,
-					  isFitWidth: true
-					});
-
-					people
-					.each( function( i ){
-						$(this).delay( i * 25 ).animate( { opacity: 1 }, 1200 );
-					} );
-
-				}, 500 );				
-
-			} );
-		}
+		}	
 
 	});
 

@@ -49,33 +49,11 @@ define(function(require){
 			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );
 		},
 
-		createImageUrl: function( data ){
-			data.details.image = {};
-			data.details.image.thumbnail = App.url( "image" ) + "THUMBNAIL/" + data.details.imageId;
-			data.details.image.small = App.url( "image" ) + "SMALL/" + data.details.imageId;
-			data.details.image.standard = App.url( "image" ) + "STANDARD/" + data.details.imageId;
-			return data;
-		},
-
 		queryBuilder: function( args ){
             var
-            args = args || {},
-            root     = "http://api.shopstyle.com/action/apiSearch?",
-            defaults = {
-                fts: "default",
-                count: "",
-                format:"jsonp",
-                site: "www.shopstyle.co.uk",
-                pid: "uid8569-24941587-78",
-                filters:{
-                    b : null, //brand
-                    r : null, //retailer
-                    p : null, //price
-                    d : null, //sale
-                    s : null, //size
-                    c : null  //color
-                }
-            }
+			args     = args || {},
+			root     = App.api.get( "thirdparty" ).root,
+			defaults = App.api.get( "thirdparty" ).defaults;
 
             args = _.extend( defaults, args );
 

@@ -10,11 +10,8 @@ define(function(require){
 
 	return MasterBaseCollection.extend({
 		model : Model,
-		url : App.url( 'wall' ),
-		init: function(){
-			
-		},
-
+		url : App.api.get( 'wall' ),
+		
 		comparator: function( model ){
 			 return -model.get( "id" ); // Note the minus!
 		}

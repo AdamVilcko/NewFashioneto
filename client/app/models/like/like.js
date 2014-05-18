@@ -6,7 +6,7 @@ define(function(require){
 
 	return MasterBaseModel.extend({
 
-		url: App.url( "like" )
+		url: App.api.get( "like" )
 
 	});
 

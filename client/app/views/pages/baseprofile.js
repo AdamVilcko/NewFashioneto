@@ -3,13 +3,13 @@ define(function(require){
 	var
 	$              = require( "jquery" ),
 	Handlebars     = require( "handlebars" ),
-	Helper = require( "helper" ),
-
+	Helper         = require( "helper" ),
+	
 	BasePageView   = require( "views/pages/basepageview" ),
 	Wall           = require( "views/wall/wall" ),
 	Photos         = require( "views/photos/photos" ),
 	Items          = require( "views/items/items" ),
-	People = require( "views/people/people" ),
+	People         = require( "views/people/people" ),
 	ProfileSidebar = require( "views/sidebar/profilesidebar" ),
 	pageTemplate   = require( "text!templates/pages/profile.hbr" );
 
@@ -20,7 +20,7 @@ define(function(require){
 
 		pageId: "profile",
 
-		url: App.url( "user" ),
+		url: App.api.get( "user" ),
 
 		myProfile: null,
 

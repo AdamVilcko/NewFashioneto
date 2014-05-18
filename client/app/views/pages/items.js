@@ -20,7 +20,7 @@ define(function(require){
 
 		pageId: "items",
 
-		url: App.url( "items" ),
+		url: App.api.get( "items" ),
 
 		initSubviews: function(){
 			this.items = new Items();
@@ -44,7 +44,7 @@ define(function(require){
 
 			tabContainer
 			.html( this.items.render().el );
-			this.items.masonry();
+			this.items.masonry( ".item" );
 			
 		},
 
@@ -61,11 +61,8 @@ define(function(require){
 
 			var
 			controls = $( ev.target ).parents( "#controls" ),
-			args;
-
 			args = {
-				fts : controls.find( ".search" ).val() + " " + controls.find( ".gender" ).val(),
-				
+				fts : controls.find( ".search" ).val() + " " + controls.find( ".gender" ).val()
 			}
 
 			this.items.collection.search( ev, args );

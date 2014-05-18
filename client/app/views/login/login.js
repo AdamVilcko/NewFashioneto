@@ -71,7 +71,7 @@ define(function(require){
 			$.ajax({
 				type: "POST",
 				context: this,
-				url: App.url( 'login' ),
+				url: App.api.get( 'login' ),
 				data: loginCredentials,
 
 				success: function( data, textStatus, jqXHR ){
@@ -130,7 +130,7 @@ define(function(require){
 			$.ajax({
 				type: "GET",
 				context: this,
-				url: App.url( 'user' ),
+				url: App.api.get( 'user' ),
 				dataType: "JSON",
 
 				success: function( data, textStatus, jqXHR ){

@@ -1,3 +1,7 @@
+html{
+	height:100%;
+}
+
 body{
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size:17px;
@@ -5,12 +9,6 @@ body{
 	color:#3a2444;
 	min-height: 0;
 	padding-top: 42px;
-	
-
-}
-
-html{
-	height:100%;
 }
 
 body.pace-running footer,
@@ -76,8 +74,12 @@ body.pace-done #main{
 	
 }
 
-h1,h2,h3,h4,h5,h6, select{
+h1,h2,h3,h4,h5,h6, a:hover, a:focus, select{
 	color:#3a2444;
+}
+
+a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active{
+	border-color:#836192;
 }
 
 
@@ -1620,6 +1622,7 @@ p{
 
 .people .thumbnail img{
 	width:100%;
+	min-height:150px;
 	display:block;
 }
 

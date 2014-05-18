@@ -10,6 +10,6 @@ define(function(require){
 
 	return MasterBaseCollection.extend({
 		model : Model,
-		url : App.url( "wallComments" )
+		url : App.api.get( "wallComments" )
 	});
 });

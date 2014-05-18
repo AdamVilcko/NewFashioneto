@@ -57,9 +57,31 @@ define(function(require){
 			data = data || {};
 			if( this.model ) data.model = this.model.toJSON();
 			data.user        = App.user.toJSON();
-			data.content     = App.content;
+			data.locale      = App.locale;
 			data.viewContext = this;
 			return data;
+		},
+
+		masonry: function( item ){
+			var target = this.$( "#tabContainer" );
+			target
+			.empty()			
+			.html( this.renderCollection().el )
+			.addClass( "masonryContainer" );
+			target.imagesLoaded( function(){
+				setTimeout( function(){
+					target
+					.masonry({
+					  itemSelector: item,
+					  gutterWidth: 25,
+					  isFitWidth: true
+					});
+					$( item )
+					.each( function( i ){
+						$(this).delay( i * 25 ).animate( { opacity: 1 }, 1200 );
+					} );
+				}, 1000 );
+			} );
 		},
 
 		data: {}
