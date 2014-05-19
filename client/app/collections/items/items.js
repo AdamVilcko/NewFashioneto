@@ -1,6 +1,6 @@
 define(function(require){
 
-	//Deps
+	var
 
 	Backbone             = require( 'backbone' ),
 	Helper               = require( 'helper' ),
@@ -12,6 +12,16 @@ define(function(require){
 	return MasterBaseCollection.extend({
 
 		model : Model,
+
+		init: function(){
+			this.addEvents();
+		},
+
+		addEvents: function(){
+			this.on( "sync", function( collection, resp, options ){
+				App.vent.trigger( "items:syncMeta", collection.pluck( "id" ) );
+			}, this );
+		},
 
 		parse: function( response ){
 			return response.products;

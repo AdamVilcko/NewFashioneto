@@ -2,54 +2,24 @@ define(function(require){
 
 	var
 
-	Backbone   = require("backbone"),
-	Handlebars = require("handlebars"),
-	$          = require("jquery"),
+	Backbone        = require("backbone"),
+	Handlebars      = require("handlebars"),
+	$               = require("jquery"),
 	
-	Collection = require("collections/items/items"),
-	Item       = require("views/items/item"),
-	MasterBaseView   = require( 'views/masterbaseview' );
+	MasterBaseView  = require( 'views/masterbaseview' ),
+	ItemsCollection = require("collections/items/items"),
+	MetaCollection  = require("collections/items/meta"),
+	ItemView        = require("views/items/item");
 	
 
 	return MasterBaseView.extend({
 
-		modelView: Item,
+		modelView: ItemView,
 
 		init: function(){
-			this.collection = new Collection();
-		},
-
-		masonry: function(){
-			var target, item;
-
-			target = $( "#tabContainer" );
-			target
-			.empty()			
-			.html( this.renderCollection().el )
-			.addClass( "masonryContainer" );
-
-			item = $(".item");
-			
-			target.imagesLoaded( function(){
-
-				setTimeout( function(){
-
-					target
-					.masonry({
-					  itemSelector: '.item',
-					  gutterWidth: 25,
-					  isFitWidth: true
-					});
-
-					item
-					.each( function( i ){
-						$(this).delay( i * 25 ).animate( { opacity: 1 }, 1200 );
-					} );
-
-				}, 200 );				
-
-			} );
-		}		
+			this.collection     = new ItemsCollection();
+			this.metaCollection = new MetaCollection();
+		}
 
 	});
 

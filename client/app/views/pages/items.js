@@ -39,19 +39,17 @@ define(function(require){
 
 			if( tabContainer.data( "masonry" ) ){
 				tabContainer
-				.masonry( 'destroy' );	
+				.masonry( 'destroy' );
 			}
 
 			tabContainer
 			.html( this.items.render().el );
 			this.items.masonry( ".item" );
-			
 		},
 
 		events:{
 			"keydown .search": "search",
-			"click .search-group .btn": "search",
-			"keydown .search-group .btn": "search"
+			"click .search-group .btn": "search"
 		},
 
 		search: function( ev ){

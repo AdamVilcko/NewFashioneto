@@ -1,13 +1,10 @@
 define(function(require){
 
-	var Backbone = require("backbone"),
+	var
 
 	MasterBaseModel = require( "models/masterbasemodel" );
 
-	return MasterBaseModel.extend({
 
-		
-		
-	});
+	return MasterBaseModel.extend({});
 
 });

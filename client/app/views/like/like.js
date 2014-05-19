@@ -18,7 +18,9 @@ define(function(require){
 		init: function( options ){
 			this.options = options || { type: "heart", data: { count: 0, actioned: null } };
 			this.model = new Model( this.options.data );
-			this.model.on( "sync", this.renderToDom, this );
+			this.model.on( "sync change", this.renderToDom, this );
+			// This may be calling several times!!!
+			//Might get away with just a change event!
 		},
 
 		render: function(){
