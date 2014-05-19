@@ -54,11 +54,12 @@ define(function(require){
 		},
 
 		merge: function( data ){
-			data = data || {};
+			data                        = data || {};
 			if( this.model ) data.model = this.model.toJSON();
-			data.user        = App.user.toJSON();
-			data.locale      = App.locale;
-			data.viewContext = this;
+			data.user                   = App.user.toJSON();
+			data.locale                 = App.locale;
+			data.options                = this.options;
+			data.viewContext            = this;
 			return data;
 		},
 

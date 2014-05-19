@@ -23,14 +23,6 @@ define(function(require){
 			//Might get away with just a change event!
 		},
 
-		render: function(){
-			//Need to create method on master base view for merging data before passing into template
-			var insert = this.model.toJSON();
-			insert.type = this.options.type;
-			this.$el.html( this.template( insert ) );
-			return this;
-		},
-
 		events: {
 			'click' : 'registerLike'
 		},
