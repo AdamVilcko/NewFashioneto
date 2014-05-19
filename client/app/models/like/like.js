@@ -9,11 +9,16 @@ define(function(require){
 		url: App.api.get( "like" ),
 
 		init: function(){
+			//Doesn't discriminate between non-item likes, shouldn't
+			//matter though as they won't be in view/instantiated at the time
 			App.vent.on( "items:metaSynced", this.update, this );
 		},
 
 		update: function( collection ){
-			this.set( collection.get( this.get( "id" ) ) );
+			var model = collection.get( this.get( "id" ) );
+			if( model ){
+				this.set( model );
+			}
 		}
 
 	});
