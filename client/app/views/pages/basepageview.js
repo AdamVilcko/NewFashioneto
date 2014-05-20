@@ -1,12 +1,12 @@
 define(function(require){
 
 	var
-	
+
 	$               = require("jquery"),
 	Backbone        = require("backbone"),
 	Handlebars      = require("handlebars"),
 	Helper          = require('helper'),
-	
+
 	MasterBaseView  = require('views/masterbaseview'),
 	MasterBaseModel = require('models/masterbasemodel');
 
@@ -36,7 +36,7 @@ define(function(require){
 			}
 		},
 
-		getData: function(){			
+		getData: function(){
 			$.ajax({
 				type: "GET",
 				context: this,
@@ -55,6 +55,7 @@ define(function(require){
 		success: function( data, textStatus, jqXHR ){
 			this.data = data;
 			this.model = new MasterBaseModel( data );
+			App.vent.trigger( "profile:dataLoaded", this.data );
 			this.loadComponents();
 		},
 
