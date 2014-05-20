@@ -4,13 +4,17 @@
 package com.fashioneto.service;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fashioneto.dao.CommentDAO;
+import com.fashioneto.dao.ItemDAO;
 import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.User;
 
@@ -25,6 +29,9 @@ public class ItemServiceImpl implements ItemService {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
+	@Autowired
+	private ItemDAO itemDAO;
+
 	
 	@Override
 	public int like(User user, Item item) {
@@ -49,6 +56,11 @@ public class ItemServiceImpl implements ItemService {
 	public Item createItem(int itemId) {
 		Item item = new Item(itemId, new Date());
 		return entityManager.merge(item);
+	}
+
+	@Override
+	public List<Item> getItems(List<Integer> itemIds) {
+		return itemDAO.getItems(itemIds) ;
 	}
 	
 	

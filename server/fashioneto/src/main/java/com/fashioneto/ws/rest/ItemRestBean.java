@@ -3,10 +3,15 @@
  */
 package com.fashioneto.ws.rest;
 
+import java.util.List;
+
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -19,6 +24,7 @@ import com.fashioneto.service.ItemService;
 import com.fashioneto.service.UserService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
+import com.fashioneto.ws.entities.DefaultSet;
 import com.fashioneto.ws.entities.LikesWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 
@@ -34,6 +40,22 @@ public class ItemRestBean {
 	private ItemService itemService;
 	@Autowired
 	private UserService userService;	
+	
+	
+	@POST
+	@Path("s")
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response getItems(List<Integer> itemIds) throws Exception
+	{
+		if (itemIds != null && itemIds.size() > 0)
+		{
+			List<Item> items = itemService.getItems(itemIds);
+			String strResponse = FashionetoJsonFactory.getJson(new DefaultSet<Item>(items));
+			return Response.status(Status.OK).entity(strResponse).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
+	}
+	
 	
 	@POST
 	@Path("like/{itemId}")

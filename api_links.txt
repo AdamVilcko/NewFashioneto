@@ -19,13 +19,20 @@ Login:
 
 Items:
 
-	POST http://localhost:8080/Fashioneto-0.1b/as/like/{itemId}
+	POST http://localhost:8080/Fashioneto-0.1b/as/item/s
+		Header:
+			X-Auth-Token = [token value]
+		Body:
+			(application/json) 
+			ex: [1,2,3,442698073]
+			
+	POST http://localhost:8080/Fashioneto-0.1b/as/item/like/{itemId}
 		Header:
 			X-Auth-Token = [token value]
 		OBS:
 			Returs a "likeWrapper" object = {"count": 2,"actioned": true}
 
-	DELETE http://localhost:8080/Fashioneto-0.1b/as/like/{itemId}
+	DELETE http://localhost:8080/Fashioneto-0.1b/as/item/like/{itemId}
 		Header:
 			X-Auth-Token = [token value]
 		OBS:
