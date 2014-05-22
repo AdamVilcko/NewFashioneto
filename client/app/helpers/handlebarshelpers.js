@@ -10,8 +10,8 @@ define(function(require){
 
 	//Like helper
 
-	Handlebars.registerHelper( 'like', function( contextId ) {
-		var view = this.viewContext, data;
+	Handlebars.registerHelper( 'like', function( type ) {
+		var view = this.viewContext, data, contextId;
 
 		if( view.model.get( "likes" ) ){
 			data = view.model.get( "likes" );
@@ -19,13 +19,17 @@ define(function(require){
 			data = { id: view.model.get( "id" ), value: null };
 		}
 
+		type = type || "heart";
+
+		contextId = view.contextId || "";
+
 		if( !view.like ){
 			view.like = new Like( {
 				className:"likeContainer",
-				type: "heart",
+				type: type,
 				data: data,
 				parentId: view.model.get( "id" ),
-				contextId: contextId
+				contextId: view.contextId
 			} );
 		}
 
