@@ -40,7 +40,7 @@ define(function(require){
 			settings = $.extend( {}, defaults, options );
 
 			return this.save( null, settings );
-		}		
+		}
 
 	});
 

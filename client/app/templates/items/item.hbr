@@ -1,7 +1,7 @@
 <div class="caption">
-  <h6><strong>{{model.name}}</strong><br /> {{model.brandName}}</h6>   
+  <h6><strong>{{model.name}}</strong><br /> {{model.brandName}}</h6>
 </div>
 <div class="pic">
   <img src="{{model.images.5.url}}" alt="...">
 </div>
-{{like}}
+{{like "item"}}

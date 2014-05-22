@@ -10,15 +10,22 @@ define(function(require){
 
 	//Like helper
 
-	Handlebars.registerHelper( 'like', function() {
-		var view = this.viewContext;
+	Handlebars.registerHelper( 'like', function( contextId ) {
+		var view = this.viewContext, data;
+
+		if( view.model.get( "likes" ) ){
+			data = view.model.get( "likes" );
+		} else {
+			data = { id: view.model.get( "id" ), value: null };
+		}
 
 		if( !view.like ){
 			view.like = new Like( {
 				className:"likeContainer",
 				type: "heart",
-				data: view.model.toJSON().likes,
-				parentId: view.model.get( "id" )
+				data: data,
+				parentId: view.model.get( "id" ),
+				contextId: contextId
 			} );
 		}
 

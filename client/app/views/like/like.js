@@ -19,8 +19,7 @@ define(function(require){
 			this.options = options || { type: "heart", data: { count: 0, actioned: null } };
 			this.model = new Model( this.options.data );
 			this.model.on( "sync change", this.renderToDom, this );
-			// This may be calling several times!!!
-			//Might get away with just a change event!
+			this.model.url = App.api.get( "like", this.options.contextId )
 		},
 
 		events: {

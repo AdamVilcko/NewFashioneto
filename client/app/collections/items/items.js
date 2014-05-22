@@ -4,7 +4,7 @@ define(function(require){
 
 	Backbone             = require( 'backbone' ),
 	Helper               = require( 'helper' ),
-	
+
 	MasterBaseCollection = require( 'collections/masterbasecollection' ),
 	Model                = require( 'models/items/item' );
 
@@ -19,7 +19,7 @@ define(function(require){
 
 		addEvents: function(){
 			this.on( "sync", function( collection, resp, options ){
-				App.vent.trigger( "items:syncMeta", collection.pluck( "id" ) );
+				App.vent.trigger( "items:fetchMeta", collection.pluck( "id" ) );
 			}, this );
 		},
 
@@ -31,9 +31,9 @@ define(function(require){
 			this.reset();
 			this.fetch( {
 				dataType: "jsonp",
-				url: Helper.queryBuilder( args )		
+				url: Helper.queryBuilder( args )
 			} );
 		}
-		
+
 	});
 });

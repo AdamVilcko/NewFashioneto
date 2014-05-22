@@ -18,11 +18,17 @@ window.App =
 
     api: {
 
-        get: function( arg ){
+        get: function( arg, contextId ){
             if( arg === "thirdparty" ){
                 return this.shopstyle.products;
             }
-            return this.root + this[ arg ];
+            if( contextId ){
+                contextId = contextId + "/";
+            } else {
+                contextId = "";
+            }
+
+            return this.root + contextId + this[ arg ];
         },
 
         root: "/Fashioneto-0.1b/as/",
@@ -33,7 +39,7 @@ window.App =
         people: "people/",
         items: "item/s",
         image: "image/",
-        like: "comment/like",
+        like: "like",
         follow: "follow",
 
         shopstyle: {
