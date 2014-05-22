@@ -27,13 +27,6 @@ define(function(require){
 			this.items.collection.on( "sync", this.renderItemCollection, this );
 		},
 
-		beforeSend: function(){
-			this.items.collection.fetch( {
-				dataType: "jsonp"
-			} );
-			return false;
-		},
-
 		renderItemCollection: function(){
 			var tabContainer = this.$( "#tabContainer" );
 

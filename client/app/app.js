@@ -31,7 +31,7 @@ window.App =
         wall: "comment/USER",
         wallComments: "comment/COMMENT",
         people: "people/",
-        items: "items/",
+        items: "item/s",
         image: "image/",
         like: "comment/like",
         follow: "follow",

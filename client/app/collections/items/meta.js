@@ -16,11 +16,33 @@ define(function(require){
 		url: App.api.get( "items" ),
 
 		init: function(){
-			App.vent.on( "items:syncMeta", this.add, this );
-			this.on( "add", this.sync );
+			App.vent.on( "items:syncMeta", this.addToCollection, this );
+			this.on( "add", this.update );
 			this.on( "sync", function( collection, resp, options ){
 				App.vent.trigger( "items:metaSynced", collection );
 			}, this );
+		},
+
+		addToCollection: function( obj ){
+
+			var hardcode= [1,2,3,442698073];
+
+			$.ajax( {
+				url: App.api.get( "items" ),
+				method: "POST",
+				contentType: "application/json",
+				data: hardcode,
+				dataType :"json",
+				type:"POST",
+				success: this.success,
+				processData:false
+			} );
+
+		},
+
+		success: function( collection ){
+			console.log( collection );
+
 		}
 		
 	});

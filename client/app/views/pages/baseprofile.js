@@ -46,7 +46,74 @@ define(function(require){
 				pageState.user = App.data.myprofile.details.userName
 			}
 			this.getData( pageState );
-		}
+		},
+
+		getData: function(){
+			$.ajax({
+				type: "GET",
+				context: this,
+				dataType: "JSON",
+				url: this.url,
+				beforeSend:this.beforeSend,
+				success: this.success,
+				error: this.error
+			});
+		},
+
+		beforeSend: function(){
+
+		},
+
+		success: function( data, textStatus, jqXHR ){
+			this.data = data;
+			this.model = new MasterBaseModel( data );
+			App.vent.trigger( "profile:dataLoaded", this.data );
+			this.loadComponents();
+		},
+
+		error: function( jqXHR, textStatus, errorThrown ){
+			if( jqXHR.status === 401 ){
+				alert( "Incorrect login credentials. Please try again!" );
+			} else{
+				alert( "profile getUser: " + jqXHR.status + ": " + errorThrown  );
+			}
+		},
+
+		loadComponents: function(){
+			if( this.loadSidebar ) this.loadSidebar();
+			if( this.loadTabs ) this.loadTabs();
+			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
+			this.render();
+			Helper.navState( this.pageId, this.activeTab );
+		},
+
+		render: function(){
+
+			if( typeof this.preRender !== "undefined" ) this.preRender();
+
+			this.$el
+			.attr( "data-view", this.cid ) //Needs to be here as the el is shared
+			.html( this.template( this.merge( this.data ) ) );
+
+			if( this.tabs ){
+				this.$el
+				.find( this.nodes.tabContainer )
+				.html( this.tabs[ this.activeTab ].render().el );
+			}
+
+			if( this.sidebar ){
+				this.$el
+				.find( this.nodes.sidebar )
+				.html( this.sidebar.render().el );
+			}
+
+			
+
+			if( typeof this.postRender !== "undefined" ) this.postRender();
+
+			return this;
+
+		},
 
 	});
 
