@@ -14,12 +14,15 @@ define(function(require){
 
 		template: Handlebars.compile( template ),
 
-		render: function(){
-			var data = this.master.data.details;
-			data.imageUrl = App.api.get( "image" ) + data.imageId;
+		init: function(){
+			App.vent.on( "profile:dataLoaded", this.renderTo, this );
+		},
 
-			this.$el
-			.html( this.template( data ) );
+		renderTo: function( data ){
+			this.data = data;
+			this.data.imageUrl = App.api.get( "image" ) + data.imageId;
+
+			this.renderToDom();
 			return this;
 		},
 

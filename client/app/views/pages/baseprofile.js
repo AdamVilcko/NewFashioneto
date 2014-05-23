@@ -60,10 +60,6 @@ define(function(require){
 			});
 		},
 
-		beforeSend: function(){
-
-		},
-
 		success: function( data, textStatus, jqXHR ){
 			this.data = data;
 			this.model = new MasterBaseModel( data );
@@ -77,14 +73,6 @@ define(function(require){
 			} else{
 				alert( "profile getUser: " + jqXHR.status + ": " + errorThrown  );
 			}
-		},
-
-		loadComponents: function(){
-			if( this.loadSidebar ) this.loadSidebar();
-			if( this.loadTabs ) this.loadTabs();
-			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
-			this.render();
-			Helper.navState( this.pageId, this.activeTab );
 		},
 
 		render: function(){
@@ -107,7 +95,7 @@ define(function(require){
 				.html( this.sidebar.render().el );
 			}
 
-			
+
 
 			if( typeof this.postRender !== "undefined" ) this.postRender();
 

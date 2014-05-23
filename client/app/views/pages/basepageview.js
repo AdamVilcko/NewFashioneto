@@ -33,11 +33,15 @@ define(function(require){
 		},
 
 		loadComponents: function(){
-			if( this.loadSidebar ) this.loadSidebar();
-			if( this.loadTabs ) this.loadTabs();
+			if( ! this.sidebar && this.loadSidebar  ) this.loadSidebar();
+			if( ! this.loadTabs && this.loadTabs ) this.loadTabs();
 			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
-			this.render();
+			this.loadData();
 			Helper.navState( this.pageId, this.activeTab );
+		},
+
+		loadData: function(){
+			this.render();
 		},
 
 		tabTo: function( data ){

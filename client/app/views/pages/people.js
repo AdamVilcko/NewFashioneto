@@ -23,17 +23,19 @@ define(function(require){
 
 		initSubviews: function(){
 			this.people = new People();
-			this.people.collection.on( "sync", this.loadComponents, this );
+			this.people.collection.on( "sync", function(){
+				this.render();
+				this.$("#tabContainer")
+				.html( this.people.renderCollection().el );
+				this.people.masonry( ".people" );
+			}, this );
 		},
 
-		beforeSend: function(){
+		loadData: function(){
 			this.people.collection.fetch();
-			return false;
-		},
-
-		postRender: function(){
-			this.people.masonry( ".people" );
 		}
+
+
 
 	});
 

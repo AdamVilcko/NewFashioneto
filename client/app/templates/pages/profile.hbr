@@ -14,7 +14,7 @@
               {{#unless myprofile }}
 
                  <div class="col-md-6 options">
-                      {{follow}}
+
                       <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
                       <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
                       <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
