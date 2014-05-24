@@ -40,12 +40,9 @@ define(function(require){
 
 		handler: function( requestState ){
 			this.state = requestState;
-			if( requestState.myProfile === false ){
-				this.myProfile = false;
-			} else {
-				this.myProfile = true;
+			if( requestState.myProfile === this.myProfile ){
+				this.loadComponents();
 			}
-			this.loadComponents();
 		},
 
 		loadData: function(){
@@ -64,6 +61,7 @@ define(function(require){
 			this.data = data;
 			this.model = new MasterBaseModel( data );
 			App.vent.trigger( "profile:dataLoaded", this.model );
+			this.render();
 		},
 
 		error: function( jqXHR, textStatus, errorThrown ){

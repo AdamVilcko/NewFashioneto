@@ -22,8 +22,6 @@ define(function(require){
 		handle: function( data ){
 			this.model = new MasterBaseModel( data.get( "details" ) );
 			//this.model.set( "imageUrl", App.api.get( "image" ) + this.model );
-
-			this.render();
 			return this;
 		},
 

@@ -25,7 +25,9 @@ define(function(require){
 
 		init: function(){
 			App.vent.on( "page:" + this.pageId, this.handler, this );
-			App.vent.on( "profile:dataLoaded", this.render, this );
+			//App.vent.on( "profile:dataLoaded", this.render, this );
+			if( this.sidebar ) this.loadSidebar();
+			if( this.loadTabs ) this.loadTabs();
 		},
 
 		handler: function( requestState ){
@@ -34,8 +36,6 @@ define(function(require){
 		},
 
 		loadComponents: function(){
-			if( ! this.sidebar && this.loadSidebar  ) this.loadSidebar();
-			if( ! this.loadTabs && this.loadTabs ) this.loadTabs();
 			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
 			Helper.navState( this.pageId, this.activeTab );
 			this.loadData();
