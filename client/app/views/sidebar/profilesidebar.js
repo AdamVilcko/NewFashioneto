@@ -7,22 +7,23 @@ define(function(require){
 	Helper          = require('helper'),
 
 	BaseSidebarView = require('views/sidebar/basesidebarview'),
-	template        = require('text!templates/sidebar/profilesidebar.hbr');
+	template        = require('text!templates/sidebar/profilesidebar.hbr'),
+	MasterBaseView  = require( 'views/masterbaseview' );
 
 
-	return BaseSidebarView.extend({
+	return MasterBaseView.extend({
 
 		template: Handlebars.compile( template ),
 
 		init: function(){
-			App.vent.on( "profile:dataLoaded", this.renderTo, this );
+			App.vent.on( "profile:dataLoaded", this.handle, this );
 		},
 
-		renderTo: function( data ){
-			this.data = data;
-			this.data.imageUrl = App.api.get( "image" ) + data.imageId;
+		handle: function( data ){
+			this.model = new MasterBaseModel( data.get( "details" ) );
+			//this.model.set( "imageUrl", App.api.get( "image" ) + this.model );
 
-			this.renderToDom();
+			this.render();
 			return this;
 		},
 

@@ -25,10 +25,11 @@ define(function(require){
 
 		init: function(){
 			App.vent.on( "page:" + this.pageId, this.handler, this );
+			App.vent.on( "profile:dataLoaded", this.render, this );
 		},
 
-		handler: function( state ){
-			this.state = state;
+		handler: function( requestState ){
+			this.state = requestState;
 			this.loadComponents();
 		},
 
@@ -36,12 +37,8 @@ define(function(require){
 			if( ! this.sidebar && this.loadSidebar  ) this.loadSidebar();
 			if( ! this.loadTabs && this.loadTabs ) this.loadTabs();
 			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
-			this.loadData();
 			Helper.navState( this.pageId, this.activeTab );
-		},
-
-		loadData: function(){
-			this.render();
+			this.loadData();
 		},
 
 		tabTo: function( data ){

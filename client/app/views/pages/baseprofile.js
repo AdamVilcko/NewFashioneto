@@ -38,17 +38,17 @@ define(function(require){
 			this.tabs.following = new People( { master: this } )
 		},
 
-		handle: function( pageState ){
-			if( pageState.myProfile === false ){
+		handler: function( requestState ){
+			this.state = requestState;
+			if( requestState.myProfile === false ){
 				this.myProfile = false;
 			} else {
 				this.myProfile = true;
-				pageState.user = App.data.myprofile.details.userName
 			}
-			this.getData( pageState );
+			this.loadComponents();
 		},
 
-		getData: function(){
+		loadData: function(){
 			$.ajax({
 				type: "GET",
 				context: this,
@@ -63,8 +63,7 @@ define(function(require){
 		success: function( data, textStatus, jqXHR ){
 			this.data = data;
 			this.model = new MasterBaseModel( data );
-			App.vent.trigger( "profile:dataLoaded", this.data );
-			this.loadComponents();
+			App.vent.trigger( "profile:dataLoaded", this.model );
 		},
 
 		error: function( jqXHR, textStatus, errorThrown ){
@@ -94,8 +93,6 @@ define(function(require){
 				.find( this.nodes.sidebar )
 				.html( this.sidebar.render().el );
 			}
-
-
 
 			if( typeof this.postRender !== "undefined" ) this.postRender();
 
