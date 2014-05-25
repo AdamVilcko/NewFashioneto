@@ -17,7 +17,7 @@ define(function(require){
 		},
 
 		handle: function( collection ){
-			var posts = collection.get( "posts" ).commentsWrapper.collection;
+			var posts = collection.get( "commentsWrapper" ).collection;
 			this.add( posts );
 		},
 		

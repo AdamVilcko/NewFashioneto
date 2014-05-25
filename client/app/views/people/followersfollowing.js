@@ -19,7 +19,7 @@ define(function(require){
 		},
 
 		update: function( data ){
-			this.collection.add( data.followersWrapper.collection );
+			this.collection.add( data.get( "followersWrapper" ) );
 		}
 
 	});
