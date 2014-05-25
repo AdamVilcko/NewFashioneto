@@ -1,13 +1,13 @@
 define(function(require){
 
 	var
-	Backbone   = require( "backbone" ),
-	Handlebars = require( "handlebars" ),
-	$          = require( "jquery" ),
-
+	Backbone       = require( "backbone" ),
+	Handlebars     = require( "handlebars" ),
+	$              = require( "jquery" ),
+	
 	MasterBaseView = require( 'views/masterbaseview' ),
-	template   = require( "text!templates/wall/wall.hbr" ),
-	Posts      = require( "views/wall/posts" );
+	template       = require( "text!templates/wall/wall.hbr" ),
+	Posts          = require( "views/wall/posts" );
 
 
 	return MasterBaseView.extend({
@@ -23,9 +23,8 @@ define(function(require){
 			this.posts = new Posts( { master: this.master } );
 		},
 
-		render: function(){
+		postRender: function(){
 			this.$el
-			.html( this.template( this.merge( this.data ) ) )
 			.find( this.nodes.posts )
 			.html( this.posts.render().el );
 			return this;
@@ -36,8 +35,9 @@ define(function(require){
 		},
 
 		post: function( ev ){
-			var textarea = this.$el.find( this.nodes.textarea );
-			content = textarea.val();
+			var
+			textarea = this.$el.find( this.nodes.textarea ),
+			content  = textarea.val();
 			textarea.val( "" );
 			this.posts.collection.create( { content: content },
 			{

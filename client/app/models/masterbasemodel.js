@@ -9,7 +9,7 @@ define(function(require){
 
 	return Backbone.Model.extend({
 
-		imageType: "THUMBNAIL", //Default
+		imageType: "STANDARD", //Default
 
 		initialize: function( options ){
 			this.options = options || {};
@@ -19,6 +19,9 @@ define(function(require){
 		},
 
 		createImageUrl: function( args ){
+			if( ! this.imageType && this.options.imageType ){
+				this.imageType = this.options.imageType;
+			}
 			if( this.has( "imageId" ) && ! this.has( "imageUrl" ) ){
 				this.set( "imageUrl", App.api.get( "image" ) + this.imageType + "/" + this.get( "imageId" ) );
 			}

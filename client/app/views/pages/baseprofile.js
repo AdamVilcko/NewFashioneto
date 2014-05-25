@@ -42,7 +42,7 @@ define(function(require){
 			this.state = requestState;
 			if( requestState.myProfile === this.myProfile ){
 				this.loadComponents();
-			}
+			}			
 		},
 
 		loadData: function(){

@@ -8,6 +8,9 @@ define(function(require){
 
 		defaults: {			
 			content: "This is the default model!"			
-		}
+		},
+
+		imageType: "THUMBNAIL"
+
 	});
 });

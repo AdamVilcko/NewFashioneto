@@ -25,7 +25,6 @@ define(function(require){
 
 		init: function(){
 			App.vent.on( "page:" + this.pageId, this.handler, this );
-			//App.vent.on( "profile:dataLoaded", this.render, this );
 			if( this.loadSidebar ) this.loadSidebar();
 			if( this.loadTabs ) this.loadTabs();
 		},
