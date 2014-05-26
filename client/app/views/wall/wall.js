@@ -21,6 +21,11 @@ define(function(require){
 
 		init: function(){
 			this.posts = new Posts( { master: this.master } );
+			this.model = new MasterBaseModel();
+			App.vent.on( "profile:dataLoaded", function( collection ){
+				this.model.set( collection.get( "details" ) );
+			}, this );
+
 		},
 
 		postRender: function(){

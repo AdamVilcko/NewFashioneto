@@ -38,7 +38,11 @@ define(function(require){
 
 		renderCollection: function(){
 			this.$el.empty();
-			this.collection.each( this.renderModel, this );
+			if( ! this.collection.isEmpty() ){
+				this.collection.each( this.renderModel, this );
+			} else {
+				this.$el.html( this.emptyCollectionTemplate( this.merge() ) );
+			}			
 			return this;
 		},
 
@@ -63,8 +67,20 @@ define(function(require){
 			return data;
 		},
 
-		masonry: function( item ){
-			var target = $( "#tabContainer" );
+		masonry: function( item, masonryArgs ){
+			var
+			masonryDefaults,
+			target = $( "#tabContainer" ),
+			masonryOptions = masonryOptions || {};
+
+			masonryDefaults = {
+			  itemSelector: item,
+			  gutterWidth: 25,
+			  isFitWidth: true
+			}
+
+			masonryOptions = _.extend( masonryDefaults, masonryArgs );
+
 			target
 			.empty()
 			.html( this.renderCollection().el )
@@ -72,11 +88,7 @@ define(function(require){
 			target.imagesLoaded( function(){
 				setTimeout( function(){
 					target
-					.masonry({
-					  itemSelector: item,
-					  gutterWidth: 25,
-					  isFitWidth: true
-					});
+					.masonry( masonryOptions );
 					$( item )
 					.each( function( i ){
 						$(this).delay( i * 25 ).animate( { opacity: 1 }, 1200 );

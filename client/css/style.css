@@ -1,5 +1,6 @@
 html{
 	height:100%;
+	overflow:auto;
 }
 
 body{
@@ -128,6 +129,7 @@ body.login{
 	position:fixed;
 	width:100%;
 	height:100%;
+	overflow:auto;
 }
 
 body.login #main{
@@ -185,6 +187,7 @@ body.login #bottomBar{
 
 
 @media( max-width: 768px ), handheld{
+	
 	body.login h1{
 		font-size: 17px;
 		font-weight: normal;

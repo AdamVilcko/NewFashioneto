@@ -5,14 +5,14 @@ define(function(require){
 	Handlebars     = require( "handlebars" ),
 	Helper         = require( "helper" ),
 
-	BasePageView   = require( "views/pages/basepageview" ),
-	Wall           = require( "views/wall/wall" ),
-	Photos         = require( "views/photos/photos" ),
-	Items          = require( "views/items/items" ),
-	People         = require( "views/people/people" ),
-	Followers      = require( "views/people/followersfollowing" ),
-	ProfileSidebar = require( "views/sidebar/profilesidebar" ),
-	pageTemplate   = require( "text!templates/pages/profile.hbr" );
+	BasePageView       = require( "views/pages/basepageview" ),
+	Wall               = require( "views/wall/wall" ),
+	Photos             = require( "views/photos/photos" ),
+	Items              = require( "views/items/items" ),
+	People             = require( "views/people/people" ),
+	FollowersFollowing = require( "views/people/followersfollowing" ),
+	ProfileSidebar     = require( "views/sidebar/profilesidebar" ),
+	pageTemplate       = require( "text!templates/pages/profile.hbr" );
 
 
 	return BasePageView.extend({
@@ -34,8 +34,8 @@ define(function(require){
 			this.tabs.wall      = new Wall( { master: this } ),
 			this.tabs.photos    = new Photos( { master: this } ),
 			this.tabs.items     = new Items( { master: this } ),
-			this.tabs.followers = new Followers( { master: this } ),
-			this.tabs.following = new People( { master: this } )
+			this.tabs.followers = new FollowersFollowing( { master: this, type: "followersWrapper" } ),
+			this.tabs.following = new FollowersFollowing( { master: this, type: "followingWrapper" } )
 		},
 
 		handler: function( requestState ){

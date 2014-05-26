@@ -18,7 +18,7 @@ define(function(require){
 
 		handle: function( collection ){
 			var posts = collection.get( "commentsWrapper" ).collection;
-			this.reset( posts );				
+			this.reset( posts );
 		},
 		
 		comparator: function( model ){
