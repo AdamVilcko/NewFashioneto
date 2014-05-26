@@ -184,6 +184,30 @@ body.login #bottomBar{
 
 
 
+@media( max-width: 768px ), handheld{
+	body.login h1{
+		font-size: 17px;
+		font-weight: normal;
+	}
+
+	#logofull{
+		margin-top:30px;
+		margin-bottom:10px;
+		width:113px;
+		height:41px;
+	}
+
+	body.login p.para{
+		margin-top:10px;
+		font-size: 16px;
+	}
+
+	.loginform{
+		padding: 15px;
+	}
+}
+
+
 /* Modals */
 
 .modal .row{
