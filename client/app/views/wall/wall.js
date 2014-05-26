@@ -25,7 +25,6 @@ define(function(require){
 			App.vent.on( "profile:dataLoaded", function( collection ){
 				this.model.set( collection.get( "details" ) );
 			}, this );
-
 		},
 
 		postRender: function(){

@@ -33,6 +33,10 @@ define(function(require){
 				dataType: "jsonp",
 				url: Helper.queryBuilder( args )
 			} );
+		},
+
+		fetchById: function(){
+			
 		}
 
 	});

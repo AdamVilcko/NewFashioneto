@@ -77,7 +77,6 @@ define(function(require){
 			}
 
 			this.model.persist( null, options );
-
 		}
 
 	});

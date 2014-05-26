@@ -25,14 +25,12 @@ define(function(require){
 			this.collection.reset( data.get( this.options.type ).collection );
 		},
 
-		renderPeople: function(){
-			
+		renderPeople: function(){			
 			this.renderCollection();
 			var self = this;
 			_.defer( function(){
 				self.masonry( '.people' );
-			} );
-			
+			} );			
 			return this;			
 		}
 

@@ -10,7 +10,7 @@
 
     <p class="list-group-item-text">{{model.content}}</p>
 
-    {{like}}
+    {{like "heart"}}
 
   </li>
 

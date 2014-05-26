@@ -58,7 +58,7 @@
       <div class="media-body well">
 
         <div class="row">
-          <div class="col-md-8"> <textarea placeholder="Write on {{details.displayName}}'s wall" class="well"></textarea></div>
+          <div class="col-md-8"> <textarea placeholder="Write on {{model.displayName}}'s wall" class="well"></textarea></div>
           <div class="col-md-2"><button class="btn btn-primary sendPost">Post</button></div>
           <div class="col-md-2"><a class="uploadphoto pull-right" href="#">Upload photo</a></div>
 

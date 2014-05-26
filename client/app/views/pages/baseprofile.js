@@ -8,7 +8,7 @@ define(function(require){
 	BasePageView       = require( "views/pages/basepageview" ),
 	Wall               = require( "views/wall/wall" ),
 	Photos             = require( "views/photos/photos" ),
-	Items              = require( "views/items/items" ),
+	ItemsTab              = require( "views/items/itemsTab" ),
 	People             = require( "views/people/people" ),
 	FollowersFollowing = require( "views/people/followersfollowing" ),
 	ProfileSidebar     = require( "views/sidebar/profilesidebar" ),
@@ -33,7 +33,7 @@ define(function(require){
 			this.tabs           = {};
 			this.tabs.wall      = new Wall( { master: this } ),
 			this.tabs.photos    = new Photos( { master: this } ),
-			this.tabs.items     = new Items( { master: this } ),
+			this.tabs.items     = new ItemsTab( { master: this } ),
 			this.tabs.followers = new FollowersFollowing( { master: this, type: "followersWrapper" } ),
 			this.tabs.following = new FollowersFollowing( { master: this, type: "followingWrapper" } )
 		},
