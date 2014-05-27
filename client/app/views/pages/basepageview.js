@@ -36,6 +36,14 @@ define(function(require){
 			_.defer( Helper.navState );
 		},
 
+		preRender: function(){
+			this.$el.addClass( "loadOut" );
+		},
+
+		postRender: function(){
+			this.$el.removeClass( "loadOut" );
+		},
+
 		loadComponents: function(){
 			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
 			if( this.loadData ){

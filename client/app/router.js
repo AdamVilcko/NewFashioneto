@@ -90,12 +90,10 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 		},
 
 		myProfile: function( tab ){
-			$("#main").empty();
 			App.vent.trigger( 'page:profile', { tab: tab, myProfile: true } );
 		},
 
 		guestProfile: function( user, tab ){
-			$("#main").empty();
 			App.vent.trigger( 'page:profile', { user: user , tab: tab, myProfile: false } );
 		},
 

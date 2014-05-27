@@ -77,24 +77,32 @@ define(function(require){
 		},
 
 		renderPage: function(){
+			var self = this;
 
 			if( typeof this.preRender !== "undefined" ) this.preRender();
 
-			this.$el
-			.attr( "data-view", this.cid ) //Needs to be here as the el is shared
-			.html( this.template( this.merge( this.data ) ) );
+			this.$el.addClass( "loadOut" );
 
-			if( this.tabs ){
-				this.tabs[ this.activeTab ].activate( this.el );
-			}
+			setTimeout( function(){
+				self.$el
+				.attr( "data-view", self.cid ) //Needs to be here as the el is shared
+				.html( self.template( self.merge( self.data ) ) );
 
-			if( this.sidebar ){
-				this.$el
-				.find( this.nodes.sidebar )
-				.html( this.sidebar.render().el );
-			}
+				if( self.tabs ){
+					self.tabs[ self.activeTab ].activate( self.el );
+				}
 
-			if( typeof this.postRender !== "undefined" ) this.postRender();
+				if( self.sidebar ){
+					self.$el
+					.find( self.nodes.sidebar )
+					.html( self.sidebar.render().el );
+				}
+
+				if( typeof self.postRender !== "undefined" ) self.postRender();
+
+				self.$el.removeClass( "loadOut" );
+
+			}, 300 );			
 
 			Helper.navState();
 			return this;

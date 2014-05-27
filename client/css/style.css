@@ -1901,7 +1901,7 @@ border-radius: 10px;
 }
 
 .loadOut{
-	-webkit-animation: opacityani 0.6s ease-in-out;
+	-webkit-animation: opacityani forwards 0.3s ease-in-out;
 }
 
 @-webkit-keyframes opacityani {
