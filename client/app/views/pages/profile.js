@@ -40,9 +40,13 @@ define(function(require){
 
 		handler: function( requestState ){
 			this.state = requestState;
-			if( requestState.myProfile === this.myProfile ){
-				this.loadComponents();
-			}			
+			this.myProfile = requestState.myProfile;
+			if( this.myProfile ){
+				this.url = App.api.get( "user" );
+			} else {
+				this.url = App.api.get( "user" ) + "/" + requestState.user;
+			}
+			this.loadComponents();
 		},
 
 		loadData: function(){
@@ -51,7 +55,7 @@ define(function(require){
 				context: this,
 				dataType: "JSON",
 				url: this.url,
-				beforeSend:this.beforeSend,
+				beforeSend: this.beforeSend,
 				success: this.success,
 				error: this.error
 			});
@@ -61,7 +65,7 @@ define(function(require){
 			this.data = data;
 			this.model = new MasterBaseModel( data );
 			App.vent.trigger( "profile:dataLoaded", this.model );
-			this.render();
+			this.renderPage();
 		},
 
 		error: function( jqXHR, textStatus, errorThrown ){
@@ -72,7 +76,7 @@ define(function(require){
 			}
 		},
 
-		render: function(){
+		renderPage: function(){
 
 			if( typeof this.preRender !== "undefined" ) this.preRender();
 
@@ -81,9 +85,7 @@ define(function(require){
 			.html( this.template( this.merge( this.data ) ) );
 
 			if( this.tabs ){
-				this.$el
-				.find( this.nodes.tabContainer )
-				.html( this.tabs[ this.activeTab ].render().el );
+				this.tabs[ this.activeTab ].activate( this.el );
 			}
 
 			if( this.sidebar ){

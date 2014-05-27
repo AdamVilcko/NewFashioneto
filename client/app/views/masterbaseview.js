@@ -36,13 +36,16 @@ define(function(require){
 			return this;
 		},
 
-		renderCollection: function(){
-			this.$el.empty();
-			if( ! this.collection.isEmpty() ){
-				this.collection.each( this.renderModel, this );
-			} else {
-				this.$el.html( this.emptyCollectionTemplate( this.merge() ) );
-			}			
+		renderCollection: function( collection ){
+			collection = collection || this.collection || null;
+			if( collection ){
+				this.$el.empty();
+				if( ! collection.isEmpty() ){
+					collection.each( this.renderModel, this );
+				} else {
+					this.$el.html( this.emptyCollectionTemplate( this.merge() ) );
+				}
+			}
 			return this;
 		},
 
@@ -55,6 +58,12 @@ define(function(require){
 		renderTemplate: function(){
 			this.$el.html( this.template( this.merge() ) );
 			return this;
+		},
+
+		activate: function( el ){
+			$( el )
+			.find( "#tabContainer" )
+			.html( this.render().el );
 		},
 
 		merge: function( data ){

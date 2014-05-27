@@ -3,7 +3,7 @@ define(function(require){
 	var
 
 	_               = require("_"),
-	
+
 	ItemsCollection = require( "collections/items/items" ),
 	MetaCollection  = require( "collections/items/meta" ),
 
@@ -21,20 +21,32 @@ define(function(require){
 			this.collection = new ItemsCollection();
 			this.metaCollection = new MetaCollection();
 			App.vent.on( "profile:dataLoaded", this.update, this );
-			this.render = this.renderItems;
+
+			window.itemsTab = this;
 		},
 
 		update: function( data ){
-			this.collection.reset( data.get( "itemsWrapper" ).collection );
+			var items = data.get( "itemsWrapper" ).collection;
+			this.collection.fetchById( { prodid: _.pluck( items, "id" ) } );
+			this.metaCollection.reset( items );
 		},
 
-		renderItems: function(){			
+		activate: function( el ){
+			//Render loading until callback replaces content
+			$( el )
+			.find( "#tabContainer" )
+			.html( '<div class="spinner-wave"><div></div><div></div><div></div><div></div></div>' );
+
+			this.listenToOnce( this.collection, "sync", this.renderItems);
+		},
+
+		renderItems: function(){
 			this.renderCollection();
 			var self = this;
 			_.defer( function(){
 				self.masonry( '.item' );
-			} );			
-			return this;			
+			} );
+			return this;
 		}
 
 	});

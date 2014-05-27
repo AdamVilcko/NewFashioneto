@@ -12,8 +12,7 @@ define(function(require){
 	Nav               = require( 'views/ui/nav' ),
 	Items             = require( 'views/pages/items' ),
 	People            = require( 'views/pages/people' ),
-	MyProfile         = require( 'views/pages/myprofile' ),
-	GuestProfile      = require( 'views/pages/guestprofile' ),
+	Profile           = require( 'views/pages/profile' ),
 	mainTemplate      = require( 'text!templates/main.hbr' );
 
 
@@ -34,21 +33,14 @@ define(function(require){
 			this.$el.removeClass( "login" );
 		},
 
-		render: function(){
-			this.$el
-			.html( this.template() );
-			return this;
-		},
-
 		invokeCompenents: function() {
-			this.nav                = new Nav();
-			this.pages              = {};
-			this.pages.items        = new Items();
-			this.pages.people       = new People();
-			this.pages.myprofile    = new MyProfile();
-			this.pages.guestprofile = new GuestProfile();
-			window.location.hash    = "";
-			window.location.hash    = "myprofile";
+			this.nav             = new Nav();
+			this.pages           = {};
+			this.pages.items     = new Items();
+			this.pages.people    = new People();
+			this.pages.profile   = new Profile();
+			window.location.hash = "";
+			window.location.hash = "myprofile";
 			return this;
 		}
 

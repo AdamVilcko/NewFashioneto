@@ -23,7 +23,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 			    name : name,
 			    args : args,
 			    fragment : Backbone.history.fragment
-			  });			 
+			  });
 			});
 			this.login = new Login({
 				success: function(){
@@ -91,12 +91,12 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 		myProfile: function( tab ){
 			$("#main").empty();
-			App.vent.trigger( 'page:myprofile', { tab: tab, myProfile: true } );
+			App.vent.trigger( 'page:profile', { tab: tab, myProfile: true } );
 		},
 
 		guestProfile: function( user, tab ){
 			$("#main").empty();
-			App.vent.trigger( 'page:guestprofile', { user: user , tab: tab, myProfile: false } );
+			App.vent.trigger( 'page:profile', { user: user , tab: tab, myProfile: false } );
 		},
 
 		itemModal: function(){

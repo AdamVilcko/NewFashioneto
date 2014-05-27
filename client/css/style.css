@@ -72,7 +72,7 @@ body.pace-running #main{
 
 body.pace-done #main{
 
-	
+
 }
 
 h1,h2,h3,h4,h5,h6, a:hover, a:focus, select{
@@ -187,7 +187,7 @@ body.login #bottomBar{
 
 
 @media( max-width: 768px ), handheld{
-	
+
 	body.login h1{
 		font-size: 17px;
 		font-weight: normal;
@@ -706,7 +706,7 @@ background-color: #fff;
 	margin-top:1px;
 	right: -1px;
 	white-space:nowrap;
-	visibility: hidden;	
+	visibility: hidden;
 }
 
 #nav-right li.active .subMenu{
@@ -879,7 +879,7 @@ background-color: #fff;
 
 #nav-right li.profile.active,
 #nav-right li.profile.active > a{
-	
+
 	border:none;
 }
 
@@ -1151,7 +1151,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 /* Tabs */
 
 #tabContainer{
-	
+
 }
 
 .nav-tabs{
@@ -1234,13 +1234,13 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 	width: 110px;
 }
 
-#controls > .control-group{	
+#controls > .control-group{
 	height: 21px;
 	width:400px;
 }
 
 #controls .search-group{
-	
+
 }
 
 #controls span.input-group-btn{
@@ -1248,7 +1248,7 @@ a.list-group-item.active>.badge, .nav-pills>.active>a>.badge{
 }
 
 #controls input.search{
-	
+
 }
 
 #controls .checkbox{
@@ -1834,4 +1834,65 @@ footer ul > li {
     font-weight: normal;
     font-style: normal;
 
+}
+
+/* Key frames */
+
+.spinner-wave {
+    margin: 150px auto;
+	width: 100px;
+	height: 118px;
+	text-align: center;
+}
+
+.spinner-wave > div {
+
+margin:0 3px;
+    height: 100%;
+width: 15px;
+display: inline-block;
+border-radius: 10px;
+
+    -webkit-animation: wave 1.2s infinite ease-in-out;
+    animation: wave 1.2s infinite ease-in-out;
+
+    background: #6c5377;
+	background: -moz-linear-gradient(top, #6c5377 0%, #543761 85%, #543761 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c5377), color-stop(85%,#543761), color-stop(100%,#543761));
+	background: -webkit-linear-gradient(top, #6c5377 0%,#543761 85%,#543761 100%);
+	background: -o-linear-gradient(top, #6c5377 0%,#543761 85%,#543761 100%);
+	background: -ms-linear-gradient(top, #6c5377 0%,#543761 85%,#543761 100%);
+	background: linear-gradient(to bottom, #6c5377 0%,#543761 85%,#543761 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c5377', endColorstr='#543761',GradientType=0 );
+}
+}
+
+.spinner-wave div:nth-child(1) {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.spinner-wave div:nth-child(2) {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.spinner-wave div:nth-child(3) {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner-wave div:nth-child(4) {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes wave {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+    20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes wave {
+    0%, 40%, 100% { transform: scaleY(0.4); }
+    20% { transform: scaleY(1.0); }
 }

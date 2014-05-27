@@ -8,11 +8,12 @@ define(function(require){
 
 		navState: function(){
 			var
-			pageId = window.location.hash.split( "#" )[1].split( "/" )[0],
-			tab = window.location.hash.split( "#" )[1].split( "/" )[2],
+			hash       = window.location.hash,
+			pageId     = hash.split( "#" )[1].split( "/" )[0],
+			tab        = hash.split( "#" )[1].split( "/" )[2],
 			navAnchors = $( ".nav a" ),
 			active     = "active",
-			wildCard = window.location.hash.split( "/" )[1],
+			wildCard   = hash.split( "/" )[1],
 			href;
 
 			navAnchors.parent().removeClass( active );
@@ -60,22 +61,28 @@ define(function(require){
 
             args = _.extend( defaults, args );
 
-            function build(){
+            return function(){
                 var string = root;
                 _.each( args, function( value, key, list ){
-                    if( _.isObject( value ) ){
-                    	_.each( value, function( value, key, list ){
-                    		if( _.isString( value ) ){
-                    			string += "fl=" + key + value + "&";
-                    		}  		
-                    	} );
-                    } else {
-                    	string += key + "=" + value + "&";
-                    } 
+                	if( ! _.isNull( value ) ){
+                		if( _.isArray( value ) ){
+	                    	_.each( value, function( element, index, list ){
+	                    			string += key + "=" + element + "&";
+	                    	} );
+	                    } else if( _.isObject( value ) ) {
+	                    	_.each( value, function( value, key, list ){
+	                    		if( _.isString( value ) ){
+	                    			string += "fl=" + key + value + "&";
+	                    		}
+	                    	} );
+	                    } else {
+	                    	string += key + "=" + value + "&";
+	                    }
+                	}
                 } );
 				return string;
-            };
-            return build();
+            }();
+
         }
 
 	}

@@ -46,11 +46,12 @@ window.App =
             products:{
                 root: "http://api.shopstyle.com/action/apiSearch?",
                 defaults:{
-                    fts: "default",
-                    count: "",
                     format:"jsonp",
                     site: "www.shopstyle.co.uk",
                     pid: "uid8569-24941587-78",
+                    fts: null,
+                    count: null,
+                    prodid: null,
                     filters:{
                         b : null, //brand
                         r : null, //retailer

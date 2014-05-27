@@ -43,7 +43,6 @@ define(function(require){
 			} else {
 				this.render();
 			}
-
 		},
 
 		tabTo: function( data ){

@@ -35,8 +35,12 @@ define(function(require){
 			} );
 		},
 
-		fetchById: function(){
-			
+		fetchById: function( args ){
+			this.reset();
+			this.fetch( {
+				dataType: "jsonp",
+				url: Helper.queryBuilder( args )
+			} );
 		}
 
 	});
