@@ -18,8 +18,8 @@ define(function(require){
 		emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No items yet! (Come on, you're better than this)</div>" ),
 
 		init: function(){
-			this.collection = new ItemsCollection();
-			this.metaCollection = new MetaCollection();
+			this.collection = new ItemsCollection( { nameSpace: "itemsTab" } );
+			this.metaCollection = new MetaCollection( { nameSpace: "itemsTab" } );
 			App.vent.on( "profile:dataLoaded", this.update, this );
 		},
 

@@ -19,7 +19,7 @@ define(function(require){
 
 		addEvents: function(){
 			this.on( "sync", function( collection, resp, options ){
-				App.vent.trigger( "items:fetchMeta", collection.pluck( "id" ) );
+				App.vent.trigger( this.nameSpace + ":items:fetchMeta", collection.pluck( "id" ) );
 			}, this );
 		},
 
