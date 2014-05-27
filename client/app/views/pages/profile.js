@@ -83,28 +83,39 @@ define(function(require){
 
 			this.$el.addClass( "loadOut" );
 
+			var el = $( "<div></div>" );
+
+			el
+			.attr( "data-view", self.cid ) //Needs to be here as the el is shared
+			.html( self.template( self.merge( self.data ) ) );
+
+			if( self.sidebar ){
+				el
+				.find( self.nodes.sidebar )
+				.html( self.sidebar.render().el );
+			}
+
+			if( typeof self.postRender !== "undefined" ) self.postRender();
+
+
+
 			setTimeout( function(){
-				self.$el
-				.attr( "data-view", self.cid ) //Needs to be here as the el is shared
-				.html( self.template( self.merge( self.data ) ) );
+
+				self.$el.html( el );
 
 				if( self.tabs ){
 					self.tabs[ self.activeTab ].activate( self.el );
 				}
 
-				if( self.sidebar ){
-					self.$el
-					.find( self.nodes.sidebar )
-					.html( self.sidebar.render().el );
-				}
+				self.$el
+				.addClass( "loadIn" )
+				.removeClass( "loadOut" );
 
-				if( typeof self.postRender !== "undefined" ) self.postRender();
+				Helper.navState();
 
-				self.$el.removeClass( "loadOut" );
+			}, 300 );
 
-			}, 300 );			
 
-			Helper.navState();
 			return this;
 
 		},
