@@ -6,10 +6,13 @@ define(function(require){
 
 	return {
 
-		navState: function( pageId, tab ){
+		navState: function(){
 			var
+			pageId = window.location.hash.split( "#" )[1].split( "/" )[0],
+			tab = window.location.hash.split( "#" )[1].split( "/" )[2],
 			navAnchors = $( ".nav a" ),
 			active     = "active",
+			wildCard = window.location.hash.split( "/" )[1],
 			href;
 
 			navAnchors.parent().removeClass( active );
@@ -18,7 +21,7 @@ define(function(require){
 
 			navAnchors.each( function( i ){
 				href = $(this).attr( "href" );
-				if( href === "#" + pageId || href === "#" + pageId + "/" + tab ){
+				if( href === "#" + pageId || href === "#" + pageId + "/" + wildCard + "/" + tab ){
 					$(this).parent().addClass( active );
 				}
 			} );

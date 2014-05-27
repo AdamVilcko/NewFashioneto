@@ -17,12 +17,26 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 
 		initialize: function(){
+			App.history = [];
+			this.listenTo(this, 'route', function (name, args) {
+			  App.history.push({
+			    name : name,
+			    args : args,
+			    fragment : Backbone.history.fragment
+			  });			 
+			});
 			this.login = new Login({
 				success: function(){
 					this.mainView = new MainView();
 				},
 				context: this
 			});
+		},
+
+		execute: function( callback, args ){
+			console.log( callback );
+			console.log( args );
+
 		},
 
 

@@ -94,6 +94,7 @@ define(function(require){
 
 			if( typeof this.postRender !== "undefined" ) this.postRender();
 
+			Helper.navState();
 			return this;
 
 		},

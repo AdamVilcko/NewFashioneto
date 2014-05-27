@@ -6,6 +6,7 @@ define(function(require){
 	Backbone        = require("backbone"),
 	Handlebars      = require("handlebars"),
 	Helper          = require('helper'),
+	_ = require("_"),
 
 	MasterBaseView  = require('views/masterbaseview'),
 	MasterBaseModel = require('models/masterbasemodel');
@@ -32,16 +33,17 @@ define(function(require){
 		handler: function( requestState ){
 			this.state = requestState;
 			this.loadComponents();
+			_.defer( Helper.navState );
 		},
 
 		loadComponents: function(){
 			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
-			Helper.navState( this.pageId, this.activeTab );
 			if( this.loadData ){
 				this.loadData();
 			} else {
 				this.render();
 			}
+
 		},
 
 		tabTo: function( data ){
