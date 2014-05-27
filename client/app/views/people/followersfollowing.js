@@ -13,7 +13,7 @@ define(function(require){
 
 		modelView: Person,
 
-		emptyCollectionTemplate: Handlebars.compile( "<h1 style='text-align:center'>No people yet!</h1><p style='text-align:center'>(Sort it out)</p>" ),
+		emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No people yet! (Sort it out</div>" ),
 
 		init: function(){
 			this.collection = new Collection();
@@ -25,13 +25,13 @@ define(function(require){
 			this.collection.reset( data.get( this.options.type ).collection );
 		},
 
-		renderPeople: function(){			
+		renderPeople: function(){
 			this.renderCollection();
 			var self = this;
 			_.defer( function(){
 				self.masonry( '.people' );
-			} );			
-			return this;			
+			} );
+			return this;
 		}
 
 	});

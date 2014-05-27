@@ -36,11 +36,14 @@ define(function(require){
 			return this;
 		},
 
-		renderCollection: function( collection ){
+		renderCollection: function( collection, options ){
 			collection = collection || this.collection || null;
 			if( collection ){
 				this.$el.empty();
 				if( ! collection.isEmpty() ){
+					if( options === "sort" ){
+						collection.sort();
+					}
 					collection.each( this.renderModel, this );
 				} else {
 					this.$el.html( this.emptyCollectionTemplate( this.merge() ) );

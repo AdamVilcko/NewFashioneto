@@ -4,7 +4,7 @@ define(function(require){
 	Backbone       = require( "backbone" ),
 	Handlebars     = require( "handlebars" ),
 	$              = require( "jquery" ),
-	
+
 	MasterBaseView = require( 'views/masterbaseview' ),
 	template       = require( "text!templates/wall/wall.hbr" ),
 	Posts          = require( "views/wall/posts" );
@@ -30,7 +30,7 @@ define(function(require){
 		postRender: function(){
 			this.$el
 			.find( this.nodes.posts )
-			.html( this.posts.render().el );
+			.html( this.posts.renderCollection( null, "sort" ).el );
 			return this;
 		},
 

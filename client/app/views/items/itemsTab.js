@@ -15,14 +15,12 @@ define(function(require){
 
 		modelView: ItemView,
 
-		emptyCollectionTemplate: Handlebars.compile( "<h1 style='text-align:center'>No items yet!</h1><p style='text-align:center'>(Come on, you're better than this)</p>" ),
+		emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No items yet! (Come on, you're better than this)</div>" ),
 
 		init: function(){
 			this.collection = new ItemsCollection();
 			this.metaCollection = new MetaCollection();
 			App.vent.on( "profile:dataLoaded", this.update, this );
-
-			window.itemsTab = this;
 		},
 
 		update: function( data ){
