@@ -19,7 +19,6 @@ define(function(require){
 			this.collection = new CommentsCollection( this.options.data )
 			this.collection
 			.on( "sync", this.render, this );
-
 		},
 
 		modelView: CommentView,
@@ -35,21 +34,10 @@ define(function(require){
 			textarea : "textarea"
 		},
 
-
-
 		render: function(){
-
-			//Show all comments
-			this.$el.html( /*this.templates.showAll()*/ );
-
-			//Each through posts
 			this.renderCollection();
-
-			//Input
 			this.$el.append( this.templates.input( this.merge() ) );
-
 			return this;
-
 		},
 
 		events:{

@@ -3,7 +3,11 @@
 	[
 		{
 			"follow_symlinks": true,
-			"path": "client/app"
+			"path": "client\\app"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "client\\css"
 		}
 	]
 }

@@ -28,6 +28,7 @@ define(function(require){
 		},
 
 		postRender: function(){
+			this.delegateEvents();
 			this.$el
 			.find( this.nodes.posts )
 			.html( this.posts.renderCollection( null, "sort" ).el );

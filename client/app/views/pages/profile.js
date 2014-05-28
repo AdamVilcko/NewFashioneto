@@ -39,7 +39,7 @@ define(function(require){
 		},
 
 		handler: function( requestState ){
-			this.state = requestState;
+			if( typeof requestState.tab !== "undefined" ) this.activeTab = requestState.tab;
 			this.myProfile = requestState.myProfile;
 			if( this.myProfile ){
 				this.url = App.api.get( "user" );

@@ -14,7 +14,10 @@ define(function(require){
 
 	return MasterBaseView.extend({
 
+		contextId: "comment",
+
 		tagName: "article",
+
 		className: "media",
 
 		template: Handlebars.compile( template ),

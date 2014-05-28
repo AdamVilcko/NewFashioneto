@@ -30,7 +30,7 @@ define(function(require){
 		},
 
 		handler: function( requestState ){
-			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.requestState.tab;
+			if( typeof requestState.tab !== "undefined" ) this.activeTab = requestState.tab;
 			if( this.loadData ){
 				this.loadData();
 			} else {
