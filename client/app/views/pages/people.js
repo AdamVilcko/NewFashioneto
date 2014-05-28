@@ -24,10 +24,17 @@ define(function(require){
 		initSubviews: function(){
 			this.people = new People();
 			this.people.collection.on( "sync", function(){
-				this.render();
-				this.$("#tabContainer")
-				.html( this.people.renderCollection().el );
-				this.people.masonry( ".people" );
+				this.$el.addClass( "loadOut" );
+				var self = this;
+				setTimeout( function(){
+					self.render();
+					self.$el
+					.addClass( "loadIn" )
+					.removeClass( "loadOut" );
+					self.$("#tabContainer")
+					.html( self.people.renderCollection().el );
+					self.people.masonry( ".people" );
+				}, 300 );
 			}, this );
 		},
 

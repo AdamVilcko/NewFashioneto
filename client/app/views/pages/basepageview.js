@@ -34,7 +34,15 @@ define(function(require){
 			if( this.loadData ){
 				this.loadData();
 			} else {
-				this.render();
+				this.$el.addClass( "loadOut" );
+				var self = this;
+				setTimeout( function(){
+					self.render();
+					self.$el
+					.addClass( "loadIn" )
+					.removeClass( "loadOut" );
+				}, 300 );
+
 			}
 			_.defer( Helper.navState );
 		},

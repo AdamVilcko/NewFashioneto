@@ -32,6 +32,7 @@ define(function(require){
 			.invokeComponents();
 			this.$el.removeClass( "login" );
 			App.vent.on( "page:change", this.controller, this );
+			this.main = this.$el.find( "#main" );
 		},
 
 		controller: function( args ){
@@ -44,8 +45,14 @@ define(function(require){
 			this.pages.items     = new Items();
 			this.pages.people    = new People();
 			this.pages.profile   = new Profile();
-			window.location.hash = "";
-			window.location.hash = "myprofile";
+
+			//This will need to be done by a page ready event
+			window.location.hash = "m";
+			setTimeout( function(){
+
+				window.location.hash = "profile";
+			}, 300 );
+
 			return this;
 		}
 

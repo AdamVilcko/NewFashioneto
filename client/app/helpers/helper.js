@@ -18,6 +18,7 @@ define(function(require){
 
 			navAnchors.parent().removeClass( active );
 
+			if( ( pageId === "profile" || pageId === "people" ) && ! tab ) tab = "wall";
 			if( pageId === "guestprofile" ) pageId = "people"; // Bodge to make people still highlight even though id name is guestprofile
 
 			navAnchors.each( function( i ){
@@ -38,11 +39,11 @@ define(function(require){
 
 			if( state === "collapse" ){
 				$( target ).
-				slideDown( 200 );
+				show();
 				el.data( 'toggle', 'uncollapse' );
 			} else {
 				$( target ).
-				slideUp( 200 );
+				hide();
 				el.data( 'toggle', 'collapse' );
 			}
 		},

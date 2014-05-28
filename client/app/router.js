@@ -47,9 +47,9 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 
 			'': "index",
 
-			'myprofile': 'myProfile',
+			'profile': 'profile',
 
-			'myprofile/:tab': 'myProfile',
+			'profile/:tab': 'profile',
 
 			'people': 'people',
 
@@ -89,7 +89,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 			App.vent.trigger( 'page:change', { page:"items", tab: tab } );
 		},
 
-		myProfile: function( tab ){
+		profile: function( tab ){
 			App.vent.trigger( 'page:change', { page:"profile", tab: tab, myProfile: true } );
 		},
 
