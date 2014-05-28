@@ -1809,6 +1809,25 @@ footer ul > li {
 	padding:0 30px; */
 }
 
+/* Alert */
+
+.alert-info{
+	color: #3a2444;
+background: #f9f8f7;
+background: -moz-linear-gradient(top, #f9f8f7 0%, #f3f1ef 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f8f7), color-stop(100%,#f3f1ef));
+background: -webkit-linear-gradient(top, #f9f8f7 0%,#f3f1ef 100%);
+background: -o-linear-gradient(top, #f9f8f7 0%,#f3f1ef 100%);
+background: -ms-linear-gradient(top, #f9f8f7 0%,#f3f1ef 100%);
+background: linear-gradient(to bottom, #f9f8f7 0%,#f3f1ef 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 );
+border: 1px solid #d4cac1;
+font-weight: bold;
+}
+
+
+
+
 
 
 

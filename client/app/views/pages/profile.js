@@ -100,7 +100,7 @@ define(function(require){
 
 
 			setTimeout( function(){
-
+$('html body').scrollTop(0);
 				self.$el.html( el );
 
 				if( self.tabs ){

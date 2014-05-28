@@ -37,6 +37,7 @@ define(function(require){
 				this.$el.addClass( "loadOut" );
 				var self = this;
 				setTimeout( function(){
+					$('html body').scrollTop(0);
 					self.render();
 					self.$el
 					.addClass( "loadIn" )
