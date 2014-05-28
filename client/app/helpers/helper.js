@@ -61,7 +61,7 @@ define(function(require){
 
             args = _.extend( defaults, args );
 
-            return function(){
+            function build(){
                 var string = root;
                 _.each( args, function( value, key, list ){
                 	if( ! _.isNull( value ) ){
@@ -81,7 +81,9 @@ define(function(require){
                 	}
                 } );
 				return string;
-            }();
+            };
+
+            return build();
 
         }
 
