@@ -25,26 +25,18 @@ define(function(require){
 		activeTab: "wall",
 
 		init: function(){
-			App.vent.on( "page:" + this.pageId, this.handler, this );
 			if( this.loadSidebar ) this.loadSidebar();
 			if( this.loadTabs ) this.loadTabs();
 		},
 
 		handler: function( requestState ){
-			this.state = requestState;
-			this.loadComponents();
-			_.defer( Helper.navState );
-		},
-
-
-
-		loadComponents: function(){
-			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.state.tab;
+			if( typeof this.state.tab !== "undefined" ) this.activeTab = this.requestState.tab;
 			if( this.loadData ){
 				this.loadData();
 			} else {
 				this.render();
 			}
+			_.defer( Helper.navState );
 		},
 
 		tabTo: function( data ){

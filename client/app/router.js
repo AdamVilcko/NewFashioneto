@@ -78,23 +78,23 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 		},
 
 		feed: function( tab ){
-			App.vent.trigger( 'page:feed', { tab: tab } );
+			App.vent.trigger( 'page:change', { page:"feed", tab: tab } );
 		},
 
 		people: function( tab ){
-			App.vent.trigger( 'page:people', { tab: tab } );
+			App.vent.trigger( 'page:change', { page:"people", tab: tab } );
 		},
 
 		items: function( tab ){
-			App.vent.trigger( 'page:items', { tab: tab } );
+			App.vent.trigger( 'page:change', { page:"items", tab: tab } );
 		},
 
 		myProfile: function( tab ){
-			App.vent.trigger( 'page:profile', { tab: tab, myProfile: true } );
+			App.vent.trigger( 'page:change', { page:"profile", tab: tab, myProfile: true } );
 		},
 
 		guestProfile: function( user, tab ){
-			App.vent.trigger( 'page:profile', { user: user , tab: tab, myProfile: false } );
+			App.vent.trigger( 'page:change', { user: user, page:"profile", tab: tab, myProfile: false } );
 		},
 
 		itemModal: function(){

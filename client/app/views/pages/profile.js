@@ -46,7 +46,7 @@ define(function(require){
 			} else {
 				this.url = App.api.get( "user" ) + "/" + requestState.user;
 			}
-			this.loadComponents();
+			this.loadData();
 		},
 
 		loadData: function(){

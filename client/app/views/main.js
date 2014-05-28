@@ -29,11 +29,16 @@ define(function(require){
 		init: function(){
 			this
 			.render()
-			.invokeCompenents();
+			.invokeComponents();
 			this.$el.removeClass( "login" );
+			App.vent.on( "page:change", this.controller, this );
 		},
 
-		invokeCompenents: function() {
+		controller: function( args ){
+			this.pages[ args.page ].handler( args );
+		},
+
+		invokeComponents: function() {
 			this.nav             = new Nav();
 			this.pages           = {};
 			this.pages.items     = new Items();
