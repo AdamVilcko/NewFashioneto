@@ -29,6 +29,8 @@ define(function(require){
 			input: Handlebars.compile( input )
 		},
 
+		emptyCollectionTemplate: Handlebars.compile( " " ),
+
 		nodes:{
 			textarea : "textarea"
 		},
@@ -41,7 +43,7 @@ define(function(require){
 			this.$el.html( /*this.templates.showAll()*/ );
 
 			//Each through posts
-			this.collection.each( this.renderCollection, this );
+			this.renderCollection();
 
 			//Input
 			this.$el.append( this.templates.input( this.merge() ) );

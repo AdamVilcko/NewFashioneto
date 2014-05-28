@@ -46,7 +46,9 @@ define(function(require){
 					}
 					collection.each( this.renderModel, this );
 				} else {
-					this.$el.html( this.emptyCollectionTemplate( this.merge() ) );
+					if( this.emptyCollectionTemplate ){
+						this.$el.html( this.emptyCollectionTemplate( this.merge() ) );
+					}
 				}
 			}
 			return this;
