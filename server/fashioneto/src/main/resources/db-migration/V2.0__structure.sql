@@ -22,7 +22,7 @@ create table image (
 	`filename` varchar(200) not null,
 	`file_extension` varchar(4) not null,
 	`date` DATETIME not null,
-	`description` varchar(100) not null
+	`description` varchar(100) null
 );
 
 create table follow_user (

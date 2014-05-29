@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.fashioneto.dao.ImageDAO;
 import com.fashioneto.persistence.Image;
+import com.fashioneto.persistence.User;
 import com.fashioneto.ws.entities.ImageSizeEnum;
 
 /**
@@ -28,6 +30,7 @@ import com.fashioneto.ws.entities.ImageSizeEnum;
 public class ImageServiceImpl implements ImageService
 {
 	private static final String PATH = "/uploads/images/";
+	private static final String DEFAULT_EXTENSION = "jpg";
 
 	@Autowired
 	private ImageDAO imageDAO;
@@ -35,6 +38,23 @@ public class ImageServiceImpl implements ImageService
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	@Override
+	public Image uploadImage(User user, InputStream fileInputStream, String filename) throws IOException
+	{
+		
+		Image image = new Image();
+		image.setDate(new Date());
+		image.setFilename(filename);
+		image.setUser(user);
+		image.setFileExtension(DEFAULT_EXTENSION);
+		image = entityManager.merge(image);
+		
+		
+		
+		return image;
+	}
+	
+	
 	@Override
 	public ByteArrayOutputStream getImageContent(int id, ImageSizeEnum size) throws IOException
 	{
