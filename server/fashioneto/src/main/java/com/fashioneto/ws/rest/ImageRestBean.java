@@ -61,7 +61,11 @@ public class ImageRestBean
 	private Response getResponseImageContent(int imageId, ImageSizeEnum imageSize) throws IOException
 	{
 		ByteArrayOutputStream baos = imageService.getImageContent(imageId, imageSize);
-		byte[] imageData = baos.toByteArray();
-		return Response.ok(imageData).type(new MediaType("image", MediaType.WILDCARD)).build();
+		if (baos != null)
+		{
+			byte[] imageData = baos.toByteArray();
+			return Response.ok(imageData).type(new MediaType("image", MediaType.WILDCARD)).build();
+		}
+		return Response.status(Status.NOT_FOUND).build();
 	}
 }
