@@ -15,6 +15,23 @@ public class TokenUtils
 	/* Expires in TWENTY hours */
 	public static final Long MINUTES_TO_EXPIRE = 20 * 60L;
 
+	public static String createTokenImageName(UserDetails userDetails)
+	{
+
+		long time = System.currentTimeMillis();
+
+		StringBuilder tokenBuilder = new StringBuilder();
+		tokenBuilder.append(userDetails.getUsername());
+		tokenBuilder.append("-");
+		tokenBuilder.append(time);
+		tokenBuilder.append("-");
+		tokenBuilder.append(TokenUtils.computeSignature(userDetails, time));
+
+		MessageDigest digest = getMd5Digest();
+
+		return new String(Hex.encode(digest.digest(tokenBuilder.toString().getBytes())));
+	}
+
 	public static String createToken(UserDetails userDetails)
 	{
 
@@ -42,6 +59,13 @@ public class TokenUtils
 		signatureBuilder.append(":");
 		signatureBuilder.append(TokenUtils.MAGIC_KEY);
 
+		MessageDigest digest = getMd5Digest();
+
+		return new String(Hex.encode(digest.digest(signatureBuilder.toString().getBytes())));
+	}
+
+	private static MessageDigest getMd5Digest()
+	{
 		MessageDigest digest;
 		try
 		{
@@ -51,8 +75,7 @@ public class TokenUtils
 		{
 			throw new IllegalStateException("No MD5 algorithm available!");
 		}
-
-		return new String(Hex.encode(digest.digest(signatureBuilder.toString().getBytes())));
+		return digest;
 	}
 
 	public static String getUserNameFromToken(String authToken)
