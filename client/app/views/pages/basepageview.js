@@ -40,7 +40,7 @@ define(function(require){
 					$('html body').scrollTop(0);
 					self.render();
 					self.$el
-					.addClass( "loadIn" )
+					
 					.removeClass( "loadOut" );
 				}, 300 );
 

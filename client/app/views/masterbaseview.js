@@ -86,29 +86,30 @@ define(function(require){
 			masonryDefaults,
 			target = $( "#tabContainer" ),
 			masonryOptions = masonryOptions || {};
-
 			masonryDefaults = {
 			  itemSelector: item,
 			  gutterWidth: 25,
 			  isFitWidth: true
 			}
-
 			masonryOptions = _.extend( masonryDefaults, masonryArgs );
-
 			target
+			.css({opacity:0})
 			.empty()
 			.html( this.renderCollection().el )
 			.addClass( "masonryContainer" );
-			target.imagesLoaded( function(){
-				setTimeout( function(){
-					target
-					.masonry( masonryOptions );
-					$( item )
-					.each( function( i ){
-						$(this).delay( i * 25 ).animate( { opacity: 1 }, 1200 );
-					} );
-				}, 1000 );
-			} );
+			setTimeout(function(){
+				target
+				.masonry( masonryOptions );
+				target
+				.imagesLoaded()
+				.progress( function( instance, image ) {
+				  var result = image.isLoaded ? 'loaded' : 'broken';
+				  $(image.img)
+				  .addClass("loadIn");
+				});
+				target
+				.css({opacity:1});
+			}, 600);
 		},
 
 		data: {}

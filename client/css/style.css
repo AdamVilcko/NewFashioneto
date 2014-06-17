@@ -342,21 +342,12 @@ span.underline{
 
 /* Viewing item modal */
 
-.item{
-	opacity:0;
-}
-
 #itemModal{
 
 }
 
 #itemModal .modal-content{
 	background:#fff;
-}
-
-
-.viewingItem{
-
 }
 
 .viewingItem .main{
@@ -1367,7 +1358,7 @@ p{
 	margin:15px 0;
 	padding-bottom:15px;
 	border-bottom:1px solid #e5dada;
-	display:none;
+
 }
 
 #images {
@@ -1635,7 +1626,6 @@ p{
 	width:250px;
 	margin-bottom:30px;
 	float:left;
-	opacity:0;
 }
 
 .people div.followContainer{
@@ -1680,8 +1670,17 @@ p{
 /* item */
 
 .item{
-
+	/* -moz-transform: scale(0.2,0.2); opacity: 0; */
 }
+
+.item .pic{
+	background: url(../img/loading.gif) no-repeat center center;
+}
+
+.item .pic img{
+	opacity:0;
+}
+
 
 .item h6{
 	text-align: center;
@@ -1702,7 +1701,9 @@ p{
 }
 
 .item .pic img{
-	width:100%;
+	display: block;
+	margin: auto;
+	max-width: 100%;
 }
 
 .item .like{
@@ -1719,6 +1720,8 @@ p{
 .item.w2 { width: 50%; }
 .item.w3 { width: 33.33%; }
 .item.w4 { width: 25%; }
+
+
 
 /* .masonry,
 .masonry .masonry-brick {
@@ -1927,6 +1930,13 @@ border-radius: 10px;
 	-o-animation: opacityani forwards 0.3s ease-in-out;
 }
 
+.loadIn{
+	animation: loadIn forwards 0.3s ease-in-out;
+	-webkit-animation: loadIn forwards 0.3s ease-in-out;
+	-moz-animation: loadIn forwards 0.3s ease-in-out;
+	-o-animation: loadIn forwards 0.3s ease-in-out;
+}
+
 /* .loadIn{
 	-webkit-animation: opacityani backwards 0.3s ease-in-out;
 } */
@@ -1950,6 +1960,31 @@ border-radius: 10px;
   0%   { @-o-transform: scale(1,1); opacity: 1; }
   100% { @-o-transform: scale(0.8,0.8); opacity: 0; }
 }
+
+
+
+@keyframes loadIn {
+  0%   { transform: scale(0.2,0.2); opacity: 0; }
+  100% { transform: scale(1,1); opacity: 1; }
+}
+
+@-webkit-keyframes loadIn {
+  0%   { -webkit-transform: scale(0.2,0.2); opacity: 0; }
+  100% { -webkit-transform: scale(1,1); opacity: 1; }
+}
+
+@-moz-keyframes loadIn {
+  0%   { -moz-transform: scale(0.2,0.2); opacity: 0; }
+  100% { -moz-transform: scale(1,1); opacity: 1; }
+}
+
+@-o-keyframes loadIn {
+  0%   { @-o-transform: scale(0.2,0.2); opacity: 0; }
+  100% { @-o-transform: scale(1,1); opacity: 1; }
+}
+
+
+
 
 
 

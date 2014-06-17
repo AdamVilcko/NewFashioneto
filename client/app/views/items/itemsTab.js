@@ -3,6 +3,7 @@ define(function(require){
 	var
 
 	_               = require("_"),
+	Helper               = require( 'helper' ),
 
 	ItemsCollection = require( "collections/items/items" ),
 	MetaCollection  = require( "collections/items/meta" ),
@@ -11,42 +12,48 @@ define(function(require){
 	MasterBaseView  = require( "views/masterbaseview" );
 
 
-	return MasterBaseView.extend({
+	return function(viewOptions){
+		var self = this,
 
-		modelView: ItemView,
+		View = MasterBaseView.extend({
 
-		emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No items yet! (Come on, you're better than this)</div>" ),
+			modelView: ItemView,
 
-		init: function(){
-			this.collection = new ItemsCollection( { nameSpace: "itemsTab" } );
-			this.metaCollection = new MetaCollection( { nameSpace: "itemsTab" } );
-			App.vent.on( "profile:dataLoaded", this.update, this );
-		},
+			emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No items yet! (Come on, you're better than this)</div>" ),
 
-		update: function( data ){
-			var items = data.get( "itemsWrapper" ).collection;
-			this.collection.fetchById( { prodid: _.pluck( items, "id" ) } );
-			this.metaCollection.reset( items );
-		},
+			init: function(){
+				this.collection     = new ItemsCollection();
+				this.metaCollection = new MetaCollection();
+				App.vent.on( "profile:dataLoaded", this.update, this );
+			},
 
-		activate: function( el ){
-			//Render loading until callback replaces content
-			$( el )
-			.find( "#tabContainer" )
-			.html( '<div class="spinner-wave"><div></div><div></div><div></div><div></div></div>' );
+			update: function( data ){
+				
+			},
 
-			this.listenToOnce( this.collection, "sync", this.renderItems);
-		},
+			activate: function( el, model ){
+				var items;
 
-		renderItems: function(){
-			this.renderCollection();
-			var self = this;
-			_.defer( function(){
-				self.masonry( '.item' );
-			} );
-			return this;
-		}
+				Helper.loader( "#tabContainer" );
 
-	});
+				items = model.get( "itemsWrapper" ).collection;
+				this.metaCollection.reset( items );
+
+				this.collection
+				.fetchById( { prodid: _.pluck( items, "id" ) } )
+				.done(function( collection ){
+					self.masonry( '.item' );
+					App.vent.trigger( "items:updateLikes", self.metaCollection );					
+				});
+				
+			}
+
+		});
+
+		_.extend( self, new View(viewOptions) );
+
+		return self;
+
+	}	
 
 });

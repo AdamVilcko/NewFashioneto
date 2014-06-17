@@ -15,15 +15,8 @@ define(function(require){
 
 		url: App.api.get( "items" ),
 
-		init: function(){
-			App.vent.on( this.nameSpace + ":items:fetchMeta", this.fetchMeta, this );
-			this.on( "sync", function( collection, resp, options ){
-				App.vent.trigger( "items:updateLikes", collection );
-			}, this );
-		},
-
 		fetchMeta: function( obj ){
-			this.fetch( {
+			return this.fetch( {
 				data: JSON.stringify( obj ),
 				method: "POST",
 				contentType: "application/json"

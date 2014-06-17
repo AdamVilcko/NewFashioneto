@@ -49,9 +49,9 @@ define(function(require){
 		},
 
 		processDate: function(){
-			this.$el.find('.date')
+			/*this.$el.find('.date')
 			.livestamp( this.model.get( "date" ) )
-			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );
+			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );*/
 		},
 
 		queryBuilder: function( args ){
@@ -60,7 +60,7 @@ define(function(require){
 			root     = App.api.get( "thirdparty" ).root,
 			defaults = App.api.get( "thirdparty" ).defaults;
 
-            args = _.extend( defaults, args );
+            args = $.extend( true, {}, defaults, args );
 
             function build(){
                 var string = root;
@@ -86,6 +86,18 @@ define(function(require){
 
             return build();
 
+        },
+
+        loader: function( el, root ){
+        	if( root ){
+        		root
+				.find( el )
+				.html( '<div class="spinner-wave"><div></div><div></div><div></div><div></div></div>' );
+			} else {
+				$( el )
+				.html( '<div class="spinner-wave"><div></div><div></div><div></div><div></div></div>' );
+			}
+        	
         }
 
 	}

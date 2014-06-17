@@ -29,7 +29,7 @@ define(function(require){
 
 		search: function( ev, args ){
 			this.reset();
-			this.fetch( {
+			return this.fetch( {
 				dataType: "jsonp",
 				url: Helper.queryBuilder( args )
 			} );
@@ -37,7 +37,7 @@ define(function(require){
 
 		fetchById: function( args ){
 			this.reset();
-			this.fetch( {
+			return this.fetch( {
 				dataType: "jsonp",
 				url: Helper.queryBuilder( args )
 			} );

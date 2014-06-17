@@ -1,1 +1,1 @@
-<button {{#if model.actioned}}disabled="disabled"{{/if}} type="button" class="btn btn-default like {{options.type}}">Like<div>{{model.count}}</div></button>
+<button {{#if model.actioned}}disabled="disabled"{{/if}} type="button" class="btn btn-default like {{options.type}}">Like{{#if model.count}}<div>{{model.count}}</div>{{/if}}</button>

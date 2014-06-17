@@ -19,7 +19,8 @@ define(function(require){
 			this.options = options || { type: "heart", data: { count: 0, actioned: null } };
 			this.model = new Model( this.options.data );
 			this.model.on( "sync change", this.renderToDom, this );
-			this.model.url = App.api.get( "like", this.options.contextId )
+			this.model.url = App.api.get( "like", this.options.contextId );
+			console.log( this.model.get("id") );
 		},
 
 		events: {

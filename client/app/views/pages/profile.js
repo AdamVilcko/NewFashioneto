@@ -96,19 +96,16 @@ define(function(require){
 			}
 
 			if( typeof self.postRender !== "undefined" ) self.postRender();
-
-
-
+			
 			setTimeout( function(){
-$('html body').scrollTop(0);
+				$('html body').scrollTop(0);
 				self.$el.html( el );
 
 				if( self.tabs ){
-					self.tabs[ self.activeTab ].activate( self.el );
+					self.tabs[ self.activeTab ].activate( self.el, self.model );
 				}
 
 				self.$el
-				.addClass( "loadIn" )
 				.removeClass( "loadOut" );
 
 				Helper.navState();

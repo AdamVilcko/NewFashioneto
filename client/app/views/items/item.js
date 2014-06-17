@@ -16,7 +16,21 @@ define(function(require){
 
 		className: "item thumbnail",
 
-		contextId: "item"
+		contextId: "item",
+
+		render: function(){
+			var pic, width, height, imageData;
+			MasterBaseView.prototype.render.call( this );
+			
+			imageData = this.model.get( "images" )[5];
+			pic    = this.$el.find(".pic img");
+			
+			pic.css({
+				height: imageData.height
+			});
+
+			return this;
+		}
 
 	});
 

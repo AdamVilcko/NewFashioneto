@@ -7,6 +7,7 @@ define(function(require){
 	Handlebars   = require("handlebars"),
 	Masonry      = require("jquery.masonry"),
 	Imagesloaded = require("jquery.imageloaded"),
+	Helper               = require( 'helper' ),
 
 	People       = require("views/people/people"),
 	BasePageView = require("views/pages/basepageview"),
@@ -25,12 +26,13 @@ define(function(require){
 			this.people = new People();
 			this.people.collection.on( "sync", function(){
 				this.$el.addClass( "loadOut" );
+				
 				var self = this;
 				setTimeout( function(){
+					Helper.loader( "#tabContainer", self.$el );
 					$('html body').scrollTop(0);
 					self.render();
 					self.$el
-					.addClass( "loadIn" )
 					.removeClass( "loadOut" );
 					self.$("#tabContainer")
 					.html( self.people.renderCollection().el );
