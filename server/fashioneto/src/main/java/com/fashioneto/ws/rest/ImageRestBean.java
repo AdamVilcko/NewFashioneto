@@ -6,7 +6,6 @@ import java.io.InputStream;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -23,9 +22,12 @@ import com.fashioneto.persistence.User;
 import com.fashioneto.service.CommentService;
 import com.fashioneto.service.ImageService;
 import com.fashioneto.utils.ContextUtils;
+import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.ws.entities.ImageSizeEnum;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 import com.sun.jersey.core.header.FormDataContentDisposition;
+import com.sun.jersey.multipart.FormDataBodyPart;
+import com.sun.jersey.multipart.FormDataParam;
 
 /**
  * @author Felipe
@@ -76,19 +78,26 @@ public class ImageRestBean
 		}
 		return Response.status(Status.NOT_FOUND).build();
 	}
-	
+
 	@POST
 	@Path("upload")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
-	public Response uploadFile(
-			@FormParam("file") InputStream fileInputStream,
-			@FormParam("file") FormDataContentDisposition contentDispositionHeader) throws IOException {
-
-		User user = ContextUtils.getUserFromAuthenticationContext();
-		
-		Image image = imageService.uploadImage(user, fileInputStream, contentDispositionHeader.getFileName());
-
-		return Response.status(200).entity(FashionetoJsonFactory.getJsonFromObject(image)).build();
+	public Response uploadFile(@FormDataParam("file")
+	InputStream fileInputStream, @FormDataParam("file")
+	FormDataContentDisposition contentDispositionHeader, @FormDataParam("file")
+	FormDataBodyPart body) throws IOException
+	{
+		try
+		{
+			User user = ContextUtils.getUserFromAuthenticationContext();
+			Image image = imageService.uploadImage(user, fileInputStream, body.getMediaType().getSubtype());
+			return Response.ok().entity(FashionetoJsonFactory.getJsonFromObject(image)).build();
+		}
+		catch (NoUserInContextException e)
+		{
+			e.printStackTrace();
+			return Response.status(Status.FORBIDDEN).build();
+		}
 
 	}
 }
