@@ -6,18 +6,17 @@ define(function(require){
 	$          = require("jquery"),
 
 	MasterBaseView = require( 'views/masterbaseview' ),
-	template = require("text!templates/photos/photos.hbr");
+	Collection = require('collections/photos/album-photos'),
+	template = require("text!templates/photos/album-thumbnail.hbr");
 
 
 	return MasterBaseView.extend({
 
-		template: Handlebars.compile( template ),
+		init: function(){
+			this.collection = new Collection();
+		},
 
-		render: function(){
-			this.$el.html( this.template() );
-			return this;
-		}
-
+		template: Handlebars.compile( template )
 	});
 
 });

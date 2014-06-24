@@ -28,7 +28,7 @@ define(function(require){
 			},
 
 			update: function( data ){
-				
+
 			},
 
 			activate: function( el, model ){
@@ -43,9 +43,9 @@ define(function(require){
 				.fetchById( { prodid: _.pluck( items, "id" ) } )
 				.done(function( collection ){
 					self.masonry( '.item' );
-					App.vent.trigger( "items:updateLikes", self.metaCollection );					
+					App.vent.trigger( "items:updateLikes", self.metaCollection );
 				});
-				
+
 			}
 
 		});
@@ -54,6 +54,6 @@ define(function(require){
 
 		return self;
 
-	}	
+	}
 
 });

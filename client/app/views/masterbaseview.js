@@ -5,7 +5,7 @@ define(function(require){
 	$            = require("jquery"),
 	Backbone     = require("backbone"),
 	Handlebars   = require("handlebars"),
-	Helper       = require('helper')
+	Helper       = require('helper'),
 	ImagesLoaded = require("jquery.imageloaded");
 
 

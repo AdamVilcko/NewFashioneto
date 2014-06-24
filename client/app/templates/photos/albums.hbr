@@ -1,0 +1,140 @@
+<section class="row controls">
+
+            <div class="col-md-6">
+
+              <h5><span class="name">Album: <strong>Only me</strong> (15 photos)</span></h5>
+
+            </div>
+
+             <div class="col-md-6">
+				<div class="pull-right">
+					<a class="addPhotosLink" href="">Add photos</a>
+					<button class="btn btn-primary btn-md" href="../navbar-static-top/">Create new album</button>
+				</div><!-- pull-right -->
+             </div>
+
+</section>
+
+<div class="row">
+
+	<div class="col-sm-6 col-md-4">
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	</div>
+
+	<div class="col-sm-6 col-md-4">
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	</div>
+
+	<div class="col-sm-6 col-md-4">
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	    <div class="albumPhoto">
+
+	    	<div class="photoContainer">
+	    		<img class="photo" src="img/picture-album.jpg" alt="...">
+
+	    		<img class="frame" src="img/photos-frame.png" alt="...">
+	    	</div>
+
+	    	<a class="caption" href="#"><span>Only me</span> (15 photos)</a>
+
+	    </div>
+
+	</div>
+
+</div>

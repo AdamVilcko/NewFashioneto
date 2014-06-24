@@ -7,7 +7,7 @@ define(function(require){
 
 	BasePageView       = require( "views/pages/basepageview" ),
 	Wall               = require( "views/wall/wall" ),
-	Photos             = require( "views/photos/photos" ),
+	//Photos             = require( "views/photos/photos" ),
 	ItemsTab              = require( "views/items/itemsTab" ),
 	People             = require( "views/people/people" ),
 	FollowersFollowing = require( "views/people/followersfollowing" ),
@@ -32,7 +32,7 @@ define(function(require){
 		loadTabs: function() {
 			this.tabs           = {};
 			this.tabs.wall      = new Wall( { master: this } ),
-			this.tabs.photos    = new Photos( { master: this } ),
+			//this.tabs.photos    = new Photos( { master: this } ),
 			this.tabs.items     = new ItemsTab( { master: this } ),
 			this.tabs.followers = new FollowersFollowing( { master: this, type: "followersWrapper" } ),
 			this.tabs.following = new FollowersFollowing( { master: this, type: "followingWrapper" } )
@@ -96,7 +96,7 @@ define(function(require){
 			}
 
 			if( typeof self.postRender !== "undefined" ) self.postRender();
-			
+
 			setTimeout( function(){
 				$('html body').scrollTop(0);
 				self.$el.html( el );

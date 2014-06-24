@@ -1,0 +1,19 @@
+<section class="row controls">
+
+        <div class="col-md-6">
+
+          <h5><span class="name">Album: <strong>Only me</strong> (15 photos)</span></h5>
+
+        </div>
+
+         <div class="col-md-6">
+			<div class="pull-right">
+				<a class="albumBack" href="">Back to album view</a>
+				<button class="addphotos btn btn-primary btn-md" href="../navbar-static-top/">Add photos</button>
+				<button class="btn btn-default btn-md" href="../navbar-static-top/">Edit album</button>
+			</div><!-- pull-right -->
+         </div>
+
+</section>
+
+<div id="photosContainer" class="row"></div><!-- row -->
