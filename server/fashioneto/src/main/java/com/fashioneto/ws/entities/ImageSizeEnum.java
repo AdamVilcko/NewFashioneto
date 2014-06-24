@@ -5,17 +5,25 @@ package com.fashioneto.ws.entities;
  **/
 public enum ImageSizeEnum
 {
-	THUMBNAIL("-thumbnail"), SMALL("-small"), STANDARD("");
+	THUMBNAIL("-thumbnail", 51), SMALL("-small", 105), STANDARD("", -1);
 
 	private String sufix;
+	private int width;
 
-	private ImageSizeEnum(String sufix)
+	private ImageSizeEnum(String sufix, int defaultWidth)
 	{
 		this.sufix = sufix;
+		this.width = defaultWidth;
 	}
 
 	public String getSufix()
 	{
 		return this.sufix;
 	}
+
+	public int getWidth()
+	{
+		return width;
+	}
+
 }

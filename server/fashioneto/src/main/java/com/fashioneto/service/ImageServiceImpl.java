@@ -7,10 +7,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +16,8 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import net.coobird.thumbnailator.Thumbnails;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,34 +52,31 @@ public class ImageServiceImpl implements ImageService
 	{
 
 		String newFilename = TokenUtils.createTokenImageName(user);
-		saveFile(fileInputStream, imagesPath + newFilename + '.' + fileExtension);
+		//		saveFile(fileInputStream, imagesPath + newFilename + '.' + fileExtension);
+
+		String imageFullPathName = getFullImagePath(newFilename, ImageSizeEnum.STANDARD);
+		Thumbnails.of(fileInputStream).outputFormat(DEFAULT_EXTENSION).scale(1).toFile(imageFullPathName);
+
+		File standardImage = new File(imageFullPathName);
+		Thumbnails.of(standardImage).width(ImageSizeEnum.SMALL.getWidth()).outputFormat(DEFAULT_EXTENSION)
+				.toFile(getFullImagePath(newFilename, ImageSizeEnum.SMALL));
+
+		Thumbnails.of(standardImage).width(ImageSizeEnum.THUMBNAIL.getWidth()).outputFormat(DEFAULT_EXTENSION)
+				.toFile(getFullImagePath(newFilename, ImageSizeEnum.THUMBNAIL));
 
 		Image image = new Image();
 		image.setDate(new Date());
 		image.setFilename(newFilename);
 		image.setUser(user);
-		image.setFileExtension(fileExtension);
+		image.setFileExtension(DEFAULT_EXTENSION);
 		image = entityManager.merge(image);
 
 		return image;
 	}
 
-	// save uploaded file to a defined location on the server
-	private void saveFile(InputStream uploadedInputStream, String serverLocation) throws IOException
+	private String getFullImagePath(String filename, ImageSizeEnum imageSize)
 	{
-
-		OutputStream outpuStream = null;
-		int read = 0;
-		byte[] bytes = new byte[1024];
-
-		outpuStream = new FileOutputStream(new File(serverLocation));
-		while ((read = uploadedInputStream.read(bytes)) != -1)
-		{
-			outpuStream.write(bytes, 0, read);
-		}
-		outpuStream.flush();
-		outpuStream.close();
-
+		return imagesPath + filename + imageSize.getSufix() + '.' + DEFAULT_EXTENSION;
 	}
 
 	@Override

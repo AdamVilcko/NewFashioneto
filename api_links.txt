@@ -1,56 +1,37 @@
 Examples of URIs:
 
-	http://localhost:8080/Fashioneto-0.1b/as/comment/USER/1
-	http://localhost:8080/Fashioneto/as/comment/like/1
-	http://localhost:8080/ftest/as/comment/USER/1
+    http://localhost:8080/Fashioneto-0.1b/as/comment/USER/1
+    http://localhost:8080/Fashioneto/as/comment/like/1
+    http://localhost:8080/ftest/as/comment/USER/1
 
 Manager Page:
 
-	http://localhost:8080/manager/html/
+    http://localhost:8080/manager/html/
 
 ************** API
 
-Login:
+Login
 
-	POST http://localhost:8080/Fashioneto-0.1b/as/user/authenticate
-		Params:
-			username = [value]
-			password = [value]
+    POST http://localhost:8080/Fashioneto-0.1b/as/user/authenticate
+        Params:
+            username = [value]
+            password = [value]
 
-Items:
+Follows
 
-	POST http://localhost:8080/Fashioneto-0.1b/as/item/s
-		Header:
-			X-Auth-Token = [token value]
-		Body:
-			(application/json) 
-			ex: [1,2,3,442698073]
-			
-	POST http://localhost:8080/Fashioneto-0.1b/as/item/like/{itemId}
-		Header:
-			X-Auth-Token = [token value]
-		OBS:
-			Returs a "likeWrapper" object = {"count": 2,"actioned": true}
+    POST http://localhost:8080/Fashioneto-0.1b/as/follow/{followedUserId}
+        Header:
+            X-Auth-Token = [token value]
+        OBS:
+            the "follower" user is going to be obtained by the auth-token
 
-	DELETE http://localhost:8080/Fashioneto-0.1b/as/item/like/{itemId}
-		Header:
-			X-Auth-Token = [token value]
-		OBS:
-			Returs a "likeWrapper" object			
-			
-Follow:
-
-	POST http://localhost:8080/Fashioneto-0.1b/as/follow/{followedUserId}
-		Header:
-			X-Auth-Token = [token value]
-		OBS:
-			the "follower" user is going to be obtained by the auth-token
-
-	DELETE http://localhost:8080/Fashioneto-0.1b/as/follow/{followedUserId}
-		Header:
-			X-Auth-Token = [token value]		
-			
 Images:
+
+    POST http://localhost:8080/Fashioneto-0.1b/as/image/upload
+        Header:
+            X-Auth-Token = [token value]
+        Attachment 
+            file = [multipart/form-data]
 
     GET http://localhost:8080/Fashioneto-0.1b/as/image/s/{userId}
 
@@ -68,36 +49,36 @@ Users:
         Header:
             X-Auth-Token = [token value]
 
-	GET http://localhost:8080/Fashioneto-0.1b/as/user/{userId}
-		Header:
-			X-Auth-Token = [token value]
+    GET http://localhost:8080/Fashioneto-0.1b/as/user/{userId}
+        Header:
+            X-Auth-Token = [token value]
 
-	GET http://localhost:8080/Fashioneto-0.1b/as/user/{username}
-		Header:
-			X-Auth-Token = [token value]
+    GET http://localhost:8080/Fashioneto-0.1b/as/user/{username}
+        Header:
+            X-Auth-Token = [token value]
 
 Comments:
 
-	OBS.: possible values for {parentType} = [COMMENT, ITEM, PHOTO, USER]
+    OBS.: possible values for {parentType} = [COMMENT, ITEM, PHOTO, USER]
 
-	GET http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{commentId}
-		Header:
-			X-Auth-Token = [token value]
+    GET http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{commentId}
+        Header:
+            X-Auth-Token = [token value]
 
-  	POST http://localhost:8080/Fashioneto-0.1b/as/comment/like/{commentId}
-		Header:
-			X-Auth-Token = [token value]
+    POST http://localhost:8080/Fashioneto-0.1b/as/comment/like/{commentId}
+        Header:
+            X-Auth-Token = [token value]
 
 
-	POST http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{parentId}
-		Header:
-			X-Auth-Token = [token value]
-		Body:
-			{ content : [comment value] }
+    POST http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{parentId}
+        Header:
+            X-Auth-Token = [token value]
+        Body:
+            { content : [comment value] }
 
-	DELETE http://localhost:8080/Fashioneto-0.1b/as/comment/{commentId}
-		Header:
-			X-Auth-Token = [token value]
+    DELETE http://localhost:8080/Fashioneto-0.1b/as/comment/{commentId}
+        Header:
+            X-Auth-Token = [token value]
 
 *****************
 
@@ -109,7 +90,6 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
 {
     "user": {
         "id": 1,
-        "isFollowed": false,
         "details": {
             "userName": "user1",
             "city": "Florianopolis",
@@ -120,6 +100,7 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
             "displayName": "Felipe Tonon",
             "imageId": 1
         },
+        "itemsWrapper": {},
         "photosWrapper": {
             "count": 1,
             "collection": [{
@@ -162,46 +143,10 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                 }
             }]
         },
-        "itemsWrapper": {
-            "count": 3,
-            "collection": [{
-                "id": 442719185,
-                "likes": {
-                    "count": 2,
-                    "actioned": true
-                }
-            }, {
-                "id": 442698073,
-                "likes": {
-                    "count": 2,
-                    "actioned": true
-                }
-            }, {
-                "id": 443435217,
-                "likes": {
-                    "count": 3,
-                    "actioned": true
-                }
-            }]
-        },
         "followersWrapper": {
             "count": 5,
             "collection": [{
-                "id": 2,
-                "isFollowed": true,
-                "details": {
-                    "userName": "user2",
-                    "city": "London",
-                    "country": "UK",
-                    "followersCount": 2,
-                    "followingCount": 1,
-                    "age": -1,
-                    "displayName": "Caspar Sambrook-Smith",
-                    "imageId": 2
-                }
-            }, {
                 "id": 3,
-                "isFollowed": false,
                 "details": {
                     "userName": "user3",
                     "city": "London",
@@ -214,7 +159,6 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                 }
             }, {
                 "id": 4,
-                "isFollowed": false,
                 "details": {
                     "userName": "user4",
                     "city": "London",
@@ -227,7 +171,6 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                 }
             }, {
                 "id": 5,
-                "isFollowed": false,
                 "details": {
                     "userName": "user5",
                     "city": "London",
@@ -239,8 +182,19 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
                     "imageId": 5
                 }
             }, {
+                "id": 2,
+                "details": {
+                    "userName": "user2",
+                    "city": "London",
+                    "country": "UK",
+                    "followersCount": 2,
+                    "followingCount": 1,
+                    "age": -1,
+                    "displayName": "Caspar Sambrook-Smith",
+                    "imageId": 2
+                }
+            }, {
                 "id": 6,
-                "isFollowed": false,
                 "details": {
                     "userName": "admin",
                     "city": "London",
@@ -256,7 +210,6 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
             "count": 1,
             "collection": [{
                 "id": 2,
-                "isFollowed": true,
                 "details": {
                     "userName": "user2",
                     "city": "London",
@@ -270,5 +223,5 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
             }]
         }
     },
-    "token": "user1:1400391482401:babfe6bae36ab1dea1b5e38057f29804"
+    "token": "user1:1398271942322:e28cdf65962d9bdf2650513dd559eb0b"
 }
