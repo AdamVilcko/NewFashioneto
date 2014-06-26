@@ -2,9 +2,10 @@
 
 <div id="main"></div> <!-- /container -->
 
+<div style="height:154px; width:100%"></div>
 <footer>
   <div class="container">
-    <ul class="list-unstyled row">      
+    <ul class="list-unstyled row">
       <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
       <li><a href="http://feeds.feedburner.com/bootswatch">RSS</a></li>
       <li><a href="https://twitter.com/thomashpark">Twitter</a></li>

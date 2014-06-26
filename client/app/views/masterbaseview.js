@@ -93,6 +93,7 @@ define(function(require){
 			}
 			masonryOptions = _.extend( masonryDefaults, masonryArgs );
 			target
+			.masonry("destroy")
 			.css({opacity:0})
 			.empty()
 			.html( this.renderCollection().el )

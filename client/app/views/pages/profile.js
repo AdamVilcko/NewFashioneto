@@ -77,41 +77,32 @@ define(function(require){
 		},
 
 		renderPage: function(){
-			var self = this;
-
 			if( typeof this.preRender !== "undefined" ) this.preRender();
 
-			this.$el.addClass( "loadOut" );
-
 			var el = $( "<div></div>" );
-
 			el
-			.attr( "data-view", self.cid ) //Needs to be here as the el is shared
-			.html( self.template( self.merge( self.data ) ) );
+			.attr( "data-view", this.cid )
+			.html( this.template( this.merge( this.data ) ) );
 
-			if( self.sidebar ){
+			if( this.sidebar ){
 				el
-				.find( self.nodes.sidebar )
-				.html( self.sidebar.render().el );
+				.find( this.nodes.sidebar )
+				.html( this.sidebar.render().el );
 			}
 
-			if( typeof self.postRender !== "undefined" ) self.postRender();
+			if( typeof this.postRender !== "undefined" ) this.postRender();
 
-			setTimeout( function(){
-				$('html body').scrollTop(0);
-				self.$el.html( el );
+			$('html body').scrollTop(0);
+			this.$el.html( el );
 
-				if( self.tabs ){
-					self.tabs[ self.activeTab ].activate( self.el, self.model );
-				}
+			if( this.tabs ){
+				this.tabs[ this.activeTab ].activate( this.el, this.model );
+			}
 
-				self.$el
-				.removeClass( "loadOut" );
+			this.$el
+			.removeClass( "loadOut" );
 
-				Helper.navState();
-
-			}, 300 );
-
+			Helper.navState();
 
 			return this;
 
