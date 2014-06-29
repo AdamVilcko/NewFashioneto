@@ -7,9 +7,10 @@ require([
 	'views/main',
 	'helper',
 	'bootstrap',
+	'views/photos/photo-modal',
 	'jquery.masonry'
 ],
-function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonry ){
+function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoModal, Masonry ){
 
 	window.App.vent = _.extend({}, Backbone.Events);
 
@@ -90,10 +91,18 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 		},
 
 		profile: function( tab ){
+			if(!tab){
+				this.navigate("profile/wall");
+				tab = "wall";
+			}
 			App.vent.trigger( 'page:change', { page:"profile", tab: tab, myProfile: true } );
 		},
 
 		guestProfile: function( user, tab ){
+			if(!tab){
+				this.navigate("profile/wall");
+				tab = "wall";
+			}
 			App.vent.trigger( 'page:change', { user: user, page:"profile", tab: tab, myProfile: false } );
 		},
 
@@ -101,8 +110,8 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, masonr
 			$('#itemModal').modal();
 		},
 
-		photoModal: function(){
-			$('#photoModal').modal();
+		photoModal: function( id ){
+			new PhotoModal({ data: id });
 		},
 
 		logout: function(){

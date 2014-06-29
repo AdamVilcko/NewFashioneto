@@ -113,6 +113,10 @@ define(function(require){
 			}, 600);
 		},
 
+		closeView: function(){
+
+		},
+
 		data: {}
 
 	});

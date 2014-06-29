@@ -97,7 +97,7 @@ define(function(require){
 				$( el )
 				.html( '<div class="spinner-wave"><div></div><div></div><div></div><div></div></div>' );
 			}
-        	
+
         }
 
 	}
