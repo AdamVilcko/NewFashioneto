@@ -1,0 +1,89 @@
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+      <div class="modal-body">
+
+          <div class="column left">
+            <section class="photoframe">
+                <div class="photoHolder">
+                  <img src="img/photos-viewingphoto.jpg" alt="" />
+                </div><!-- photoHolder -->
+
+                <div class="photoDetails">
+                  <div class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                    </a>
+                    <div class="media-body">
+                      <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                      <p>album <span>Only me</span></p>
+                      <button type="button" class="btn btn-default like star">Like<div>25</div></button>
+                    </div>
+                  </div>
+                </div><!-- photoDetails -->
+
+            </section>
+          </div><!-- column -->
+
+          <div class="column right">
+
+            <section class="comments small">
+                 <div class="media">
+                  <a class="pull-left" href="#">
+                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                    <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                  </div>
+                </div>
+
+                <div class="media">
+                  <a class="pull-left" href="#">
+                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+                    <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+                  </div>
+                </div>
+
+                <div class="horizontal rule"></div>
+
+                <div class="media postComment">
+                  <a class="pull-left" href="#">
+                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+                  </a>
+                  <div class="media-body">
+                    <textarea placeholder="Write your comment" class="well"></textarea>
+                  </div><!-- media-body -->
+                </div>
+
+            </section>
+
+          </div><!-- column -->
+
+       <div class="clear"></div>
+
+        <ul class="nav nav-tabs page-tabs">
+          <li class="active"><a href="#people/explore">Explore</a></li>
+          <li><a href="#people/search">Search for people</a></li>
+        </ul>
+
+        <div class="badges">
+
+            <ul>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+
+          </div><!-- badges -->
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->

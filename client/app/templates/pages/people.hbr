@@ -3,7 +3,7 @@
   <li><a href="#people/search">Search for people</a></li>
 </ul> -->
 
-<div id="controls">
+<!-- <div id="controls">
 
   <select class="form-control" name="" id="">
     <option value="1">Male</option>
@@ -25,13 +25,13 @@
 
   <label class="checkbox"><input type="checkbox">Hello</label>
 
-  <div class="slider"></div><!-- slider -->
+  <div class="slider"></div>slider
 
-</div><!-- controls -->
+</div>controls -->
 
-<div class="container" id="tabContainer"></div>
+<div class="container" id="tabContainer" style="margin-top:30px"></div>
 
-<button class="btn btn-default loadmore">Load more...</button>
+<!-- <button class="btn btn-default loadmore">Load more...</button> -->
 
 
 

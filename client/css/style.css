@@ -865,7 +865,7 @@ background-color: #fff;
 	display: block;
 	font-size: 0.9em;
 	padding-left:45px;
-	line-height: 16px;
+	line-height: 33px;
 }
 
 #nav-right li.profile.active,
@@ -1646,12 +1646,23 @@ p{
 
 .people .caption{
 	position: relative;
+	font-size: 0.95em;
+}
+
+.people .caption a{
+	display:block;
+	min-width:50px;
+	color:#000000;
+	width: 133px;
+	font-size:0.7em;
+	text-indent: 0;
+	padding-left:4px;
 }
 
 .people .caption h5,
 .people .caption h6{
 	color:#3a2444;
-	text-indent:10px;
+	text-indent:5px;
 }
 
 .people .caption h5{
@@ -1693,7 +1704,6 @@ p{
 	margin: 10px;
 	padding:4px 22px 4px 22px;
 	width:300px;
-	float:left;
 }
 
 .item .pic{
@@ -1756,7 +1766,9 @@ footer{
 	font-size:0.9em;
 	background:#fff;
 	border-top:#eeeeee 1px solid;
-	position: relative;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 
 }
 

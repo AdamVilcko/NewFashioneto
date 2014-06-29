@@ -35,15 +35,8 @@ define(function(require){
 				this.loadData();
 			} else {
 				this.$el.addClass( "loadOut" );
-				var self = this;
-				setTimeout( function(){
-					$('html body').scrollTop(0);
-					self.render();
-					self.$el
-					
-					.removeClass( "loadOut" );
-				}, 300 );
-
+				$('html body').scrollTop(0);
+				this.render();
 			}
 			_.defer( Helper.navState );
 		},

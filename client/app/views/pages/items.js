@@ -20,7 +20,7 @@ define(function(require){
 		url: App.api.get( "items" ),
 
 		init: function(){
-			this.itemSearch = new ItemSearch();			
+			this.itemSearch = new ItemSearch();
 		},
 
 		loadData: function(){
@@ -38,15 +38,15 @@ define(function(require){
 				return;
 			}
 
-			Helper.loader( "#tabContainer", this.$el );			
+			Helper.loader( "#tabContainer", this.$el );
 
 			controls = $( ev.target ).parents( "#controls" ),
-			args.fts = controls.find( ".search" ).val() + " " + controls.find( ".gender" ).val();			
+			args.fts = controls.find( ".search" ).val() + " " + controls.find( ".gender" ).val();
 
 			this.itemSearch.collection.search( ev, args ).done(function( collection ){
 				self.itemSearch.metaCollection.fetchMeta( _.pluck( collection.products, "id" ) ).done(function(){
 					self.itemSearch.masonry(".item");
-						App.vent.trigger( "items:updateLikes", self.itemSearch.metaCollection );							
+						App.vent.trigger( "items:updateLikes", self.itemSearch.metaCollection );
 				});
 			});
 		}

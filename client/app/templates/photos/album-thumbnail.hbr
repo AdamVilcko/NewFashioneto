@@ -1,3 +1,3 @@
 <div class="col-sm-3 col-md-3">
-		<a href="#"><img class="thumbnail" src="img/pictures-single.jpg" alt=""></a>
+		<a href="#photomodal"><img class="thumbnail" src="img/pictures-single.jpg" alt="{{model.id}}"></a>
 </div>

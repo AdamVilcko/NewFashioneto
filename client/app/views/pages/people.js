@@ -25,27 +25,18 @@ define(function(require){
 		initSubviews: function(){
 			this.people = new People();
 			this.people.collection.on( "sync", function(){
-				this.$el.addClass( "loadOut" );
-				
-				var self = this;
-				setTimeout( function(){
-					Helper.loader( "#tabContainer", self.$el );
-					$('html body').scrollTop(0);
-					self.render();
-					self.$el
-					.removeClass( "loadOut" );
-					self.$("#tabContainer")
-					.html( self.people.renderCollection().el );
-					self.people.masonry( ".people" );
-				}, 300 );
+				Helper.loader( "#tabContainer", this.$el );
+				$('html body').scrollTop(0);
+				this.render();
+				this.$("#tabContainer")
+				.html( this.people.renderCollection().el );
+				this.people.masonry( ".people" );
 			}, this );
 		},
 
 		loadData: function(){
 			this.people.collection.fetch();
 		}
-
-
 
 	});
 
