@@ -29,7 +29,7 @@ define(function(require){
 
 		postRender: function(){
 			this.$("#photosContainer")
-			.html( this.photos.renderCollection().el );
+			.html( this.photos.renderCollection( null, { collection: this.photos.collection } ).el );
 			return this;
 		}
 

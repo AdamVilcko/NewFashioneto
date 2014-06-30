@@ -59,5 +59,9 @@ define(function(require){
 		return  new Handlebars.SafeString('<' + view.follow.tagName +' data-view="' + view.follow.cid + '"></'+ view.follow.tagName +'>');
 	});
 
+	Handlebars.registerHelper( 'image', function( id, type ) {
+		return new Handlebars.SafeString( App.api.get("image" ) + type + "/" + id  );
+	});
+
 
 });

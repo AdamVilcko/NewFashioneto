@@ -1,9 +1,5 @@
 define(function(require){
 
-	//Deps
-
-	Backbone             = require( 'backbone' );
-
 	MasterBaseCollection = require( 'collections/masterbasecollection' ),
 	Model                = require( 'models/comments/comment' );
 

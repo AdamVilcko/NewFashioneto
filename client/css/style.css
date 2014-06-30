@@ -1701,9 +1701,8 @@ p{
 }
 
 .item.thumbnail{
-	margin: 10px;
 	padding:4px 22px 4px 22px;
-	width:300px;
+	width:265px;
 }
 
 .item .pic{
@@ -1733,7 +1732,7 @@ p{
 
 
 
-/* .masonry,
+.masonry,
 .masonry .masonry-brick {
   -webkit-transition-duration: 0.7s;
      -moz-transition-duration: 0.7s;
@@ -1756,7 +1755,7 @@ p{
       -ms-transition-property: left, right, top;
        -o-transition-property: left, right, top;
           transition-property: left, right, top;
-} */
+}
 
 
 

@@ -1,9 +1,8 @@
 define(function(require){
 
 	var
-	Backbone            = require("backbone"),
+
 	Handlebars          = require("handlebars"),
-	$                   = require("jquery"),
 
 	MasterBaseView = require( 'views/masterbaseview' ),
 	CommentView         = require("views/comments/comment"),
@@ -14,24 +13,19 @@ define(function(require){
 
 
 	return MasterBaseView.extend({
-
-		init: function(){
-			this.collection = new CommentsCollection( this.options.data )
-			this.collection
-			.on( "sync", this.render, this );
-		},
-
 		modelView: CommentView,
-
 		templates:{
 			showAll: Handlebars.compile( showAll ),
 			input: Handlebars.compile( input )
 		},
-
-		emptyCollectionTemplate: Handlebars.compile( " " ),
-
+		emptyCollectionTemplate: Handlebars.compile( "" ),
 		nodes:{
 			textarea : "textarea"
+		},
+		init: function(){
+			this.collection = new CommentsCollection( this.options.data )
+			this.collection
+			.on( "sync", this.render, this );
 		},
 
 		render: function(){

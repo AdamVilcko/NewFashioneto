@@ -19,6 +19,9 @@ window.App =
     api: {
 
         get: function( arg, contextId ){
+            if( arg === "root"){
+                return this.root;
+            }
             if( arg === "thirdparty" ){
                 return this.shopstyle.products;
             }
@@ -27,7 +30,6 @@ window.App =
             } else {
                 contextId = "";
             }
-
             return this.root + contextId + this[ arg ];
         },
 

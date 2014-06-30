@@ -29,9 +29,9 @@ define(function(require){
 		postRender: function(){
 			Helper.processDate.call( this );
 			if( this.model.has( "commentsWrapper" ) ){
-				var commentData = this.model.toJSON().commentsWrapper.collection;
+				var commentData = this.model.get("commentsWrapper").collection;
 				this.comments = new Comments( { data: commentData, parentId: this.model.get( "id" ) } );
-				this.$el.find( this.nodes.comments )
+				this.$( this.nodes.comments )
 				.append( this.comments.render().el );
 			}
 

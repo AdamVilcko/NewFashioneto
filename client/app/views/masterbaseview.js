@@ -38,13 +38,17 @@ define(function(require){
 
 		renderCollection: function( collection, options ){
 			collection = collection || this.collection || null;
+			options = options || {};
 			if( collection ){
 				this.$el.empty();
 				if( ! collection.isEmpty() ){
-					if( options === "sort" ){
+					if( options.sort ){
 						collection.sort();
 					}
-					collection.each( this.renderModel, this );
+					collection.each( function( model ){
+						options.model = model;
+						this.renderModel( options );
+					}, this );
 				} else {
 					if( this.emptyCollectionTemplate ){
 						this.$el.html( this.emptyCollectionTemplate( this.merge() ) );
@@ -54,8 +58,8 @@ define(function(require){
 			return this;
 		},
 
-		renderModel: function( model ){
-			var modelView = new this.modelView( { model: model } );
+		renderModel: function( options ){
+			var modelView = new this.modelView( options );
 			this.$el.append( modelView.render().el );
 			return this;
 		},

@@ -19,7 +19,7 @@
                     <div class="media-body">
                       <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
                       <p>album <span>Only me</span></p>
-                      <button type="button" class="btn btn-default like star">Like<div>25</div></button>
+                      {{like "star"}}
                     </div>
                   </div>
                 </div><!-- photoDetails -->
@@ -29,39 +29,7 @@
 
           <div class="column right">
 
-            <section class="comments small">
-                 <div class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
-                  </a>
-                  <div class="media-body">
-                    <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
-                    <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
-                  </div>
-                </div>
-
-                <div class="media">
-                  <a class="pull-left" href="#">
-                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
-                  </a>
-                  <div class="media-body">
-                    <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
-                    <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
-                  </div>
-                </div>
-
-                <div class="horizontal rule"></div>
-
-                <div class="media postComment">
-                  <a class="pull-left" href="#">
-                    <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
-                  </a>
-                  <div class="media-body">
-                    <textarea placeholder="Write your comment" class="well"></textarea>
-                  </div><!-- media-body -->
-                </div>
-
-            </section>
+            <section class="comments small"></section>
 
           </div><!-- column -->
 

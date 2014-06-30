@@ -37,7 +37,6 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoM
 		execute: function( callback, args ){
 			console.log( callback );
 			console.log( args );
-
 		},
 
 
@@ -110,29 +109,13 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoM
 			$('#itemModal').modal();
 		},
 
-		photoModal: function( id ){
-			new PhotoModal({ data: id });
-		},
-
 		logout: function(){
 			App.vent.trigger( 'login:logout' );
 		}
 
-
 	});
 
-
-	//Instantiate router and start Backbone history
-
-
-	var router   = new Router;
+	App.router   = new Router;
 	Backbone.history.start();
 
-
 });
-
-
-
-
-
-

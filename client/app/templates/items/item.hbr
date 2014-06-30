@@ -4,4 +4,4 @@
 <div class="pic">
   <img src="{{model.images.5.url}}" alt="...">
 </div>
-{{like "star"}}
+{{like "heart"}}
