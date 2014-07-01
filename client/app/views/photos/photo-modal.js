@@ -25,22 +25,36 @@ define(function(require){
 
 		modalInit: function(){
 			var self = this;
-			this.options.model.collection.fetchDetails( this.options.model ).done(function(){
+			/*this.options.model.collection.fetchDetails( this.options.model ).done(function(){
 
-			});
+			});*/
+
+			this.options.model.collection.add( JSON.parse( photoModalMockData ) );
 			self.initComponents();
 		},
 
 		initComponents: function(){
-			this.model.set( JSON.parse( photoModalMockData ) );
 			this.render();
-			if( this.model.has( "commentsWrapper" ) ){
-				var commentData = this.model.get("commentsWrapper").collection;
-				this.comments = new Comments( { data: commentData, parentId: this.model.get( "id" ) } );
-				this.$( ".comments" )
-				.append( this.comments.render().el );
-			}
+			this.comments = new Comments( {
+				data: this.model.get("commentsWrapper").collection,
+				parentId: this.model.get( "id" )
+			} );
+			this.$( ".comments" )
+			.append( this.comments.render().el );
 			this.open();
+		},
+
+		loadData: function(){
+
+		},
+
+		events:{
+			"click .paddle.left": function(){
+				this.model = this.next( this.model );
+			},
+			"click .paddle.right": function(){
+				this.model = this.prev( this.model );
+			}
 		}
 
 

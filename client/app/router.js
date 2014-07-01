@@ -16,7 +16,6 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoM
 
 	var Router = Backbone.Router.extend({
 
-
 		initialize: function(){
 			App.history = [];
 			this.listenTo(this, 'route', function (name, args) {

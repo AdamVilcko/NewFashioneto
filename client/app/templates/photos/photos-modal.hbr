@@ -6,10 +6,11 @@
 
           <div class="column left">
             <section class="photoframe">
+
                 <div class="photoHolder">
-
+                  <div class="paddle left"></div>
+                  <div class="paddle right"></div>
                   <img src="{{image model.id "STANDARD"}}" alt="" />
-
                 </div><!-- photoHolder -->
 
                 <div class="photoDetails">

@@ -427,20 +427,34 @@ section.photoframe{
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	position: relative;
 }
 
 .photoHolder .paddle{
 	position: absolute;
 	top:48%;
 	z-index:2000;
+	width:26px;
+	height:42px;
+	margin-top:-13px;
+	border:none!important;
+	cursor: pointer;
+	opacity:0.3;
+}
+
+.photoHolder .paddle:hover{
+	opacity:1;
 }
 
 .photoHolder .paddle.left{
 	left: 5%;
+	background: no-repeat url(../img/paddle-left.png);
+
 }
 
 .photoHolder .paddle.right{
 	right: 5%;
+	background: no-repeat url(../img/paddle-right.png);
 }
 
 .photoHolder img{
@@ -494,7 +508,15 @@ section.photoframe{
 }
 
 
+/* uploading modal */
 
+#uploaderModal{
+
+}
+
+#uploaderModal .modal-body{
+	padding:30px;
+}
 
 
 

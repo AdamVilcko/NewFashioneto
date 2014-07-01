@@ -4,6 +4,7 @@ define(function(require){
 	Backbone        = require("backbone"),
 	Handlebars      = require("handlebars"),
 	$               = require("jquery"),
+	UploaderModal   = require('views/photos/uploader-modal'),
 
 	MasterBaseView  = require('views/masterbaseview'),
 	MasterBaseModel = require( 'models/masterbasemodel' );
@@ -31,6 +32,12 @@ define(function(require){
 			this.$("#photosContainer")
 			.html( this.photos.renderCollection( null, { collection: this.photos.collection } ).el );
 			return this;
+		},
+
+		events:{
+			"click #addPhotos": function(){
+				this.uploaderModal = new UploaderModal();
+			}
 		}
 
 	});

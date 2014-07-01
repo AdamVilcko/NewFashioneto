@@ -17,11 +17,14 @@ require = {
         "modernizr": "../lib/modernizr",
         "jquery.masonry": "../lib/jquery.masonry.min",
         "moment": "../lib/moment-with-langs.min",
+
         "jquery.livestamp": "../lib/livestamp",
         "jquery.cookie": "../lib/jquery.cookie",
         "jquery.transit": "../lib/jquery.transit",
         "jquery.imageloaded" : "../lib/imagesloaded.pkgd.min",
-        "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal"
+        "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal",
+
+
 
     },
 
@@ -46,6 +49,10 @@ require = {
         "jquery.transit": ['jquery'],
         "jquery.imageloaded": ['jquery'],
         "jquery.masonryImagesReveal": ['jquery', "jquery.imageloaded" ],
+
+        "jquery.iframe-transport": ['jquery'],
+        "jquery.fileupload-ui": ['jquery'],
+
 
         jqueryui: ['jquery'],
 
