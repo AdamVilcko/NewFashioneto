@@ -44,16 +44,19 @@ define(function(require){
 			this.open();
 		},
 
-		loadData: function(){
-
+		changeData: function(){
+			this.comments.changeData( this.model );
+			this.likes.changeData( this.model );
 		},
 
 		events:{
 			"click .paddle.left": function(){
-				this.model = this.next( this.model );
+				this.model = this.options.model.collection.next( this.model );
+				this.changeData();
 			},
 			"click .paddle.right": function(){
-				this.model = this.prev( this.model );
+				this.model = this.options.model.collection.prev( this.model );
+				this.changeData();
 			}
 		}
 
