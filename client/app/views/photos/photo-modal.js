@@ -25,41 +25,71 @@ define(function(require){
 
 		modalInit: function(){
 			var self = this;
+
 			/*this.options.model.collection.fetchDetails( this.options.model ).done(function(){
 
 			});*/
 
-			this.options.model.collection.add( JSON.parse( photoModalMockData ) );
+			this.options.collection.reset( JSON.parse( photoModalMockData ) );
+			this.model = this.options.collection.get(2);
 			self.initComponents();
+			this.setEvents();
 		},
 
 		initComponents: function(){
 			this.render();
-			this.comments = new Comments( {
-				data: this.model.get("commentsWrapper").collection,
-				parentId: this.model.get( "id" )
-			} );
-			this.$( ".comments" )
-			.append( this.comments.render().el );
+			if( this.model.has("commentsWrapper") ){
+				this.comments = new Comments( {
+					data: this.model.get("commentsWrapper").collection,
+					parentId: this.model.get( "id" )
+				} );
+				this.$( ".comments" )
+				.append( this.comments.render().el );
+			}
 			this.open();
-		},
-
-		changeData: function(){
-			this.comments.changeData( this.model );
-			this.likes.changeData( this.model );
 		},
 
 		events:{
 			"click .paddle.left": function(){
-				this.model = this.options.model.collection.next( this.model );
-				this.changeData();
+				this.nextPhoto();
 			},
 			"click .paddle.right": function(){
-				this.model = this.options.model.collection.prev( this.model );
-				this.changeData();
+				this.prevPhoto();
 			}
-		}
+		},
 
+		setEvents: function(){
+			var self = this;
+			$("body").on("keydown", function(e){
+				if(e.keyCode == 37) {
+					self.nextPhoto();
+				}
+				else if(e.keyCode == 39) {
+					self.prevPhoto();
+				}
+			});
+		},
+
+		nextPhoto: function(){
+			this.model = this.options.collection.prev( this.model );
+			this.bindData();
+		},
+
+		prevPhoto: function(){
+			this.model = this.options.collection.next( this.model );
+			this.bindData();
+		},
+
+		bindData: function(){
+			this.comments.bindData( this.model );
+			//this.likes.bindData( this.model );
+			this.$('#galleryImage')
+			.attr("src", App.api.get("image")  + "STANDARD/" + this.model.get("id") );
+		},
+
+		onModalClose: function(){
+			$("body").off("keydown");
+		}
 
 	});
 

@@ -117,6 +117,12 @@ define(function(require){
 			}, 600);
 		},
 
+		bindData: function( model ){
+			if( model ){
+				this.model = model;
+			}
+		},
+
 		closeView: function(){
 
 		},

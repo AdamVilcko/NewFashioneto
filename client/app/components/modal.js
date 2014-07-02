@@ -32,6 +32,9 @@ define(function(require){
 				    fragment : Backbone.history.fragment
 				});
 				$("#" + this.id).off('hidden.bs.modal');
+				if( this.onModalClose ){
+					this.onModalClose();
+				}
 			} );
 		}
 

@@ -46,6 +46,12 @@ define(function(require){
 			{
 				url: this.collection.url + "/" + this.options.parentId
 			} );
+		},
+
+		bindData: function( model ){
+			this.model = model;
+			this.collection.reset( model.get("commentsWrapper").collection );
+			this.renderToDom();
 		}
 
 	});
