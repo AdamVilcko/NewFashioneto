@@ -19,14 +19,13 @@ define(function(require){
 		},
 
 		// Get the next model in the collection.
-	+    next : function(model) {
-	+      return this.at(this.indexOf(model) + 1);
-	+    },
-	+
-	+    // Get the previous model in the collection.
-	+    prev : function(model) {
-	+      return this.at(this.indexOf(model) - 1);
-	+    },
+		next : function(model) {
+			return this.at(this.indexOf(model) + 1);
+		},
+		// Get the previous model in the collection.
+		prev : function(model) {
+			return this.at(this.indexOf(model) - 1);
+		},
 
 	});
 
