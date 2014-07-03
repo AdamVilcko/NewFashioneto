@@ -7,7 +7,8 @@ define(function(require){
 
 	Like           = require("views/like/like"),
 	template       = require("text!templates/items/item.hbr"),
-	MasterBaseView = require( 'views/masterbaseview' );
+	MasterBaseView = require( 'views/masterbaseview' ),
+	ItemModal = require('views/items/item-modal');
 
 
 	return MasterBaseView.extend({
@@ -21,6 +22,7 @@ define(function(require){
 		render: function(){
 			var pic, width, height, imageData;
 			MasterBaseView.prototype.render.call( this );
+			console.log( this.model );
 			
 			imageData = this.model.get( "images" )[5];
 			pic    = this.$el.find(".pic img");
@@ -30,6 +32,13 @@ define(function(require){
 			});
 
 			return this;
+		},
+
+		events:{
+			"click .btn": function(){
+				new ItemModal();
+
+			}
 		}
 
 	});
