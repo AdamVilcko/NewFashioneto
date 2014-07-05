@@ -47,7 +47,7 @@ window.App =
 
         shopstyle: {
             products:{
-                root: "http://api.shopstyle.com/action/apiSearch?",
+                root: "http://api.shopstyle.com/api/v2/products?",
                 defaults:{
                     format:"jsonp",
                     site: "www.shopstyle.co.uk",
@@ -64,7 +64,21 @@ window.App =
                         c : null  //color
                     }
                 }
+            },
+
+            catagory: {
+                root: "http://api.shopstyle.com/api/v2/categories?",
+                defaults:{
+                    format:"jsonp",
+                    site: "www.shopstyle.co.uk",
+                    pid: "uid8569-24941587-78",
+                    cat: null,
+                    depth: null
+                }
+
             }
+
+
         }
 
     },

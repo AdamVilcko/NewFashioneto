@@ -19,7 +19,6 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
-			this.model = this.options.model;
 			this.render();
 			this.open();
 		}

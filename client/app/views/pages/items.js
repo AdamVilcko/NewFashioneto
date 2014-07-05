@@ -2,13 +2,13 @@ define(function(require){
 
 	var
 
-	$                   = require("jquery"),
-	Handlebars          = require("handlebars"),
-	Helper               = require( 'helper' ),
+	$            = require("jquery"),
+	Handlebars   = require("handlebars"),
+	Helper       = require( 'helper' ),
 
-	ItemSearch        = require( "views/items/itemsearch" ),
-	BasePageView        = require("views/pages/basepageview"),
-	pageTemplate        = require("text!templates/pages/items.hbr");
+	ItemSearch   = require( "views/items/itemsearch" ),
+	BasePageView = require("views/pages/basepageview"),
+	pageTemplate = require("text!templates/pages/items.hbr");
 
 
 	return BasePageView.extend({
@@ -21,7 +21,9 @@ define(function(require){
 
 		init: function(){
 			this.itemSearch = new ItemSearch();
-			window.items = this;
+			this.listenTo(this.itemSearch.collection, "sync", function(A,B,C){
+
+			})
 		},
 
 		loadData: function(){
@@ -30,7 +32,8 @@ define(function(require){
 
 		events:{
 			"keydown .search": "search",
-			"click .search-group .btn": "search"
+			"click .search-group .btn": "search",
+			"click .loadMore": "loadMore"
 		},
 
 		search: function( ev ){
@@ -38,19 +41,25 @@ define(function(require){
 			if( ev.type === "keydown" && ev.which !== 13 ){
 				return;
 			}
-
 			Helper.loader( "#tabContainer", this.$el );
-
 			controls = $( ev.target ).parents( "#controls" ),
 			args.fts = controls.find( ".search" ).val() + " " + controls.find( ".gender" ).val();
-
 			this.itemSearch.collection.search( ev, args ).done(function( collection ){
 				self.itemSearch.metaCollection.fetchMeta( _.pluck( collection.products, "id" ) ).done(function(){
 					self.itemSearch.masonry(".item");
 						App.vent.trigger( "items:updateLikes", self.itemSearch.metaCollection );
 				});
 			});
+		},
+
+		loadMore: function( ev ){
+			this.itemSearch.collection.loadMoreItems()
+			.done(function(a,b,c){
+				var pants;
+
+			});
 		}
+
 
 	});
 

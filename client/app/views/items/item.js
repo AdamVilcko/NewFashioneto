@@ -22,7 +22,6 @@ define(function(require){
 		render: function(){
 			var pic, width, height, imageData;
 			MasterBaseView.prototype.render.call( this );
-			console.log( this.model );
 
 			imageData = this.model.get( "images" )[5];
 			pic    = this.$el.find(".pic img");
