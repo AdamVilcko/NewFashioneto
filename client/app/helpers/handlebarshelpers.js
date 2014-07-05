@@ -1,11 +1,12 @@
 define(function(require){
 
 	var
-	$              = require("jquery"),
-	Handlebars     = require( "handlebars" ),
+	$          = require("jquery"),
+	Handlebars = require( "handlebars" ),
+	_          = require("_"),
 
-	Like           = require("views/like/like"),
-	Follow         = require("views/follow/follow");
+	Like       = require("views/like/like"),
+	Follow     = require("views/follow/follow");
 
 
 	//Like helper
@@ -61,6 +62,21 @@ define(function(require){
 
 	Handlebars.registerHelper( 'image', function( id, type ) {
 		return new Handlebars.SafeString( App.api.get("image" ) + type + "/" + id  );
+	});
+
+	Handlebars.registerHelper( 'imageSS', function( imageObject, size, imageAttributes ) {
+		var selectedImage;
+		_.each( imageObject, function( imageObj, index, list ){
+			if( imageObj.sizeName === size ){
+				selectedImage = imageObj;
+			}
+		} );
+		console.log(imageObject);
+		return selectedImage.url;
+	});
+
+	Handlebars.registerHelper( 'html', function( string ) {
+		return new Handlebars.SafeString( string  );
 	});
 
 

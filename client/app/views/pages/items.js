@@ -21,6 +21,7 @@ define(function(require){
 
 		init: function(){
 			this.itemSearch = new ItemSearch();
+			window.items = this;
 		},
 
 		loadData: function(){

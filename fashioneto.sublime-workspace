@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"cur",
+				"cursor"
+			],
+			[
 				"Base",
 				"MasterBaseView"
 			],
@@ -24,18 +28,42 @@
 	"buffers":
 	[
 		{
-			"file": "client/app/templates/photos/album.hbr",
+			"file": "client/app/templates/photos/photos-modal.hbr",
 			"settings":
 			{
-				"buffer_size": 594,
+				"buffer_size": 1975,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "client/app/views/masterbaseview.js",
+			"file": "client/app/helpers/handlebarshelpers.js",
 			"settings":
 			{
-				"buffer_size": 3030,
+				"buffer_size": 1515,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "client/app/views/like/like.js",
+			"settings":
+			{
+				"buffer_size": 818,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "client/app/views/comments/comments.js",
+			"settings":
+			{
+				"buffer_size": 1398,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "client/app/mockdata/photomodal.json",
+			"settings":
+			{
+				"buffer_size": 3408,
 				"line_ending": "Windows"
 			}
 		},
@@ -43,59 +71,29 @@
 			"file": "client/app/app.js",
 			"settings":
 			{
-				"buffer_size": 1656,
+				"buffer_size": 1737,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "client/app/views/people/people.js",
+			"file": "client/app/views/photos/photo-modal.js",
 			"settings":
 			{
-				"buffer_size": 402,
+				"buffer_size": 2070,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "client/app/views/people/person.js",
-			"settings":
-			{
-				"buffer_size": 297,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "client/app/views/photos/album-wrapper.js",
-			"settings":
-			{
-				"buffer_size": 719,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "client/app/views/photos/album-photos.js",
-			"settings":
-			{
-				"buffer_size": 467,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Package Control Messages\n========================\n\nSublimeLinter-contrib-jslint:\n----------------------------\n\n  *** WINDOWS USERS PLEASE NOTE! ***\n  \n  If you use v0.3.2 through v0.5.2 (try 'jslint --version' on the command line) of the jslint npm package, you may experience incomplete listing of linter errors (e.g. only the first linter error may be shown). Please try installing v0.3.1 (write 'npm -g install jslint@0.3.1' at the command line) as a temporary remedy. This behaviour should be patched in the (at the moment of writing) upcoming v0.5.3 of the jslint npm package. Node.js seems to have fixed the underlying issue (https://github.com/joyent/node/issues/3584) in (upcoming) v0.12.\n",
-			"settings":
-			{
-				"buffer_size": 697,
-				"line_ending": "Windows",
-				"name": "Package Control Messages",
-				"scratch": true
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 152.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"syntax html",
+				"Set Syntax: HTML"
+			],
 			[
 				"syntax js",
 				"Set Syntax: JavaScript"
@@ -174,134 +172,134 @@
 	},
 	"file_history":
 	[
-		"/C/Projects/Fashioneto/client/app/templates/photos/album-thumbnail.hbr",
-		"/C/Projects/Fashioneto/client/app/views/wall/post.js",
-		"/C/Projects/Fashioneto/client/app/models/wall/post.js",
-		"/C/Projects/Fashioneto/client/app/views/wall/posts.js",
-		"/C/Projects/Fashioneto/client/app/models/pages/profile.js",
-		"/C/Projects/Fashioneto/client/app/templates/pages/items.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/pages/profile/information.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/pages/profile/photos.hbr",
-		"/C/Projects/Fashioneto/client/app/config.js",
-		"/C/Projects/Fashioneto/client/app/collections/wall/posts.js",
-		"/C/Projects/Fashioneto/client/app/views/comments/comment.js",
-		"/C/Projects/Fashioneto/client/app/templates/comments/comment.hbr",
-		"/C/Projects/Fashioneto/client/app/models/comments/comment.js",
-		"/C/Projects/Fashioneto/client/app/collections/comments/comments.js",
-		"/C/Projects/Fashioneto/client/app/templates/photos/photos.hbr",
-		"/C/Projects/Fashioneto/client/app/collections/photos/albums-photos.js",
-		"/C/Projects/Fashioneto/client/app/views/photos/album-photos",
-		"/C/Projects/Fashioneto/client/app/views/photos/photos.js",
-		"/C/Projects/Fashioneto/client/app/views/wall/wall.js",
-		"/C/Projects/Fashioneto/client/app/templates/wall/wall.hbr",
-		"/C/Projects/Fashioneto/client/app/views/items/itemsTab.js",
-		"/C/Projects/Fashioneto/client/app/views/items/items.js",
 		"/C/Projects/Fashioneto/client/app/collections/masterbasecollection.js",
 		"/C/Projects/Fashioneto/client/app/views/masterbaseview.js",
+		"/C/Projects/Fashioneto/client/app/components/modal.js",
+		"/C/Projects/Fashioneto/client/app/templates/like/like.hbr",
+		"/C/Projects/Fashioneto/client/app/models/like/like.js",
+		"/C/Projects/Fashioneto/client/app/models/masterbasemodel.js",
+		"/C/Projects/Fashioneto/client/app/mockdata/photomodal.json",
+		"/C/Projects/Fashioneto/client/app/views/photos/album-thumbnail.js",
+		"/C/Projects/Fashioneto/client/app/templates/photos/photos.hbr",
+		"/C/Projects/Fashioneto/client/app/models/pages/profile.js",
+		"/C/Projects/Fashioneto/client/app/views/comments/comment.js",
+		"/C/Projects/Fashioneto/client/app/config.js",
+		"/C/Projects/Fashioneto/client/app/templates/login/3acdb6a6-6a24-4f32-a3ea-a9f430b5f9c8.dmp",
+		"/C/Projects/Fashioneto/client/app/templates/comments/input.hbr",
+		"/C/Projects/Fashioneto/client/app/views/pages/items.js",
+		"/C/Projects/Fashioneto/client/app/views/comments/comments.js",
+		"/C/Projects/Fashioneto/client/app/collections/photos/album-photos.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/basepageview.js",
+		"/C/Projects/Fashioneto/client/app/templates/pages/profile/photos.hbr",
+		"/C/Projects/Fashioneto/client/css/style.css",
+		"/C/Projects/Fashioneto/client/app/templates/photos-modal.hbr",
+		"/C/Projects/Fashioneto/client/app/views/photos/uploader-modal.js",
+		"/C/Projects/Fashioneto/client/app/templates/photos/album-thumbnail.hbr",
+		"/C/Users/Caspar/AppData/Local/Temp/Rar$DRa0.387/jQuery-File-Upload-9.5.7/basic-plus.html",
+		"/C/Projects/Fashioneto/client/app/router.js",
+		"/C/Projects/Fashioneto/client/app/views/main.js",
+		"/C/Projects/Fashioneto/client/app/templates/photos/uploader-modal.hbr",
+		"/C/Projects/Fashioneto/client/app/models/user.js",
+		"/C/Projects/Fashioneto/client/app/views/photos/album-wrapper.js",
+		"/C/Projects/Fashioneto/client/app/templates/photos/album.hbr",
+		"/C/Projects/Fashioneto/client/app/views/photos/album-photos.js",
+		"/C/Users/Caspar/AppData/Local/Temp/Rar$DRa0.036/jQuery-File-Upload-9.5.7/basic-plus.html",
+		"/C/Projects/Fashioneto/client/lib/jqueryuploader/main.js",
+		"/C/Projects/Fashioneto/client/app/templates/main.hbr",
+		"/C/Projects/Fashioneto/client/app/templates/photos/photos-modal.hbr",
+		"/C/Users/Caspar/AppData/Local/Temp/Rar$DRa0.527/jQuery-File-Upload-9.5.7/server/php/index.php",
+		"/C/Projects/Fashioneto/client/app/collections/photos/photo-modal.js",
+		"/C/Projects/Fashioneto/client/app/views/photos/photo-modal.js",
+		"/C/Projects/Fashioneto/api_links.txt",
+		"/C/Users/Caspar/AppData/Local/Temp/Rar$DRa0.124/jQuery-File-Upload-9.5.7/server/php/UploadHandler.php",
+		"/C/Projects/Fashioneto/client/app/templates/comments/comments.hbr",
+		"/C/Projects/Fashioneto/client/app/collections/comments/comments.js",
+		"/C/Projects/Fashioneto/client/app/app.js",
+		"/C/Projects/Fashioneto/client/app/views/wall/post.js",
+		"/C/Projects/Fashioneto/client/app/views/wall/posts.js",
+		"/C/Projects/Fashioneto/client/app/views/wall/wall.js",
+		"/C/Projects/Fashioneto/client/css/bootstrap-theme.min.css",
+		"/C/Projects/Fashioneto/client/app/templates/pages/profile.hbr",
+		"/C/Projects/Fashioneto/client/app/views/pages/profile.js",
+		"/C/Projects/Fashioneto/client/app/views/sidebar/profilesidebar.js",
+		"/C/Projects/Fashioneto/client/app/templates/items/item.hbr",
+		"/C/Projects/Fashioneto/client/app/helpers/handlebarshelpers.js",
+		"/C/Projects/Fashioneto/client/app/templates/wall/post.hbr",
+		"/C/Projects/Fashioneto/client/app/templates/wall/wall.hbr",
+		"/C/Projects/Fashioneto/client/app/models/items/item.js",
+		"/C/Projects/Fashioneto/client/app/views/login/login.js",
+		"/C/Projects/Fashioneto/client/app/helpers/helper.js",
+		"/C/Projects/Fashioneto/client/app/templates/photos/albums.hbr",
+		"/C/Projects/Fashioneto_landingpage/app/templates/Homepage/default.latte",
+		"/C/Projects/Fashioneto_landingpage/app/templates/@layout.latte",
+		"/C/Projects/Fashioneto_landingpage/bootstrap.php",
+		"/C/Projects/Fashioneto_landingpage/index.php",
+		"/C/Projects/Fashioneto_landingpage/app/templates/Sign/in.latte",
+		"/C/Projects/Fashioneto_landingpage/app/presenters/SignPresenter.php",
+		"/C/Projects/Fashioneto_landingpage/app/presenters/HomepagePresenter.php",
+		"/C/Projects/Fashioneto_landingpage/app/presenters/AdminHomepagePresenter.php",
+		"/C/Projects/Fashioneto_landingpage/app/presenters/ErrorPresenter.php",
+		"/C/Projects/Fashioneto_landingpage/app/presenters/BasePresenter.php",
+		"/C/Projects/Fashioneto/client/app/views/modal.js",
+		"/C/Projects/Fashioneto/client/app/templates/modals.hbr",
+		"/C/Projects/Fashioneto_landingpage/app/templates/Homepage/step2.latte",
+		"/C/Projects/Fashioneto/client/app/templates/ui/nav.hbr",
+		"/C/Projects/Fashioneto/client/app/templates/pages/people.hbr",
+		"/C/Projects/Fashioneto/client/app/views/ui/nav.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/people.js",
+		"/C/Projects/Fashioneto/client/app/templates/pages/profile/information.hbr",
+		"/C/Projects/Fashioneto/client/app/views/photos/album-thmumbnail.js",
+		"/C/Projects/Fashioneto/client/app/views/photos/album-photo.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/feed.js",
+		"/C/Projects/Angular/angular.html",
+		"/C/Projects/Fashioneto/client/app/views/people/followersfollowing.js",
+		"/C/Projects/Fashioneto/client/app/collections/photos/albums-photos.js",
+		"/C/Projects/Fashioneto/client/app/views/people/people.js",
+		"/C/Projects/Fashioneto/client/app/views/people/person.js",
+		"/C/Users/Caspar/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Projects/Fashioneto/client/app/models/wall/post.js",
+		"/C/Projects/Fashioneto/client/app/templates/pages/items.hbr",
+		"/C/Projects/Fashioneto/client/app/collections/wall/posts.js",
+		"/C/Projects/Fashioneto/client/app/templates/comments/comment.hbr",
+		"/C/Projects/Fashioneto/client/app/models/comments/comment.js",
+		"/C/Projects/Fashioneto/client/app/views/photos/album-photos",
+		"/C/Projects/Fashioneto/client/app/views/photos/photos.js",
+		"/C/Projects/Fashioneto/client/app/views/items/itemsTab.js",
+		"/C/Projects/Fashioneto/client/app/views/items/items.js",
 		"/C/Projects/Fashioneto/client/app/views/sidebar/widgets/basewidgetview.js",
 		"/C/Projects/Fashioneto/client/app/d32bb6cd-9d02-41a7-8de4-d01215c4c2d1.dmp",
 		"/C/Projects/Fashioneto/client/app/text.js",
-		"/C/Projects/Fashioneto/client/app/models/masterbasemodel.js",
-		"/C/Projects/Fashioneto/client/app/views/pages/items.js",
 		"/C/Projects/Fashioneto/client/app/collections/items/items.js",
-		"/C/Projects/Fashioneto/client/app/templates/photos/albums.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/modals.hbr",
-		"/C/Projects/Fashioneto/client/css/style.css",
-		"/C/Projects/Fashioneto/client/app/views/pages/people.js",
-		"/C/Projects/Fashioneto/client/app/templates/pages/people.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/ui/nav.hbr",
-		"/C/Projects/Fashioneto/client/app/helpers/helper.js",
-		"/C/Projects/Fashioneto/client/app/router.js",
-		"/C/Projects/Fashioneto/client/app/views/main.js",
-		"/C/Projects/Fashioneto/client/app/views/pages/basepageview.js",
-		"/C/Projects/Fashioneto/client/app/views/pages/profile.js",
 		"/C/Projects/Fashioneto/client/app/collections/people/people.js",
-		"/C/Projects/Fashioneto/client/app/views/ui/nav.js",
-		"/C/Projects/Fashioneto/client/app/helpers/handlebarshelpers.js",
 		"/C/Projects/Fashioneto/client/app/views/itemview.js",
 		"/C/Projects/Fashioneto/client/app/templates/sidebar/profilesidebar.hbr",
-		"/C/Projects/Fashioneto/client/app/views/sidebar/profilesidebar.js",
 		"/C/Projects/Fashioneto/client/app/views/sidebar/widgets/profilepic.js",
-		"/C/Projects/Fashioneto/client/app/templates/pages/profile.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/main.hbr",
-		"/C/Projects/Fashioneto/api_links.txt",
 		"/C/Projects/Fashioneto/client/app/views/items/item.js",
-		"/C/Projects/Fashioneto/client/app/app.js",
 		"/C/Projects/Fashioneto/client/app/views/like/like.js",
 		"/C/Projects/Fashioneto/client/app/templates/comments/showall.hbr",
-		"/C/Projects/Fashioneto/client/app/views/comments/comments.js",
-		"/C/Projects/Fashioneto/client/app/templates/like/like.hbr",
-		"/C/Projects/Fashioneto/client/app/views/people/people.js",
-		"/C/Projects/Fashioneto/client/app/templates/comments/comments.hbr",
 		"/C/Projects/Fashioneto/client/app/templates/pages/profile/items.hbr",
-		"/C/Projects/Fashioneto/client/app/models/items/item.js",
 		"/C/Projects/Fashioneto/client/index.html",
 		"/C/Projects/Fashioneto/client/app/collections/items/meta.js",
-		"/C/Projects/Fashioneto/client/app/views/people/followersfollowing.js",
-		"/C/Projects/Fashioneto/client/app/views/pages/feed.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/myprofile.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/baseprofile.js",
 		"/C/Projects/Fashioneto/client/app/models/people/person.js",
 		"/C/Projects/Fashioneto/client/app/templates/people/person.hbr",
 		"/C/Projects/Fashioneto/client/lib/less-1.7.0.min.js",
 		"/C/Projects/Fashioneto/client/app/views/follow/follow.js",
-		"/C/Projects/Fashioneto/client/app/templates/wall/post.hbr",
 		"/C/Projects/Fashioneto/client/app/views/sidebar/basesidebarview.js",
-		"/C/Projects/Fashioneto/client/app/templates/items/item.hbr",
-		"/C/Projects/Fashioneto/client/app/models/like/like.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/guestprofile.js",
-		"/C/Projects/Fashioneto/client/app/views/people/person.js",
 		"/C/Projects/Fashioneto/client/app/views/people/following.js",
 		"/C/Projects/Fashioneto/client/app/views/people/followers.js",
 		"/C/Projects/Fashioneto/client/app/app.json",
 		"/C/Projects/Fashioneto/client/app/views/baseview.js",
-		"/C/Projects/Fashioneto/client/app/views/login/login.js",
 		"/C/Projects/Fashioneto/client/app/models/follow/follow.js",
 		"/C/Projects/Fashioneto/client/app/helpers/handlebarshelpers",
 		"/C/Projects/Fashioneto/client/lib/jquery.transit.js",
-		"/C/Projects/Fashioneto/client/app/models/user.js",
 		"/C/Projects/Fashioneto/client/lib/masonry.pkgd.js",
 		"/C/Projects/Fashioneto/client/app/templates/items/itemmodal.hbr",
 		"/C/Projects/Fashioneto/client/app/templates/like/itemmodal.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/comments/input.hbr",
 		"/C/Projects/Fashioneto/client/lib/masonryImagesReveal.js",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/ws/action/BaseActionBean.java",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/resources/securityContext-beans.xml",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/ws/entities/MessageTypeEnum.java",
-		"/C/Projects/Fashioneto/server/test.txt",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/resources/database.properties",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/security/AuthenticationTokenProcessingFilter.java",
-		"/C/Projects/Fashioneto/server/fashioneto/pom.xml",
-		"/C/Projects/Fashioneto/server/fashioneto/target/Fashioneto-0.1b/WEB-INF/classes/database.properties",
-		"/C/Projects/Fashioneto/client/app/templates/login/loginform.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/items/items.hbr",
-		"/C/Program Files (x86)/Apache Software Foundation/apache-tomcat-7.0.39/webapps/Fashioneto-0.1b/WEB-INF/classes/database.properties",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/resources/db-migration/test/V2__structure.sql",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/dao/CommentDAOImpl.java",
-		"/C/Projects/Fashioneto/client/app/templates/db7eba49-d3ca-46f6-ae3b-6092d921bfbb.dmp",
-		"/C/Projects/Fashioneto/client/app/templates/login/mainlogin.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/login/3acdb6a6-6a24-4f32-a3ea-a9f430b5f9c8.dmp",
-		"/C/Projects/Fashioneto/server/fashioneto/target/Fashioneto-0.1b/WEB-INF/classes/db-migration/test/V2__structure.sql",
-		"/C/Projects/Fashioneto/client/app/templates/login/login.hbr",
-		"/C/Projects/Fashioneto/client/lib/jquery.cookie.js",
-		"/C/Projects/Fashioneto/client/app/templates/pages/feed.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/pages/profile/wall.hbr",
-		"/C/Projects/Fashioneto/client/router.js",
-		"/C/Projects/Fashioneto/client/config.js",
-		"/C/Projects/Fashioneto/client/css/bootstrap.css",
-		"/C/Projects/Fashioneto/client/app/lib/modernizr.js",
-		"/C/Projects/Fashioneto/client/views/wall/post.js",
-		"/C/Projects/Fashioneto/client/views/like/like.js",
-		"/C/Projects/Fashioneto/client/views/items.js",
-		"/C/Projects/Fashioneto/client/collections/wall/posts.js",
-		"/C/Projects/Fashioneto/client/views/basepageview.js",
-		"/C/Projects/Fashioneto/client/views/nav.js",
-		"/C/Users/Caspar/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Projects/Fashioneto/client/app/lib/underscore1.5.2.js",
-		"/C/Projects/Fashioneto/client/templates/wall/wall.hbr",
-		"/C/Projects/Fashioneto/client/models/comments/comment.js",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/persistence/CommentSet.java",
-		"/C/Projects/Fashioneto/client/collections/comments/comments.js"
+		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/ws/action/BaseActionBean.java"
 	],
 	"find":
 	{
@@ -312,6 +310,7 @@
 		"height": 183.0,
 		"where_history":
 		[
+			"",
 			"C:\\Projects\\Fashioneto\\client\\app",
 			""
 		]
@@ -321,6 +320,45 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"this",
+			"changeData",
+			"\"",
+			".js",
+			"js",
+			",",
+			"(",
+			"/js",
+			"lib\\",
+			"js/",
+			"modal",
+			".like",
+			"no comments",
+			"u",
+			"photomodal",
+			"{{like",
+			"LIKE",
+			"’m a celebrity a",
+			"}\n",
+			"post",
+			"sort",
+			"like",
+			"basecollection",
+			"masterbasemodel",
+			"{{like",
+			"like",
+			"likes",
+			"Request your invitation",
+			"Sign up for early access",
+			"sign up for early access",
+			"copyright",
+			"id=\"copyright\"",
+			"Thanks for signing up!",
+			"footer",
+			"album-thumbnail",
+			"<img class=\"thumbnail\" src=\"img/pictures-single.jpg\" alt=\"\">",
+			"self",
+			"/photos",
+			"photos.js",
 			"modelType",
 			"modeltype",
 			"collectionType",
@@ -409,46 +447,7 @@
 			"mock/wall/mockpostscollection",
 			"views/wall/post.js",
 			"collections/wall/posts",
-			"collections/wall.posts",
-			".js",
-			"views/wall/posts.js",
-			".js",
-			"views/wall/wall",
-			"app/",
-			"app",
-			"app/",
-			"app",
-			"app/",
-			"app",
-			"app/",
-			"app/app",
-			"helpers",
-			"templates/",
-			"collections/",
-			"models/",
-			"views/",
-			"app/",
-			"app/app",
-			"masterbasepageview",
-			"app/app/templates/",
-			"templates/",
-			"collections/",
-			"models/",
-			"app/views/",
-			"app/app/views/",
-			"views/",
-			"/views/",
-			"http://localhost:8080",
-			"http://localhost:8080/fashioneto/as/comment/retrieve/USER/1",
-			"Context docBase",
-			"like_comment",
-			"pages/",
-			"views",
-			"{ parent: this }",
-			"986363450",
-			"masonry",
-			"new Date()",
-			"masonry"
+			"collections/wall.posts"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -484,19 +483,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "client/app/templates/photos/album.hbr",
+					"file": "client/app/templates/photos/photos-modal.hbr",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 594,
+						"buffer_size": 1975,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								169,
-								169
+								1602,
+								1602
 							]
 						],
 						"settings":
@@ -606,355 +605,60 @@
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
 							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "client/app/views/masterbaseview.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3030,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1230,
-								1230
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 315.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
+					"buffer": 1,
+					"file": "client/app/helpers/handlebarshelpers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1515,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								473,
+								473
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
 					"buffer": 2,
-					"file": "client/app/app.js",
+					"file": "client/app/views/like/like.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1656,
+						"buffer_size": 818,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								516,
-								516
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "client/app/views/people/people.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 402,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "client/app/views/people/person.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 297,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								297,
-								297
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "client/app/views/photos/album-wrapper.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 719,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								374,
-								374
+								676,
+								676
 							]
 						],
 						"settings":
@@ -1072,28 +776,22 @@
 					},
 					"stack_index": 3,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 6,
-					"file": "client/app/views/photos/album-photos.js",
+					"buffer": 3,
+					"file": "client/app/views/comments/comments.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 467,
+						"buffer_size": 1398,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								408,
-								408
+								551,
+								551
 							]
 						],
 						"settings":
@@ -1206,26 +904,198 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 135.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 4,
+					"file": "client/app/mockdata/photomodal.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 697,
+						"buffer_size": 3408,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								697,
-								697
+								3024,
+								3024
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"history_list_is_closing": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2092.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/app/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1737,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								530,
+								530
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "client/app/views/photos/photo-modal.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2070,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								690,
+								690
 							]
 						],
 						"settings":
@@ -1334,11 +1204,11 @@
 							},
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1032.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1375,7 +1245,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.399822470222,
 			1.0
 		],
 		"rows":
@@ -1401,8 +1271,216 @@
 		"selected_items":
 		[
 			[
+				"like",
+				"app\\views\\like\\like.js"
+			],
+			[
+				"handle",
+				"app\\helpers\\handlebarshelpers.js"
+			],
+			[
+				"modal",
+				"app\\components\\modal.js"
+			],
+			[
+				"photom",
+				"app\\mockdata\\photomodal.json"
+			],
+			[
+				"comments",
+				"app\\views\\comments\\comments.js"
+			],
+			[
+				"",
+				"app\\app.js"
+			],
+			[
+				"config",
+				"app\\config.js"
+			],
+			[
+				"masterba",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"collection",
+				"app\\collections\\masterbasecollection.js"
+			],
+			[
+				"mock",
+				"app\\mockdata\\photomodal.json"
+			],
+			[
+				"mockdata/photomodal",
+				"app\\mockdata\\photomodal.json"
+			],
+			[
+				"photosm",
+				"app\\templates\\photos\\photos-modal.hbr"
+			],
+			[
+				"modal.hbr",
+				"app\\templates\\photos-modal.hbr"
+			],
+			[
+				"upload",
+				"app\\views\\photos\\uploader-modal.js"
+			],
+			[
+				"style",
+				"css\\style.css"
+			],
+			[
+				"rotuer",
+				"app\\router.js"
+			],
+			[
+				"conif",
+				"app\\config.js"
+			],
+			[
+				"router",
+				"app\\router.js"
+			],
+			[
+				"main",
+				"app\\views\\main.js"
+			],
+			[
+				"main.js",
+				"app\\views\\main.js"
+			],
+			[
+				"templates/photos/album.hbr",
+				"app\\templates\\photos\\album.hbr"
+			],
+			[
+				"tyle",
+				"css\\style.css"
+			],
+			[
+				"photomod",
+				"app\\mockdata\\photomodal.json"
+			],
+			[
+				"modal.js",
+				"app\\components\\modal.js"
+			],
+			[
+				"album-th",
+				"app\\templates\\photos\\album-thumbnail.hbr"
+			],
+			[
+				"photomo",
+				"app\\templates\\photos-modal.hbr"
+			],
+			[
+				"photo.hbr",
+				"app\\templates\\photos\\album-thumbnail.hbr"
+			],
+			[
 				"post.js",
 				"app\\views\\wall\\post.js"
+			],
+			[
+				"collections/photos/album-photos",
+				"app\\collections\\photos\\album-photos.js"
+			],
+			[
+				"mas",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"album-thumbnail.hbr",
+				"app\\templates\\photos\\album-thumbnail.hbr"
+			],
+			[
+				"album-thum",
+				"app\\views\\photos\\album-thumbnail.js"
+			],
+			[
+				"profile",
+				"app\\templates\\pages\\profile.hbr"
+			],
+			[
+				"post.hbr",
+				"app\\templates\\wall\\post.hbr"
+			],
+			[
+				"item.hbr",
+				"app\\templates\\items\\item.hbr"
+			],
+			[
+				"app",
+				"app\\app.js"
+			],
+			[
+				"handl",
+				"app\\helpers\\handlebarshelpers.js"
+			],
+			[
+				"album-",
+				"app\\templates\\photos\\album-thumbnail.hbr"
+			],
+			[
+				"album-thumn",
+				"app\\views\\photos\\album-thumbnail.js"
+			],
+			[
+				"master",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"photo",
+				"app\\views\\photos\\album-thumbnail.js"
+			],
+			[
+				"helper",
+				"app\\helpers\\helper.js"
+			],
+			[
+				"nav",
+				"app\\templates\\ui\\nav.hbr"
+			],
+			[
+				"people.hbr",
+				"app\\templates\\pages\\people.hbr"
+			],
+			[
+				"profile.js",
+				"app\\views\\pages\\profile.js"
+			],
+			[
+				"prof",
+				"app\\templates\\pages\\profile.hbr"
+			],
+			[
+				"wall",
+				"app\\templates\\wall\\wall.hbr"
+			],
+			[
+				"templates/wall/wall",
+				"app\\templates\\wall\\wall.hbr"
+			],
+			[
+				"albumtrh",
+				"app\\templates\\photos\\album-thumbnail.hbr"
+			],
+			[
+				"album-thumba",
+				"app\\templates\\photos\\album-thumbnail.hbr"
+			],
+			[
+				"masterb",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"masbase",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"app.",
+				"app\\app.js"
 			],
 			[
 				"comment",
@@ -1417,28 +1495,12 @@
 				"app\\views\\masterbaseview.js"
 			],
 			[
-				"master",
-				"app\\collections\\masterbasecollection.js"
-			],
-			[
 				"itemsta",
 				"app\\views\\items\\itemsTab.js"
 			],
 			[
-				"config",
-				"app\\config.js"
-			],
-			[
-				"",
-				"app\\templates\\photos\\photos.hbr"
-			],
-			[
 				"masterbase",
 				"app\\views\\masterbaseview.js"
-			],
-			[
-				"modal",
-				"app\\templates\\modals.hbr"
 			],
 			[
 				"photos",
@@ -1457,24 +1519,8 @@
 				"app\\views\\pages\\basepageview.js"
 			],
 			[
-				"style",
-				"css\\style.css"
-			],
-			[
-				"people.hbr",
-				"app\\templates\\pages\\people.hbr"
-			],
-			[
-				"router",
-				"app\\router.js"
-			],
-			[
 				"nav.hbr",
 				"app\\templates\\ui\\nav.hbr"
-			],
-			[
-				"helper",
-				"app\\helpers\\helper.js"
 			],
 			[
 				"people",
@@ -1489,14 +1535,6 @@
 				"app\\views\\pages\\items.js"
 			],
 			[
-				"profile",
-				"app\\views\\pages\\profile.js"
-			],
-			[
-				"main",
-				"app\\views\\main.js"
-			],
-			[
 				"base",
 				"views\\pages\\basepageview.js"
 			],
@@ -1507,26 +1545,6 @@
 			[
 				"item",
 				"views\\items\\item.js"
-			],
-			[
-				"comments",
-				"views\\comments\\comments.js"
-			],
-			[
-				"handle",
-				"helpers\\handlebarshelpers.js"
-			],
-			[
-				"app",
-				"app.js"
-			],
-			[
-				"like",
-				"views\\like\\like.js"
-			],
-			[
-				"wall",
-				"views\\wall\\wall.js"
 			],
 			[
 				"ap",
@@ -1563,10 +1581,6 @@
 			[
 				"follo",
 				"views\\people\\followersfollowing.js"
-			],
-			[
-				"app.",
-				"app.js"
 			],
 			[
 				"masterbas",
@@ -1637,10 +1651,6 @@
 				"helpers\\handlebarshelpers.js"
 			],
 			[
-				"handl",
-				"helpers\\handlebarshelpers.js"
-			],
-			[
 				"app.js",
 				"app.js"
 			],
@@ -1653,20 +1663,12 @@
 				"views\\pages\\baseprofile.js"
 			],
 			[
-				"mas",
-				"views\\masterbaseview.js"
-			],
-			[
 				"pagesitems",
 				"views\\pages\\items.js"
 			],
 			[
 				"con",
 				"config.js"
-			],
-			[
-				"masterba",
-				"models\\masterbasemodel.js"
 			],
 			[
 				"ma",
@@ -1691,10 +1693,6 @@
 			[
 				"views/people/people",
 				"views\\people\\people.js"
-			],
-			[
-				"main.js",
-				"views\\main.js"
 			],
 			[
 				"follow",
@@ -1737,10 +1735,6 @@
 				"views\\pages\\baseprofile.js"
 			],
 			[
-				"conif",
-				"config.js"
-			],
-			[
 				"basemodel",
 				"models\\masterbasemodel.js"
 			],
@@ -1777,10 +1771,6 @@
 				"templates\\comments\\input.hbr"
 			],
 			[
-				"masterb",
-				"models\\masterbasemodel.js"
-			],
-			[
 				"logi",
 				"views\\login\\login.js"
 			],
@@ -1791,126 +1781,6 @@
 			[
 				"peopl",
 				"app\\views\\pages\\people.js"
-			],
-			[
-				"pr",
-				"app\\models\\pages\\profile.js"
-			],
-			[
-				"wall.js",
-				"app\\views\\wall\\wall.js"
-			],
-			[
-				"wall.",
-				"app\\views\\wall\\wall.js"
-			],
-			[
-				"posts.",
-				"app\\views\\wall\\posts.js"
-			],
-			[
-				"posts.h",
-				"app\\templates\\photos\\photos.hbr"
-			],
-			[
-				"bsepagevie",
-				"app\\views\\pages\\basepageview.js"
-			],
-			[
-				"nav",
-				"app\\views\\ui\\nav.js"
-			],
-			[
-				"main.hbr",
-				"app\\templates\\main.hbr"
-			],
-			[
-				"profi",
-				"app\\views\\sidebar\\profilesidebar.js"
-			],
-			[
-				"main.hb",
-				"app\\templates\\main.hbr"
-			],
-			[
-				"databas",
-				"server\\fashioneto\\src\\main\\resources\\database.properties"
-			],
-			[
-				"log",
-				"app\\views\\login\\login.js"
-			],
-			[
-				"data",
-				"server\\fashioneto\\src\\main\\resources\\database.properties"
-			],
-			[
-				"da",
-				"server\\fashioneto\\target\\Fashioneto-0.1b\\WEB-INF\\classes\\database.properties"
-			],
-			[
-				"datab",
-				"server\\fashioneto\\src\\main\\resources\\database.properties"
-			],
-			[
-				"databa",
-				"server\\fashioneto\\src\\main\\resources\\database.properties"
-			],
-			[
-				"databse",
-				"server\\fashioneto\\src\\main\\resources\\database.properties"
-			],
-			[
-				"rofile",
-				"views\\sidebar\\profilesidebar.js"
-			],
-			[
-				"rou",
-				"router.js"
-			],
-			[
-				"wa",
-				"views\\wall\\wall.js"
-			],
-			[
-				"w",
-				"views\\wall\\wall.js"
-			],
-			[
-				"ro",
-				"router.js"
-			],
-			[
-				"conf",
-				"config.js"
-			],
-			[
-				"fee",
-				"views\\pages\\feed.js"
-			],
-			[
-				"feed",
-				"views\\pages\\feed.js"
-			],
-			[
-				"rot",
-				"router.js"
-			],
-			[
-				"feed.",
-				"templates\\pages\\feed.hbr"
-			],
-			[
-				"index",
-				"client\\index.html"
-			],
-			[
-				"inde",
-				"client\\index.html"
-			],
-			[
-				"help",
-				"helpers\\helper.js"
 			]
 		],
 		"width": 0.0
@@ -1942,7 +1812,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 225.0,
+	"side_bar_width": 185.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

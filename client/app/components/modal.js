@@ -23,19 +23,29 @@ define(function(require){
 		open: function(){
 			var self = this;
 			$("body").append( this.el );
-			$("#" + this.id)
-			.modal()
-			.on('hidden.bs.modal', function(){
+			var target = $("#" + this.id);
+
+			target
+			.modal();
+
+			target.
+			on('hidden.bs.modal', function(){
 				App.router.navigate( self.back.fragment );
 				self.remove();
 				App.history.push({
 				    fragment : Backbone.history.fragment
 				});
 				$("#" + this.id).off('hidden.bs.modal');
+				$("html").removeClass("modal-open");
 				if( this.onModalClose ){
 					this.onModalClose();
 				}
 			} );
+
+			target
+			.on("shown.bs.modal", function(){
+				$("html").addClass("modal-open");
+			});
 		}
 
 	});

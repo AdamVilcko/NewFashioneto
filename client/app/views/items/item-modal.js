@@ -7,7 +7,7 @@ define(function(require){
 	Helper     = require('helper'),
 	Bootstrap  = require('bootstrap'),
 
-	ModalView  = require('components/modal'),	
+	ModalView  = require('components/modal'),
 	template = require('text!templates/items/item-modal.hbr');
 
 
@@ -19,9 +19,10 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
+			this.model = this.options.model;
 			this.render();
 			this.open();
-		}		
+		}
 
 	});
 

@@ -20,7 +20,6 @@ define(function(require){
 			this.model = new Model( this.options.data );
 			this.model.on( "sync change", this.renderToDom, this );
 			this.model.url = App.api.get( "like", this.options.contextId );
-			console.log( this.model.get("id") );
 		},
 
 		events: {

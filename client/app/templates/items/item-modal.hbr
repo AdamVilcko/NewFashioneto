@@ -9,19 +9,21 @@
 
           <section class="photos">
             <div class="row">
-              <div class="col-lg-8">
-                  <div class="main">
-                    <img class="thumbnail" src="img/photos-modal-viewing.jpg" alt="">
-                  </div>
-                </div><!-- col-lg-8 -->
-                
-                <div class="col-lg-4">
-                  <div class="gallery">              
-                    <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
-                    <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
-                    <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
-                  </div>
-                </div><!-- col-lg-8 -->
+
+              <img class="thumbnail mainImage" src="{{imageSS model.images "Original"}}" alt="">
+
+              <!-- <div class="col-lg-8">
+                <div class="main"></div>
+              </div>col-lg-8
+
+              <div class="col-lg-4">
+                <div class="gallery">
+                  <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
+                  <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
+                  <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
+                </div>
+              </div>col-lg-8 -->
+
               </div><!-- row -->
           </section><!-- gallery -->
 
@@ -59,74 +61,81 @@
 
 
           </section><!-- comments -->
-          
+
           </div><!-- col-lg-8 -->
-          
-          <div class="col-md-4 right">          
-          
+
+          <div class="col-md-4 right">
+
             <section class="itemDetails">
-              
-              <h1 class="heading">Blended wool jumper with shawl collar<br /><span>by <span class="underline">Esprit</span></span></h1>
-              
-              <button type="button" class="btn btn-default like heart">Like<div>25</div></button>
-              
-              <p class="description">Warm blended wool jumper with a buttoned shawl collar, made of bi-colour, medium count yarn</p>
-              <a href="#" class="moreInfo">More info <span class="glyphicon glyphicon-chevron-down"></span></a>
-              
-              <p class="size">Sizes available S, M, L, XL</p>
-              <h5 class="price">£65</h5>
-              
-              <button class="btn btn-primary buy">Buy on ASOS</button>
-          
+
+              <h1 class="heading">{{model.name}}<br /><span>by <span class="underline">{{model.brandName}}</span></span></h1>
+
+              {{like "heart"}}
+
+              <p class="description">{{html model.description}}</p>
+
+              <!-- <a href="#" class="moreInfo">More info <span class="glyphicon glyphicon-chevron-down"></span></a> -->
+
+              <p class="size">
+                Sizes available&nbsp;
+                {{#each model.sizes}}
+                  {{name}},
+                {{/each}}
+              </p>
+
+              <h5 class="price">{{model.priceLabel}}</h5>
+
+              <button class="btn btn-primary buy">Buy on {{model.retailer}}</button>
+
             </section><!-- itemDetails -->
 
             <div class="horizontal rule"></div>
-          
+
             <section class="recommendations">
-          
+
               <h5 class="heading">You might also like</h5>
-          
+
               <div class="items">
-          
+
                 <div class="media item">
                   <a class="pull-left thumbnail" href="#">
                     <img class="media-object" src="img/photos-modal-recommendation-thumbnail.jpg">
                   </a>
                   <div class="media-body">
                     <h4 class="media-heading heading">Blended wool jumper with shawl collar<br /><span>by <span class="underline">Espirit</span></span></h4>
-                    <h6 class="price">£90</h6>                  
+                    <h6 class="price">£90</h6>
                   </div>
                 </div>
-          
+
                 <div class="media item">
                   <a class="pull-left thumbnail" href="#">
                     <img class="media-object" src="img/photos-modal-recommendation-thumbnail.jpg">
                   </a>
                   <div class="media-body">
                     <h4 class="media-heading heading">Blended wool jumper with shawl collar<br /><span>by <span class="underline">Espirit</span></span></h4>
-                    <h6 class="price">£90</h6>                  
+                    <h6 class="price">£90</h6>
                   </div>
                 </div>
-          
+
                 <div class="media item">
                   <a class="pull-left thumbnail" href="#">
                     <img class="media-object" src="img/photos-modal-recommendation-thumbnail.jpg">
                   </a>
                   <div class="media-body">
                     <h4 class="media-heading heading">Blended wool jumper with shawl collar <span>by <span class="underline">Espirit</span></span></h4>
-                    <h6 class="price">£90</h6>                  
+                    <h6 class="price">£90</h6>
                   </div>
                 </div>
-          
+
               </div>
-          
+
               <a class="similar" href="#">See similar items</a>
-          
+
             </section><!-- recommendations -->
-          
+
           </div><!-- col-lg-4 -->
         </div>
-       
-      </div>      
+
+      </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

@@ -23,10 +23,10 @@ define(function(require){
 			var pic, width, height, imageData;
 			MasterBaseView.prototype.render.call( this );
 			console.log( this.model );
-			
+
 			imageData = this.model.get( "images" )[5];
 			pic    = this.$el.find(".pic img");
-			
+
 			pic.css({
 				height: imageData.height
 			});
@@ -36,8 +36,9 @@ define(function(require){
 
 		events:{
 			"click .btn": function(){
-				new ItemModal();
-
+				new ItemModal({
+					model: this.model
+				});
 			}
 		}
 
