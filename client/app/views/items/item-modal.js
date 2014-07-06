@@ -21,6 +21,13 @@ define(function(require){
 		modalInit: function(){
 			this.render();
 			this.open();
+			$(itemModal)
+			.imagesLoaded()
+			.progress( function( instance, image ) {
+			  var result = image.isLoaded ? 'loaded' : 'broken';
+			  $(image.img)
+			  .addClass("loadIn");
+			});
 		}
 
 	});
