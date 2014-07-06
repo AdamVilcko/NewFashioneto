@@ -63,6 +63,7 @@ define(function(require){
 
 		renderNewItems: function( collection, options ){
 			options = options || {};
+			collection = collection || this.collection;
 			var arr = [];
 			collection.each( function( model ){
 				options.model = model;
@@ -77,8 +78,7 @@ define(function(require){
 
 		renderModel: function( options ){
 			var modelView = new this.modelView( options );
-			modelView.render().$el.css();
-			this.$el.append(  );
+			this.$el.append( modelView.render().el );
 			return this;
 		},
 

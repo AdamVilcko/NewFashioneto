@@ -29,7 +29,7 @@ define(function(require){
 				$('html body').scrollTop(0);
 				this.render();
 				this.$("#tabContainer")
-				.html( this.people.renderCollection().el );
+				.html( this.people.renderNewItems() );
 				this.people.masonry( ".people" );
 			}, this );
 		},
