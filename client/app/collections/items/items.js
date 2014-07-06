@@ -29,30 +29,27 @@ define(function(require){
 
 		search: function( ev, args ){
 			this.fts = args.fts;
-			args.offset = 20;
+			args.offset = 30;
+			args.limit = 30;
 			this.reset();
 			return this.fetch( {
-				dataType: "jsonp",
 				url: Helper.queryBuilder( args )
 			} );
 		},
 
 		loadMoreItems: function(){
 			var args = {};
-			args.offset = this.offset + 40;
+			args.offset = this.offset + 30;
+			args.limit = 30;
 			args.fts = this.fts;
 			return this.fetch( {
-				dataType: "jsonp",
 				url: Helper.queryBuilder(args)
 			} );
-
-
 		},
 
 		fetchById: function( args ){
 			this.reset();
 			return this.fetch( {
-				dataType: "jsonp",
 				url: Helper.queryBuilder( args )
 			} );
 		},

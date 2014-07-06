@@ -6,6 +6,6 @@
 		<h5>{{model.priceLabel}}</h5>
 		<button class="btn btn-primary">View detail</button>
 	</div>
-  <img src="{{model.images.5.url}}" alt="...">
+  <img src="{{model.image.sizes.Large.url}}" alt="...">
 </div>
 {{like "heart"}}

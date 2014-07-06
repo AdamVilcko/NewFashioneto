@@ -10,7 +10,7 @@
           <section class="photos">
             <div class="row">
 
-              <img class="thumbnail mainImage" src="{{imageSS model.images "Original"}}" alt="">
+              <img class="thumbnail mainImage" src="{{model.image.sizes.Best.url}}" alt="">
 
               <!-- <div class="col-lg-8">
                 <div class="main"></div>
@@ -68,13 +68,13 @@
 
             <section class="itemDetails">
 
-              <h1 class="heading">{{model.name}}<br /><span>by <span class="underline">{{model.brandName}}</span></span></h1>
+              <h1 class="heading">{{model.unbrandedName}}<br /><span>by <span class="underline">{{model.brand.name}}</span></span></h1>
 
               {{like "heart"}}
 
               <p class="description">{{html model.description}}</p>
 
-              <!-- <a href="#" class="moreInfo">More info <span class="glyphicon glyphicon-chevron-down"></span></a> -->
+              <!-- <a h`ref="#" class="moreInfo">More info <span class="glyphicon glyphicon-chevron-down"></span></a> -->
 
               <p class="size">
                 Sizes available&nbsp;

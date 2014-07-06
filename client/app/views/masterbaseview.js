@@ -86,9 +86,10 @@ define(function(require){
 		},
 
 		masonry: function( item, masonryArgs ){
+			var self = this;
+			self.masonryTarget = $( "#tabContainer" );
 			var
 			masonryDefaults,
-			target = $( "#tabContainer" ),
 			masonryOptions = masonryOptions || {};
 			masonryDefaults = {
 			  itemSelector: item,
@@ -96,25 +97,29 @@ define(function(require){
 			  isFitWidth: true
 			}
 			masonryOptions = _.extend( masonryDefaults, masonryArgs );
-			target
+			self.masonryTarget
 			.masonry("destroy")
 			.css({opacity:0})
 			.empty()
 			.html( this.renderCollection().el )
 			.addClass( "masonryContainer" );
 			setTimeout(function(){
-				target
+				self.masonryTarget
 				.masonry( masonryOptions );
-				target
+				self.masonryTarget
 				.imagesLoaded()
 				.progress( function( instance, image ) {
 				  var result = image.isLoaded ? 'loaded' : 'broken';
 				  $(image.img)
 				  .addClass("loadIn");
 				});
-				target
+				self.masonryTarget
 				.css({opacity:1});
 			}, 600);
+		},
+
+		addItemsMasonry: function(elements){
+			this.masonryTarget.masonry( 'appended', elements )
 		},
 
 		bindData: function( model ){

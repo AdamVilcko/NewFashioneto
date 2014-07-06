@@ -5,6 +5,7 @@ define(function(require){
 	$            = require("jquery"),
 	Handlebars   = require("handlebars"),
 	Helper       = require( 'helper' ),
+	MasterBaseCollection = require( 'collections/masterbasecollection' ),
 
 	ItemSearch   = require( "views/items/itemsearch" ),
 	BasePageView = require("views/pages/basepageview"),
@@ -53,13 +54,15 @@ define(function(require){
 		},
 
 		loadMore: function( ev ){
+			var self = this;
 			this.itemSearch.collection.loadMoreItems()
 			.done(function(a,b,c){
-				var pants;
-
+				var length = self.itemSearch.collection.length,
+				slice = length - 30,
+				newItems = self.itemSearch.collection.slice(slice, length);
+				self.itemSearch.addItemsMasonry( self.itemSearch.renderCollection( new MasterBaseCollection(newItems) ).$el.unwrap() );			
 			});
 		}
-
 
 	});
 
