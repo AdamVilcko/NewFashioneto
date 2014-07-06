@@ -60,7 +60,8 @@ define(function(require){
 				var length = self.itemSearch.collection.length,
 				slice = length - 5,
 				newItems = self.itemSearch.collection.slice(slice, length);
-				self.itemSearch.addItemsMasonry( self.itemSearch.renderNewItems( new MasterBaseCollection(newItems) ) );
+				self.itemSearch
+				.addItemsMasonry( self.itemSearch.renderNewItems( new MasterBaseCollection(newItems), { hidden: true } ) );
 			});
 		}
 

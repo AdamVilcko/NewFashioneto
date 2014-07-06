@@ -67,6 +67,9 @@ define(function(require){
 			collection.each( function( model ){
 				options.model = model;
 				var modelView = new this.modelView( options );
+				if(options.hidden){
+					modelView.render().$el.addClass("invisible");
+				}
 				arr.push(modelView.render().el);
 			}, this );
 			return arr;
@@ -74,7 +77,8 @@ define(function(require){
 
 		renderModel: function( options ){
 			var modelView = new this.modelView( options );
-			this.$el.append( modelView.render().el );
+			modelView.render().$el.css();
+			this.$el.append(  );
 			return this;
 		},
 
@@ -114,13 +118,14 @@ define(function(require){
 			masonryOptions = _.extend( masonryDefaults, masonryArgs );
 			self.masonryTarget
 			.masonry("destroy")
-			.css({opacity:0})
+			.addClass("invisible")
 			.empty()
 			.html( this.renderNewItems( this.collection ) )
 			.addClass( "masonryContainer" );
 			setTimeout(function(){
 				self.masonryTarget
 				.masonry( masonryOptions );
+				$( "#tabContainer" ).find(".item").removeClass("invisible");
 				self.masonryTarget
 				.imagesLoaded()
 				.progress( function( instance, image ) {
@@ -129,7 +134,7 @@ define(function(require){
 				  .addClass("loadIn");
 				});
 				self.masonryTarget
-				.css({opacity:1});
+				.removeClass("invisible");
 			}, 600);
 		},
 
@@ -137,6 +142,8 @@ define(function(require){
 			$( "#tabContainer" ).append( elements );
 			setTimeout(function(){
 				$( "#tabContainer" ).masonry( 'appended', elements );
+
+				$( "#tabContainer" ).find(".item").removeClass("invisible");
 
 				$( "#tabContainer" )
 				.imagesLoaded()

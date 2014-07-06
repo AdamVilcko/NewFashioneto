@@ -30,8 +30,8 @@ define(function(require){
 
 		search: function( ev, args ){
 			this.fts = args.fts;
-			args.offset = 5;
-			args.limit = 5;
+			args.offset = 25;
+			args.limit = 25;
 			this.reset();
 			return this.fetch( {
 				url: Helper.queryBuilder( args )
@@ -40,9 +40,9 @@ define(function(require){
 
 		loadMoreItems: function(){
 			var args = {};
-			this.offset = this.offset + 5;
+			this.offset = this.offset + 25;
 			args.offset = this.offset;
-			args.limit = 5;
+			args.limit = 25;
 			args.fts = this.fts;
 			return this.fetch( {
 				url: Helper.queryBuilder(args),
