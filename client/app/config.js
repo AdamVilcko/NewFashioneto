@@ -23,6 +23,7 @@ require = {
         "jquery.transit": "../lib/jquery.transit",
         "jquery.imageloaded" : "../lib/imagesloaded.pkgd.min",
         "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal",
+        "jquery.bridget": "../lib/jquery.bridget"
 
 
 
@@ -48,6 +49,8 @@ require = {
         "jquery.cookie": ['jquery'],
         "jquery.transit": ['jquery'],
         "jquery.imageloaded": ['jquery'],
+        "jquery.bridget": ['jquery'],
+
         "jquery.masonryImagesReveal": ['jquery', "jquery.imageloaded" ],
 
         "jquery.iframe-transport": ['jquery'],

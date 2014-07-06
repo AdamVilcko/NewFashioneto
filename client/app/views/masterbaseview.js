@@ -6,7 +6,9 @@ define(function(require){
 	Backbone     = require("backbone"),
 	Handlebars   = require("handlebars"),
 	Helper       = require('helper'),
-	ImagesLoaded = require("jquery.imageloaded");
+	ImagesLoaded = require("jquery.imageloaded"),
+	$bridget     = require('jquery.bridget'),
+	Masonry      = require("jquery.masonry");
 
 
 	return Backbone.View.extend({
@@ -21,6 +23,7 @@ define(function(require){
 			if( typeof this.init !== "undefined" ) this.init( options );
 			if( typeof this.initSubviews !== "undefined" ) this.initSubviews();
 			this.domEl = this.tagName + "[data-view=" + this.cid + "]";
+			$.bridget( 'masonry', Masonry );
 		},
 
 		render: function(){
@@ -58,6 +61,17 @@ define(function(require){
 			return this;
 		},
 
+		renderNewItems: function( collection, options ){
+			options = options || {};
+			var arr = [];
+			collection.each( function( model ){
+				options.model = model;
+				var modelView = new this.modelView( options );
+				arr.push(modelView.render().el);
+			}, this );
+			return arr;
+		},
+
 		renderModel: function( options ){
 			var modelView = new this.modelView( options );
 			this.$el.append( modelView.render().el );
@@ -93,7 +107,8 @@ define(function(require){
 			masonryOptions = masonryOptions || {};
 			masonryDefaults = {
 			  itemSelector: item,
-			  gutterWidth: 25,
+			  gutterWidth: 100,
+			  columnWidth: 300,
 			  isFitWidth: true
 			}
 			masonryOptions = _.extend( masonryDefaults, masonryArgs );
@@ -101,7 +116,7 @@ define(function(require){
 			.masonry("destroy")
 			.css({opacity:0})
 			.empty()
-			.html( this.renderCollection().el )
+			.html( this.renderNewItems( this.collection ) )
 			.addClass( "masonryContainer" );
 			setTimeout(function(){
 				self.masonryTarget
@@ -119,7 +134,19 @@ define(function(require){
 		},
 
 		addItemsMasonry: function(elements){
-			this.masonryTarget.masonry( 'appended', elements )
+			$( "#tabContainer" ).append( elements );
+			setTimeout(function(){
+				$( "#tabContainer" ).masonry( 'appended', elements );
+
+				$( "#tabContainer" )
+				.imagesLoaded()
+				.progress( function( instance, image ) {
+				  var result = image.isLoaded ? 'loaded' : 'broken';
+				  $(image.img)
+				  .addClass("loadIn");
+				});
+			}, 500);
+
 		},
 
 		bindData: function( model ){

@@ -24,13 +24,14 @@ define(function(require){
 		},
 
 		parse: function( response ){
+			this.total = response.total;
 			return response.products;
 		},
 
 		search: function( ev, args ){
 			this.fts = args.fts;
-			args.offset = 30;
-			args.limit = 30;
+			args.offset = 5;
+			args.limit = 5;
 			this.reset();
 			return this.fetch( {
 				url: Helper.queryBuilder( args )
@@ -39,11 +40,15 @@ define(function(require){
 
 		loadMoreItems: function(){
 			var args = {};
-			args.offset = this.offset + 30;
-			args.limit = 30;
+			this.offset = this.offset + 5;
+			args.offset = this.offset;
+			args.limit = 5;
 			args.fts = this.fts;
 			return this.fetch( {
-				url: Helper.queryBuilder(args)
+				url: Helper.queryBuilder(args),
+				add: true,
+				remove: false,
+				update: true
 			} );
 		},
 
@@ -54,7 +59,7 @@ define(function(require){
 			} );
 		},
 
-		offset:0,
+		offset:5,
 		fts:null
 
 	});

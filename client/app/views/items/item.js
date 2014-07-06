@@ -4,7 +4,7 @@ define(function(require){
 	Backbone       = require("backbone"),
 	Handlebars     = require("handlebars"),
 	$              = require("jquery"),
-	
+
 	Like           = require("views/like/like"),
 	template       = require("text!templates/items/item.hbr"),
 	MasterBaseView = require( 'views/masterbaseview' ),
@@ -25,12 +25,13 @@ define(function(require){
 
 			imageData = this.model.get( "image" ).sizes.Large;
 			pic    = this.$el.find(".pic img");
+			console.log(this.model.get( "image" ));
 
 			pic.css({
 				height: imageData.height
 			});
 
-			
+
 
 			return this;
 		},

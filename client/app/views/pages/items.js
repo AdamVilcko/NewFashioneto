@@ -58,9 +58,9 @@ define(function(require){
 			this.itemSearch.collection.loadMoreItems()
 			.done(function(a,b,c){
 				var length = self.itemSearch.collection.length,
-				slice = length - 30,
+				slice = length - 5,
 				newItems = self.itemSearch.collection.slice(slice, length);
-				self.itemSearch.addItemsMasonry( self.itemSearch.renderCollection( new MasterBaseCollection(newItems) ).$el.unwrap() );			
+				self.itemSearch.addItemsMasonry( self.itemSearch.renderNewItems( new MasterBaseCollection(newItems) ) );
 			});
 		}
 
