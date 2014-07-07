@@ -13,16 +13,6 @@ define(function(require){
 
 		model : Model,
 
-		init: function(){
-			this.addEvents();
-		},
-
-		addEvents: function(){
-			this.on( "sync", function( collection, resp, options ){
-				App.vent.trigger( this.nameSpace + ":items:fetchMeta", collection.pluck( "id" ) );
-			}, this );
-		},
-
 		parse: function( response ){
 			this.total = response.total;
 			return response.products;
@@ -40,9 +30,9 @@ define(function(require){
 
 		loadMoreItems: function(){
 			var args = {};
-			this.offset = this.offset + 25;
+			this.offset = this.offset + 15;
 			args.offset = this.offset;
-			args.limit = 25;
+			args.limit = 15;
 			args.fts = this.fts;
 			return this.fetch( {
 				url: Helper.queryBuilder(args),

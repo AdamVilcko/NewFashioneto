@@ -116,8 +116,11 @@ define(function(require){
 			  isFitWidth: true
 			}
 			masonryOptions = _.extend( masonryDefaults, masonryArgs );
+			
 			self.masonryTarget
 			.masonry("destroy")
+
+			self.masonryTarget
 			.addClass("invisible")
 			.empty()
 			.html( this.renderNewItems( this.collection ) )

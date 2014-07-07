@@ -36,6 +36,11 @@ define(function(require){
 		},
 
 		controller: function( args ){
+			_.each( this.pages, function( value, key, list ){
+				if(value.close){
+					value.close();
+				}
+			});
 			this.pages[ args.page ].handler( args );
 		},
 

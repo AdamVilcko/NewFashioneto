@@ -31,5 +31,3 @@
 <div class="wrap">
   <div style="margin: 0 auto;" id="tabContainer"></div><!-- content -->
 </div><!-- wrap -->
-
-<div style="text-align:center; padding:20px;" class="loadMore alert-info">Load more</div>
