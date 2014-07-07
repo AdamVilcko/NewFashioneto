@@ -21,6 +21,7 @@ public class CommentDAOImpl implements CommentDAO
 {
 	private static final String FIELD_ID_PARENT_COMMENT = "id_parent_comment";
 	private static final String FIELD_ID_PARENT_USER = "id_parent_user";
+	private static final String FIELD_ID_PARENT_IMAGE = "id_parent_image";
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -79,17 +80,13 @@ public class CommentDAOImpl implements CommentDAO
 		{
 			case COMMENT:
 				return FIELD_ID_PARENT_COMMENT;
-				//				break;
 			case ITEM:
-
+				// return FIELD_ID_PARENT_ITEM;
 				break;
-			case PHOTO:
-
-				break;
+			case IMAGE:
+				return FIELD_ID_PARENT_IMAGE;
 			case USER:
 				return FIELD_ID_PARENT_USER;
-				//				break;
-
 			default:
 				break;
 		}

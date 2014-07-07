@@ -50,6 +50,7 @@ create table comment_parent (
 	`id_parent_comment` int(11) unsigned,
 	`id_parent_user` int(11) unsigned,
 	`id_parent_image` int(11) unsigned,
+	`id_parent_item` int(11) unsigned,
 	`parent_type` varchar(50) not null
 );
 
@@ -67,7 +68,7 @@ create table like_comment (
 create table like_image (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`id_user` int(11) unsigned not null,
-	`id_comment` int(11) unsigned not null
+	`id_image` int(11) unsigned not null
 );
 
 CREATE TABLE User_roles

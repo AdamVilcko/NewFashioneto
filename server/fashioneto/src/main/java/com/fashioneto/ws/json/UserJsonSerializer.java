@@ -22,7 +22,7 @@ public class UserJsonSerializer implements JsonSerializer<User>
 
 	public static final String JSON_PROPERTY_COMMENTS = "commentsWrapper";
 	public static final String JSON_PROPERTY_ITEMS = "itemsWrapper";
-	public static final String JSON_PROPERTY_PHOTOS = "photosWrapper";
+	public static final String JSON_PROPERTY_IMAGES = "imagesWrapper";
 	public static final String JSON_PROPERTY_FOLLOWERS = "followersWrapper";
 	public static final String JSON_PROPERTY_FOLLOWING = "followingWrapper";
 
@@ -64,13 +64,13 @@ public class UserJsonSerializer implements JsonSerializer<User>
 	protected void addWrappedSubOjects(JsonObject jsonObject, User user, JsonSerializationContext context)
 	{
 		DefaultSet<Image> imageSet = new DefaultSet<Image>(user.getImages());
-		jsonObject.add(JSON_PROPERTY_PHOTOS, context.serialize(imageSet));
+		jsonObject.add(JSON_PROPERTY_IMAGES, context.serialize(imageSet));
 
 		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
-		
+
 		DefaultSet<Item> likedItems = new DefaultSet<Item>(user.getItems());
-		jsonObject.add(JSON_PROPERTY_ITEMS,  context.serialize(likedItems));			
+		jsonObject.add(JSON_PROPERTY_ITEMS, context.serialize(likedItems));
 
 		DefaultSet<User> followersSet = new DefaultSet<User>(user.getFollowers());
 		jsonObject.add(JSON_PROPERTY_FOLLOWERS, FashionetoJsonFactory.getJsonElement(followersSet));
@@ -98,6 +98,5 @@ public class UserJsonSerializer implements JsonSerializer<User>
 
 		return jsonObject;
 	}
-
 
 }

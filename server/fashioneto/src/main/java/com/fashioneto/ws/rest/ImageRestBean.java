@@ -3,7 +3,6 @@ package com.fashioneto.ws.rest;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -43,16 +42,7 @@ public class ImageRestBean
 	private ImageService imageService;
 
 	@GET
-	@Path("s/{userId}")
-	public Response getImageList(@PathParam("userId")
-	int userId) throws IOException
-	{
-		List<Integer> imageIds = imageService.getImageIds(userId);
-		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(imageIds)).build();
-	}
-
-	@GET
-	@Path("{imageId}")
+	@Path("raw/{imageId}")
 	public Response getImageStandardSize(@PathParam("imageId")
 	int imageId) throws IOException
 	{
@@ -60,7 +50,7 @@ public class ImageRestBean
 	}
 
 	@GET
-	@Path("{imageSize}/{imageId}")
+	@Path("raw/{imageSize}/{imageId}")
 	public Response getImageStandardSize(@PathParam("imageSize")
 	ImageSizeEnum imageSize, @PathParam("imageId")
 	int imageId) throws IOException

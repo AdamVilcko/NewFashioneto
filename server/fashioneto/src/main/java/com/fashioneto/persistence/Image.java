@@ -47,6 +47,9 @@ public class Image implements Serializable
 	@OrderBy("date desc")
 	private Set<Comment> receivedComments = new LinkedHashSet<Comment>();
 
+	@OneToMany(mappedBy = "image", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	private Set<LikeImage> likes = new LinkedHashSet<LikeImage>();
+
 	@Column(name = "description")
 	private String description;
 
@@ -58,6 +61,25 @@ public class Image implements Serializable
 
 	@Column(name = "date")
 	private Date date;
+
+	public int getNumberOfLikes()
+	{
+		if (likes == null)
+		{
+			return 0;
+		}
+		return likes.size();
+	}
+
+	public Set<LikeImage> getLikes()
+	{
+		return likes;
+	}
+
+	public void setLikes(Set<LikeImage> likes)
+	{
+		this.likes = likes;
+	}
 
 	public String getFullFilename()
 	{

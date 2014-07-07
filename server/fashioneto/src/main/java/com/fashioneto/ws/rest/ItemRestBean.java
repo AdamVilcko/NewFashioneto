@@ -3,15 +3,10 @@
  */
 package com.fashioneto.ws.rest;
 
-import java.util.List;
-
-import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -24,39 +19,22 @@ import com.fashioneto.service.ItemService;
 import com.fashioneto.service.UserService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
-import com.fashioneto.ws.entities.DefaultSet;
 import com.fashioneto.ws.entities.LikesWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 
 /**
  * @author Felipe
- *
  */
 @Component
 @Path("/item")
-public class ItemRestBean {
-	
+public class ItemRestBean
+{
+
 	@Autowired
 	private ItemService itemService;
 	@Autowired
-	private UserService userService;	
-	
-	
-	@POST
-	@Path("s")
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response getItems(List<Integer> itemIds) throws Exception
-	{
-		if (itemIds != null && itemIds.size() > 0)
-		{
-			List<Item> items = itemService.getItems(itemIds);
-			String strResponse = FashionetoJsonFactory.getJson(new DefaultSet<Item>(items));
-			return Response.status(Status.OK).entity(strResponse).build();
-		}
-		return Response.status(Status.NOT_FOUND).build();
-	}
-	
-	
+	private UserService userService;
+
 	@POST
 	@Path("like/{itemId}")
 	public Response likeComment(@PathParam("itemId")
@@ -66,15 +44,16 @@ public class ItemRestBean {
 		{
 			return Response.status(Status.NOT_ACCEPTABLE).build();
 		}
-		
+
 		Item item = itemService.getItem(itemId);
-		
-		if (item == null) {
+
+		if (item == null)
+		{
 			item = itemService.createItem(itemId);
 		}
 		return like(item, true);
 	}
-	
+
 	@DELETE
 	@Path("like/{itemId}")
 	public Response dislikeComment(@PathParam("itemId")
@@ -83,12 +62,11 @@ public class ItemRestBean {
 		Item item = itemService.getItem(itemId);
 		return like(item, false);
 	}
-	
+
 	private Response like(Item item, boolean isAdding) throws NoUserInContextException
 	{
 		// http://localhost:8080/Fashioneto/as/item/like/443831786
 
-		
 		if (item != null)
 		{
 			User user = ContextUtils.getUserFromAuthenticationContext();
@@ -97,7 +75,8 @@ public class ItemRestBean {
 			if (isAdding)
 			{
 				likesCount = itemService.like(user, item);
-			} else 
+			}
+			else
 			{
 				likesCount = itemService.dislike(user, item);
 			}

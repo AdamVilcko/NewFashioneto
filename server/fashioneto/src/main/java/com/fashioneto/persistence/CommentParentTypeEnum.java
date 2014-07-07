@@ -5,5 +5,5 @@ package com.fashioneto.persistence;
  **/
 public enum CommentParentTypeEnum
 {
-	COMMENT, ITEM, PHOTO, USER;
+	COMMENT, ITEM, IMAGE, USER;
 }
