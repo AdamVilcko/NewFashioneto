@@ -36,3 +36,4 @@ public class ImagesRestBean
 		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(imageIds)).build();
 	}
 }
+

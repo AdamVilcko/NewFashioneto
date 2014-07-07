@@ -35,9 +35,6 @@ public class ImageJsonSerializer implements JsonSerializer<Image>
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty(JSON_PROPERTY_ID, image.getId());
 
-		//		CommentSet commentSet = new CommentSet(comment.getComments());
-		//		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(image.getComments());
-		//		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
 		jsonObject.add(JSON_PROPERTY_DETAILS, getImageDetails(image));
 
 		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(image.getReceivedComments());

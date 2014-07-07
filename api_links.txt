@@ -33,15 +33,32 @@ Images:
         Attachment 
             file = [multipart/form-data]
 
-    GET http://localhost:8080/Fashioneto-0.1b/as/image/s/{userId}
-
-        OBS.: Returns an array of image IDs
+    GET http://localhost:8080/Fashioneto-0.1b/as/images/user/{userId}
+        Header:
+            X-Auth-Token = [token value]
 
     GET http://localhost:8080/Fashioneto-0.1b/as/image/{imageId}
 
     GET http://localhost:8080/Fashioneto-0.1b/as/image/{imageSize}/{imageId}
 
         OBS.: possible values for {imageSize} = [THUMBNAIL, SMALL, STANDARD]
+
+
+Items:
+
+    POST /item/like/{itemId}
+        Header:
+            X-Auth-Token = [token value]
+
+    DELETE /item/like/{itemId}
+        Header:
+            X-Auth-Token = [token value]
+
+    POST http://localhost:8080/Fashioneto-0.1b/as/items                
+        Header:
+            X-Auth-Token = [token value]
+        OBS.: Consumes JSON list of IDs
+
 
 Users:
 
@@ -88,140 +105,216 @@ OBS.: TOKEN is currently predefined to expire in 20 hours
 **********************
 
 {
-    "user": {
-        "id": 1,
-        "details": {
-            "userName": "user1",
-            "city": "Florianopolis",
-            "country": "BR",
-            "followersCount": 5,
-            "followingCount": 1,
-            "age": -1,
-            "displayName": "Felipe Tonon",
-            "imageId": 1
-        },
-        "itemsWrapper": {},
-        "photosWrapper": {
+  "user": {
+    "id": 1,
+    "isFollowed": false,
+    "details": {
+      "userName": "user1",
+      "city": "Florianopolis",
+      "country": "BR",
+      "followersCount": 5,
+      "followingCount": 1,
+      "age": -1,
+      "displayName": "Felipe Tonon",
+      "imageId": 1
+    },
+    "imagesWrapper": {
+      "count": 1,
+      "collection": [
+        {
+          "id": 1,
+          "imageDetails": {
+            "userId": 1,
+            "description": "First month in London"
+          },
+          "commentsWrapper": {
             "count": 1,
-            "collection": [{
-                "id": 1
-            }]
-        },
-        "commentsWrapper": {
-            "count": 1,
-            "collection": [{
-                "id": 1,
-                "content": "I like your pictures and your profile, man!",
+            "collection": [
+              {
+                "id": 3,
+                "content": "You look mingin\u0027 in this pic bruv!",
                 "userId": 2,
                 "displayName": "Caspar Sambrook-Smith",
-                "date": "1394368200",
+                "date": "1404732420",
                 "status": "ACTIVE",
                 "imageId": 2,
                 "commentsWrapper": {
-                    "count": 1,
-                    "collection": [{
-                        "id": 2,
-                        "content": "Thanks!",
-                        "userId": 1,
-                        "displayName": "Felipe Tonon",
-                        "date": "1394368200",
-                        "status": "ACTIVE",
-                        "imageId": 1,
-                        "commentsWrapper": {
-                            "count": 0,
-                            "collection": []
-                        },
-                        "likes": {
-                            "count": 0,
-                            "actioned": false
-                        }
-                    }]
+                  "count": 0,
+                  "collection": []
                 },
                 "likes": {
-                    "count": 1,
-                    "actioned": true
+                  "count": 0,
+                  "actioned": false
                 }
-            }]
-        },
-        "followersWrapper": {
-            "count": 5,
-            "collection": [{
-                "id": 3,
-                "details": {
-                    "userName": "user3",
-                    "city": "London",
-                    "country": "UK",
-                    "followersCount": 0,
-                    "followingCount": 2,
-                    "age": -1,
-                    "displayName": "Ondra Winter",
-                    "imageId": 3
-                }
-            }, {
-                "id": 4,
-                "details": {
-                    "userName": "user4",
-                    "city": "London",
-                    "country": "UK",
-                    "followersCount": 0,
-                    "followingCount": 1,
-                    "age": -1,
-                    "displayName": "Adam Amram",
-                    "imageId": 4
-                }
-            }, {
-                "id": 5,
-                "details": {
-                    "userName": "user5",
-                    "city": "London",
-                    "country": "UK",
-                    "followersCount": 0,
-                    "followingCount": 1,
-                    "age": -1,
-                    "displayName": "John Doe 6",
-                    "imageId": 5
-                }
-            }, {
-                "id": 2,
-                "details": {
-                    "userName": "user2",
-                    "city": "London",
-                    "country": "UK",
-                    "followersCount": 2,
-                    "followingCount": 1,
-                    "age": -1,
-                    "displayName": "Caspar Sambrook-Smith",
-                    "imageId": 2
-                }
-            }, {
-                "id": 6,
-                "details": {
-                    "userName": "admin",
-                    "city": "London",
-                    "country": "UK",
-                    "followersCount": 0,
-                    "followingCount": 1,
-                    "age": -1,
-                    "displayName": "Administrator"
-                }
-            }]
-        },
-        "followingWrapper": {
-            "count": 1,
-            "collection": [{
-                "id": 2,
-                "details": {
-                    "userName": "user2",
-                    "city": "London",
-                    "country": "UK",
-                    "followersCount": 2,
-                    "followingCount": 1,
-                    "age": -1,
-                    "displayName": "Caspar Sambrook-Smith",
-                    "imageId": 2
-                }
-            }]
+              }
+            ]
+          },
+          "likes": {
+            "count": 0,
+            "actioned": false
+          }
         }
+      ]
     },
-    "token": "user1:1398271942322:e28cdf65962d9bdf2650513dd559eb0b"
+    "commentsWrapper": {
+      "count": 1,
+      "collection": [
+        {
+          "id": 1,
+          "content": "I like your pictures and your profile, man!",
+          "userId": 2,
+          "displayName": "Caspar Sambrook-Smith",
+          "date": "1394368200",
+          "status": "ACTIVE",
+          "imageId": 2,
+          "commentsWrapper": {
+            "count": 1,
+            "collection": [
+              {
+                "id": 2,
+                "content": "Thanks!",
+                "userId": 1,
+                "displayName": "Felipe Tonon",
+                "date": "1394368200",
+                "status": "ACTIVE",
+                "imageId": 1,
+                "commentsWrapper": {
+                  "count": 0,
+                  "collection": []
+                },
+                "likes": {
+                  "count": 0,
+                  "actioned": false
+                }
+              }
+            ]
+          },
+          "likes": {
+            "count": 1,
+            "actioned": true
+          }
+        }
+      ]
+    },
+    "itemsWrapper": {
+      "count": 3,
+      "collection": [
+        {
+          "id": 442719185,
+          "likes": {
+            "count": 2,
+            "actioned": true
+          }
+        },
+        {
+          "id": 443435217,
+          "likes": {
+            "count": 3,
+            "actioned": true
+          }
+        },
+        {
+          "id": 442698073,
+          "likes": {
+            "count": 2,
+            "actioned": true
+          }
+        }
+      ]
+    },
+    "followersWrapper": {
+      "count": 5,
+      "collection": [
+        {
+          "id": 2,
+          "isFollowed": true,
+          "details": {
+            "userName": "user2",
+            "city": "London",
+            "country": "UK",
+            "followersCount": 2,
+            "followingCount": 1,
+            "age": -1,
+            "displayName": "Caspar Sambrook-Smith",
+            "imageId": 2
+          }
+        },
+        {
+          "id": 3,
+          "isFollowed": false,
+          "details": {
+            "userName": "user3",
+            "city": "London",
+            "country": "UK",
+            "followersCount": 0,
+            "followingCount": 2,
+            "age": -1,
+            "displayName": "Ondra Winter",
+            "imageId": 3
+          }
+        },
+        {
+          "id": 4,
+          "isFollowed": false,
+          "details": {
+            "userName": "user4",
+            "city": "London",
+            "country": "UK",
+            "followersCount": 0,
+            "followingCount": 1,
+            "age": -1,
+            "displayName": "Adam Amram",
+            "imageId": 4
+          }
+        },
+        {
+          "id": 5,
+          "isFollowed": false,
+          "details": {
+            "userName": "user5",
+            "city": "London",
+            "country": "UK",
+            "followersCount": 0,
+            "followingCount": 1,
+            "age": -1,
+            "displayName": "John Doe 6",
+            "imageId": 5
+          }
+        },
+        {
+          "id": 6,
+          "isFollowed": false,
+          "details": {
+            "userName": "admin",
+            "city": "London",
+            "country": "UK",
+            "followersCount": 0,
+            "followingCount": 1,
+            "age": -1,
+            "displayName": "Administrator"
+          }
+        }
+      ]
+    },
+    "followingWrapper": {
+      "count": 1,
+      "collection": [
+        {
+          "id": 2,
+          "isFollowed": true,
+          "details": {
+            "userName": "user2",
+            "city": "London",
+            "country": "UK",
+            "followersCount": 2,
+            "followingCount": 1,
+            "age": -1,
+            "displayName": "Caspar Sambrook-Smith",
+            "imageId": 2
+          }
+        }
+      ]
+    }
+  },
+  "token": "user1:1404805730029:3d30f891bdc19131a1324e5665bf5203"
 }
