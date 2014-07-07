@@ -33,6 +33,20 @@ define(function(require){
 			this.$el.removeClass( "login" );
 			App.vent.on( "page:change", this.controller, this );
 			this.main = this.$el.find( "#main" );
+
+			$("#main").resize( function(){
+				if($(document).height() <= $(window).height()){
+					console.log("fixed");
+					$("footer").css({
+						position: "fixed"
+					});
+				} else {
+					console.log("static");
+					$("footer").css({
+						position: "static"
+					});
+				}
+			} );
 		},
 
 		invokeComponents: function() {
