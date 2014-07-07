@@ -58,7 +58,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoM
 
 			'items': 'items',
 
-			'items/:tab': 'items',
+			'items/:tab/:query': 'items',			
 
 			'itemmodal': 'itemModal',
 
@@ -84,9 +84,9 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoM
 			App.vent.trigger( 'page:change', { page:"people", tab: tab } );
 		},
 
-		items: function( tab ){
-			App.vent.trigger( 'page:change', { page:"items", tab: tab } );
-		},
+		items: function( tab, query ){
+			App.vent.trigger( 'page:change', { page:"items", tab: tab, query: query } );
+		},		
 
 		profile: function( tab ){
 			if(!tab){

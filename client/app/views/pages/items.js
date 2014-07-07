@@ -30,7 +30,11 @@ define(function(require){
 
 			loadData: function(){
 				this.render();
-			},			
+			},
+
+			handler: function(){
+				BasePageView.handler.apply(self, arguments );
+			},
 
 			events:{
 				"keydown .search": "search",

@@ -35,15 +35,6 @@ define(function(require){
 			this.main = this.$el.find( "#main" );
 		},
 
-		controller: function( args ){
-			_.each( this.pages, function( value, key, list ){
-				if(value.close){
-					value.close();
-				}
-			});
-			this.pages[ args.page ].handler( args );
-		},
-
 		invokeComponents: function() {
 			this.nav             = new Nav();
 			this.pages           = {};
@@ -59,6 +50,15 @@ define(function(require){
 			}, 300 );
 
 			return this;
+		},
+
+		controller: function( args ){
+			_.each( this.pages, function( value, key, list ){
+				if(value.close){
+					value.close();
+				}
+			});
+			this.pages[ args.page ].handler( args );
 		}
 
 	});
