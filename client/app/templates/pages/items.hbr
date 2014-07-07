@@ -15,7 +15,7 @@
     <div class="input-group search-group">
       <input type="text" class="form-control search" placeholder="Search">
       <span class="input-group-btn">
-        <button class="btn btn-primary" type="button">Go!</button>
+        <button class="btn btn-primary executeSearch" type="button">Go!</button>
       </span>
     </div><!-- /input-group -->
   </div><!-- control-group -->

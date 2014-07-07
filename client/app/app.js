@@ -22,8 +22,8 @@ window.App =
             if( arg === "root"){
                 return this.root;
             }
-            if( arg === "thirdparty" ){
-                return this.shopstyle.products;
+            if( arg === "shopstyle" ){
+                return this.shopstyle;
             }
             if( contextId ){
                 contextId = contextId + "/";
@@ -46,7 +46,7 @@ window.App =
         photos: "photos",
 
         shopstyle: {
-            products:{
+            product:{
                 root: "http://api.shopstyle.com/api/v2/products?",
                 defaults:{
                     format:"jsonp",
@@ -63,6 +63,13 @@ window.App =
                         s : null, //size
                         c : null  //color
                     }
+                }
+            },
+
+            brand: {
+                root: "http://api.shopstyle.com/api/v2/brands?",
+                defaults:{
+                    pid: "uid8569-24941587-78"
                 }
             },
 

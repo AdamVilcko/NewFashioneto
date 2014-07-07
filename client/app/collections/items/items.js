@@ -24,7 +24,7 @@ define(function(require){
 			args.limit = 25;
 			this.reset();
 			return this.fetch( {
-				url: Helper.queryBuilder( args )
+				url: Helper.queryBuilder( args, {api: "product"} )
 			} );
 		},
 
@@ -35,7 +35,7 @@ define(function(require){
 			args.limit = 15;
 			args.fts = this.fts;
 			return this.fetch( {
-				url: Helper.queryBuilder(args),
+				url: Helper.queryBuilder(args, {api: "product"}),
 				add: true,
 				remove: false,
 				update: true
@@ -45,7 +45,7 @@ define(function(require){
 		fetchById: function( args ){
 			this.reset();
 			return this.fetch( {
-				url: Helper.queryBuilder( args )
+				url: Helper.queryBuilder( args, {api: "product"} )
 			} );
 		},
 

@@ -39,11 +39,11 @@
           </div><!-- subMenu -->
         </li>
 
-        <li class="search toggle"><a href="#">Fixed top<div></div></a>
+        <li class="search toggle"><a>Fixed top<div></div></a>
         <div class="subMenu">
           <div class="body">
             <div class="input-group">
-              <input placeholder="What are you looking for?" type="text" class="form-control">
+              <input placeholder="Search for an item..." type="text" class="form-control">
               <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
               </span>

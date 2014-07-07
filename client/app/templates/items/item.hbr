@@ -4,7 +4,7 @@
 <div class="pic">
 	<div class="hover">
 		<h5>{{model.priceLabel}}</h5>
-		<button class="btn btn-primary">View detail</button>
+		<button data-action="viewDetail" class="btn btn-primary">View detail</button>
 	</div>
   <img src="{{model.image.sizes.Large.url}}" alt="...">
 </div>

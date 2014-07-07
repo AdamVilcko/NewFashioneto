@@ -25,19 +25,15 @@ define(function(require){
 
 			imageData = this.model.get( "image" ).sizes.Large;
 			pic    = this.$el.find(".pic img");
-			console.log(this.model.get( "image" ));
 
 			pic.css({
 				height: imageData.height
 			});
-
-
-
 			return this;
 		},
 
 		events:{
-			"click .btn": function(){
+			"click [data-action=viewDetail]": function(){
 				new ItemModal({
 					model: this.model
 				});

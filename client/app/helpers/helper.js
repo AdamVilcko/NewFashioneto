@@ -54,11 +54,12 @@ define(function(require){
 			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );*/
 		},
 
-		queryBuilder: function( args ){
+		queryBuilder: function( args, options ){
             var
 			args     = args || {},
-			root     = App.api.get( "thirdparty" ).root,
-			defaults = App.api.get( "thirdparty" ).defaults;
+			options  = options || {},
+			root     = App.api.get( "shopstyle" )[options.api].root,
+			defaults = App.api.get( "shopstyle" )[options.api].defaults;
 
             args = $.extend( true, {}, defaults, args );
 

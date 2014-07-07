@@ -24,7 +24,14 @@ define(function(require){
 		events: {
 			'click .navbar-toggle' : 'toggleMobileNav',
 			'click .subMenu' : 'stopProp',
-			'click .toggle' : "toggle"
+			'click .toggle' : "toggle",
+			'click .search button' : "search",
+			'keydown .search input' : "search",
+			'click .search a' : function(){
+				_.defer(function(){
+					this.$(".search input").focus();
+				});
+			}
 		},
 
 		render: function(){
@@ -43,6 +50,17 @@ define(function(require){
 		toggle: function( ev ){
 			this.$el.find( ".toggle" ).removeClass( "active" );
 			$( ev.target ).parent().addClass( "active" );
+		},
+
+		search: function( ev ){
+
+			if( ev.type === "keydown" && ev.which !== 13 ){
+
+				return;
+			}
+			var query = this.$(".search input").val();
+			App.router.navigate( "items/search/" + query, { trigger: true });
+			this.$(".search input").val("");
 		}
 
 	});

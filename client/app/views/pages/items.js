@@ -33,12 +33,18 @@ define(function(require){
 			},
 
 			handler: function(){
-				BasePageView.handler.apply(self, arguments );
+				BasePageView.prototype.handler.apply(self, arguments );
+				if(arguments[0].query){
+					self.$(".search")
+					.val( arguments[0].query );
+					self.$(".executeSearch")
+					.click();
+				}
 			},
 
 			events:{
 				"keydown .search": "search",
-				"click .search-group .btn": "search"			
+				"click .search-group .btn": "search"
 			},
 
 			search: function( ev ){
