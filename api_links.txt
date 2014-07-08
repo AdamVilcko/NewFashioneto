@@ -45,9 +45,9 @@ Images:
         Header:
             X-Auth-Token = [token value]
 
-    GET http://localhost:8080/Fashioneto-0.1b/as/image/{imageId}
+    GET http://localhost:8080/Fashioneto-0.1b/as/image/raw/{imageId}
 
-    GET http://localhost:8080/Fashioneto-0.1b/as/image/{imageSize}/{imageId}
+    GET http://localhost:8080/Fashioneto-0.1b/as/image/raw/{imageSize}/{imageId}
 
         OBS.: possible values for {imageSize} = [THUMBNAIL, SMALL, STANDARD]
 
