@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fashioneto.persistence.Album;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.service.ImageService;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
@@ -35,5 +36,22 @@ public class ImagesRestBean
 		List<Image> imageIds = imageService.getImages(userId);
 		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(imageIds)).build();
 	}
-}
 
+	@GET
+	@Path("{imageId}")
+	public Response getImageListByAlbum(@PathParam("imageId")
+	int imageId) throws IOException
+	{
+		Image image = imageService.getImage(imageId);
+		if (image == null)
+		{
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		Album album = image.getAlbum();
+		if (album == null)
+		{
+			return Response.status(Status.NOT_FOUND).build();
+		}
+		return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(album.getImages())).build();
+	}
+}

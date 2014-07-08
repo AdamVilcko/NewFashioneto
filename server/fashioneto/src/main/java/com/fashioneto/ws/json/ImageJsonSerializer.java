@@ -26,6 +26,7 @@ public class ImageJsonSerializer implements JsonSerializer<Image>
 	public static final String JSON_PROPERTY_DETAILS = "imageDetails";
 	public static final String JSON_PROPERTY_DETAILS_USER_ID = "userId";
 	public static final String JSON_PROPERTY_DETAILS_DESCRIPTION = "description";
+	public static final String JSON_PROPERTY_DETAILS_ALBUM_NAME = "albumName";
 	public static final String JSON_PROPERTY_COMMENTS = "commentsWrapper";
 
 	@Override
@@ -64,7 +65,7 @@ public class ImageJsonSerializer implements JsonSerializer<Image>
 		JsonObject jsonObject = new JsonObject();
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_USER_ID, image.getUser().getId());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_DESCRIPTION, image.getDescription());
-
+		jsonObject.addProperty(JSON_PROPERTY_DETAILS_ALBUM_NAME, image.getAlbum().getName());
 		return jsonObject;
 	}
 

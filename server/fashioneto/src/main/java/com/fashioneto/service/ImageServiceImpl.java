@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fashioneto.dao.ImageDAO;
+import com.fashioneto.persistence.Album;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.User;
 import com.fashioneto.utils.TokenUtils;
@@ -43,6 +44,8 @@ public class ImageServiceImpl implements ImageService
 
 	@Autowired
 	private ImageDAO imageDAO;
+	@Autowired
+	private AlbumService albumService;
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -85,6 +88,10 @@ public class ImageServiceImpl implements ImageService
 		image.setFilename(newFilename);
 		image.setUser(user);
 		image.setFileExtension(DEFAULT_EXTENSION);
+
+		Album album = albumService.getUploadAlbum(user);
+
+		image.setAlbum(album);
 		image = entityManager.merge(image);
 
 		return image;

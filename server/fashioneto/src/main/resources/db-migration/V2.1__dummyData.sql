@@ -22,32 +22,11 @@ insert into comment_parent values (1, null, 1, null, null, 'USER');
 -- user 1 leaving a reply for comment above
 insert into comment (`id`, `id_user`, `content`, `dt_comment`, `status`) values (2, 1, 'Thanks!', '2014-03-09 12:30:00', 'ACTIVE');
 insert into comment_parent values (2, 1, null, null, null, 'COMMENT');
--- user 2 commenting on user1's profile picture
-insert into comment (`id`, `id_user`, `content`, `dt_comment`, `status`) values (3, 2, 'You look mingin'' in this pic bruv!', '2014-07-07 12:27:00', 'ACTIVE');
-insert into comment_parent values (3, null, null, 1, null, 'IMAGE');
 
 
 --user 1 liking comment 1
 insert into like_comment values (1, 1, 1);
 
-insert into image (`id`, `id_user`, `filename`, `file_extension`, `date`, `description`) 
-	values (1, 1, 'felipe', 'jpg', '2014-04-17 14:06:00', 'First month in London');
-insert into image (`id`, `id_user`, `filename`, `file_extension`, `date`, `description`) 
-	values (2, 2, 'casp', 'jpg', '2014-04-17 14:06:00', 'Another one of Casp''s strange pics');
-insert into image (`id`, `id_user`, `filename`, `file_extension`, `date`, `description`) 
-	values (3, 3, 'ondrej', 'jpg', '2014-04-17 14:06:00', 'Ondra posing');
-insert into image (`id`, `id_user`, `filename`, `file_extension`, `date`, `description`) 
-	values (4, 4, 'adam', 'jpg', '2014-04-17 14:06:00', 'Some avatar');
-insert into image (`id`, `id_user`, `filename`, `file_extension`, `date`, `description`) 
-	values (5, 5, 'user_zero-profile_picture', 'jpg', '2014-04-17 14:06:00', 'My cool picture from last winter!');
-
-	/*
-	 * 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
-	`id_user` int(11) unsigned not null,
-	`id_followed_user` int(11) unsigned not null,
-	`date` DATETIME not null
-	 */
-	
 insert into follow_user (`id_user`, `id_followed_user`, `date`) values (2, 1, '2014-04-22 21:00:00');
 insert into follow_user (`id_user`, `id_followed_user`, `date`) values (3, 1, '2014-04-22 21:00:00');
 insert into follow_user (`id_user`, `id_followed_user`, `date`) values (4, 1, '2014-04-22 21:00:00');
