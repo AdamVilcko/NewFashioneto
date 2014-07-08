@@ -27,6 +27,14 @@ Follows
 
 Images:
 
+    POST /image/like/{itemId}
+        Header:
+            X-Auth-Token = [token value]
+
+    DELETE /image/like/{itemId}
+        Header:
+            X-Auth-Token = [token value]
+
     POST http://localhost:8080/Fashioneto-0.1b/as/image/upload
         Header:
             X-Auth-Token = [token value]
