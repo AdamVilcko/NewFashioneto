@@ -84,7 +84,7 @@ Users:
 
 Comments:
 
-    OBS.: possible values for {parentType} = [COMMENT, ITEM, PHOTO, USER]
+    OBS.: possible values for {parentType} = [COMMENT, ITEM, IMAGE, USER]
 
     GET http://localhost:8080/Fashioneto-0.1b/as/comment/{parentType}/{parentId}
         Header:
