@@ -27,11 +27,11 @@ Follows
 
 Images:
 
-    POST /image/like/{itemId}
+    POST /image/like/{imageId}
         Header:
             X-Auth-Token = [token value]
 
-    DELETE /image/like/{itemId}
+    DELETE /image/like/{imageId}
         Header:
             X-Auth-Token = [token value]
 
@@ -99,7 +99,7 @@ Comments:
         Header:
             X-Auth-Token = [token value]
         Body:
-            { content : [comment value] }
+            { "content" : [comment value] }
 
     DELETE http://localhost:8080/Fashioneto-0.1b/as/comment/{commentId}
         Header:
