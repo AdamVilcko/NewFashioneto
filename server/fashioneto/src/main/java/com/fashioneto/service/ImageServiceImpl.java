@@ -48,6 +48,22 @@ public class ImageServiceImpl implements ImageService
 	private EntityManager entityManager;
 
 	@Override
+	public int like(User user, Image image)
+	{
+		image.addLiker(user);
+		entityManager.merge(image);
+		return image.getLikedBy().size();
+	}
+
+	@Override
+	public int dislike(User user, Image image)
+	{
+		image.removeLiker(user);
+		entityManager.merge(image);
+		return image.getLikedBy().size();
+	}
+
+	@Override
 	public Image uploadImage(User user, InputStream fileInputStream, String fileExtension) throws IOException
 	{
 
@@ -117,10 +133,9 @@ public class ImageServiceImpl implements ImageService
 	}
 
 	@Override
-	public String getImagePath(int userId)
+	public Image getImage(int imageId)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.find(Image.class, imageId);
 	}
 
 }

@@ -10,4 +10,5 @@ import com.fashioneto.persistence.Image;
 public interface ImageDAO
 {
 	public List<Image> getImages(int userId);
+
 }

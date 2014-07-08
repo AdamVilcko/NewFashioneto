@@ -22,11 +22,14 @@ public interface ImageService
 
 	public List<Image> getImages(int userId);
 
-	public String getImagePath(int userId);
-
 	public List<Integer> getImageIds(int userId);
 
-	public Image uploadImage(User user, InputStream fileInputStream, String filename)
-			throws IOException;
+	public Image uploadImage(User user, InputStream fileInputStream, String filename) throws IOException;
+
+	public int like(User user, Image image);
+
+	public int dislike(User user, Image image);
+
+	public Image getImage(int imageId);
 
 }

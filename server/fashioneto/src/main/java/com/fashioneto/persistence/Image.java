@@ -17,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
@@ -45,10 +46,11 @@ public class Image implements Serializable
 	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_image"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
 	@OrderBy("date desc")
-	private Set<Comment> receivedComments = new LinkedHashSet<Comment>();
+	private Set<Comment> comments = new LinkedHashSet<Comment>();
 
-	@OneToMany(mappedBy = "image", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	private Set<LikeImage> likes = new LinkedHashSet<LikeImage>();
+	@ManyToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
+	@JoinTable(name = "like_image", joinColumns = @JoinColumn(name = "id_image"), inverseJoinColumns = @JoinColumn(name = "id_user"))
+	private Set<User> likedBy = new LinkedHashSet<User>();
 
 	@Column(name = "description")
 	private String description;
@@ -64,21 +66,11 @@ public class Image implements Serializable
 
 	public int getNumberOfLikes()
 	{
-		if (likes == null)
+		if (likedBy == null)
 		{
 			return 0;
 		}
-		return likes.size();
-	}
-
-	public Set<LikeImage> getLikes()
-	{
-		return likes;
-	}
-
-	public void setLikes(Set<LikeImage> likes)
-	{
-		this.likes = likes;
+		return likedBy.size();
 	}
 
 	public String getFullFilename()
@@ -116,16 +108,6 @@ public class Image implements Serializable
 	public void setUser(User user)
 	{
 		this.user = user;
-	}
-
-	public Set<Comment> getReceivedComments()
-	{
-		return receivedComments;
-	}
-
-	public void setReceivedComments(Set<Comment> receivedComments)
-	{
-		this.receivedComments = receivedComments;
 	}
 
 	public String getDescription()
@@ -166,6 +148,42 @@ public class Image implements Serializable
 	public void setFileExtension(String fileExtension)
 	{
 		this.fileExtension = fileExtension;
+	}
+
+	public Set<User> getLikedBy()
+	{
+		return likedBy;
+	}
+
+	public void setLikedBy(Set<User> likedBy)
+	{
+		this.likedBy = likedBy;
+	}
+
+	public void addLiker(User user)
+	{
+		if (!likedBy.contains(user))
+		{
+			likedBy.add(user);
+		}
+	}
+
+	public void removeLiker(User user)
+	{
+		if (likedBy.contains(user))
+		{
+			likedBy.remove(user);
+		}
+	}
+
+	public Set<Comment> getComments()
+	{
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments)
+	{
+		this.comments = comments;
 	}
 
 }

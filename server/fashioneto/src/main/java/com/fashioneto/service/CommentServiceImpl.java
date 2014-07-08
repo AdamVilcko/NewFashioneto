@@ -1,6 +1,7 @@
 package com.fashioneto.service;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +13,8 @@ import com.fashioneto.dao.CommentDAO;
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.CommentParentTypeEnum;
 import com.fashioneto.persistence.CommentStatus;
+import com.fashioneto.persistence.Image;
+import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.LikeComment;
 import com.fashioneto.persistence.User;
 import com.fashioneto.utils.ContextUtils;
@@ -29,6 +32,12 @@ public class CommentServiceImpl implements CommentService
 
 	@Autowired
 	private CommentDAO commentDAO;
+	@Autowired
+	private ItemService itemService;
+	@Autowired
+	private ImageService imageService;
+	@Autowired
+	private UserService userService;
 
 	@Override
 	public int addLike(int userId, int commentId)
@@ -76,6 +85,37 @@ public class CommentServiceImpl implements CommentService
 	public Comment getComment(int commentId)
 	{
 		return entityManager.find(Comment.class, commentId);
+	}
+
+	@Override
+	public Set<Comment> getComments(CommentParentTypeEnum parentType, int parentId)
+	{
+		Set<Comment> comments;
+
+		switch (parentType)
+		{
+			case COMMENT:
+				Comment comment = getComment(parentId);
+				comments = comment.getComments();
+				break;
+			case ITEM:
+				Item item = itemService.getItem(parentId);
+				comments = item.getComments();
+				break;
+			case IMAGE:
+				Image image = imageService.getImage(parentId);
+				comments = image.getComments();
+				break;
+			case USER:
+				User user = userService.getUser(parentId);
+				comments = user.getReceivedComments();
+				break;
+			default:
+				comments = null;
+				break;
+		}
+
+		return comments;
 	}
 
 }

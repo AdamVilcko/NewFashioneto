@@ -26,3 +26,7 @@ insert into like_item (`id_user`, `id_item`) values (2, 441708353);
 insert into like_item (`id_user`, `id_item`) values (3, 443435217);
 insert into like_item (`id_user`, `id_item`) values (3, 443197350);
 insert into like_item (`id_user`, `id_item`) values (3, 442389816);
+
+-- user 2 commenting on user1's profile picture
+insert into comment (`id`, `id_user`, `content`, `dt_comment`, `status`) values (4, 2, 'You gotta admit, this is kinda ugly!!', '2014-08-07 11:10:00', 'ACTIVE');
+insert into comment_parent values (4, null, null, null, 442719185, 'ITEM');

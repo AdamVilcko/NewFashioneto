@@ -5,7 +5,6 @@ import java.util.Set;
 
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Image;
-import com.fashioneto.persistence.LikeImage;
 import com.fashioneto.persistence.User;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
@@ -37,7 +36,7 @@ public class ImageJsonSerializer implements JsonSerializer<Image>
 
 		jsonObject.add(JSON_PROPERTY_DETAILS, getImageDetails(image));
 
-		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(image.getReceivedComments());
+		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(image.getComments());
 		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
 
 		try
@@ -54,9 +53,9 @@ public class ImageJsonSerializer implements JsonSerializer<Image>
 
 	private LikesWrapper getLikesWrapper(Image image) throws NoUserInContextException
 	{
-		Set<LikeImage> set = image.getLikes();
+		Set<User> set = image.getLikedBy();
 		User user = ContextUtils.getUserFromAuthenticationContext();
-		LikesWrapper likesWrapper = new LikesWrapper(set.size(), set.contains(new LikeImage(user, image)));
+		LikesWrapper likesWrapper = new LikesWrapper(set.size(), set.contains(user));
 		return likesWrapper;
 	}
 

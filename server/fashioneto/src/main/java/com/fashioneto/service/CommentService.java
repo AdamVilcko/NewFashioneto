@@ -1,5 +1,7 @@
 package com.fashioneto.service;
 
+import java.util.Set;
+
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.CommentParentTypeEnum;
 import com.fashioneto.utils.NoUserInContextException;
@@ -34,4 +36,6 @@ public interface CommentService
 	public Comment deleteComment(int commentId);
 
 	public Comment getComment(int commentId);
+
+	public Set<Comment> getComments(CommentParentTypeEnum parentType, int parentId);
 }
