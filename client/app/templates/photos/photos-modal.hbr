@@ -20,7 +20,7 @@
                     </a>
                     <div class="media-body">
                       <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
-                      <p>album <span>Only me</span></p>
+                      <p>album- <span>{{model.imageDetails.albumName}}</span></p>
                       {{like "star"}}
                     </div>
                   </div>

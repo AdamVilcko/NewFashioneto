@@ -24,16 +24,30 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
+			
 			var self = this;
-
-			/*this.options.model.collection.fetchDetails( this.options.model ).done(function(){
-
-			});*/
-
-			this.options.collection.reset( JSON.parse( photoModalMockData ) );
-			this.model = this.options.collection.get(2);
-			self.initComponents();
-			this.setEvents();
+			 
+			this.options.model.collection.fetchDetails( this.options.model ).done(function(){
+				var selectedModelId = self.options.model.get("id");
+				self.model = self.options.collection.get( selectedModelId );
+				self.initComponents();
+				self.setEvents();
+			});
+			
+//			var self = this;
+//
+//			this.options.model.collection.fetchDetails( this.options.model ).done(function(){
+//				
+//			});
+//			/*
+//			 * 
+//			this.options.collection.reset( JSON.parse( photoModalMockData ) );
+//			
+//			*/
+//
+//			self.model = this.options.collection.get(1);
+//			self.initComponents();
+//			this.setEvents();
 		},
 
 		initComponents: function(){
