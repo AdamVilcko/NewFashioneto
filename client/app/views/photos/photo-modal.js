@@ -18,7 +18,7 @@ define(function(require){
 
 	return ModalView.extend({
 
-		contextId: "photo",
+		contextId: "image",
 		id: "photoModal",
 		className: "modal fade viewingPhoto",
 		template: Handlebars.compile( template ),
