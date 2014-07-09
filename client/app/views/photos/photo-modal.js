@@ -34,20 +34,6 @@ define(function(require){
 				self.setEvents();
 			});
 			
-//			var self = this;
-//
-//			this.options.model.collection.fetchDetails( this.options.model ).done(function(){
-//				
-//			});
-//			/*
-//			 * 
-//			this.options.collection.reset( JSON.parse( photoModalMockData ) );
-//			
-//			*/
-//
-//			self.model = this.options.collection.get(1);
-//			self.initComponents();
-//			this.setEvents();
 		},
 
 		initComponents: function(){
