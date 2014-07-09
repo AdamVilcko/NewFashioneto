@@ -21,7 +21,7 @@ define(function(require){
 		},
 
 		update: function( data ){
-			this.collection.reset( data.get( "photosWrapper" ).collection );
+			this.collection.reset( data.get( "imagesWrapper" ).collection );
 			return this;
 		}
 

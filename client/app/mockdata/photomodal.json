@@ -9,7 +9,7 @@
     "actioned": false
   },
 
-  "photoDetails": {
+  "imageDetails": {
     "albumName": "Album",
     "Owner": "Only me",
     "date":""
@@ -71,7 +71,7 @@
     "actioned": false
   },
 
-  "photoDetails": {
+  "imageDetails": {
     "albumName": "Album",
     "Owner": "Only me",
     "date":""
@@ -132,7 +132,7 @@
     "actioned": false
   },
 
-  "photoDetails": {
+  "imageDetails": {
     "albumName": "Album",
     "Owner": "Only me",
     "date":""

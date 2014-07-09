@@ -39,11 +39,11 @@ window.App =
         wall: "comment/USER",
         wallComments: "comment/COMMENT",
         people: "people/",
-        items: "item/s",
-        image: "image/",
+        items: "items",
+        image: "image/raw/",
         like: "like",
         follow: "follow",
-        photos: "photos",
+        photos: "images",
 
         shopstyle: {
             product:{
