@@ -38,11 +38,11 @@ public class Image implements Serializable
 	@Column(name = "id")
 	private int id;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_user")
 	private User user;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_album")
 	private Album album;
 
@@ -204,7 +204,7 @@ public class Image implements Serializable
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((album == null) ? 0 : album.hashCode());
+//		result = prime * result + ((album == null) ? 0 : album.hashCode());
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((fileExtension == null) ? 0 : fileExtension.hashCode());
