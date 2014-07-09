@@ -42,7 +42,7 @@ public class Image implements Serializable
 	@JoinColumn(name = "id_user")
 	private User user;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	@JoinColumn(name = "id_album")
 	private Album album;
 
