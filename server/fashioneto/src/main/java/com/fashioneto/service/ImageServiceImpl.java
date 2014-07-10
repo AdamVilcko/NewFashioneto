@@ -96,6 +96,8 @@ public class ImageServiceImpl implements ImageService
 		image.setAlbum(album);
 		image = entityManager.merge(image);
 
+		System.gc();
+		
 		return image;
 	}
 
@@ -117,6 +119,7 @@ public class ImageServiceImpl implements ImageService
 			ImageIO.write(buffered, image.getFileExtension(), baos);
 			buffered.flush();
 			inputStream.close();
+			System.gc();
 			return baos;
 		}
 		return null;
