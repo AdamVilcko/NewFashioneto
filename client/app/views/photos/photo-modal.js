@@ -24,16 +24,11 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
-			
 			var self = this;
-			 
-			this.options.model.collection.fetchDetails( this.options.model ).done(function(){
-				var selectedModelId = self.options.model.get("id");
-				self.model = self.options.collection.get( selectedModelId );
-				self.initComponents();
-				self.setEvents();
-			});
-			
+			var selectedModelId = self.options.model.get("id");
+			self.model = self.options.collection.get( selectedModelId );
+			self.initComponents();
+			self.setEvents();
 		},
 
 		initComponents: function(){
