@@ -115,6 +115,8 @@ public class ImageServiceImpl implements ImageService
 			BufferedImage buffered = ImageIO.read(inputStream);
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			ImageIO.write(buffered, image.getFileExtension(), baos);
+			buffered.flush();
+			inputStream.close();
 			return baos;
 		}
 		return null;
