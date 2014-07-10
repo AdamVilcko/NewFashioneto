@@ -76,6 +76,8 @@ public class ImageServiceImpl implements ImageService
 		String imageFullPathName = getFullImagePath(newFilename, ImageSizeEnum.STANDARD);
 		Thumbnails.of(fileInputStream).outputFormat(DEFAULT_EXTENSION).scale(1).toFile(imageFullPathName);
 
+		fileInputStream.close();
+		
 		File standardImage = new File(imageFullPathName);
 		Thumbnails.of(standardImage).width(ImageSizeEnum.SMALL.getWidth()).outputFormat(DEFAULT_EXTENSION)
 				.toFile(getFullImagePath(newFilename, ImageSizeEnum.SMALL));
