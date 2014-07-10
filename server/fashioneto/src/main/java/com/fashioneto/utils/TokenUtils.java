@@ -2,6 +2,7 @@ package com.fashioneto.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.codec.Hex;
@@ -20,10 +21,12 @@ public class TokenUtils
 
 		long time = System.currentTimeMillis();
 
+		Random randomNumber = new Random(9999); 
+		
 		StringBuilder tokenBuilder = new StringBuilder();
 		tokenBuilder.append(userDetails.getUsername());
 		tokenBuilder.append("-");
-		tokenBuilder.append(time);
+		tokenBuilder.append(time + randomNumber.nextLong());
 		tokenBuilder.append("-");
 		tokenBuilder.append(TokenUtils.computeSignature(userDetails, time));
 
