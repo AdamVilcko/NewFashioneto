@@ -16,12 +16,10 @@ define(function(require){
 
 		init: function(){
 			var self = this;
-			this.fetch().done(function(){
-				console.log(self.toJSON());
-			});
+
 		},
 
-		url: Helper.queryBuilder( null, {api: "brand"} )
+		url: //Helper.queryBuilder( null, {api: "brand"} )
 
 	});
 });

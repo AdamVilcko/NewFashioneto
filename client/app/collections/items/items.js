@@ -24,6 +24,7 @@ define(function(require){
 			args.limit = 25;
 			this.reset();
 			return this.fetch( {
+				dataType :"jsonp",
 				url: Helper.queryBuilder( args, {api: "product"} )
 			} );
 		},
@@ -45,6 +46,7 @@ define(function(require){
 		fetchById: function( args ){
 			this.reset();
 			return this.fetch( {
+				dataType :"jsonp",
 				url: Helper.queryBuilder( args, {api: "product"} )
 			} );
 		},

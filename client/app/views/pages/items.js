@@ -87,7 +87,7 @@ define(function(require){
 					$(window).off("scroll", this.trigger);
 				},
 
-				trigger:function(){ 
+				trigger:function(){
 				    var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
 				    var  scrolltrigger = 0.95;
 				    if ((wintop/(docheight-winheight)) > scrolltrigger) {
