@@ -1,3 +1,5 @@
+<!-- http://blueimp.github.io/jQuery-File-Upload/basic.html -->
+
 <div class="modal-dialog">
   <div class="modal-content">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
@@ -15,6 +17,13 @@
               <li>Built with Twitter's <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> CSS framework and Icons from <a href="http://glyphicons.com/">Glyphicons</a>.</li>
           </ul>
       </div>
+      <div>
+          <input id="fileupload" type="file" name="file[]" multiple="">
+	    <div id="progress" class="progress">
+	        <div class="progress-bar progress-bar-success"></div>
+	    </div>          
+      </div>
+      
 
     </div><!-- /. modal-body -->
   </div><!-- /.modal-content -->
