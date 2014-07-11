@@ -9,9 +9,8 @@ define(function(require){
 	ModalView  = require('components/modal'),
 	Comments   = require("views/comments/comments"),
 	template   = require("text!templates/photos/photos-modal.hbr"),
-	Bootstrap  = require('bootstrap'),
+	Bootstrap  = require('bootstrap');
 
-	photoModalMockData   = require('text!mockdata/photomodal.json');
 
 
 
@@ -25,6 +24,9 @@ define(function(require){
 
 		modalInit: function(){
 			var self = this;
+			
+			self.options.collection.fetch();
+			
 			var selectedModelId = self.options.model.get("id");
 			self.model = self.options.collection.get( selectedModelId );
 			self.initComponents();
