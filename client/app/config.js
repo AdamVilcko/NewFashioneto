@@ -23,11 +23,9 @@ require = {
         "jquery.transit": "../lib/jquery.transit",
         "jquery.imageloaded" : "../lib/imagesloaded.pkgd.min",
         "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal",
-        "jquery.bridget": "../lib/jquery.bridget",
-        	
-        "jquery.fileupload": "../lib/jqueryuploader/jquery.fileupload"
-
-
+        "jquery.bridget": "../lib/jquery.bridget",        
+        "jquery.fileupload": "../lib/jqueryuploader/jquery.fileupload",
+        "jquery.ui.widget": "../lib/jqueryuploader/vendor/jquery.ui.widget"
 
     },
 

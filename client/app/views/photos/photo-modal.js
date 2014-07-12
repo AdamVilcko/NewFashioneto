@@ -23,11 +23,9 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
-			var self = this;
-			
-			self.options.collection.fetch();
-			
-			var selectedModelId = self.options.model.get("id");
+			var self = this, selectedModelId;			
+			self.options.collection.fetch();			
+			selectedModelId = self.options.model.get("id");
 			self.model = self.options.collection.get( selectedModelId );
 			self.initComponents();
 			self.setEvents();
@@ -79,7 +77,7 @@ define(function(require){
 
 		bindData: function(){
 			this.comments.bindData( this.model );
-			//this.likes.bindData( this.model );
+			this.likes.bindData( this.model );
 			this.$('#galleryImage')
 			.attr("src", App.api.get("image")  + "STANDARD/" + this.model.get("id") );
 		},

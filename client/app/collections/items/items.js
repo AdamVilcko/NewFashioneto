@@ -36,6 +36,7 @@ define(function(require){
 			args.limit = 15;
 			args.fts = this.fts;
 			return this.fetch( {
+				dataType :"jsonp",
 				url: Helper.queryBuilder(args, {api: "product"}),
 				add: true,
 				remove: false,
