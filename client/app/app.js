@@ -44,6 +44,7 @@ window.App =
         like: "like",
         follow: "follow",
         photos: "images",
+        upload: "image/upload",
 
         shopstyle: {
             product:{
