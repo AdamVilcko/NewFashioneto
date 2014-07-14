@@ -1,0 +1,79 @@
+/* Buttons */
+
+.btn-primary{
+	position: relative;
+	border:1px solid #000;
+	background: #6c5377; /* Old browsers */
+	background: -moz-linear-gradient(top,  #6c5377 0%, #543761 85%, #543761 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6c5377), color-stop(85%,#543761), color-stop(100%,#543761)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #6c5377 0%,#543761 85%,#543761 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #6c5377 0%,#543761 85%,#543761 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #6c5377 0%,#543761 85%,#543761 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #6c5377 0%,#543761 85%,#543761 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6c5377', endColorstr='#543761',GradientType=0 ); /* IE6-9 */
+
+}
+
+.btn-primary:after{
+	border-radius: 4px;
+	content:"";
+	height: 100%;
+	width:100%;
+	display:block;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index:10;
+	opacity: 1;
+	border-top: 1px solid #8e6e9d;
+}
+
+.btn-default{
+	color: #3a2444;
+	background: #f9f8f7; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f9f8f7 0%, #f3f1ef 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f8f7), color-stop(100%,#f3f1ef)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f9f8f7 0%,#f3f1ef 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f9f8f7 0%,#f3f1ef 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f8f7', endColorstr='#f3f1ef',GradientType=0 );
+	border: 1px solid #d4cac1; /* IE6-9 */
+}
+
+
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active{
+	border-color: #444;
+}
+
+.btn.follow{
+	padding-left:30px;
+}
+
+.btn.follow:before{
+	background-image:url(../img/usertitle-cross.png);
+	background-repeat: no-repeat;
+	background-position:10px center;
+	content:" ";
+	position: absolute;
+	width:100%;
+	height: 100%;
+	top:0;
+	left:0;
+}
+
+.btn.buy{
+	padding-left: 32px;
+}
+
+.btn.buy:before {
+	background-image: url(../img/button-buy.png);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	content: " ";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}

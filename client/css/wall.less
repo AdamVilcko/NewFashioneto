@@ -1,0 +1,65 @@
+/* Wall */
+
+#wall .media > a{
+	position: relative;
+}
+
+#wall .media > a:after{
+	position: absolute;
+	border-top: 1px solid #e5dada;
+	top: 50%;
+	content: " ";
+	right: -12px;
+	width: 12px;
+	height: 10px;
+	z-index: 100;
+}
+
+#wall .post{
+	min-height: 85px;
+}
+
+#wall .sendPost{
+	width: 100%;
+	height: 76px;
+}
+
+#wall .media:after{
+	content:" ";
+	clear:both;
+}
+
+#wall .media .img-thumbnail{
+	background: #e8e5e3;
+	border-color: #d4c3c3;
+}
+
+#wall textarea{
+	color:#3a2444;
+	padding: 13px;
+	resize: none;
+	width:100%;
+	margin-bottom: 0;
+}
+
+#wall h4 span{
+	color:#797170;
+	font-size:0.8em;
+}
+
+#wall h4 span:before{
+	content:" ";
+}
+
+#postCreate .uploadphoto{
+	background: url(../img/wall-uploadphoto.png) no-repeat left center;
+	padding: 10px 0px 10px 30px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#wall .loadmore{
+	margin-bottom: 20px;
+	width:100%;
+}
