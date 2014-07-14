@@ -1,3 +1,0 @@
-Have moved this to https://github.com/casparss/Fashioneto/wiki/API. Much cooler way of documenting :) (Apart from the JSON formatting is a bit odd)
-
-DELETE THIS WHEN YOU'VE SEEN IT.
