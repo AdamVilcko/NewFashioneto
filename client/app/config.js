@@ -25,6 +25,7 @@ require = {
         "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal",
         "jquery.bridget": "../lib/jquery.bridget",        
         "jquery.fileupload": "../lib/jqueryuploader/jquery.fileupload",
+        "jquery.iframe-transport": "../lib/jqueryuploader/jquery.iframe-transport",     	
         "jquery.ui.widget": "../lib/jqueryuploader/vendor/jquery.ui.widget"
 
     },

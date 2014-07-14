@@ -12,6 +12,7 @@ define(function(require){
 	Bootstrap  = require('bootstrap'),
 
 	jQueryFileUploader = require('jquery.fileupload');
+	jQueryIframeTransport = require('jquery.iframe-transport');
 
 	return ModalView.extend({
 
@@ -21,27 +22,25 @@ define(function(require){
 
 		modalInit: function(){
 			this.render();
-			
-		    'use strict';
-		    
-		    $('#fileupload').fileupload({
-		        url: App.api.get("upload"),
-		        dataType: 'json',
-		        done: function (e, data) {
-		            $.each(data.result.files, function (index, file) {
-		                $('<p/>').text(file.name).appendTo('#files');
-		            });
-		        },
-		        progressall: function (e, data) {
-		            var progress = parseInt(data.loaded / data.total * 100, 10);
-		            $('#progress .progress-bar').css(
-		                'width',
-		                progress + '%'
-		            );
-		        }
-		    }).prop('disabled', !$.support.fileInput)
-		        .parent().addClass($.support.fileInput ? undefined : 'disabled');
-			
+			$(function () {
+			    $('#fileupload').fileupload({
+			        url: App.api.get("upload"),
+			        dataType: 'json',
+			        done: function (e, data) {
+			            $.each(data.result.files, function (index, file) {
+			                $('<p/>').text(file.name).appendTo('#files');
+			            });
+			        },
+			        progressall: function (e, data) {
+			            var progress = parseInt(data.loaded / data.total * 100, 10);
+			            $('#progress .progress-bar').css(
+			                'width',
+			                progress + '%'
+			            );
+			        }
+			    }).prop('disabled', !$.support.fileInput)
+			        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+			});
 			this.open();
 		}
 

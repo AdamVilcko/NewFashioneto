@@ -1,5 +1,59 @@
 <!-- http://blueimp.github.io/jQuery-File-Upload/basic.html -->
 
+<style>
+
+.progress-bar-success {
+	background-color: #5cb85c;
+}
+.progress-bar {
+	float: left;
+	width: 0;
+	height: 100%;
+	font-size: 12px;
+	line-height: 20px;
+	color: #fff;
+	text-align: center;
+	background-color: #428bca;
+	-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+	box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+	-webkit-transition: width .6s ease;
+	transition: width .6s ease;
+}
+
+.progress {
+    background-color: #F5F5F5;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+    height: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%;
+  }
+}
+</style>
+
 <div class="modal-dialog">
   <div class="modal-content">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
@@ -18,10 +72,17 @@
           </ul>
       </div>
       <div>
-          <input id="fileupload" type="file" name="file[]" multiple="">
-	    <div id="progress" class="progress">
-	        <div class="progress-bar progress-bar-success"></div>
-	    </div>          
+	    <span class="btn btn-success fileinput-button">
+	        <i class="glyphicon glyphicon-plus"></i>
+	        <span>Select files...</span>
+	        <!-- The file input field used as target for the file upload widget -->
+	        <input id="fileupload" type="file" name="files[]" multiple>
+	    </span>
+		<div id="progress" class="progress">
+		  <div class="progress-bar" style="width: 0%;"></div>
+		</div>   
+	    <!-- The container for the uploaded files -->
+	    <div id="files" class="files"></div>		       
       </div>
       
 
