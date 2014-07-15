@@ -13,6 +13,7 @@ define(function(require){
 
 	jQueryFileUploader = require('jquery.fileupload');
 	jQueryIframeTransport = require('jquery.iframe-transport');
+	jQueryUIWidget = require('jquery.ui.widget');
 
 	return ModalView.extend({
 
@@ -22,14 +23,21 @@ define(function(require){
 
 		modalInit: function(){
 			this.render();
+			this.open();
 			$(function () {
+			    'use strict';
+			    var url = App.api.get("upload");
 			    $('#fileupload').fileupload({
-			        url: App.api.get("upload"),
+			        url: url,
 			        dataType: 'json',
+			        send: function (e, data) {
+//			        	alert('I am sending');
+			        },
 			        done: function (e, data) {
-			            $.each(data.result.files, function (index, file) {
-			                $('<p/>').text(file.name).appendTo('#files');
-			            });
+			        	$('#buttons-and-things').hide();
+			        	var message = '<p/><img src="' + App.api.get("image") + 'THUMBNAIL/' + data.result.id + '" />'
+			        	message = message + 'Uploaded successfully! Now refresh this page and don\'t complain!';
+			            $('#files').html(message);
 			        },
 			        progressall: function (e, data) {
 			            var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -38,10 +46,10 @@ define(function(require){
 			                progress + '%'
 			            );
 			        }
+//			    });
 			    }).prop('disabled', !$.support.fileInput)
 			        .parent().addClass($.support.fileInput ? undefined : 'disabled');
 			});
-			this.open();
 		}
 
 	});

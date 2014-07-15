@@ -71,18 +71,19 @@
               <li>Built with Twitter's <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> CSS framework and Icons from <a href="http://glyphicons.com/">Glyphicons</a>.</li>
           </ul>
       </div>
-      <div>
+	  <!-- The container for the uploaded files -->
+	  <div id="files" class="files"></div>		       
+      <div id="buttons-and-things">
 	    <span class="btn btn-success fileinput-button">
 	        <i class="glyphicon glyphicon-plus"></i>
 	        <span>Select files...</span>
-	        <!-- The file input field used as target for the file upload widget -->
-	        <input id="fileupload" type="file" name="files[]" multiple>
+	        <!-- The file input field used as target for the file upload widget
+	        <input id="fileupload" type="file" name="files[]" multiple> -->
+	        <input id="fileupload" type="file" name="file">
 	    </span>
 		<div id="progress" class="progress">
 		  <div class="progress-bar" style="width: 0%;"></div>
 		</div>   
-	    <!-- The container for the uploaded files -->
-	    <div id="files" class="files"></div>		       
       </div>
       
 
