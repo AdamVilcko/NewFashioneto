@@ -3,6 +3,7 @@ define(function(require){
 	var
 
 	$            = require("jquery"),
+	_            = require("_"),
 	Backbone     = require("backbone"),
 	Handlebars   = require("handlebars"),
 	Helper       = require('helper'),
@@ -159,9 +160,12 @@ define(function(require){
 
 		},
 
-		bindData: function( model ){
+		bindData: function( model, options ){
 			if( model ){
 				this.model = model;
+				if( _.isObject(options) && options.render ){
+					this.renderToDom();
+				}
 			}
 		},
 
