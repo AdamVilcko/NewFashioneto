@@ -18,8 +18,6 @@ import com.fashioneto.persistence.User;
 public class AlbumServiceImpl implements AlbumService
 {
 
-	private final static String ALBUM_UPLOADS = "Uploads";
-
 	@PersistenceContext
 	private EntityManager entityManager;
 

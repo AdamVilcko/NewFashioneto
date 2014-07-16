@@ -8,6 +8,8 @@ import com.fashioneto.persistence.User;
  **/
 public interface AlbumService
 {
+	public final static String ALBUM_UPLOADS = "Uploads";
+	public final static String ALBUM_PROFILE = "Profile Pictures";
 
 	public Album getUploadAlbum(User user);
 

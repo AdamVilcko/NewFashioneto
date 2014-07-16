@@ -71,6 +71,21 @@ public class UserRestBean
 	}
 
 	@GET
+	@Path("available/{username}")
+	public Response isUsernameAvaliable(@PathParam("username")
+	String username)
+	{
+		User user = null;
+		if (StringUtils.isNumber(username))
+		{
+			user = userServiceImpl.getUser(Integer.parseInt(username));
+		}
+
+		String jsonReturn = FashionetoJsonFactory.getJsonFromObject(new Boolean(user != null));
+		return Response.status(Status.OK).entity(jsonReturn).build();
+	}
+
+	@GET
 	@Path("{username}")
 	public Response getUserById(@PathParam("username")
 	String username)

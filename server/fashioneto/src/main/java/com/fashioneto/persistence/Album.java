@@ -54,6 +54,12 @@ public class Album implements Serializable
 		this.id = id;
 	}
 
+	public Album(String name, User user)
+	{
+		this.name = name;
+		this.user = user;
+	}
+
 	public int getId()
 	{
 		return id;
