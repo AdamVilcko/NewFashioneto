@@ -28,50 +28,58 @@
 	"buffers":
 	[
 		{
-			"file": "client/app/templates/photos/photos-modal.hbr",
+			"file": "client/app/collections/masterbasecollection.js",
 			"settings":
 			{
-				"buffer_size": 1975,
+				"buffer_size": 680,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "client/app/helpers/handlebarshelpers.js",
+			"file": "client/app/collections/items/meta.js",
 			"settings":
 			{
-				"buffer_size": 1515,
+				"buffer_size": 577,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "client/app/views/like/like.js",
+			"file": "client/app/views/pages/items.js",
 			"settings":
 			{
-				"buffer_size": 818,
+				"buffer_size": 2755,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "client/app/views/comments/comments.js",
+			"file": "client/app/views/items/items.js",
 			"settings":
 			{
-				"buffer_size": 1398,
+				"buffer_size": 623,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "client/app/mockdata/photomodal.json",
+			"file": "client/app/collections/items/items.js",
 			"settings":
 			{
-				"buffer_size": 3408,
+				"buffer_size": 1158,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "client/app/app.js",
+			"file": "client/app/collections/items/brands.js",
 			"settings":
 			{
-				"buffer_size": 1737,
+				"buffer_size": 401,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "client/app/views/items/itemsearch.js",
+			"settings":
+			{
+				"buffer_size": 666,
 				"line_ending": "Windows"
 			}
 		},
@@ -79,7 +87,7 @@
 			"file": "client/app/views/photos/photo-modal.js",
 			"settings":
 			{
-				"buffer_size": 2070,
+				"buffer_size": 1959,
 				"line_ending": "Windows"
 			}
 		}
@@ -87,9 +95,17 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 129.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"synt css",
+				"Set Syntax: CSS"
+			],
 			[
 				"syntax html",
 				"Set Syntax: HTML"
@@ -108,10 +124,6 @@
 			],
 			[
 				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -151,7 +163,7 @@
 				"Git: Status"
 			]
 		],
-		"width": 560.0
+		"width": 537.0
 	},
 	"console":
 	{
@@ -172,64 +184,89 @@
 	},
 	"file_history":
 	[
-		"/C/Projects/Fashioneto/client/app/collections/masterbasecollection.js",
-		"/C/Projects/Fashioneto/client/app/views/masterbaseview.js",
-		"/C/Projects/Fashioneto/client/app/components/modal.js",
-		"/C/Projects/Fashioneto/client/app/templates/like/like.hbr",
-		"/C/Projects/Fashioneto/client/app/models/like/like.js",
-		"/C/Projects/Fashioneto/client/app/models/masterbasemodel.js",
-		"/C/Projects/Fashioneto/client/app/mockdata/photomodal.json",
+		"/C/Projects/Fashioneto/client/app/config.js",
+		"/C/Projects/Fashioneto/client/app/collections/photos/album-photos.js",
+		"/C/Projects/Fashioneto/client/css/bootstrap-theme.css",
+		"/C/Projects/Fashioneto/client/app/templates/like/itemmodal.hbr",
+		"/C/Projects/Fashioneto/client/app/collections/items/items.js",
+		"/C/Projects/Fashioneto/client/app/views/items/items.js",
+		"/C/Projects/Fashioneto/client/app/templates/photos/album.hbr",
+		"/C/Projects/Fashioneto/client/app/templates/photos/albums.hbr",
+		"/C/Projects/Fashioneto/client/app/templates/photos/uploader-modal.hbr",
 		"/C/Projects/Fashioneto/client/app/views/photos/album-thumbnail.js",
 		"/C/Projects/Fashioneto/client/app/templates/photos/photos.hbr",
+		"/C/Projects/Fashioneto/client/app/views/masterbaseview.js",
+		"/C/Projects/Fashioneto/client/app/collections/items/meta.js",
+		"/C/Projects/Fashioneto/client/app/app.js",
+		"/C/Projects/Fashioneto/client/app/helpers/helper.js",
+		"/C/Projects/Fashioneto/client/app/views/items/item-modal.js",
+		"/C/Projects/Fashioneto/client/app/views/pages/items.js",
+		"/C/Projects/Fashioneto/client/app/views/items/itemsearch.js",
+		"/C/Projects/Fashioneto/client/app/collections/items/brands.js",
+		"/C/Projects/Fashioneto/client/app/views/items/item.js",
+		"/C/Projects/Fashioneto/client/app/views/main.js",
+		"/C/Projects/Fashioneto/client/app/templates/pages/items.hbr",
+		"/C/Projects/Fashioneto/client/app/models/like/like.js",
+		"/C/Projects/Fashioneto/client/css/style.less",
+		"/C/Projects/Fashioneto/client/app/templates/ui/nav.hbr",
+		"/C/Projects/Fashioneto/client/app/templates/items/item.hbr",
+		"/C/Projects/Fashioneto/client/app/views/itemview.js",
+		"/C/Projects/Fashioneto/client/app/models/items/item.js",
+		"/C/Projects/Fashioneto/client/app/views/ui/nav.js",
+		"/C/Projects/Fashioneto/client/app/helpers/handlebarshelpers.js",
+		"/C/Projects/Fashioneto/client/app/templates/items/item-modal.hbr",
+		"/C/Projects/Fashioneto/client/app/templates/login/loginform.hbr",
+		"/C/Projects/Fashioneto/client/app/views/like/like.js",
+		"/C/Projects/Fashioneto/client/app/models/user.js",
+		"/C/Projects/Fashioneto/client/app/views/photos/uploader-modal.js",
+		"/C/Projects/Fashioneto/client/lib/jquery.masonry.min.js",
+		"/C/Projects/Fashioneto/client/lib/jquery.bridget.js",
+		"/C/Projects/Fashioneto/client/app/views/login/login.js",
+		"/C/Projects/Fashioneto/client/app/templates/pages/profile.hbr",
+		"/C/Projects/Fashioneto/client/app/templates/sidebar/profilesidebar.hbr",
+		"/C/Projects/Fashioneto/client/app/views/pages/profile.js",
+		"/C/Projects/Fashioneto/client/app/templates/pages/profile/information.hbr",
 		"/C/Projects/Fashioneto/client/app/models/pages/profile.js",
-		"/C/Projects/Fashioneto/client/app/views/comments/comment.js",
-		"/C/Projects/Fashioneto/client/app/config.js",
+		"/C/Projects/Fashioneto/client/app/templates/pages/feed.hbr",
+		"/C/Projects/Fashioneto/client/app/views/items/itemsTab.js",
+		"/C/Projects/Fashioneto/client/app/templates/pages/profile/items.hbr",
+		"/C/Projects/Fashioneto/client/app/components/modal.js",
+		"/C/Projects/Fashioneto/client/index.html",
+		"/C/Projects/Fashioneto/client/app/mockdata/photomodal.json",
+		"/C/Projects/Fashioneto/client/css/style.css",
 		"/C/Projects/Fashioneto/client/app/templates/login/3acdb6a6-6a24-4f32-a3ea-a9f430b5f9c8.dmp",
 		"/C/Projects/Fashioneto/client/app/templates/comments/input.hbr",
-		"/C/Projects/Fashioneto/client/app/views/pages/items.js",
+		"/C/Projects/Fashioneto/client/app/templates/photos/photos-modal.hbr",
+		"/C/Projects/Fashioneto/client/app/views/photos/photo-modal.js",
 		"/C/Projects/Fashioneto/client/app/views/comments/comments.js",
-		"/C/Projects/Fashioneto/client/app/collections/photos/album-photos.js",
+		"/C/Projects/Fashioneto/client/app/collections/masterbasecollection.js",
+		"/C/Projects/Fashioneto/client/app/templates/like/like.hbr",
+		"/C/Projects/Fashioneto/client/app/models/masterbasemodel.js",
+		"/C/Projects/Fashioneto/client/app/views/comments/comment.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/basepageview.js",
 		"/C/Projects/Fashioneto/client/app/templates/pages/profile/photos.hbr",
-		"/C/Projects/Fashioneto/client/css/style.css",
 		"/C/Projects/Fashioneto/client/app/templates/photos-modal.hbr",
-		"/C/Projects/Fashioneto/client/app/views/photos/uploader-modal.js",
 		"/C/Projects/Fashioneto/client/app/templates/photos/album-thumbnail.hbr",
 		"/C/Users/Caspar/AppData/Local/Temp/Rar$DRa0.387/jQuery-File-Upload-9.5.7/basic-plus.html",
 		"/C/Projects/Fashioneto/client/app/router.js",
-		"/C/Projects/Fashioneto/client/app/views/main.js",
-		"/C/Projects/Fashioneto/client/app/templates/photos/uploader-modal.hbr",
-		"/C/Projects/Fashioneto/client/app/models/user.js",
 		"/C/Projects/Fashioneto/client/app/views/photos/album-wrapper.js",
-		"/C/Projects/Fashioneto/client/app/templates/photos/album.hbr",
 		"/C/Projects/Fashioneto/client/app/views/photos/album-photos.js",
 		"/C/Users/Caspar/AppData/Local/Temp/Rar$DRa0.036/jQuery-File-Upload-9.5.7/basic-plus.html",
 		"/C/Projects/Fashioneto/client/lib/jqueryuploader/main.js",
 		"/C/Projects/Fashioneto/client/app/templates/main.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/photos/photos-modal.hbr",
 		"/C/Users/Caspar/AppData/Local/Temp/Rar$DRa0.527/jQuery-File-Upload-9.5.7/server/php/index.php",
 		"/C/Projects/Fashioneto/client/app/collections/photos/photo-modal.js",
-		"/C/Projects/Fashioneto/client/app/views/photos/photo-modal.js",
 		"/C/Projects/Fashioneto/api_links.txt",
 		"/C/Users/Caspar/AppData/Local/Temp/Rar$DRa0.124/jQuery-File-Upload-9.5.7/server/php/UploadHandler.php",
 		"/C/Projects/Fashioneto/client/app/templates/comments/comments.hbr",
 		"/C/Projects/Fashioneto/client/app/collections/comments/comments.js",
-		"/C/Projects/Fashioneto/client/app/app.js",
 		"/C/Projects/Fashioneto/client/app/views/wall/post.js",
 		"/C/Projects/Fashioneto/client/app/views/wall/posts.js",
 		"/C/Projects/Fashioneto/client/app/views/wall/wall.js",
 		"/C/Projects/Fashioneto/client/css/bootstrap-theme.min.css",
-		"/C/Projects/Fashioneto/client/app/templates/pages/profile.hbr",
-		"/C/Projects/Fashioneto/client/app/views/pages/profile.js",
 		"/C/Projects/Fashioneto/client/app/views/sidebar/profilesidebar.js",
-		"/C/Projects/Fashioneto/client/app/templates/items/item.hbr",
-		"/C/Projects/Fashioneto/client/app/helpers/handlebarshelpers.js",
 		"/C/Projects/Fashioneto/client/app/templates/wall/post.hbr",
 		"/C/Projects/Fashioneto/client/app/templates/wall/wall.hbr",
-		"/C/Projects/Fashioneto/client/app/models/items/item.js",
-		"/C/Projects/Fashioneto/client/app/views/login/login.js",
-		"/C/Projects/Fashioneto/client/app/helpers/helper.js",
-		"/C/Projects/Fashioneto/client/app/templates/photos/albums.hbr",
 		"/C/Projects/Fashioneto_landingpage/app/templates/Homepage/default.latte",
 		"/C/Projects/Fashioneto_landingpage/app/templates/@layout.latte",
 		"/C/Projects/Fashioneto_landingpage/bootstrap.php",
@@ -243,11 +280,8 @@
 		"/C/Projects/Fashioneto/client/app/views/modal.js",
 		"/C/Projects/Fashioneto/client/app/templates/modals.hbr",
 		"/C/Projects/Fashioneto_landingpage/app/templates/Homepage/step2.latte",
-		"/C/Projects/Fashioneto/client/app/templates/ui/nav.hbr",
 		"/C/Projects/Fashioneto/client/app/templates/pages/people.hbr",
-		"/C/Projects/Fashioneto/client/app/views/ui/nav.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/people.js",
-		"/C/Projects/Fashioneto/client/app/templates/pages/profile/information.hbr",
 		"/C/Projects/Fashioneto/client/app/views/photos/album-thmumbnail.js",
 		"/C/Projects/Fashioneto/client/app/views/photos/album-photo.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/feed.js",
@@ -258,28 +292,17 @@
 		"/C/Projects/Fashioneto/client/app/views/people/person.js",
 		"/C/Users/Caspar/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Projects/Fashioneto/client/app/models/wall/post.js",
-		"/C/Projects/Fashioneto/client/app/templates/pages/items.hbr",
 		"/C/Projects/Fashioneto/client/app/collections/wall/posts.js",
 		"/C/Projects/Fashioneto/client/app/templates/comments/comment.hbr",
 		"/C/Projects/Fashioneto/client/app/models/comments/comment.js",
 		"/C/Projects/Fashioneto/client/app/views/photos/album-photos",
 		"/C/Projects/Fashioneto/client/app/views/photos/photos.js",
-		"/C/Projects/Fashioneto/client/app/views/items/itemsTab.js",
-		"/C/Projects/Fashioneto/client/app/views/items/items.js",
 		"/C/Projects/Fashioneto/client/app/views/sidebar/widgets/basewidgetview.js",
 		"/C/Projects/Fashioneto/client/app/d32bb6cd-9d02-41a7-8de4-d01215c4c2d1.dmp",
 		"/C/Projects/Fashioneto/client/app/text.js",
-		"/C/Projects/Fashioneto/client/app/collections/items/items.js",
 		"/C/Projects/Fashioneto/client/app/collections/people/people.js",
-		"/C/Projects/Fashioneto/client/app/views/itemview.js",
-		"/C/Projects/Fashioneto/client/app/templates/sidebar/profilesidebar.hbr",
 		"/C/Projects/Fashioneto/client/app/views/sidebar/widgets/profilepic.js",
-		"/C/Projects/Fashioneto/client/app/views/items/item.js",
-		"/C/Projects/Fashioneto/client/app/views/like/like.js",
 		"/C/Projects/Fashioneto/client/app/templates/comments/showall.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/pages/profile/items.hbr",
-		"/C/Projects/Fashioneto/client/index.html",
-		"/C/Projects/Fashioneto/client/app/collections/items/meta.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/myprofile.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/baseprofile.js",
 		"/C/Projects/Fashioneto/client/app/models/people/person.js",
@@ -288,18 +311,7 @@
 		"/C/Projects/Fashioneto/client/app/views/follow/follow.js",
 		"/C/Projects/Fashioneto/client/app/views/sidebar/basesidebarview.js",
 		"/C/Projects/Fashioneto/client/app/views/pages/guestprofile.js",
-		"/C/Projects/Fashioneto/client/app/views/people/following.js",
-		"/C/Projects/Fashioneto/client/app/views/people/followers.js",
-		"/C/Projects/Fashioneto/client/app/app.json",
-		"/C/Projects/Fashioneto/client/app/views/baseview.js",
-		"/C/Projects/Fashioneto/client/app/models/follow/follow.js",
-		"/C/Projects/Fashioneto/client/app/helpers/handlebarshelpers",
-		"/C/Projects/Fashioneto/client/lib/jquery.transit.js",
-		"/C/Projects/Fashioneto/client/lib/masonry.pkgd.js",
-		"/C/Projects/Fashioneto/client/app/templates/items/itemmodal.hbr",
-		"/C/Projects/Fashioneto/client/app/templates/like/itemmodal.hbr",
-		"/C/Projects/Fashioneto/client/lib/masonryImagesReveal.js",
-		"/C/Projects/Fashioneto/server/fashioneto/src/main/java/com/fashioneto/ws/action/BaseActionBean.java"
+		"/C/Projects/Fashioneto/client/app/views/people/following.js"
 	],
 	"find":
 	{
@@ -317,9 +329,32 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"brands",
+			"masonr",
+			"maso",
+			"masonry",
+			"helper.query",
+			"helper.querybuilder",
+			"thirdparty",
+			"what are",
+			"search",
+			"5",
+			"button",
+			"addItemsMasonry",
+			"render",
+			"jquery.masonry",
+			"$.ajax",
+			"30",
+			"footer",
+			".item",
+			".people ",
+			">\n",
+			"\">\n",
+			"img",
+			"warm",
 			"this",
 			"changeData",
 			"\"",
@@ -424,30 +459,7 @@
 			"amount",
 			"App.url(",
 			"App.url( 'wall' );",
-			"}\n",
-			"10",
-			"2",
-			"inputPassword3",
-			"Email",
-			"inputEmail3",
-			"that",
-			"this",
-			"nav",
-			"arial",
-			"invokeComponents",
-			"invokePages",
-			"logout",
-			"alreadyLoggedIn",
-			"renderMainLogin",
-			"--",
-			"comments/mockcommentscollection",
-			"comments/mockcommentscollection.js",
-			"iews/comments/comment.js",
-			"/views/comments/comment.js",
-			"mock/wall/mockpostscollection",
-			"views/wall/post.js",
-			"collections/wall/posts",
-			"collections/wall.posts"
+			"}\n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -478,24 +490,82 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "client/app/templates/photos/photos-modal.hbr",
+					"file": "client/app/collections/masterbasecollection.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1975,
+						"buffer_size": 680,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1602,
-								1602
+								680,
+								680
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/app/collections/items/meta.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								489,
+								489
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/app/views/pages/items.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2755,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1686,
+								1686
 							]
 						],
 						"settings":
@@ -604,36 +674,301 @@
 							},
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
-							"syntax": "Packages/Handlebars/Handlebars.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "client/app/helpers/handlebarshelpers.js",
+					"buffer": 3,
+					"file": "client/app/views/items/items.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1515,
+						"buffer_size": 623,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								473,
-								473
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "client/app/collections/items/items.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1125,
+								1125
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 405.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/app/collections/items/brands.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								311,
+								311
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -645,20 +980,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "client/app/views/like/like.js",
+					"buffer": 6,
+					"file": "client/app/views/items/itemsearch.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 818,
+						"buffer_size": 666,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								676,
-								676
+								503,
+								503
 							]
 						],
 						"settings":
@@ -774,305 +1109,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "client/app/views/comments/comments.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1398,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								551,
-								551
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 135.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "client/app/mockdata/photomodal.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3408,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3024,
-								3024
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"history_list_is_closing": true,
-							"sublime_auto_complete": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2092.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "client/app/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1737,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								530,
-								530
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -1082,20 +1119,20 @@
 			"sheets":
 			[
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "client/app/views/photos/photo-modal.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2070,
+						"buffer_size": 1959,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								690,
-								690
+								767,
+								767
 							]
 						],
 						"settings":
@@ -1208,10 +1245,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1032.0,
+						"translation.y": 1035.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1245,7 +1282,7 @@
 		"cols":
 		[
 			0.0,
-			0.399822470222,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1271,16 +1308,148 @@
 		"selected_items":
 		[
 			[
-				"like",
-				"app\\views\\like\\like.js"
+				"items",
+				"app\\collections\\items\\items.js"
+			],
+			[
+				"items.js",
+				"app\\views\\items\\items.js"
+			],
+			[
+				"photo-modal.",
+				"app\\views\\photos\\photo-modal.js"
+			],
+			[
+				"meta.js",
+				"app\\collections\\items\\meta.js"
+			],
+			[
+				"metaco",
+				"app\\collections\\masterbasecollection.js"
+			],
+			[
+				"app.js",
+				"app\\app.js"
+			],
+			[
+				"itemmod",
+				"app\\views\\items\\item-modal.js"
+			],
+			[
+				"main",
+				"app\\views\\main.js"
+			],
+			[
+				"style",
+				"css\\style.less"
+			],
+			[
+				"item.hbr",
+				"app\\templates\\items\\item.hbr"
+			],
+			[
+				"item.js",
+				"app\\views\\items\\item.js"
+			],
+			[
+				"item.",
+				"app\\views\\pages\\items.js"
+			],
+			[
+				"style.",
+				"css\\style.less"
+			],
+			[
+				"masterb",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"helper",
+				"app\\helpers\\helper.js"
+			],
+			[
+				"itemsea",
+				"app\\views\\items\\itemsearch.js"
+			],
+			[
+				"sty",
+				"css\\style.less"
+			],
+			[
+				"nav.js",
+				"app\\views\\ui\\nav.js"
+			],
+			[
+				"nav.hbr",
+				"app\\templates\\ui\\nav.hbr"
+			],
+			[
+				"items.hbr",
+				"app\\templates\\pages\\items.hbr"
+			],
+			[
+				"item-md",
+				"app\\templates\\items\\item-modal.hbr"
+			],
+			[
+				"item",
+				"app\\templates\\like\\itemmodal.hbr"
+			],
+			[
+				"maste",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"log",
+				"app\\templates\\login\\loginform.hbr"
+			],
+			[
+				"config",
+				"app\\config.js"
+			],
+			[
+				"masterbasev",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"profile.hbr",
+				"app\\templates\\pages\\profile.hbr"
+			],
+			[
+				"masterba",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"collections/items/items",
+				"app\\collections\\items\\items.js"
+			],
+			[
+				"modal",
+				"app\\components\\modal.js"
+			],
+			[
+				"styl",
+				"css\\style.css"
 			],
 			[
 				"handle",
 				"app\\helpers\\handlebarshelpers.js"
 			],
 			[
-				"modal",
-				"app\\components\\modal.js"
+				"templates/items/item-modal.hbr",
+				"app\\templates\\items\\item-modal.hbr"
+			],
+			[
+				"master",
+				"app\\views\\masterbaseview.js"
+			],
+			[
+				"item-",
+				"app\\views\\items\\item-modal.js"
+			],
+			[
+				"like",
+				"app\\views\\like\\like.js"
 			],
 			[
 				"photom",
@@ -1293,14 +1462,6 @@
 			[
 				"",
 				"app\\app.js"
-			],
-			[
-				"config",
-				"app\\config.js"
-			],
-			[
-				"masterba",
-				"app\\views\\masterbaseview.js"
 			],
 			[
 				"collection",
@@ -1327,10 +1488,6 @@
 				"app\\views\\photos\\uploader-modal.js"
 			],
 			[
-				"style",
-				"css\\style.css"
-			],
-			[
 				"rotuer",
 				"app\\router.js"
 			],
@@ -1341,10 +1498,6 @@
 			[
 				"router",
 				"app\\router.js"
-			],
-			[
-				"main",
-				"app\\views\\main.js"
 			],
 			[
 				"main.js",
@@ -1407,10 +1560,6 @@
 				"app\\templates\\wall\\post.hbr"
 			],
 			[
-				"item.hbr",
-				"app\\templates\\items\\item.hbr"
-			],
-			[
 				"app",
 				"app\\app.js"
 			],
@@ -1427,16 +1576,8 @@
 				"app\\views\\photos\\album-thumbnail.js"
 			],
 			[
-				"master",
-				"app\\views\\masterbaseview.js"
-			],
-			[
 				"photo",
 				"app\\views\\photos\\album-thumbnail.js"
-			],
-			[
-				"helper",
-				"app\\helpers\\helper.js"
 			],
 			[
 				"nav",
@@ -1469,10 +1610,6 @@
 			[
 				"album-thumba",
 				"app\\templates\\photos\\album-thumbnail.hbr"
-			],
-			[
-				"masterb",
-				"app\\views\\masterbaseview.js"
 			],
 			[
 				"masbase",
@@ -1519,10 +1656,6 @@
 				"app\\views\\pages\\basepageview.js"
 			],
 			[
-				"nav.hbr",
-				"app\\templates\\ui\\nav.hbr"
-			],
-			[
 				"people",
 				"app\\views\\pages\\people.js"
 			],
@@ -1531,20 +1664,12 @@
 				"app\\views\\pages\\basepageview.js"
 			],
 			[
-				"items",
-				"app\\views\\pages\\items.js"
-			],
-			[
 				"base",
 				"views\\pages\\basepageview.js"
 			],
 			[
 				"post",
 				"views\\wall\\post.js"
-			],
-			[
-				"item",
-				"views\\items\\item.js"
 			],
 			[
 				"ap",
@@ -1575,10 +1700,6 @@
 				"views\\pages\\basepageview.js"
 			],
 			[
-				"maste",
-				"views\\masterbaseview.js"
-			],
-			[
 				"follo",
 				"views\\people\\followersfollowing.js"
 			],
@@ -1589,10 +1710,6 @@
 			[
 				"hel",
 				"helpers\\helper.js"
-			],
-			[
-				"collections/items/items",
-				"collections\\items\\items.js"
 			],
 			[
 				"itemt",
@@ -1627,10 +1744,6 @@
 				"views\\sidebar\\profilesidebar.js"
 			],
 			[
-				"profile.hbr",
-				"templates\\pages\\profile.hbr"
-			],
-			[
 				"baseprofile",
 				"views\\pages\\baseprofile.js"
 			],
@@ -1649,10 +1762,6 @@
 			[
 				"hand",
 				"helpers\\handlebarshelpers.js"
-			],
-			[
-				"app.js",
-				"app.js"
 			],
 			[
 				"masterbasemodel",
@@ -1709,78 +1818,6 @@
 			[
 				"basesi",
 				"views\\sidebar\\basesidebarview.js"
-			],
-			[
-				"person.js",
-				"views\\people\\person.js"
-			],
-			[
-				"basepageiv",
-				"views\\pages\\basepageview.js"
-			],
-			[
-				"baseside",
-				"views\\sidebar\\basesidebarview.js"
-			],
-			[
-				"login",
-				"views\\login\\login.js"
-			],
-			[
-				"basevie",
-				"views\\masterbaseview.js"
-			],
-			[
-				"basepr",
-				"views\\pages\\baseprofile.js"
-			],
-			[
-				"basemodel",
-				"models\\masterbasemodel.js"
-			],
-			[
-				"user",
-				"models\\user.js"
-			],
-			[
-				"guestprofiel",
-				"views\\pages\\guestprofile.js"
-			],
-			[
-				"basemod",
-				"models\\masterbasemodel.js"
-			],
-			[
-				"basemode",
-				"models\\masterbasemodel.js"
-			],
-			[
-				"pe",
-				"templates\\pages\\people.hbr"
-			],
-			[
-				"views/people",
-				"views\\people\\people.js"
-			],
-			[
-				"nav.js",
-				"views\\ui\\nav.js"
-			],
-			[
-				"input",
-				"templates\\comments\\input.hbr"
-			],
-			[
-				"logi",
-				"views\\login\\login.js"
-			],
-			[
-				"profil",
-				"app\\views\\pages\\profile.js"
-			],
-			[
-				"peopl",
-				"app\\views\\pages\\people.js"
 			]
 		],
 		"width": 0.0
@@ -1812,7 +1849,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 185.0,
+	"side_bar_width": 129.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

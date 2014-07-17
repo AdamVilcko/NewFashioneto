@@ -27,7 +27,7 @@ define(function(require){
 		},
 
 		registerLike: function(){
-			this.model.persist( this.options.parentId );
+            this.model.persist( this.options.parentId, this.model.get("actioned") ? { type: "DELETE"} : null );
 		}
 
 	});
