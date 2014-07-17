@@ -23,13 +23,13 @@ define(function(require){
 			textarea : "textarea"
 		},
 		init: function(){
-			this.collection = new CommentsCollection( this.options.data )
+			this.collection = new CommentsCollection( this.options );
 			this.collection
 			.on( "sync", this.render, this );
 		},
 
 		render: function(){
-			this.renderCollection();
+			this.renderCollection( null, { contextId : this.options.contextId } );
 			this.$el.append( this.templates.input( this.merge() ) );
 			return this;
 		},
@@ -42,10 +42,7 @@ define(function(require){
 			var textarea = this.$el.find( this.nodes.textarea );
 			content = textarea.val();
 			textarea.val( "" );
-			this.collection.create( { content: content },
-			{
-				url: this.collection.url + "/" + this.options.parentId
-			} );
+			this.collection.create( { content: content });
 		},
 
 		bindData: function( model ){

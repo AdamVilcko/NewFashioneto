@@ -36,7 +36,8 @@ define(function(require){
 			if( this.model.has("commentsWrapper") ){
 				this.comments = new Comments( {
 					data: this.model.get("commentsWrapper").collection,
-					parentId: this.model.get( "id" )
+					parentId: this.model.get( "id" ),
+                    contextId: "IMAGE"
 				} );
 				this.$( ".comments" )
 				.append( this.comments.render().el );

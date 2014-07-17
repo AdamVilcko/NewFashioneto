@@ -20,6 +20,9 @@ define(function(require){
 				this.master = this.options.master;
 				if( typeof this.master.data ) this.data = this.master.data;
 			}
+            if(this.options.contextId){
+                this.contextId = options.contextId;
+            }
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
 			if( typeof this.initSubviews !== "undefined" ) this.initSubviews();
@@ -62,6 +65,12 @@ define(function(require){
 			return this;
 		},
 
+        renderModel: function( options ){
+            var modelView = new this.modelView( options );
+            this.$el.append( modelView.render().el );
+            return this;
+        },
+
 		renderNewItems: function( collection, options ){
 			options = options || {};
 			collection = collection || this.collection;
@@ -75,12 +84,6 @@ define(function(require){
 				arr.push(modelView.render().el);
 			}, this );
 			return arr;
-		},
-
-		renderModel: function( options ){
-			var modelView = new this.modelView( options );
-			this.$el.append( modelView.render().el );
-			return this;
 		},
 
 		renderTemplate: function(){
