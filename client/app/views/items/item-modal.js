@@ -7,8 +7,9 @@ define(function(require){
 	Helper     = require('helper'),
 	Bootstrap  = require('bootstrap'),
 
+    Comments   = require("views/comments/comments"),
 	ModalView  = require('components/modal'),
-	template = require('text!templates/items/item-modal.hbr');
+	template  = require('text!templates/items/item-modal.hbr');
 
 
 	return ModalView.extend({
@@ -28,7 +29,21 @@ define(function(require){
 			  $(image.img)
 			  .addClass("loadIn");
 			});
-		}
+
+            this.initComponents();
+		},
+
+        initComponents: function(){
+            if( this.model.has("commentsWrapper") ){
+                this.comments = new Comments( {
+                    data: this.model.get("commentsWrapper").collection,
+                    parentId: this.model.get( "id" ),
+                    contextId: "IMAGE"
+                } );
+                this.$( ".comments" )
+                    .append( this.comments.render().el );
+            }
+        }
 
 	});
 

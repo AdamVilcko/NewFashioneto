@@ -26,16 +26,16 @@ define(function(require){
 		myProfile: null,
 
 		loadSidebar: function(){
-			this.sidebar = new ProfileSidebar( { master: this } );
+			this.sidebar = new ProfileSidebar();
 		},
 
 		loadTabs: function() {
 			this.tabs           = {};
-			this.tabs.wall      = new Wall( { master: this } ),
-			this.tabs.photos    = new Photos( { master: this } ),
-			this.tabs.items     = new ItemsTab( { master: this } ),
-			this.tabs.followers = new FollowersFollowing( { master: this, type: "followersWrapper" } ),
-			this.tabs.following = new FollowersFollowing( { master: this, type: "followingWrapper" } )
+			this.tabs.wall      = new Wall(),
+			this.tabs.photos    = new Photos(),
+			this.tabs.items     = new ItemsTab(),
+			this.tabs.followers = new FollowersFollowing( { type: "followersWrapper" } ),
+			this.tabs.following = new FollowersFollowing( { type: "followingWrapper" } )
 		},
 
 		handler: function( requestState ){
@@ -64,6 +64,10 @@ define(function(require){
 		success: function( data, textStatus, jqXHR ){
 			this.data = data;
 			this.model = new MasterBaseModel( data );
+           //Create an object literal container modeal + collections for every profile tab
+            /*var data = {
+             board:
+             };*/
 			App.vent.trigger( "profile:dataLoaded", this.model );
 			this.renderPage();
 		},
@@ -106,7 +110,7 @@ define(function(require){
 
 			return this;
 
-		},
+		}
 
 	});
 

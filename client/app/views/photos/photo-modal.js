@@ -78,7 +78,7 @@ define(function(require){
 
 		bindData: function(){
 			this.comments.bindData( this.model );
-			this.likes.bindData( this.model );
+			this.like.bindData( this.model );
 			this.$('#galleryImage')
 			.attr("src", App.api.get("image")  + "STANDARD/" + this.model.get("id") );
 		},

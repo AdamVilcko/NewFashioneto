@@ -23,7 +23,7 @@ define(function(require){
 			textarea : "textarea"
 		},
 		init: function(){
-			this.collection = new CommentsCollection( this.options );
+			this.collection = new CommentsCollection( this.options.data );
 			this.collection
 			.on( "sync", this.render, this );
 		},

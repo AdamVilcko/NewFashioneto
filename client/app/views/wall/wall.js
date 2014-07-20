@@ -31,7 +31,7 @@ define(function(require){
 			this.delegateEvents();
 			this.$el
 			.find( this.nodes.posts )
-			.html( this.posts.renderCollection( null, { sort: true } ).el );
+			.html( this.posts.renderCollection( null, { sort: true, contextId: "USER" } ).el );
 			return this;
 		},
 

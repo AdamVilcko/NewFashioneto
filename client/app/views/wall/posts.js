@@ -19,7 +19,7 @@ define(function(require){
 		init: function(){
 			this.collection = new PostsCollection();
 			this.collection
-			.on( "sync", function(){ this.renderCollection(); }, this );
+			.on( "sync", function(){ this.renderCollection( ); }, this );
 		}
 
 	});
