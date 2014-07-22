@@ -12,11 +12,10 @@ define(function(require){
 	MasterBaseView  = require( "views/masterbaseview" );
 
 
-	return function(viewOptions){
-		var self = this,
+	return function(vOpts){
+		var self = this, mOpts,
 
 		View = MasterBaseView.extend({
-
 			modelView: ItemView,
 
 			emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No items yet! (Come on, you're better than this)</div>" ),
@@ -24,20 +23,11 @@ define(function(require){
 			init: function(){
 				this.collection     = new ItemsCollection();
 				this.metaCollection = new MetaCollection();
-				App.vent.on( "profile:dataLoaded", this.update, this );
-			},
-
-			update: function( data ){
-
 			},
 
 			activate: function( el, model ){
-				var items;
-
 				Helper.loader( "#tabContainer" );
-
-				items = model.get( "itemsWrapper" ).collection;
-				this.metaCollection.reset( items );
+				this.metaCollection.reset( mOpts.itemsWrapper.collection );
 
 				this.collection
 				.fetchById( { prodid: _.pluck( items, "id" ) } )
@@ -45,15 +35,13 @@ define(function(require){
 					self.masonry( '.item' );
 					App.vent.trigger( "items:updateLikes", self.metaCollection );
 				});
-
 			}
-
 		});
 
-		_.extend( self, new View(viewOptions) );
 
+		mOpts = vOpts;
+		_.extend( self, new View(vOpts) );
 		return self;
-
 	}
 
 });

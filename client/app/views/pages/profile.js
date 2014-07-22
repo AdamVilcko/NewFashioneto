@@ -22,40 +22,24 @@ define(function(require){
 
 
 	return BasePageView.extend({
-
 		template: Handlebars.compile( pageTemplate ),
-
 		pageId: "profile",
-
 		url: App.api.get( "user" ),
-
 		myProfile: null,
 
-		loadSidebar: function(){
-			this.sidebar = new ProfileSidebar();
-		},
-
-		loadTabs: function() {
-			this.tabs           = {};
-			this.tabs.wall      = new Wall(),
-			this.tabs.photos    = new Photos(),
-			this.tabs.items     = new ItemsTab(),
-			this.tabs.followers = new FollowersFollowing( { type: "followersWrapper" } ),
-			this.tabs.following = new FollowersFollowing( { type: "followingWrapper" } )
-		},
-
 		handler: function( requestState ){
-			if( typeof requestState.tab !== "undefined" ) this.activeTab = requestState.tab;
 			this.myProfile = requestState.myProfile;
+
+			if( typeof requestState.tab !== "undefined" ) {
+				this.activeTab = requestState.tab;
+			}
+
 			if( this.myProfile ){
 				this.url = App.api.get( "user" );
 			} else {
 				this.url = App.api.get( "user" ) + "/" + requestState.user;
 			}
-			this.loadData();
-		},
 
-		loadData: function(){
 			$.ajax({
 				type: "GET",
 				context: this,
@@ -63,76 +47,50 @@ define(function(require){
 				url: this.url,
 				beforeSend: this.beforeSend,
 				success: this.success,
-				error: this.error
+				error: function(){ App.router.navigate( "logout", { trigger: true } ); }
 			});
 		},
 
 		success: function( data, textStatus, jqXHR ){
-			this.data = data;
-			
-			var profileData = $.extend( true, {}, data);
-
-			profileData.commentsWrapper.collection = new CommentsCollection( profileData.commentsWrapper.collection );
-
-
-
-
-			this.model = new MasterBaseModel( data );
-			var dataSorted = {
-				id: ,
-				details:,
-				comments: new CommentsCollection( data.commentsWrapper.collection ),
-				images:,
-				followers:,
-				following:,
-				items:,
-				isFollowed:
+			var profile = {
+				id: data.id,
+				isFollowed: data.isFollowed,
+				myProfile: this.myProfile,
+				details: new MasterBaseModel( data.details, { imageType: "STANDARD" } ),
+				wall: data.commentsWrapper,
+				items: data.itemsWrapper,
+				images: data.imagesWrapper,
+				followers: data.followersWrapper,
+				following: data.followingWrapper
 			};
-			
-			App.vent.trigger( "profile:dataLoaded", profileData );
-			this.renderPage();
+
+			this.data = profile;
+
+			this.tabs = {
+				wall      : new Wall( { data: profile } ),
+				photos    : new Photos( { data: profile } ),
+				items     : new ItemsTab( { data: profile } ),
+				followers : new FollowersFollowing( { data: profile.followers } ),
+				following : new FollowersFollowing( { data: profile.following } )
+			};
+
+			this.sidebar = new ProfileSidebar( { data: profile } );
+
+			this.render();
 		},
 
-		error: function( jqXHR, textStatus, errorThrown ){
-			if( jqXHR.status === 401 ){
-				alert( "Incorrect login credentials. Please try again!" );
-			} else{
-				alert( "profile getUser: " + jqXHR.status + ": " + errorThrown  );
-			}
-		},
-
-		renderPage: function(){
-			if( typeof this.preRender !== "undefined" ) this.preRender();
-
-			var el = $( "<div></div>" );
-			el
-			.attr( "data-view", this.cid )
-			.html( this.template( this.merge( this.data ) ) );
-
+		postRender:function(){
 			if( this.sidebar ){
-				el
-				.find( this.nodes.sidebar )
+				this.$( this.nodes.sidebar )
 				.html( this.sidebar.render().el );
 			}
-
-			if( typeof this.postRender !== "undefined" ) this.postRender();
-
-			$('html body').scrollTop(0);
-			this.$el.html( el );
 
 			if( this.tabs ){
 				this.tabs[ this.activeTab ].activate( this.el, this.model );
 			}
 
-			this.$el
-			.removeClass( "loadOut" );
-
 			Helper.navState();
-
-			return this;
-
 		}
-
 	});
 
 });

@@ -7,7 +7,7 @@
 
               <div class="col-md-6">
 
-                <h1><span class="name">{{details.displayName}}</span></h1>
+                <h1><span class="name">{{data.details.displayName}}</span></h1>
 
               </div>
 
@@ -22,11 +22,11 @@
             </section><!-- userTitle -->
 
             <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/wall" data-toggle="tab">Board</a></li>
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/photos" data-toggle="tab">Photos ({{model.imagesWrapper.count}})</a></li>
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/items" data-toggle="tab">Items({{model.itemsWrapper.count}})</a></li>
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/followers" data-toggle="tab">Followers ({{model.followersWrapper.count}})</a></li>
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/following" data-toggle="tab">Following ({{model.followingWrapper.count}})</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{data.details.userName}}{{/if}}/wall" data-toggle="tab">Board</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{data.details.userName}}{{/if}}/photos" data-toggle="tab">Photos ({{data.images.count}})</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{data.details.userName}}{{/if}}/items" data-toggle="tab">Items({{data.items.count}})</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{data.details.userName}}{{/if}}/followers" data-toggle="tab">Followers ({{data.followers.count}})</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{data.details.userName}}{{/if}}/following" data-toggle="tab">Following ({{data.following.count}})</a></li>
               <!-- <li><a href="profile/info" data-toggle="tab">Information</a></li> -->
             </ul>
 

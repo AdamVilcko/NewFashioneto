@@ -49,10 +49,6 @@ define(function(require){
 			this.$el.animate( { "margin-left":"0", opacity:1 }, 1000 );
 		},
 
-		renderModalLogin: function(){
-
-		},
-
 
 		//Login actions
 

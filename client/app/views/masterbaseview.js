@@ -18,7 +18,6 @@ define(function(require){
 			this.options = options || {};
 			if( this.options.master ){
 				this.master = this.options.master;
-				if( typeof this.master.data ) this.data = this.master.data;
 			}
             if(this.options.contextId){
                 this.contextId = options.contextId;
@@ -98,10 +97,22 @@ define(function(require){
 		},
 
 		merge: function( data ){
-			data                        = data || {};
+			data = data || {};
+
+			if( this.data ){
+				var newObj = {};
+				_.each( this.data, function( value, key, list ){
+					if( value instanceof Backbone.Model || value instanceof Backbone.Collection ){
+						newObj[key] = value.toJSON();
+					} else {
+						newObj[key] = value;
+					}
+				});
+				data.data = newObj;
+			}
+
 			if( this.model ) data.model = this.model.toJSON();
 			data.user                   = App.user.toJSON();
-			data.locale                 = App.locale;
 			data.options                = this.options;
 			data.viewContext            = this;
 			return data;
@@ -120,7 +131,7 @@ define(function(require){
 			  isFitWidth: true
 			}
 			masonryOptions = _.extend( masonryDefaults, masonryArgs );
-			
+
 			self.masonryTarget
 			.masonry("destroy")
 

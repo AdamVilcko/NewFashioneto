@@ -10,48 +10,43 @@ define(function(require){
 	Posts          = require( "views/wall/posts" );
 
 
-	return MasterBaseView.extend({
+	return function(vOpts){
+		var self = this, mOpts,
 
-		nodes:{
-			posts: "#postDisplay",
-			textarea: "textarea"
-		},
+		View = MasterBaseView.extend({
+			template: Handlebars.compile( template ),
 
-		template: Handlebars.compile( template ),
+			init: function(){
+				this.posts = new Posts( mOpts.data );
+				this.model = mOpts.data.details;
+			},
 
-		init: function(){
-			this.posts = new Posts( { master: this.master } );
-			this.model = new MasterBaseModel();
-			App.vent.on( "profile:dataLoaded", function( collection ){
-				this.model.set( collection.get( "details" ) );
-			}, this );
-		},
+			postRender: function(){
+				this.delegateEvents();
+				this.$( "#postDisplay" )
+				.html( this.posts.renderCollection( null, { sort: true, contextId: "USER" } ).el );
+				return this;
+			},
 
-		postRender: function(){
-			this.delegateEvents();
-			this.$el
-			.find( this.nodes.posts )
-			.html( this.posts.renderCollection( null, { sort: true, contextId: "USER" } ).el );
-			return this;
-		},
+			events:{
+				"click .sendPost" : function( ev ){
+					var
+					textarea = this.$( "textarea" ),
+					content  = textarea.val();
+					textarea.val( "" );
+					this.posts.collection.create( { content: content },
+					{
+						url: this.posts.collection.url + "/" + mOpts.data.id,
+						wait: true
+					} );
+				}
+			}
 
-		events:{
-			"click .sendPost" : "post"
-		},
+		});
 
-		post: function( ev ){
-			var
-			textarea = this.$el.find( this.nodes.textarea ),
-			content  = textarea.val();
-			textarea.val( "" );
-			this.posts.collection.create( { content: content },
-			{
-				url: this.posts.collection.url + "/" + this.master.data.id,
-				wait: true
-			} );
+		mOpts = vOpts;
+		_.extend( self, new View(vOpts) );
+		return self;
 
-		}
-
-	});
-
+	}
 });

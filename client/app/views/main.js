@@ -17,53 +17,20 @@ define(function(require){
 
 
 	return MasterBaseView.extend({
-
 		el: document.body,
-
-		nodes: {
-			nav: "#nav"
-		},
-
 		template: Handlebars.compile( mainTemplate ),
 
 		init: function(){
-			this
-			.render()
-			.invokeComponents();
-			this.$el.removeClass( "login" );
+			this.render().$el.removeClass( "login" );
+
+			this.nav = new Nav();
+			this.pages = {
+				items   : new Items(),
+				people  : new People(),
+				profile : new Profile()
+			};
+
 			App.vent.on( "page:change", this.controller, this );
-			this.main = this.$el.find( "#main" );
-
-			$("#main").resize( function(){
-				if($(document).height() <= $(window).height()){
-					console.log("fixed");
-					$("footer").css({
-						position: "fixed"
-					});
-				} else {
-					console.log("static");
-					$("footer").css({
-						position: "static"
-					});
-				}
-			} );
-		},
-
-		invokeComponents: function() {
-			this.nav             = new Nav();
-			this.pages           = {};
-			this.pages.items     = new Items();
-			this.pages.people    = new People();
-			this.pages.profile   = new Profile();
-
-			//This will need to be done by a page ready event
-			window.location.hash = "m";
-			setTimeout( function(){
-
-				window.location.hash = "profile";
-			}, 300 );
-
-			return this;
 		},
 
 		controller: function( args ){
@@ -72,8 +39,8 @@ define(function(require){
 					value.close();
 				}
 			});
+
 			this.pages[ args.page ].handler( args );
 		}
-
 	});
 });

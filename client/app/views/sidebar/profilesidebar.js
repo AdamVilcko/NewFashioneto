@@ -12,26 +12,11 @@ define(function(require){
 
 
 	return MasterBaseView.extend({
-
 		template: Handlebars.compile( template ),
 
 		init: function(){
-			App.vent.on( "profile:dataLoaded", this.handle, this );
-		},
-
-		handle: function( data ){
-			this.model = new MasterBaseModel( data.get( "details" ), { imageType: "STANDARD" } );
-			return this;
-		},
-
-		widgets: {
-			profile: {},
-			badges: {},
-			followers: {}
+			this.model = this.options.data.details;
 		}
-
-		//DOM events
-
 	});
 
 });

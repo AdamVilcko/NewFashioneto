@@ -6,7 +6,6 @@ define(function(require){
 	$              = require("jquery"),
 
 	MasterBaseView = require( 'views/masterbaseview' ),
-	Collection     = require('collections/photos/album-photos'),
 	AlbumThumbnail = require('views/photos/album-thumbnail');
 
 	return MasterBaseView.extend({
@@ -16,12 +15,7 @@ define(function(require){
 		emptyCollectionTemplate: Handlebars.compile("You are a twat"),
 
 		init: function(){
-			App.vent.on( "profile:dataLoaded", this.update, this );
-
-		},
-
-		update: function( collection ){
-			this.collection = collection;			
+			this.collection = this.options.collection;
 		}
 
 	});
