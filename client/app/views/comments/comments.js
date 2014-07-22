@@ -2,14 +2,15 @@ define(function(require){
 
 	var
 
-	Handlebars          = require("handlebars"),
-
-	MasterBaseView = require( 'views/masterbaseview' ),
-	CommentView         = require("views/comments/comment"),
-	CommentsCollection  = require("collections/comments/comments"),
-
-	showAll             = require("text!templates/comments/showall.hbr"),
-	input               = require("text!templates/comments/input.hbr");
+	Handlebars         = require("handlebars"),
+	Backbone           = require("backbone"),
+	
+	MasterBaseView     = require( 'views/masterbaseview' ),
+	CommentView        = require("views/comments/comment"),
+	CommentsCollection = require("collections/comments/comments"),
+	
+	showAll            = require("text!templates/comments/showall.hbr"),
+	input              = require("text!templates/comments/input.hbr");
 
 
 	return MasterBaseView.extend({
@@ -23,7 +24,11 @@ define(function(require){
 			textarea : "textarea"
 		},
 		init: function(){
-			this.collection = new CommentsCollection( this.options.data );
+			if( this.options.data instanceof Backbone.collection.prototype ){
+				this.collection = this.options.data;
+			} else {
+				this.collection = new CommentsCollection( this.options.data );
+			}			
 			this.collection
 			.on( "sync", this.render, this );
 		},

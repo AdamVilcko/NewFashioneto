@@ -5,14 +5,20 @@ define(function(require){
 	Handlebars         = require( "handlebars" ),
 	Helper             = require( "helper" ),
 
+	//Views
+
 	BasePageView       = require( "views/pages/basepageview" ),
 	Wall               = require( "views/wall/wall" ),
-	Photos           = require( "views/photos/album-wrapper" ),
+	Photos             = require( "views/photos/album-wrapper" ),
 	ItemsTab           = require( "views/items/itemsTab" ),
 	People             = require( "views/people/people" ),
 	FollowersFollowing = require( "views/people/followersfollowing" ),
 	ProfileSidebar     = require( "views/sidebar/profilesidebar" ),
-	pageTemplate       = require( "text!templates/pages/profile.hbr" );
+	pageTemplate       = require( "text!templates/pages/profile.hbr" ),
+
+	//Collections
+
+	CommentsCollection = require("collections/comments/comments");
 
 
 	return BasePageView.extend({
@@ -63,12 +69,27 @@ define(function(require){
 
 		success: function( data, textStatus, jqXHR ){
 			this.data = data;
+			
+			var profileData = $.extend( true, {}, data);
+
+			profileData.commentsWrapper.collection = new CommentsCollection( profileData.commentsWrapper.collection );
+
+
+
+
 			this.model = new MasterBaseModel( data );
-           //Create an object literal container modeal + collections for every profile tab
-            /*var data = {
-             board:
-             };*/
-			App.vent.trigger( "profile:dataLoaded", this.model );
+			var dataSorted = {
+				id: ,
+				details:,
+				comments: new CommentsCollection( data.commentsWrapper.collection ),
+				images:,
+				followers:,
+				following:,
+				items:,
+				isFollowed:
+			};
+			
+			App.vent.trigger( "profile:dataLoaded", profileData );
 			this.renderPage();
 		},
 

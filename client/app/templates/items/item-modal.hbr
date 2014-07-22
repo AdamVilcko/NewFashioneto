@@ -29,38 +29,7 @@
 
           <div class="horizontal rule"></div>
 
-          <section class="comments">
-
-             <div class="media">
-            <a class="pull-left" href="#">
-              <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
-              <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
-            </div>
-          </div>
-
-          <div class="media">
-            <a class="pull-left" href="#">
-              <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
-              <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
-            </div>
-          </div>
-
-          <div class="media">
-            <a class="pull-left" href="#">
-              <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
-            </a>
-            <div class="media-body">
-              <textarea placeholder="Write your comment" class="well"></textarea>
-            </div><!-- media-body -->
-
-
-          </section><!-- comments -->
+          <section class="comments"></section><!-- comments -->
 
           </div><!-- col-lg-8 -->
 

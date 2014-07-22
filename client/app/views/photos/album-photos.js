@@ -17,12 +17,11 @@ define(function(require){
 
 		init: function(){
 			App.vent.on( "profile:dataLoaded", this.update, this );
-			this.collection = new Collection();
+
 		},
 
-		update: function( data ){
-			this.collection.reset( data.get( "imagesWrapper" ).collection );
-			return this;
+		update: function( collection ){
+			this.collection = collection;			
 		}
 
 	});

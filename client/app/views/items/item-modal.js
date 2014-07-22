@@ -34,15 +34,16 @@ define(function(require){
 		},
 
         initComponents: function(){
-            if( this.model.has("commentsWrapper") ){
-                this.comments = new Comments( {
-                    data: this.model.get("commentsWrapper").collection,
-                    parentId: this.model.get( "id" ),
-                    contextId: "IMAGE"
-                } );
-                this.$( ".comments" )
-                    .append( this.comments.render().el );
-            }
+        	var self = this;
+        	this.model.getMeta().done(function( data ){
+        		self.comments = new Comments( {
+					data: data.collection,
+					parentId: self.model.get( "id" ),
+                    contextId: "ITEM"
+				} );
+				self.$( ".comments" )
+				.html( self.comments.render().el );
+        	});            
         }
 
 	});
