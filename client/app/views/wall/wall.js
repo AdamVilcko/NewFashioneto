@@ -4,10 +4,11 @@ define(function(require){
 	Backbone       = require( "backbone" ),
 	Handlebars     = require( "handlebars" ),
 	$              = require( "jquery" ),
-
-	MasterBaseView = require( 'views/masterbaseview' ),
+	
 	template       = require( "text!templates/wall/wall.hbr" ),
-	Posts          = require( "views/wall/posts" );
+	AlbumPhotos    = require( 'collections/photos/album-photos' ),
+	Posts          = require( "views/wall/posts" ),
+	MasterBaseView = require( 'views/masterbaseview' );
 
 
 	return function(vOpts){
@@ -18,7 +19,7 @@ define(function(require){
 
 			init: function(){
 				this.posts = new Posts( mOpts.data );
-				this.model = mOpts.data.details;
+				this.model = mOpts.data.details;				
 			},
 
 			postRender: function(){

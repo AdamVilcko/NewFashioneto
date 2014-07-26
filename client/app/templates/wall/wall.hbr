@@ -2,45 +2,11 @@
 
   <div class="row" id="images">
 
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
+    {{profilePhotos}}
 
   </div><!-- row -->
 
-  <button class="btn btn-primary pull-right">Show all photos</button>
+  <a href="#{{#if myprofile}}myprofile{{else}}people/{{data.details.userName}}{{/if}}/photos" class="btn pull-right btn-default btn-md">Show all photos</a>
 
   <div class="clear"></div>
 
