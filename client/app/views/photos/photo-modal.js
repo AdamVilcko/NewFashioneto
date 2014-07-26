@@ -12,9 +12,6 @@ define(function(require){
 	Bootstrap  = require('bootstrap');
 
 
-
-
-
 	return ModalView.extend({
 
 		contextId: "image",
@@ -23,8 +20,8 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
-			var self = this, selectedModelId;			
-			self.options.collection.fetch();			
+			var self = this, selectedModelId;
+			self.options.collection.fetch();
 			selectedModelId = self.options.model.get("id");
 			self.model = self.options.collection.get( selectedModelId );
 			self.initComponents();
