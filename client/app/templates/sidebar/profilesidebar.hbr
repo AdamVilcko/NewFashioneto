@@ -5,6 +5,8 @@
   <h6 class="location well">{{model.city}}, {{model.country}}</h6>
 </div><!-- profilePicture -->
 
+<h3>{{data.details.displayName}}</h3>
+
 <div class="badges">
   <h5>Award Alex with badges</h5>
   <p>You can select more than one</p>
