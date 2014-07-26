@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.fashioneto.dao.CommentDAO;
 import com.fashioneto.persistence.Comment;
-import com.fashioneto.persistence.CommentParentTypeEnum;
+import com.fashioneto.persistence.CommentParentType;
 import com.fashioneto.persistence.CommentStatus;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.Item;
@@ -70,7 +70,7 @@ public class CommentServiceImpl implements CommentService
 	}
 
 	@Override
-	public Comment addComment(CommentParentTypeEnum parentType, int parentId, String content)
+	public Comment addComment(CommentParentType parentType, int parentId, String content)
 			throws NoUserInContextException
 	{
 		Comment comment = new Comment();
@@ -88,7 +88,7 @@ public class CommentServiceImpl implements CommentService
 	}
 
 	@Override
-	public Set<Comment> getComments(CommentParentTypeEnum parentType, int parentId)
+	public Set<Comment> getComments(CommentParentType parentType, int parentId)
 	{
 		Set<Comment> comments;
 

@@ -17,86 +17,84 @@ import com.google.gson.JsonSerializer;
 /**
  * @author Felipe Tonon 6 Feb 2014
  **/
-public class UserJsonSerializer implements JsonSerializer<User>
-{
+public class UserJsonSerializer implements JsonSerializer<User> {
 
-	public static final String JSON_PROPERTY_COMMENTS = "commentsWrapper";
-	public static final String JSON_PROPERTY_ITEMS = "itemsWrapper";
-	public static final String JSON_PROPERTY_IMAGES = "imagesWrapper";
-	public static final String JSON_PROPERTY_FOLLOWERS = "followersWrapper";
-	public static final String JSON_PROPERTY_FOLLOWING = "followingWrapper";
+    public static final String JSON_PROPERTY_COMMENTS = "commentsWrapper";
+    public static final String JSON_PROPERTY_ITEMS = "itemsWrapper";
+    public static final String JSON_PROPERTY_IMAGES = "imagesWrapper";
+    public static final String JSON_PROPERTY_FOLLOWERS = "followersWrapper";
+    public static final String JSON_PROPERTY_FOLLOWING = "followingWrapper";
 
-	public static final String JSON_PROPERTY_USER_NAME = "userName";
-	public static final String JSON_PROPERTY_ID = "id";
-	public static final String JSON_PROPERTY_DETAILS = "details";
-	public static final String JSON_PROPERTY_FOLLOWED = "isFollowed";
+    public static final String JSON_PROPERTY_USER_NAME = "userName";
+    public static final String JSON_PROPERTY_ID = "id";
+    public static final String JSON_PROPERTY_DETAILS = "details";
+    public static final String JSON_PROPERTY_FOLLOWED = "isFollowed";
 
-	public static final String JSON_PROPERTY_DETAILS_DISPLAY_NAME = "displayName";
-	public static final String JSON_PROPERTY_DETAILS_IMAGE_ID = "imageId";
-	public static final String JSON_PROPERTY_DETAILS_CITY = "city";
-	public static final String JSON_PROPERTY_DETAILS_COUNTRY = "country";
-	public static final String JSON_PROPERTY_DETAILS_FOLLOWERS_COUNT = "followersCount";
-	public static final String JSON_PROPERTY_DETAILS_FOLLOWING_COUNT = "followingCount";
-	public static final String JSON_PROPERTY_DETAILS_AGE = "age";
+    public static final String JSON_PROPERTY_DETAILS_DISPLAY_NAME = "displayName";
+    public static final String JSON_PROPERTY_DETAILS_IMAGE_ID = "imageId";
+    public static final String JSON_PROPERTY_DETAILS_CITY = "city";
+    public static final String JSON_PROPERTY_DETAILS_COUNTRY = "country";
+    public static final String JSON_PROPERTY_DETAILS_FOLLOWERS_COUNT = "followersCount";
+    public static final String JSON_PROPERTY_DETAILS_FOLLOWING_COUNT = "followingCount";
+    public static final String JSON_PROPERTY_DETAILS_AGE = "age";
+    public static final String JSON_PROPERTY_DETAILS_EMAIL = "email";
+    public static final String JSON_PROPERTY_DETAILS_STATUS = "status";
 
-	@Override
-	public JsonElement serialize(User user, Type arg1, JsonSerializationContext context)
-	{
-		JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty(JSON_PROPERTY_ID, user.getId());
+    @Override
+    public JsonElement serialize(User user, Type arg1, JsonSerializationContext context) {
+	JsonObject jsonObject = new JsonObject();
+	jsonObject.addProperty(JSON_PROPERTY_ID, user.getId());
 
-		try
-		{
-			jsonObject.addProperty(JSON_PROPERTY_FOLLOWED, ContextUtils.isFollowed(user));
-		}
-		catch (NoUserInContextException e)
-		{
-			e.printStackTrace();
-		}
-
-		jsonObject.add(JSON_PROPERTY_DETAILS, getUserDetails(user));
-
-		addWrappedSubOjects(jsonObject, user, context);
-
-		return jsonObject;
+	try {
+	    jsonObject.addProperty(JSON_PROPERTY_FOLLOWED, ContextUtils.isFollowed(user));
+	} catch (NoUserInContextException e) {
+	    e.printStackTrace();
 	}
 
-	protected void addWrappedSubOjects(JsonObject jsonObject, User user, JsonSerializationContext context)
-	{
-		DefaultSet<Image> imageSet = new DefaultSet<Image>(user.getImages());
-		jsonObject.add(JSON_PROPERTY_IMAGES, context.serialize(imageSet));
+	jsonObject.add(JSON_PROPERTY_DETAILS, getUserDetails(user));
 
-		DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
-		jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
+	addWrappedSubOjects(jsonObject, user, context);
 
-		DefaultSet<Item> likedItems = new DefaultSet<Item>(user.getItems());
-		jsonObject.add(JSON_PROPERTY_ITEMS, context.serialize(likedItems));
+	return jsonObject;
+    }
 
-		DefaultSet<User> followersSet = new DefaultSet<User>(user.getFollowers());
-		jsonObject.add(JSON_PROPERTY_FOLLOWERS, FashionetoJsonFactory.getJsonElement(followersSet));
+    protected void addWrappedSubOjects(JsonObject jsonObject, User user, JsonSerializationContext context) {
+	DefaultSet<Image> imageSet = new DefaultSet<Image>(user.getImages());
+	jsonObject.add(JSON_PROPERTY_IMAGES, context.serialize(imageSet));
 
-		DefaultSet<User> followingSet = new DefaultSet<User>(user.getFollowing());
-		jsonObject.add(JSON_PROPERTY_FOLLOWING, FashionetoJsonFactory.getJsonElement(followingSet));
+	DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
+	jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
 
+	DefaultSet<Item> likedItems = new DefaultSet<Item>(user.getItems());
+	jsonObject.add(JSON_PROPERTY_ITEMS, context.serialize(likedItems));
+
+	DefaultSet<User> followersSet = new DefaultSet<User>(user.getFollowers());
+	jsonObject.add(JSON_PROPERTY_FOLLOWERS, FashionetoJsonFactory.getJsonElement(followersSet));
+
+	DefaultSet<User> followingSet = new DefaultSet<User>(user.getFollowing());
+	jsonObject.add(JSON_PROPERTY_FOLLOWING, FashionetoJsonFactory.getJsonElement(followingSet));
+
+    }
+
+    private JsonElement getUserDetails(User user) {
+	JsonObject jsonObject = new JsonObject();
+	jsonObject.addProperty(JSON_PROPERTY_USER_NAME, user.getUsername());
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_CITY, user.getCity());
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_COUNTRY, user.getCountry());
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWERS_COUNT, user.getFollowers().size());
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWING_COUNT, user.getFollowing().size());
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_AGE, -1);
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_DISPLAY_NAME, user.getDisplayName());
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_EMAIL, user.getEmail());
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_DISPLAY_NAME, user.getDisplayName());
+	jsonObject.addProperty(JSON_PROPERTY_DETAILS_STATUS, user.getStatus().name());
+	
+	
+	if (user.getProfileImage() != null) {
+	    jsonObject.addProperty(JSON_PROPERTY_DETAILS_IMAGE_ID, user.getProfileImage().getId());
 	}
 
-	private JsonElement getUserDetails(User user)
-	{
-		JsonObject jsonObject = new JsonObject();
-		jsonObject.addProperty(JSON_PROPERTY_USER_NAME, user.getUsername());
-		jsonObject.addProperty(JSON_PROPERTY_DETAILS_CITY, user.getCity());
-		jsonObject.addProperty(JSON_PROPERTY_DETAILS_COUNTRY, user.getCountry());
-		jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWERS_COUNT, user.getFollowers().size());
-		jsonObject.addProperty(JSON_PROPERTY_DETAILS_FOLLOWING_COUNT, user.getFollowing().size());
-		jsonObject.addProperty(JSON_PROPERTY_DETAILS_AGE, -1);
-		jsonObject.addProperty(JSON_PROPERTY_DETAILS_DISPLAY_NAME, user.getDisplayName());
-
-		if (user.getProfileImage() != null)
-		{
-			jsonObject.addProperty(JSON_PROPERTY_DETAILS_IMAGE_ID, user.getProfileImage().getId());
-		}
-
-		return jsonObject;
-	}
+	return jsonObject;
+    }
 
 }

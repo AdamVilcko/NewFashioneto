@@ -38,137 +38,117 @@ import org.hibernate.annotations.FilterDef;
 @Entity
 @Table(name = "comment")
 @FilterDef(name = Comment.PARENT_TYPE_FILTER)
-public class Comment implements Serializable
-{
+public class Comment implements Serializable {
 
-	public static final String PARENT_TYPE_FILTER = "parentTypeFilter";
-	private static final long serialVersionUID = 1L;
+    public static final String PARENT_TYPE_FILTER = "parentTypeFilter";
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_user")
-	private User user;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_user")
+    private User user;
 
-	@Column(name = "content")
-	private String content;
+    @Column(name = "content")
+    private String content;
 
-	@Column(name = "dt_comment")
-	private Date date;
+    @Column(name = "dt_comment")
+    private Date date;
 
-	@Enumerated(EnumType.STRING)
-	private CommentStatus status;
+    @Enumerated(EnumType.STRING)
+    private CommentStatus status;
 
-	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_comment"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
-	@OrderBy("date asc")
-	private Set<Comment> comments = new LinkedHashSet<Comment>();
+    @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_comment"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
+    @OrderBy("date asc")
+    private Set<Comment> comments = new LinkedHashSet<Comment>();
 
-	@OneToMany(mappedBy = "comment", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	private Set<LikeComment> likes = new LinkedHashSet<LikeComment>();
+    @OneToMany(mappedBy = "comment", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    private Set<LikeComment> likes = new LinkedHashSet<LikeComment>();
 
-	public Comment()
-	{
+    public Comment() {
 
+    }
+
+    public Comment(int id) {
+	this.id = id;
+    }
+
+    public int getNumberOfLikes() {
+	if (likes == null) {
+	    return 0;
 	}
+	return likes.size();
+    }
 
-	public Comment(int id)
-	{
-		this.id = id;
-	}
+    public String getDateInTimestampString() {
+	return Long.toString(date.getTime() / 1000);
+    }
 
-	public int getNumberOfLikes()
-	{
-		if (likes == null)
-		{
-			return 0;
-		}
-		return likes.size();
-	}
+    public int getId() {
+	return id;
+    }
 
-	public String getDateInTimestampString()
-	{
-		return Long.toString(date.getTime() / 1000);
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	public int getId()
-	{
-		return id;
-	}
+    public User getUser() {
+	return user;
+    }
 
-	public void setId(int id)
-	{
-		this.id = id;
-	}
+    public void setUser(User user) {
+	this.user = user;
+    }
 
-	public User getUser()
-	{
-		return user;
-	}
+    public String getContent() {
+	return content;
+    }
 
-	public void setUser(User user)
-	{
-		this.user = user;
-	}
+    public void setContent(String content) {
+	this.content = content;
+    }
 
-	public String getContent()
-	{
-		return content;
-	}
+    @Override
+    public String toString() {
+	// return "Comment [id=" + id + ", user=" + user.getId() + ", content="
+	// + content + "]";
+	return "Comment [id=" + id + ", content=" + content + "]";
+    }
 
-	public void setContent(String content)
-	{
-		this.content = content;
-	}
+    public Set<Comment> getComments() {
+	return comments;
+    }
 
-	@Override
-	public String toString()
-	{
-		//		return "Comment [id=" + id + ", user=" + user.getId() + ", content=" + content + "]";
-		return "Comment [id=" + id + ", content=" + content + "]";
-	}
+    public void setComments(Set<Comment> comments) {
+	this.comments = comments;
+    }
 
-	public Set<Comment> getComments()
-	{
-		return comments;
-	}
+    public Date getDate() {
+	return date;
+    }
 
-	public void setComments(Set<Comment> comments)
-	{
-		this.comments = comments;
-	}
+    public void setDate(Date date) {
+	this.date = date;
+    }
 
-	public Date getDate()
-	{
-		return date;
-	}
+    public Set<LikeComment> getLikes() {
+	return likes;
+    }
 
-	public void setDate(Date date)
-	{
-		this.date = date;
-	}
+    public void setLikes(Set<LikeComment> likes) {
+	this.likes = likes;
+    }
 
-	public Set<LikeComment> getLikes()
-	{
-		return likes;
-	}
+    public CommentStatus getStatus() {
+	return status;
+    }
 
-	public void setLikes(Set<LikeComment> likes)
-	{
-		this.likes = likes;
-	}
-
-	public CommentStatus getStatus()
-	{
-		return status;
-	}
-
-	public void setStatus(CommentStatus status)
-	{
-		this.status = status;
-	}
+    public void setStatus(CommentStatus status) {
+	this.status = status;
+    }
 
 }

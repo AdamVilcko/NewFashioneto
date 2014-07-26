@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fashioneto.persistence.Comment;
-import com.fashioneto.persistence.CommentParentTypeEnum;
+import com.fashioneto.persistence.CommentParentType;
 import com.fashioneto.persistence.User;
 import com.fashioneto.service.CommentService;
 import com.fashioneto.service.UserService;
@@ -31,92 +31,74 @@ import com.fashioneto.ws.json.FashionetoJsonFactory;
  **/
 @Path("/comment")
 @Component
-public class CommentRestBean
-{
+public class CommentRestBean {
 
-	@Autowired
-	protected UserService userService;
-	@Autowired
-	protected CommentService commentService;
+    @Autowired
+    protected UserService userService;
+    @Autowired
+    protected CommentService commentService;
 
-	@DELETE
-	@Path("{commentId}")
-	public Response delete(@PathParam("commentId")
-	int commentId)
-	{
-		Comment comment = commentService.getComment(commentId);
+    @DELETE
+    @Path("{commentId}")
+    public Response delete(@PathParam("commentId") int commentId) {
+	Comment comment = commentService.getComment(commentId);
 
-		if (comment != null)
-		{
-			try
-			{
-				User loggedUser = ContextUtils.getUserFromAuthenticationContext();
-				if (loggedUser.getId() == comment.getUser().getId())
-				{
-					comment = commentService.deleteComment(commentId);
-					return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(comment)).build();
-				}
-			}
-			catch (NoUserInContextException e)
-			{
-				e.printStackTrace();
-			}
-			return Response.status(Status.UNAUTHORIZED).build();
+	if (comment != null) {
+	    try {
+		User loggedUser = ContextUtils.getUserFromAuthenticationContext();
+		if (loggedUser.getId() == comment.getUser().getId()) {
+		    comment = commentService.deleteComment(commentId);
+		    return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(comment)).build();
 		}
-		return Response.status(Status.NOT_FOUND).build();
+	    } catch (NoUserInContextException e) {
+		e.printStackTrace();
+	    }
+	    return Response.status(Status.UNAUTHORIZED).build();
+	}
+	return Response.status(Status.NOT_FOUND).build();
+    }
+
+    @POST
+    @Path("{parentType}/{parentId}")
+    @Consumes("application/json")
+    public Response addComment(@PathParam("parentType") CommentParentType parentType,
+	    @PathParam("parentId") int parentId, ContentWrapper content) throws NoUserInContextException {
+	Comment comment = commentService.addComment(parentType, parentId, content.getContent());
+	if (comment != null) {
+	    return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(comment)).build();
+	}
+	return Response.status(Status.NOT_FOUND).build();
+    }
+
+    @POST
+    @Path("like/{commentId}")
+    public Response likeComment(@PathParam("commentId") int commentId) throws Exception {
+	// http://localhost:8080/Fashioneto/as/comment/like/1
+	if (commentId > 0) {
+	    User user = ContextUtils.getUserFromAuthenticationContext();
+
+	    int likesCount = commentService.addLike(user.getId(), commentId);
+
+	    LikesWrapper likesWrapper = new LikesWrapper(likesCount, true);
+	    return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(likesWrapper)).build();
 	}
 
-	@POST
-	@Path("{parentType}/{parentId}")
-	@Consumes("application/json")
-	public Response addComment(@PathParam("parentType")
-	CommentParentTypeEnum parentType, @PathParam("parentId")
-	int parentId, ContentWrapper content) throws NoUserInContextException
-	{
-		Comment comment = commentService.addComment(parentType, parentId, content.getContent());
-		if (comment != null)
-		{
-			return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(comment)).build();
-		}
-		return Response.status(Status.NOT_FOUND).build();
+	return Response.status(Status.NOT_FOUND).build();
+    }
+
+    @GET
+    @Path("{parentType}/{parentId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getMsg(@PathParam("parentType") CommentParentType parentType, @PathParam("parentId") int parentId) {
+	// http://localhost:8080/Fashioneto/as/comment/USER/1
+
+	User user = userService.getUser(parentId);
+	if (parentType.equals(CommentParentType.USER) && user != null) {
+	    DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
+	    String jsonOutput = FashionetoJsonFactory.getJson(commentSet);
+
+	    return Response.status(Status.OK).entity(jsonOutput).build();
 	}
-
-	@POST
-	@Path("like/{commentId}")
-	public Response likeComment(@PathParam("commentId")
-	int commentId) throws Exception
-	{
-		//http://localhost:8080/Fashioneto/as/comment/like/1 
-		if (commentId > 0)
-		{
-			User user = ContextUtils.getUserFromAuthenticationContext();
-
-			int likesCount = commentService.addLike(user.getId(), commentId);
-
-			LikesWrapper likesWrapper = new LikesWrapper(likesCount, true);
-			return Response.status(Status.OK).entity(FashionetoJsonFactory.getJsonFromObject(likesWrapper)).build();
-		}
-
-		return Response.status(Status.NOT_FOUND).build();
-	}
-
-	@GET
-	@Path("{parentType}/{parentId}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getMsg(@PathParam("parentType")
-	CommentParentTypeEnum parentType, @PathParam("parentId")
-	int parentId)
-	{
-		//http://localhost:8080/Fashioneto/as/comment/USER/1
-
-		User user = userService.getUser(parentId);
-		if (parentType.equals(CommentParentTypeEnum.USER) && user != null)
-		{
-			DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
-			String jsonOutput = FashionetoJsonFactory.getJson(commentSet);
-
-			return Response.status(Status.OK).entity(jsonOutput).build();
-		}
-		return Response.status(Status.NOT_FOUND).build();
-	}
+	return Response.status(Status.NOT_FOUND).build();
+    }
 }

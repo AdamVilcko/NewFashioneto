@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.User;
-import com.fashioneto.ws.entities.ImageSizeEnum;
+import com.fashioneto.ws.entities.ImageSize;
 
 /**
  * @author felipe
@@ -18,7 +18,7 @@ import com.fashioneto.ws.entities.ImageSizeEnum;
 public interface ImageService
 {
 
-	public ByteArrayOutputStream getImageContent(int id, ImageSizeEnum size) throws IOException;
+	public ByteArrayOutputStream getImageContent(int id, ImageSize size) throws IOException;
 
 	public List<Image> getImages(int userId);
 

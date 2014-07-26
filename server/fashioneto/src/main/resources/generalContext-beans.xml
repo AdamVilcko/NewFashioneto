@@ -17,7 +17,7 @@
 	<context:component-scan base-package="com.fashioneto.ws.rest" />
 	
 
-	<bean
+	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
 			<value>/WEB-INF/classes/application.properties</value>

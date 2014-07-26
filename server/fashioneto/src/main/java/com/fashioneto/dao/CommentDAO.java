@@ -1,7 +1,7 @@
 package com.fashioneto.dao;
 
 import com.fashioneto.persistence.Comment;
-import com.fashioneto.persistence.CommentParentTypeEnum;
+import com.fashioneto.persistence.CommentParentType;
 import com.fashioneto.persistence.LikeComment;
 
 /**
@@ -19,5 +19,5 @@ public interface CommentDAO
 
 	public LikeComment save(LikeComment likeComment);
 
-	public Comment saveNew(CommentParentTypeEnum parentType, int parentId, Comment comment);
+	public Comment saveNew(CommentParentType parentType, int parentId, Comment comment);
 }

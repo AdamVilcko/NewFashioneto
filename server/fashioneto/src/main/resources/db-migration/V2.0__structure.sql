@@ -7,13 +7,23 @@
 
 create table fashionetoer (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
-	`username` varchar(100) not null,
+	`username` varchar(100),
 	`email` varchar(100) not null,
-	`password` varchar(200) not null,
-	`display_name` varchar(100) not null,
+	`password` varchar(200),
+	`display_name` varchar(100),
 	`id_profile_image` int(11) unsigned null,
 	`city` varchar(100),
-	`country` varchar(100)
+	`country` varchar(100),
+	`status` varchar(20)  not null,
+	UNIQUE KEY `email` (`email`)
+);
+
+create table invitation (
+	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
+	`id_user` int(11) unsigned not null,
+	`id_invited_user` int(11) unsigned not null,
+	`date` DATETIME not null,
+	UNIQUE KEY `id_invitations` (`id_user`, id_invited_user)
 );
 
 create table album (

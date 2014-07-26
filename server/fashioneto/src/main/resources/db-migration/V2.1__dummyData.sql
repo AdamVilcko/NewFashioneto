@@ -1,12 +1,16 @@
 /*
  * Dummy data:
  */
-insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`) values (6, 'admin', 'admin@doe.com', 'f82959d41f9330bd853d3e11345e08eda948544666bfc17806493df9d4b305f0', 'Administrator', 'London', 'UK');
-insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`) values (1, 'user1', 'john1@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'Felipe Tonon', 'Florianopolis', 'BR', 1);
-insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`) values (2, 'user2', 'john1@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'Caspar Sambrook-Smith', 'London', 'UK', 2);
-insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`) values (3, 'user3', 'john1@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'Ondra Winter', 'London', 'UK', 3);
-insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`) values (4, 'user4', 'john1@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'Adam Amram', 'London', 'UK', 4);
-insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`) values (5, 'user5', 'john1@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'John Doe 6', 'London', 'UK', 5);
+insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`, `status`) values (1, 'user1', 'john1@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'Felipe Tonon', 'Florianopolis', 'BR', 1, 'ACTIVE');
+insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`, `status`) values (2, 'user2', 'john2@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'Caspar Sambrook-Smith', 'London', 'UK', 2, 'ACTIVE');
+insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`, `status`) values (3, 'user3', 'john3@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'Ondra Winter', 'London', 'UK', 3, 'ACTIVE');
+insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`, `status`) values (4, 'user4', 'john4@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'Adam Amram', 'London', 'UK', 4, 'ACTIVE');
+insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `id_profile_image`, `status`) values (5, 'user5', 'john5@doe.com', '949f4ae5896a01d231c6f5af079dff23bab120cec83b787f527bc02b03f8fc91', 'John Doe 6', 'London', 'UK', 5, 'ACTIVE');
+insert into fashionetoer (`id`, `username`, `email`, `password`, `display_name`, `city`, `country`, `status`) values (6, 'admin', 'admin@doe.com', 'f82959d41f9330bd853d3e11345e08eda948544666bfc17806493df9d4b305f0', 'Administrator', 'London', 'UK', 'ACTIVE');
+
+insert into fashionetoer (`id`, `email`, `status`) values (7, 'invited@doe.com', 'INVITED');
+
+insert into invitation (`id`, `id_user`, `id_invited_user`, `date`) values (1, 1, 7, '2014-07-26 17:27:00');
 
 INSERT INTO User_roles VALUES (1, 1,'user');
 INSERT INTO User_roles VALUES (2, 2,'admin');

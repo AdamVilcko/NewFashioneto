@@ -28,7 +28,7 @@ import com.fashioneto.persistence.Album;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.User;
 import com.fashioneto.utils.TokenUtils;
-import com.fashioneto.ws.entities.ImageSizeEnum;
+import com.fashioneto.ws.entities.ImageSize;
 
 /**
  * @author felipe
@@ -73,17 +73,17 @@ public class ImageServiceImpl implements ImageService
 		String newFilename = TokenUtils.createTokenImageName(user);
 		//		saveFile(fileInputStream, imagesPath + newFilename + '.' + fileExtension);
 
-		String imageFullPathName = getFullImagePath(newFilename, ImageSizeEnum.STANDARD);
+		String imageFullPathName = getFullImagePath(newFilename, ImageSize.STANDARD);
 		Thumbnails.of(fileInputStream).outputFormat(DEFAULT_EXTENSION).scale(1).toFile(imageFullPathName);
 
 		fileInputStream.close();
 		
 		File standardImage = new File(imageFullPathName);
-		Thumbnails.of(standardImage).width(ImageSizeEnum.SMALL.getWidth()).outputFormat(DEFAULT_EXTENSION)
-				.toFile(getFullImagePath(newFilename, ImageSizeEnum.SMALL));
+		Thumbnails.of(standardImage).width(ImageSize.SMALL.getWidth()).outputFormat(DEFAULT_EXTENSION)
+				.toFile(getFullImagePath(newFilename, ImageSize.SMALL));
 
-		Thumbnails.of(standardImage).width(ImageSizeEnum.THUMBNAIL.getWidth()).outputFormat(DEFAULT_EXTENSION)
-				.toFile(getFullImagePath(newFilename, ImageSizeEnum.THUMBNAIL));
+		Thumbnails.of(standardImage).width(ImageSize.THUMBNAIL.getWidth()).outputFormat(DEFAULT_EXTENSION)
+				.toFile(getFullImagePath(newFilename, ImageSize.THUMBNAIL));
 
 		Image image = new Image();
 		image.setDate(new Date());
@@ -101,13 +101,13 @@ public class ImageServiceImpl implements ImageService
 		return image;
 	}
 
-	private String getFullImagePath(String filename, ImageSizeEnum imageSize)
+	private String getFullImagePath(String filename, ImageSize imageSize)
 	{
 		return imagesPath + filename + imageSize.getSufix() + '.' + DEFAULT_EXTENSION;
 	}
 
 	@Override
-	public ByteArrayOutputStream getImageContent(int id, ImageSizeEnum size) throws IOException
+	public ByteArrayOutputStream getImageContent(int id, ImageSize size) throws IOException
 	{
 		Image image = entityManager.find(Image.class, id);
 		if (image != null)

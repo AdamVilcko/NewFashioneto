@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fashioneto.persistence.Comment;
-import com.fashioneto.persistence.CommentParentTypeEnum;
+import com.fashioneto.persistence.CommentParentType;
 import com.fashioneto.persistence.LikeComment;
 
 /**
@@ -49,7 +49,7 @@ public class CommentDAOImpl implements CommentDAO
 	}
 
 	@Override
-	public Comment saveNew(CommentParentTypeEnum parentType, int parentId, Comment comment)
+	public Comment saveNew(CommentParentType parentType, int parentId, Comment comment)
 	{
 		Comment savedComment = save(comment);
 		saveCommentParent(parentType, parentId, savedComment);
@@ -62,7 +62,7 @@ public class CommentDAOImpl implements CommentDAO
 	 * @param comment
 	 * @return Number of affected rows;
 	 */
-	private int saveCommentParent(CommentParentTypeEnum parentType, int parentId, Comment comment)
+	private int saveCommentParent(CommentParentType parentType, int parentId, Comment comment)
 	{
 		String sql = "INSERT INTO comment_parent (id_comment, " + getParentFieldName(parentType)
 				+ ", parent_type) values (:idComment, :parentId, :parentType);";
@@ -74,7 +74,7 @@ public class CommentDAOImpl implements CommentDAO
 
 	}
 
-	private String getParentFieldName(CommentParentTypeEnum parentType)
+	private String getParentFieldName(CommentParentType parentType)
 	{
 		switch (parentType)
 		{

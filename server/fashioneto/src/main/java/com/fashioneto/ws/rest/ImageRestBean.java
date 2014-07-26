@@ -22,7 +22,7 @@ import com.fashioneto.persistence.User;
 import com.fashioneto.service.ImageService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
-import com.fashioneto.ws.entities.ImageSizeEnum;
+import com.fashioneto.ws.entities.ImageSize;
 import com.fashioneto.ws.entities.LikesWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 import com.sun.jersey.core.header.FormDataContentDisposition;
@@ -44,19 +44,19 @@ public class ImageRestBean
 	public Response getImageStandardSize(@PathParam("imageId")
 	int imageId) throws IOException
 	{
-		return getResponseImageContent(imageId, ImageSizeEnum.STANDARD);
+		return getResponseImageContent(imageId, ImageSize.STANDARD);
 	}
 
 	@GET
 	@Path("raw/{imageSize}/{imageId}")
 	public Response getImageStandardSize(@PathParam("imageSize")
-	ImageSizeEnum imageSize, @PathParam("imageId")
+	ImageSize imageSize, @PathParam("imageId")
 	int imageId) throws IOException
 	{
 		return getResponseImageContent(imageId, imageSize);
 	}
 
-	private Response getResponseImageContent(int imageId, ImageSizeEnum imageSize) throws IOException
+	private Response getResponseImageContent(int imageId, ImageSize imageSize) throws IOException
 	{
 		ByteArrayOutputStream baos = imageService.getImageContent(imageId, imageSize);
 		if (baos != null)

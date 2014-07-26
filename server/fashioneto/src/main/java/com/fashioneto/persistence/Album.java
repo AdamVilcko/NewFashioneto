@@ -33,7 +33,7 @@ public class Album implements Serializable
 	@Column(name = "id")
 	private int id;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "id_user")
 	private User user;
 

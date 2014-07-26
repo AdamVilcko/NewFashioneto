@@ -9,20 +9,19 @@ package com.fashioneto.ws.entities;
  */
 public class ContentWrapper {
 
-	@Override
-	public String toString() {
-		return "ContentWrapper [content=" + content + "]";
-	}
+    private String content;
 
-	private String content;
+    @Override
+    public String toString() {
+	return "ContentWrapper [content=" + content + "]";
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public String getContent() {
+	return content;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-	
-	
+    public void setContent(String content) {
+	this.content = content;
+    }
+
 }
