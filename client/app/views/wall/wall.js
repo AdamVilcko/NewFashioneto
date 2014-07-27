@@ -4,7 +4,7 @@ define(function(require){
 	Backbone       = require( "backbone" ),
 	Handlebars     = require( "handlebars" ),
 	$              = require( "jquery" ),
-	
+
 	template       = require( "text!templates/wall/wall.hbr" ),
 	AlbumPhotos    = require( 'collections/photos/album-photos' ),
 	Posts          = require( "views/wall/posts" ),
@@ -19,7 +19,7 @@ define(function(require){
 
 			init: function(){
 				this.posts = new Posts( mOpts.data );
-				this.model = mOpts.data.details;				
+				this.model = mOpts.data.details;
 			},
 
 			postRender: function(){

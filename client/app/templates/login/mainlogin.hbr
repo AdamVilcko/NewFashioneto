@@ -11,12 +11,12 @@
 		<p class="para">Is online shopping for clothes sometimes hard for you? <strong>We will make it easier and more fun.</strong> Follow people whose style you like, see what they like and get inspired. Find great pieces & tips for what to buy and meet new people.</p>
 
 	</div>
-  
+
 </div> <!-- /container -->
 
 <footer>
   <div class="container">
-    <ul class="list-unstyled row">      
+    <ul class="list-unstyled row">
       <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
       <li><a href="http://feeds.feedburner.com/bootswatch">RSS</a></li>
       <li><a href="https://twitter.com/thomashpark">Twitter</a></li>
