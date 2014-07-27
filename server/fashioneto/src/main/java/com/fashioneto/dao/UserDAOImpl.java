@@ -52,8 +52,9 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> findAll() {
-	TypedQuery<User> query = entityManager.createQuery("FROM User", User.class);
+    public List<User> findAllActive() {
+	TypedQuery<User> query = entityManager.createQuery("FROM User where status=:status", User.class);
+	query.setParameter("status", UserStatus.ACTIVE);
 	return query.getResultList();
     }
 

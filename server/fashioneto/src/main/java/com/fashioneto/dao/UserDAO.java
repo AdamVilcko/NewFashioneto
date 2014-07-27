@@ -17,7 +17,7 @@ public interface UserDAO extends UserDetailsService
 
 	public User findByName(String name);
 
-	public List<User> findAll();
+	public List<User> findAllActive();
 
 	public User findByEmailAndStatus(String email, UserStatus userStatus);
 }
