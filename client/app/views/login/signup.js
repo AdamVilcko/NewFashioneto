@@ -36,5 +36,3 @@ define(function(require){
 	});
 
 });
-
-
