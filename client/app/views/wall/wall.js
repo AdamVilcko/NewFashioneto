@@ -25,7 +25,10 @@ define(function(require){
 			postRender: function(){
 				this.delegateEvents();
 				this.$( "#postDisplay" )
-				.html( this.posts.renderCollection( null, { sort: true, contextId: "USER" } ).el );
+				.html( this.posts.renderCollection({
+					contextId: "USER",
+					sort: true
+				}).el );
 				return this;
 			},
 

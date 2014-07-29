@@ -42,9 +42,9 @@ define(function(require){
 			return this;
 		},
 
-		renderCollection: function( collection, options ){
-			collection = collection || this.collection || null;
+		renderCollection: function( options ){
 			options = options || {};
+			collection = options.collection || this.collection || null;
 			if( collection ){
 				this.$el.empty();
 				if( ! collection.isEmpty() ){

@@ -4,11 +4,11 @@ define(function(require){
 
 	Handlebars         = require("handlebars"),
 	Backbone           = require("backbone"),
-	
+
 	MasterBaseView     = require( 'views/masterbaseview' ),
 	CommentView        = require("views/comments/comment"),
 	CommentsCollection = require("collections/comments/comments"),
-	
+
 	showAll            = require("text!templates/comments/showall.hbr"),
 	input              = require("text!templates/comments/input.hbr");
 
@@ -28,13 +28,13 @@ define(function(require){
 				this.collection = this.options.data;
 			} else {
 				this.collection = new CommentsCollection( this.options.data );
-			}			
+			}
 			this.collection
 			.on( "sync", this.render, this );
 		},
 
 		render: function(){
-			this.renderCollection( null, { contextId : this.options.contextId } );
+			this.renderCollection( { contextId : this.options.contextId } );
 			this.$el.append( this.templates.input( this.merge() ) );
 			return this;
 		},

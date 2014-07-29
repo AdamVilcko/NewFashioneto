@@ -4,6 +4,7 @@ define(function(require){
 	$                  = require( "jquery" ),
 	Handlebars         = require( "handlebars" ),
 	Helper             = require( "helper" ),
+	DocumentModel      = require( "backbone.documentmodel" ),
 
 	//Views
 
@@ -52,6 +53,23 @@ define(function(require){
 		},
 
 		success: function( data, textStatus, jqXHR ){
+
+			var profile = Backbone.DocumentModel();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 			var profile = {
 				id: data.id,
 				isFollowed: data.isFollowed,

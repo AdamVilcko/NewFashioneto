@@ -14,7 +14,7 @@ define(function(require){
 
 	return MasterBaseView.extend({
 
-		el: "document.body",
+		el: document.body,
 
 		templates: {
 			signup: Handlebars.compile( signup ),
@@ -27,9 +27,10 @@ define(function(require){
 
 		render: function(){
 			this.$el
+			.addClass("login")
 			.html( this.templates.signup() );
 
-			this.$el
+			this.$('.signupform')
 			.html( this.templates.signupForm() );
 		}
 

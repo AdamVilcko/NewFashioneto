@@ -32,7 +32,7 @@ define(function(require){
 
 			postRender: function(){
 				self.$("#photosContainer")
-				.html( self.photos.renderCollection( null, { collection: albumPhotosCollection } ).el );
+				.html( self.photos.renderCollection( { collection: albumPhotosCollection } ).el );
 				return self;
 			},
 
