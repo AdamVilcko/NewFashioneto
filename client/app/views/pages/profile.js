@@ -4,7 +4,7 @@ define(function(require){
 	$                  = require( "jquery" ),
 	Handlebars         = require( "handlebars" ),
 	Helper             = require( "helper" ),
-	DocumentModel      = require( "backbone.documentmodel" ),
+	
 
 	//Views
 
@@ -18,7 +18,7 @@ define(function(require){
 	pageTemplate       = require( "text!templates/pages/profile.hbr" ),
 
 	//Collections
-
+	ProfileSchema      = require( "schemas/profile" ),
 	CommentsCollection = require("collections/comments/comments");
 
 
@@ -53,43 +53,16 @@ define(function(require){
 		},
 
 		success: function( data, textStatus, jqXHR ){
+			var profileData = new ProfileSchema(data);
 
-			var profile = Backbone.DocumentModel();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			var profile = {
-				id: data.id,
-				isFollowed: data.isFollowed,
-				myProfile: this.myProfile,
-				details: new MasterBaseModel( data.details, { imageType: "STANDARD" } ),
-				wall: data.commentsWrapper,
-				items: data.itemsWrapper,
-				images: data.imagesWrapper,
-				followers: data.followersWrapper,
-				following: data.followingWrapper
-			};
-
-			this.data = profile;
+			this.data = data;
 
 			this.tabs = {
-				wall      : new Wall( { data: profile } ),
-				photos    : new Photos( { data: profile } ),
-				items     : new ItemsTab( { data: profile } ),
-				followers : new FollowersFollowing( { data: profile.followers } ),
-				following : new FollowersFollowing( { data: profile.following } )
+				wall      : new Wall( { data: profileData } ),
+				photos    : new Photos( { data: profileData } ),
+				items     : new ItemsTab( { data: profileData } ),
+				followers : new FollowersFollowing( { data: profileData } ),
+				following : new FollowersFollowing( { data: profileData } )
 			};
 
 			this.sidebar = new ProfileSidebar( { data: profile } );

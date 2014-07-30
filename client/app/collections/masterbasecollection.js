@@ -2,10 +2,11 @@ define(function(require){
 
 	//Deps
 
-	Backbone     = require( 'backbone' );
+	Backbone     = require( 'backbone' ),
+	DocumentModel      = require( "backbone.documentmodel" );
 
 
-	return Backbone.Collection.extend({
+	return Backbone.DocumentCollection.extend({
 
 		initialize: function( options ){
 			this.options = options || {};

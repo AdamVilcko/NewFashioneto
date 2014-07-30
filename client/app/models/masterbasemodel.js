@@ -4,10 +4,11 @@ define(function(require){
 
 	$          = require( "jquery" ),
 	Handlebars = require( "handlebars" ),
-	Backbone   = require( "backbone" );
+	Backbone   = require( "backbone" ),
+	DocumentModel      = require( "backbone.documentmodel" );
 
 
-	return Backbone.Model.extend({
+	return Backbone.DocumentModel.extend({
 
 		imageType: "STANDARD", //Default
 
