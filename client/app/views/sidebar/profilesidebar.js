@@ -15,7 +15,7 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		init: function(){
-			this.model = this.options.data.details;
+			this.model = this.options.data.get('details');
 		}
 	});
 

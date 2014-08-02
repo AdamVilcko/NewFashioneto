@@ -81,13 +81,13 @@ define(function(require){
 
 	Handlebars.registerHelper( 'profilePhotos', function( string ) {
 		var string      = "",
-		imageCollection = this.options.data.images.collection,
+		imageCollection = this.options.data.get('imagesWrapper.collection'),
 		breakout = imageCollection.length > 3 ? 3 : imageCollection.length;
 
 		for(var i = 0; i < 3; i++){
 			var url;
 			if( i <  breakout ){
-				url = App.api.get("image" ) + "WALL" + "/" + imageCollection[i].id;
+				url = App.api.get("image" ) + "WALL" + "/" + imageCollection.at(i).id;
 			} else {
 				url = "img/avatar.jpg";
 			}

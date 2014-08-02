@@ -18,8 +18,8 @@ define(function(require){
 			template: Handlebars.compile( template ),
 
 			init: function(){
-				this.posts = new Posts( mOpts.data );
-				this.model = mOpts.data.details;
+				this.posts = new Posts( mOpts );
+				this.model = mOpts.data.get('details');
 			},
 
 			postRender: function(){

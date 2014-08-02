@@ -4,7 +4,7 @@ define(function(require){
 	$                  = require( "jquery" ),
 	Handlebars         = require( "handlebars" ),
 	Helper             = require( "helper" ),
-	
+
 
 	//Views
 
@@ -55,8 +55,6 @@ define(function(require){
 		success: function( data, textStatus, jqXHR ){
 			var profileData = new ProfileSchema(data);
 
-			this.data = data;
-
 			this.tabs = {
 				wall      : new Wall( { data: profileData } ),
 				photos    : new Photos( { data: profileData } ),
@@ -65,7 +63,9 @@ define(function(require){
 				following : new FollowersFollowing( { data: profileData } )
 			};
 
-			this.sidebar = new ProfileSidebar( { data: profile } );
+			this.sidebar = new ProfileSidebar( { data: profileData } );
+
+			this.model = profileData;
 
 			this.render();
 		},

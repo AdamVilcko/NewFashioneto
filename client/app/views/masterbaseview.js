@@ -99,16 +99,8 @@ define(function(require){
 		merge: function( data ){
 			data = data || {};
 
-			if( this.data ){
-				var newObj = {};
-				_.each( this.data, function( value, key, list ){
-					if( value instanceof Backbone.Model || value instanceof Backbone.Collection ){
-						newObj[key] = value.toJSON();
-					} else {
-						newObj[key] = value;
-					}
-				});
-				data.data = newObj;
+			if( this.data && (this.data instanceof Backbone.Model || this.data instanceof Backbone.Collection) ){
+				data.data = this.data.toJSON();
 			}
 
 			if( this.model ) data.model = this.model.toJSON();
