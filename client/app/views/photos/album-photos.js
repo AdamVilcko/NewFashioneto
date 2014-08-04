@@ -15,7 +15,7 @@ define(function(require){
 		emptyCollectionTemplate: Handlebars.compile("You are a twat"),
 
 		init: function(){
-			this.collection = this.options.collection;
+			this.collection = this.options.data.get("imagesWrapper.collection");
 		}
 
 	});

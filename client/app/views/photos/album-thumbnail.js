@@ -11,7 +11,6 @@ define(function(require){
 		events:{
 			"click": function(){
 				new PhotoModal( {
-					collection : this.model.collection,
 					model : this.model
 				} );
 			}

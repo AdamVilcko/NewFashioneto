@@ -173,9 +173,44 @@
             }, this);
 
             // Handle Nested Attribute Creation - ex: { name: { first: 'Joe' } }
-            _.each(_.keys(nestedAttrs), function (nestedAttrKey) {
-                var nestedOptions;
-                var nestedValue = nestedAttrs[nestedAttrKey];
+
+            //Generate list of all keys including nested keys
+
+
+
+            _.each(generateKeyList(nestedAttrs), nestedAttributeCreation, this);
+
+           var keyList = [];
+
+            function generateKeyList(nestedAttrs){
+                var keys = [];
+                _.each(nestedAttrs, function(value, key, list){
+                    var name = "" + key;
+                    if( _.isObject(value) ){
+                        _.each(value, function(value, key, list){
+                            if( _.isObject(value) || _.isArray(value) ){
+                                keys.push(name + "." + key);
+                            }
+                        });
+                    }
+                    keys.push(name);
+
+                });
+
+                return keys;
+            }
+
+            function nestedAttributeCreation(nestedAttrKey){
+                var nestedOptions, nestedValue, deep;
+
+                deep = nestedAttrKey.split(".");
+                if( deep[1] ){
+                    nestedValue = nestedAttrs[deep[0]][deep[1]];
+                }
+                else {
+                    nestedValue = nestedAttrs[nestedAttrKey];
+                }
+
                 // If the attribute already exists, merge the objects.
                 if (this.attributes[nestedAttrKey]) {
                     this.attributes[nestedAttrKey].set.call(this.attributes[nestedAttrKey], nestedValue, options);
@@ -210,8 +245,23 @@
                         }
                     }
                 }
-            }, this);
+            }
+
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         return this;
     }

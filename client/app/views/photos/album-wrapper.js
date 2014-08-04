@@ -19,8 +19,7 @@ define(function(require){
 			template: Handlebars.compile( template ),
 
 			init: function(){
-				albumPhotosCollection = new AlbumPhotosCollection( mOpts.data );
-				self.photos = new Photos( { collection: albumPhotosCollection } );
+				self.photos = new Photos( mOpts );
 				self.model = new MasterBaseModel();
 			},
 
@@ -32,7 +31,7 @@ define(function(require){
 
 			postRender: function(){
 				self.$("#photosContainer")
-				.html( self.photos.renderCollection( { collection: albumPhotosCollection } ).el );
+				.html( self.photos.renderCollection().el );
 				return self;
 			},
 

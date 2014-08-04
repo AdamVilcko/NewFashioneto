@@ -11,8 +11,11 @@ define(function(require){
 	template   = require("text!templates/photos/photos-modal.hbr"),
 	Bootstrap  = require('bootstrap');
 
+	return function(vOpts){
 
-	return ModalView.extend({
+		var self = this, selectedModelId,
+
+		View = ModalView.extend({
 
 		contextId: "image",
 		id: "photoModal",
@@ -20,8 +23,10 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
-			var self = this, selectedModelId;
-			self.options.collection.fetch();
+			var self = this;
+			self.model = self.options.model;
+
+			self.model.collection.fetch();
 			selectedModelId = self.options.model.get("id");
 			self.model = self.options.collection.get( selectedModelId );
 			self.initComponents();
@@ -32,7 +37,7 @@ define(function(require){
 			this.render();
 			if( this.model.has("commentsWrapper") ){
 				this.comments = new Comments( {
-					data: this.model.get("commentsWrapper").collection,
+					data: this.model.get("commentsWrapper.collection"),
 					parentId: this.model.get( "id" ),
                     contextId: "IMAGE"
 				} );
@@ -85,6 +90,15 @@ define(function(require){
 		}
 
 	});
+
+	mOpts = vOpts;
+	_.extend( self, new View(vOpts) );
+	return self;
+
+	}
+
+
+
 
 });
 
