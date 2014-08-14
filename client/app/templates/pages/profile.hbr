@@ -5,22 +5,28 @@
 
             <section id="userTitle" class="row">
 
+              <div class="col-md-6">
+
+                <h1><span class="name">{{details.displayName}}</span></h1>
+
+              </div>
+
               {{#unless myprofile }}
-                 <!-- <div class="col-md-6 options">
+                 <div class="col-md-6 options">
                       <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
                       <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
                       <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
-                 </div> -->
+                 </div>
                {{/unless}}
 
             </section><!-- userTitle -->
 
             <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{model.details.userName}}{{/if}}/wall" data-toggle="tab">Board</a></li>
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{model.details.userName}}{{/if}}/photos" data-toggle="tab">Photos ({{model.imagesWrapper.count}})</a></li>
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{model.details.userName}}{{/if}}/items" data-toggle="tab">Items({{model.itemsWrapper.count}})</a></li>
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{model.details.userName}}{{/if}}/followers" data-toggle="tab">Followers ({{model.followersWrapper.count}})</a></li>
-              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{model.details.userName}}{{/if}}/following" data-toggle="tab">Following ({{model.followingWrapper.count}})</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/wall" data-toggle="tab">Board</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/photos" data-toggle="tab">Photos ({{model.imagesWrapper.count}})</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/items" data-toggle="tab">Items({{model.itemsWrapper.count}})</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/followers" data-toggle="tab">Followers ({{model.followersWrapper.count}})</a></li>
+              <li><a href="#{{#if myprofile}}myprofile{{else}}people/{{details.userName}}{{/if}}/following" data-toggle="tab">Following ({{model.followingWrapper.count}})</a></li>
               <!-- <li><a href="profile/info" data-toggle="tab">Information</a></li> -->
             </ul>
 

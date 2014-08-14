@@ -79,22 +79,5 @@ define(function(require){
 		return new Handlebars.SafeString( string  );
 	});
 
-	Handlebars.registerHelper( 'profilePhotos', function( string ) {
-		var string      = "",
-		imageCollection = this.options.data.get('imagesWrapper.collection'),
-		breakout = imageCollection.length > 3 ? 3 : imageCollection.length;
-
-		for(var i = 0; i < 3; i++){
-			var url;
-			if( i <  breakout ){
-				url = App.api.get("image" ) + "WALL" + "/" + imageCollection.at(i).id;
-			} else {
-				url = "img/avatar.jpg";
-			}
-			string += '<div class="col-xs-4"><a href="#" class="img-thumbnail"><img src="' + url + '" alt="..."></a></div>';
-		}
-
-		return new Handlebars.SafeString( string  );
-	});
 
 });

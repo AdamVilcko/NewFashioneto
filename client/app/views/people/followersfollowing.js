@@ -8,30 +8,32 @@ define(function(require){
 	Person         = require( "views/people/person" ),
 	MasterBaseView = require( "views/masterbaseview" );
 
-	return function(vOpts){
-		var self = this, mOpts,
 
-		View = MasterBaseView.extend({
-			modelView: Person,
-			emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No people yet! (Sort it out</div>" ),
+	return MasterBaseView.extend({
 
-			init: function(){
-				this.collection = new Collection( this.options.data );
-				this.render = this.renderPeople;
-			},
+		modelView: Person,
 
-			renderPeople: function(){
-				this.renderCollection();
-				_.defer( function(){
-					self.masonry( '.people' );
-				} );
-				return this;
-			}
-		});
+		emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No people yet! (Sort it out</div>" ),
 
-		mOpts = vOpts;
-		_.extend( self, new View(vOpts) );
-		return self;
-	}
+		init: function(){
+			this.collection = new Collection();
+			App.vent.on( "profile:dataLoaded", this.update, this );
+			this.render = this.renderPeople;
+		},
+
+		update: function( data ){
+			this.collection.reset( data.get( this.options.type ).collection );
+		},
+
+		renderPeople: function(){
+			this.renderCollection();
+			var self = this;
+			_.defer( function(){
+				self.masonry( '.people' );
+			} );
+			return this;
+		}
+
+	});
 
 });

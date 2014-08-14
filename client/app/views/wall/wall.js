@@ -5,52 +5,53 @@ define(function(require){
 	Handlebars     = require( "handlebars" ),
 	$              = require( "jquery" ),
 
+	MasterBaseView = require( 'views/masterbaseview' ),
 	template       = require( "text!templates/wall/wall.hbr" ),
-	AlbumPhotos    = require( 'collections/photos/album-photos' ),
-	Posts          = require( "views/wall/posts" ),
-	MasterBaseView = require( 'views/masterbaseview' );
+	Posts          = require( "views/wall/posts" );
 
 
-	return function(vOpts){
-		var self = this, mOpts,
+	return MasterBaseView.extend({
 
-		View = MasterBaseView.extend({
-			template: Handlebars.compile( template ),
+		nodes:{
+			posts: "#postDisplay",
+			textarea: "textarea"
+		},
 
-			init: function(){
-				this.posts = new Posts( mOpts );
-				this.model = mOpts.data.get('details');
-			},
+		template: Handlebars.compile( template ),
 
-			postRender: function(){
-				this.delegateEvents();
-				this.$( "#postDisplay" )
-				.html( this.posts.renderCollection({
-					contextId: "USER",
-					sort: true
-				}).el );
-				return this;
-			},
+		init: function(){
+			this.posts = new Posts( { master: this.master } );
+			this.model = new MasterBaseModel();
+			App.vent.on( "profile:dataLoaded", function( collection ){
+				this.model.set( collection.get( "details" ) );
+			}, this );
+		},
 
-			events:{
-				"click .sendPost" : function( ev ){
-					var
-					textarea = this.$( "textarea" ),
-					content  = textarea.val();
-					textarea.val( "" );
-					this.posts.collection.create( { content: content },
-					{
-						url: this.posts.collection.url + "/" + mOpts.data.id,
-						wait: true
-					} );
-				}
-			}
+		postRender: function(){
+			this.delegateEvents();
+			this.$el
+			.find( this.nodes.posts )
+			.html( this.posts.renderCollection( null, { sort: true } ).el );
+			return this;
+		},
 
-		});
+		events:{
+			"click .sendPost" : "post"
+		},
 
-		mOpts = vOpts;
-		_.extend( self, new View(vOpts) );
-		return self;
+		post: function( ev ){
+			var
+			textarea = this.$el.find( this.nodes.textarea ),
+			content  = textarea.val();
+			textarea.val( "" );
+			this.posts.collection.create( { content: content },
+			{
+				url: this.posts.collection.url + "/" + this.master.data.id,
+				wait: true
+			} );
 
-	}
+		}
+
+	});
+
 });

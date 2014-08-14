@@ -10,7 +10,7 @@ define(function(require){
 
 	return MasterBaseCollection.extend({
 		model : Model,
-		url : App.api.get( 'wall' ) + "/USER",
+		url : App.api.get( 'wall' ),
 
 		init: function(){
 			App.vent.on( "profile:dataLoaded", this.handle, this );
@@ -20,7 +20,7 @@ define(function(require){
 			var posts = collection.get( "commentsWrapper" ).collection;
 			this.reset( posts );
 		},
-
+		
 		comparator: function( model ){
 			 return -model.get( "id" ); // Note the minus!
 		}

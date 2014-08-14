@@ -18,10 +18,8 @@ define(function(require){
 			this.options = options || {};
 			if( this.options.master ){
 				this.master = this.options.master;
+				if( typeof this.master.data ) this.data = this.master.data;
 			}
-            if(this.options.contextId){
-                this.contextId = options.contextId;
-            }
 			this.$el.attr( "data-view", this.cid );
 			if( typeof this.init !== "undefined" ) this.init( options );
 			if( typeof this.initSubviews !== "undefined" ) this.initSubviews();
@@ -42,9 +40,9 @@ define(function(require){
 			return this;
 		},
 
-		renderCollection: function( options ){
+		renderCollection: function( collection, options ){
+			collection = collection || this.collection || null;
 			options = options || {};
-			collection = options.collection || this.collection || null;
 			if( collection ){
 				this.$el.empty();
 				if( ! collection.isEmpty() ){
@@ -64,12 +62,6 @@ define(function(require){
 			return this;
 		},
 
-        renderModel: function( options ){
-            var modelView = new this.modelView( options );
-            this.$el.append( modelView.render().el );
-            return this;
-        },
-
 		renderNewItems: function( collection, options ){
 			options = options || {};
 			collection = collection || this.collection;
@@ -85,6 +77,12 @@ define(function(require){
 			return arr;
 		},
 
+		renderModel: function( options ){
+			var modelView = new this.modelView( options );
+			this.$el.append( modelView.render().el );
+			return this;
+		},
+
 		renderTemplate: function(){
 			this.$el.html( this.template( this.merge() ) );
 			return this;
@@ -97,14 +95,10 @@ define(function(require){
 		},
 
 		merge: function( data ){
-			data = data || {};
-
-			if( this.data && (this.data instanceof Backbone.Model || this.data instanceof Backbone.Collection) ){
-				data.data = this.data.toJSON();
-			}
-
+			data                        = data || {};
 			if( this.model ) data.model = this.model.toJSON();
 			data.user                   = App.user.toJSON();
+			data.locale                 = App.locale;
 			data.options                = this.options;
 			data.viewContext            = this;
 			return data;
@@ -123,7 +117,7 @@ define(function(require){
 			  isFitWidth: true
 			}
 			masonryOptions = _.extend( masonryDefaults, masonryArgs );
-
+			
 			self.masonryTarget
 			.masonry("destroy")
 

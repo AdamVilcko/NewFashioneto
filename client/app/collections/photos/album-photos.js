@@ -1,6 +1,6 @@
 define(function(require){
 
-	//Depss
+	//Deps
 
 	MasterBaseCollection = require( 'collections/masterbasecollection' ),
 	Model                = require( 'models/masterbasemodel' );

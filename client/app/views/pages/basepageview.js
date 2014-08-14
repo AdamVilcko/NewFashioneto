@@ -24,11 +24,13 @@ define(function(require){
 		tabs: null,
 		activeTab: "wall",
 
-		handler: function( requestState ){
-			if( typeof requestState.tab !== "undefined" ){
-				this.activeTab = requestState.tab;
-			}
+		init: function(){
+			if( this.loadSidebar ) this.loadSidebar();
+			if( this.loadTabs ) this.loadTabs();
+		},
 
+		handler: function( requestState ){
+			if( typeof requestState.tab !== "undefined" ) this.activeTab = requestState.tab;
 			if( this.loadData ){
 				this.loadData();
 			} else {
@@ -36,12 +38,12 @@ define(function(require){
 				$('html body').scrollTop(0);
 				this.render();
 			}
-
 			_.defer( Helper.navState );
 		},
 
 		tabTo: function( data ){
-			this.$( this.nodes.tabContainer )
+			this.$el
+			.find( this.nodes.tabContainer )
 			.html( this.tabs[ data.tab ].render().el );
 		},
 

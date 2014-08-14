@@ -17,9 +17,9 @@ define(function(require){
 		emptyCollectionTemplate: Handlebars.compile( "<div class='alert alert-info' style='text-align:center'>No posts yet! (Come on, you're better than this)</div>" ),
 
 		init: function(){
-			this.collection = this.options.data.get('commentsWrapper.collection');
+			this.collection = new PostsCollection();
 			this.collection
-			.on( "sync", this.renderCollection, this );
+			.on( "sync", function(){ this.renderCollection(); }, this );
 		}
 
 	});

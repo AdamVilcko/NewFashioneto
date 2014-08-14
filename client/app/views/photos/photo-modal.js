@@ -11,11 +11,11 @@ define(function(require){
 	template   = require("text!templates/photos/photos-modal.hbr"),
 	Bootstrap  = require('bootstrap');
 
-	return function(vOpts){
 
-		var self = this, selectedModelId,
 
-		View = ModalView.extend({
+
+
+	return ModalView.extend({
 
 		contextId: "image",
 		id: "photoModal",
@@ -23,10 +23,8 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
-			var self = this;
-			self.model = self.options.model;
-
-			self.model.collection.fetch();
+			var self = this, selectedModelId;			
+			self.options.collection.fetch();			
 			selectedModelId = self.options.model.get("id");
 			self.model = self.options.collection.get( selectedModelId );
 			self.initComponents();
@@ -37,9 +35,8 @@ define(function(require){
 			this.render();
 			if( this.model.has("commentsWrapper") ){
 				this.comments = new Comments( {
-					data: this.model.get("commentsWrapper.collection"),
-					parentId: this.model.get( "id" ),
-                    contextId: "IMAGE"
+					data: this.model.get("commentsWrapper").collection,
+					parentId: this.model.get( "id" )
 				} );
 				this.$( ".comments" )
 				.append( this.comments.render().el );
@@ -80,7 +77,7 @@ define(function(require){
 
 		bindData: function(){
 			this.comments.bindData( this.model );
-			this.like.bindData( this.model );
+			this.likes.bindData( this.model );
 			this.$('#galleryImage')
 			.attr("src", App.api.get("image")  + "STANDARD/" + this.model.get("id") );
 		},
@@ -90,15 +87,6 @@ define(function(require){
 		}
 
 	});
-
-	mOpts = vOpts;
-	_.extend( self, new View(vOpts) );
-	return self;
-
-	}
-
-
-
 
 });
 

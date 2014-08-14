@@ -1,51 +1,45 @@
 define(function(require){
 
 	var
-	Backbone              = require("backbone"),
-	Handlebars            = require("handlebars"),
-	$                     = require("jquery"),
-	UploaderModal         = require('views/photos/uploader-modal'),
+	Backbone        = require("backbone"),
+	Handlebars      = require("handlebars"),
+	$               = require("jquery"),
+	UploaderModal   = require('views/photos/uploader-modal'),
 
-	MasterBaseView        = require('views/masterbaseview'),
-	AlbumPhotosCollection = require('collections/photos/album-photos'),
-	MasterBaseModel       = require( 'models/masterbasemodel' );
-	Photos                = require('views/photos/album-photos'),
-	template              = require("text!templates/photos/album.hbr");
+	MasterBaseView  = require('views/masterbaseview'),
+	MasterBaseModel = require( 'models/masterbasemodel' );
+	Photos          = require('views/photos/album-photos'),
+	template        = require("text!templates/photos/album.hbr");
 
-	return function(vOpts){
-		var self = this, mOpts, albumPhotosCollection,
 
-		View = MasterBaseView.extend({
-			template: Handlebars.compile( template ),
+	return MasterBaseView.extend({
 
-			init: function(){
-				self.photos = new Photos( mOpts );
-				self.model = new MasterBaseModel();
-			},
+		template: Handlebars.compile( template ),
 
-			preRender: function(){
-				self.model.set({
-					count: self.photos.collection.length
-				});
-			},
+		init: function(){
+			this.photos = new Photos();
+			this.photos.collection.on("reset", this.renderPhotos, this );
+			this.model = new MasterBaseModel();
+		},
 
-			postRender: function(){
-				self.$("#photosContainer")
-				.html( self.photos.renderCollection().el );
-				return self;
-			},
+		preRender: function(){
+			this.model.set({
+				count: this.photos.collection.length
+			});
+		},
 
-			events:{
-				"click #addPhotos": function(){
-					self.uploaderModal = new UploaderModal();
-				}
+		postRender: function(){
+			this.$("#photosContainer")
+			.html( this.photos.renderCollection( null, { collection: this.photos.collection } ).el );
+			return this;
+		},
+
+		events:{
+			"click #addPhotos": function(){
+				this.uploaderModal = new UploaderModal();
 			}
+		}
 
-		});
-
-		mOpts = vOpts;
-		_.extend( self, new View(vOpts) );
-		return self;
-	}
+	});
 
 });

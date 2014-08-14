@@ -6,8 +6,6 @@ define(function(require){
 
 	return MasterBaseCollection.extend({
 		model : Model,
-        init:function(){
-            this.url = App.api.get( "wall" ) + "/" + this.options.contextId + "/" + this.options.parentId;
-        }
+		url : App.api.get( "wallComments" )
 	});
 });

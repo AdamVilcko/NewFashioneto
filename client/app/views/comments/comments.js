@@ -2,15 +2,14 @@ define(function(require){
 
 	var
 
-	Handlebars         = require("handlebars"),
-	Backbone           = require("backbone"),
+	Handlebars          = require("handlebars"),
 
-	MasterBaseView     = require( 'views/masterbaseview' ),
-	CommentView        = require("views/comments/comment"),
-	CommentsCollection = require("collections/comments/comments"),
+	MasterBaseView = require( 'views/masterbaseview' ),
+	CommentView         = require("views/comments/comment"),
+	CommentsCollection  = require("collections/comments/comments"),
 
-	showAll            = require("text!templates/comments/showall.hbr"),
-	input              = require("text!templates/comments/input.hbr");
+	showAll             = require("text!templates/comments/showall.hbr"),
+	input               = require("text!templates/comments/input.hbr");
 
 
 	return MasterBaseView.extend({
@@ -24,17 +23,13 @@ define(function(require){
 			textarea : "textarea"
 		},
 		init: function(){
-			if( this.options.data instanceof Backbone.collection.prototype ){
-				this.collection = this.options.data;
-			} else {
-				this.collection = new CommentsCollection( this.options.data );
-			}
+			this.collection = new CommentsCollection( this.options.data )
 			this.collection
 			.on( "sync", this.render, this );
 		},
 
 		render: function(){
-			this.renderCollection( { contextId : this.options.contextId } );
+			this.renderCollection();
 			this.$el.append( this.templates.input( this.merge() ) );
 			return this;
 		},
@@ -47,7 +42,10 @@ define(function(require){
 			var textarea = this.$el.find( this.nodes.textarea );
 			content = textarea.val();
 			textarea.val( "" );
-			this.collection.create( { content: content });
+			this.collection.create( { content: content },
+			{
+				url: this.collection.url + "/" + this.options.parentId
+			} );
 		},
 
 		bindData: function( model ){
