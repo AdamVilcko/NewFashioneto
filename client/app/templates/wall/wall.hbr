@@ -1,48 +1,8 @@
 <section id="headlineGallery">
 
-  <div class="row" id="images">
+  <div class="row" id="images">{{profilePhotos}}</div><!-- row -->
 
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-    <div class="col-xs-2">
-      <a href="#" class="img-thumbnail">
-        <img src="img/profile-photo.jpg" alt="...">
-      </a>
-    </div>
-
-  </div><!-- row -->
-
-  <button class="btn btn-primary pull-right">Show all photos</button>
-
-  <div class="clear"></div>
+ <div class="clear"></div>
 
 </section><!-- headlineGallery -->
 

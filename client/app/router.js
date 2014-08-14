@@ -4,13 +4,14 @@ require([
 	'jquery',
 	'handlebars',
 	'views/login/login',
+	'views/login/signup',
 	'views/main',
 	'helper',
 	'bootstrap',
 	'views/photos/photo-modal',
 	'jquery.masonry'
 ],
-function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoModal, Masonry ){
+function( Backbone, _, $, Handlebars, Login, Signup, MainView, Helper, bootstrap, PhotoModal, Masonry ){
 
 	window.App.vent = _.extend({}, Backbone.Events);
 
@@ -58,13 +59,15 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoM
 
 			'items': 'items',
 
-			'items/:tab/:query': 'items',			
+			'items/:tab/:query': 'items',
 
 			'itemmodal': 'itemModal',
 
 			'photomodal': 'photoModal',
 
-			'logout' : 'logout'
+			'logout' : 'logout',
+
+			'signup' : 'signup'
 
 		},
 
@@ -86,7 +89,7 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoM
 
 		items: function( tab, query ){
 			App.vent.trigger( 'page:change', { page:"items", tab: tab, query: query } );
-		},		
+		},
 
 		profile: function( tab ){
 			if(!tab){
@@ -104,17 +107,17 @@ function( Backbone, _, $, Handlebars, Login, MainView, Helper, bootstrap, PhotoM
 			App.vent.trigger( 'page:change', { user: user, page:"profile", tab: tab, myProfile: false } );
 		},
 
-		itemModal: function(){
-			$('#itemModal').modal();
-		},
-
 		logout: function(){
 			App.vent.trigger( 'login:logout' );
+		},
+
+		signup: function(){
+			var signup = new Signup();
 		}
 
 	});
 
-	App.router   = new Router;
+	App.router = new Router;
 	Backbone.history.start();
 
 });
