@@ -4,9 +4,9 @@
 
 		<img id="logofull" src="img/logo-full.png" />
 
-		<h1>Signup</h1>
+		<h1>Signup templates/login/signup</h1>
 
-		<div class="signupform loginForm"></div>
+		<div class="signupform signup-form"></div>
 
 	</div>
 
