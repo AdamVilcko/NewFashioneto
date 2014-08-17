@@ -8,7 +8,7 @@ define(function(require){
 
 	User           = require( "models/user" ),
 	MasterBaseView = require( "views/masterbaseview" ),
-	MasterBaseModel = require( "models/masterbasemodel" ),
+	SignupModel = require( "models/signin/signup" ),
 	signup         = require( "text!templates/login/signup.hbr" ),
 	signupForm     = require( "text!templates/login/signup-form.hbr" );
 
@@ -25,7 +25,7 @@ define(function(require){
 		init: function(){
 			this.render();
 		},
-		
+
 		events: {
 			"click .signupbtn" : "signup"
 		},
@@ -38,7 +38,7 @@ define(function(require){
 			this.$('.signupform')
 			.html( this.templates.signupForm() );
 		},
-		
+
 		nodes: {
 			username: ".username",
 			password: ".password",
@@ -47,11 +47,11 @@ define(function(require){
 			loginContainer: ".signupform"
 		},
 
-		
+
 		//Login actions
 		signup: function( ev ){
 			ev.preventDefault();
-			var form, signupData;
+			var form, signupData, signUpModel;
 
 			form = $( ev.target ).parents( "form" );
 
@@ -60,37 +60,14 @@ define(function(require){
 				password: form.find( this.nodes.password ).val(),
 				email: form.find( this.nodes.email ).val(),
 				displayName: form.find( this.nodes.displayName ).val(),
-			}
+			};
 
-			$.ajax({
-				type: "POST",
-				context: this,
-				url: App.api.get( 'signup' ),
-				data: signupData,
-				contentType: "application/json" ,
-				dataType: "json",
-				success: function( data, textStatus, jqXHR ){
-					$.cookie( "fashioneto", data.token, {
-						expires : 10
-					});
-					$.ajaxSetup({
-						headers: { 'X-Auth-Token': data.token }
-					});
-
-					//Gonna get Felipe to refactor so details and id are returned only
-					data.user.details.id = data.user.id;
-					App.user = new User( data.user.details );
-					this.proceed( data.user );
-				},
-
-				error: function( jqXHR, textStatus, errorThrown ){
-					if( jqXHR.status === 401 ){
-						alert( "Incorrect login credentials. Please try again!" );
-					} else{
-						alert( "login method: " + jqXHR.status + ": " + errorThrown  );
-					}
-				}
-
+			new SignupModel( signupData ).save()
+			.done(function(){
+				debugger;
+			})
+			.fail(function(){
+				debugger;
 			});
 
 		},
