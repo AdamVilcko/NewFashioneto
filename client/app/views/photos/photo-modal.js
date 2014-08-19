@@ -23,8 +23,8 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
-			var self = this, selectedModelId;			
-			self.options.collection.fetch();			
+			var self = this, selectedModelId;
+			self.options.collection.fetch();
 			selectedModelId = self.options.model.get("id");
 			self.model = self.options.collection.get( selectedModelId );
 			self.initComponents();
@@ -36,7 +36,8 @@ define(function(require){
 			if( this.model.has("commentsWrapper") ){
 				this.comments = new Comments( {
 					data: this.model.get("commentsWrapper").collection,
-					parentId: this.model.get( "id" )
+					parentId: this.model.get( "id" ),
+					parentType: "IMAGE"
 				} );
 				this.$( ".comments" )
 				.append( this.comments.render().el );

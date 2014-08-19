@@ -7,6 +7,7 @@ define(function(require){
 	Helper     = require('helper'),
 	Bootstrap  = require('bootstrap'),
 
+	Comments   = require("views/comments/comments"),
 	ModalView  = require('components/modal'),
 	template = require('text!templates/items/item-modal.hbr');
 
@@ -28,6 +29,13 @@ define(function(require){
 			  $(image.img)
 			  .addClass("loadIn");
 			});
+
+			this.comments = new Comments( {
+				parentId: this.model.get( "id" ),
+				parentType: "ITEM",
+				el: this.$( ".comments" )
+			} );
+
 		}
 
 	});

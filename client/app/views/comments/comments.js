@@ -23,9 +23,24 @@ define(function(require){
 			textarea : "textarea"
 		},
 		init: function(){
-			this.collection = new CommentsCollection( this.options.data )
+			if( this.options.data instanceof Backbone.Collection ){
+				this.collection = this.options.data;
+			}
+			else {
+				this.collection = new CommentsCollection();
+			}
+
 			this.collection
+			.setUrl( this.options )
 			.on( "sync", this.render, this );
+
+			if( this.options.el && !this.options.data ){
+				this.el = this.options.el;
+				this.collection.fetch();
+			}
+			else {
+				this.collection.set( this.options.data )
+			}
 		},
 
 		render: function(){
@@ -42,10 +57,7 @@ define(function(require){
 			var textarea = this.$el.find( this.nodes.textarea );
 			content = textarea.val();
 			textarea.val( "" );
-			this.collection.create( { content: content },
-			{
-				url: this.collection.url + "/" + this.options.parentId
-			} );
+			this.collection.create( { content: content });
 		},
 
 		bindData: function( model ){

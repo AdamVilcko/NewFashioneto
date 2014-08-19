@@ -30,7 +30,11 @@ define(function(require){
 			Helper.processDate.call( this );
 			if( this.model.has( "commentsWrapper" ) ){
 				var commentData = this.model.get("commentsWrapper").collection;
-				this.comments = new Comments( { data: commentData, parentId: this.model.get( "id" ) } );
+				this.comments = new Comments( {
+					data: commentData,
+					parentId: this.model.get( "id" ),
+					parentType: "COMMENT"
+				} );
 				this.$( this.nodes.comments )
 				.append( this.comments.render().el );
 			}

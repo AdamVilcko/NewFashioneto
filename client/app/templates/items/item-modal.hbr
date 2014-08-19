@@ -85,7 +85,7 @@
 
               <h5 class="price">{{model.priceLabel}}</h5>
 
-              <button class="btn btn-primary buy">Buy on {{model.retailer}}</button>
+              <a target="_blank" href="{{model.clickUrl}}" class="btn btn-primary buy">Buy on {{model.retailer.name}}</a>
 
             </section><!-- itemDetails -->
 

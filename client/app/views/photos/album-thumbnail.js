@@ -10,7 +10,7 @@ define(function(require){
 		template: Handlebars.compile(template),
 		events:{
 			"click": function(){
-				new PhotoModal( {collection : this.model.collection, 
+				new PhotoModal( {collection : this.model.collection,
 					model : this.model} );
 			}
 		}

@@ -6,6 +6,11 @@ define(function(require){
 
 	return MasterBaseCollection.extend({
 		model : Model,
-		url : App.api.get( "wallComments" )
+		url : App.api.get( "comment" ),
+
+		setUrl: function( options ){
+			this.url = this.url + "/" + options.parentType + "/" + options.parentId;
+			return this;
+		}
 	});
 });

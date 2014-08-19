@@ -10,19 +10,19 @@ define(function(require){
 
 	return MasterBaseCollection.extend({
 		model : Model,
-		url : App.api.get( 'wall' ),
+		url : App.api.get( 'comment' ) + "/USER",
 
 		init: function(){
 			App.vent.on( "profile:dataLoaded", this.handle, this );
 		},
 
-		handle: function( collection ){
-			var posts = collection.get( "commentsWrapper" ).collection;
+		handle: function( data ){
+			var posts = data.get( "commentsWrapper" ).collection;
 			this.reset( posts );
 		},
-		
+
 		comparator: function( model ){
-			 return -model.get( "id" ); // Note the minus!
+			return -model.get( "id" );
 		}
 
 	});
