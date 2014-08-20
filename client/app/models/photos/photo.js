@@ -8,10 +8,16 @@ define(function(require){
 	return MasterBaseModel.extend({
 
 		init: function(){
+			var self = this;
 
-			//Comments
-			var comments = this.get("commentsWrapper").collection;
-			this.get("commentsWrapper").collection = new CommentsCollection(comments);
+			var commentsWrapper = this.get("commentsWrapper");
+			if(commentsWrapper){
+				var obj = {
+					collection: new CommentsCollection( commentsWrapper.collection )
+				};				
+				self.set("commentsWrapper", obj);
+			}
+			
 		}
 
 	});

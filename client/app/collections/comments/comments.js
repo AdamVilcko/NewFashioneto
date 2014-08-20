@@ -8,8 +8,12 @@ define(function(require){
 		model : Model,
 		url : App.api.get( "comment" ),
 
+
 		setUrl: function( options ){
-			this.url = this.url + "/" + options.parentType + "/" + options.parentId;
+			if(!this.urlHasSet){
+				this.url = this.url + "/" + options.parentType + "/" + options.parentId;
+				this.urlHasSet = true;
+			}			
 			return this;
 		}
 	});

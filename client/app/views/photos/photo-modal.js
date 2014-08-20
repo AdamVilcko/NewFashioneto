@@ -24,9 +24,10 @@ define(function(require){
 
 		modalInit: function(){
 			var self = this, selectedModelId;
-			self.options.collection.fetch();
-			selectedModelId = self.options.model.get("id");
-			self.model = self.options.collection.get( selectedModelId );
+			self.collection = self.options.model.collection;
+			self.model = self.options.model;
+			
+			self.collection.fetch();			
 			self.initComponents();
 			self.setEvents();
 		},
