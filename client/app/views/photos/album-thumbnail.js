@@ -8,10 +8,15 @@ define(function(require){
 
 	return MasterBaseView.extend({
 		template: Handlebars.compile(template),
+		init: function(){
+
+		},
 		events:{
 			"click": function(){
-				new PhotoModal( {collection : this.model.collection,
-					model : this.model} );
+				new PhotoModal( {
+					model : this.model,
+					//Add comments collection property and instaitate in init as prop then pass here
+				} );
 			}
 		}
 	});
