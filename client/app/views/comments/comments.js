@@ -38,7 +38,7 @@ define(function(require){
 				this.el = this.options.el;
 				this.collection.fetch();
 			}
-			else if( ! this.options.data instanceof Backbone.Collection  ) {
+			else if( _.isArray(this.options.data) ) {
 				this.collection.set( this.options.data )
 			}
 		},
