@@ -13,8 +13,12 @@ define(function(require){
 			if(!this.urlHasSet){
 				this.url = this.url + "/" + options.parentType + "/" + options.parentId;
 				this.urlHasSet = true;
-			}			
+			}
 			return this;
+		},
+		parse: function(data){
+			return data.collection;
 		}
+
 	});
 });
