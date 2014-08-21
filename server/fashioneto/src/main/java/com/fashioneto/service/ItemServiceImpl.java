@@ -26,42 +26,50 @@ import com.fashioneto.persistence.User;
 @Transactional
 public class ItemServiceImpl implements ItemService {
 
-	@PersistenceContext
-	private EntityManager entityManager;
-	
-	@Autowired
-	private ItemDAO itemDAO;
+    @PersistenceContext
+    private EntityManager entityManager;
 
-	
-	@Override
-	public int like(User user, Item item) {
-		item.addLiker(user);
-		entityManager.merge(item);
-		return item.getLikedBy().size();
-	}
+    @Autowired
+    private ItemDAO itemDAO;
 
-	@Override
-	public int dislike(User user, Item item) {
-		item.removeLiker(user);
-		entityManager.merge(item);
-		return item.getLikedBy().size();
-	}
+    @Override
+    public int like(User user, Item item) {
+	item.addLiker(user);
+	entityManager.merge(item);
+	return item.getLikedBy().size();
+    }
 
-	@Override
-	public Item getItem(int itemId) {
-		return entityManager.find(Item.class, itemId);
-	}
+    @Override
+    public int dislike(User user, Item item) {
+	item.removeLiker(user);
+	entityManager.merge(item);
+	return item.getLikedBy().size();
+    }
 
-	@Override
-	public Item createItem(int itemId) {
-		Item item = new Item(itemId, new Date());
-		return entityManager.merge(item);
-	}
+    @Override
+    public Item getItem(int itemId) {
+	return entityManager.find(Item.class, itemId);
+    }
 
-	@Override
-	public List<Item> getItems(List<Integer> itemIds) {
-		return itemDAO.getItems(itemIds) ;
+    @Override
+    public Item createItem(int itemId) {
+	Item item = new Item(itemId, new Date());
+	return entityManager.merge(item);
+    }
+
+    @Override
+    public Item retrieveItemCreateIfNull(int itemId) {
+	Item item = getItem(itemId);
+
+	if (item == null) {
+	    item = createItem(itemId);
 	}
-	
-	
+	return item;
+    }
+
+    @Override
+    public List<Item> getItems(List<Integer> itemIds) {
+	return itemDAO.getItems(itemIds);
+    }
+
 }

@@ -46,8 +46,6 @@ public class CommentRestBean {
     @Autowired
     protected ImageService imageService;
 
-    
-    
     @DELETE
     @Path("{commentId}")
     public Response delete(@PathParam("commentId") int commentId) {
@@ -101,8 +99,8 @@ public class CommentRestBean {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMsg(@PathParam("parentType") CommentParentType parentType, @PathParam("parentId") int parentId) {
 	// http://localhost:8080/Fashioneto/as/comment/USER/1
-	
-	//TODO REFACTOR THIS! There's a lot of duplication here, you lazy ass!
+
+	// TODO REFACTOR THIS! There's a lot of duplication here, you lazy ass!
 	DefaultSet<Comment> commentSet = null;
 	String jsonOutput = null;
 	switch (parentType) {
@@ -116,7 +114,7 @@ public class CommentRestBean {
 
 	    return Response.status(Status.OK).entity(jsonOutput).build();
 	case ITEM:
-	    Item item = itemService.getItem(parentId);
+	    Item item = itemService.retrieveItemCreateIfNull(parentId);
 	    if (item == null) {
 		return Response.status(Status.NOT_FOUND).build();
 	    }
@@ -132,7 +130,7 @@ public class CommentRestBean {
 	    commentSet = new DefaultSet<Comment>(image.getComments());
 	    jsonOutput = FashionetoJsonFactory.getJson(commentSet);
 
-	    return Response.status(Status.OK).entity(jsonOutput).build();	    
+	    return Response.status(Status.OK).entity(jsonOutput).build();
 	case COMMENT:
 	    Comment comment = commentService.getComment(parentId);
 	    if (comment == null) {
@@ -143,8 +141,8 @@ public class CommentRestBean {
 
 	    return Response.status(Status.OK).entity(jsonOutput).build();
 	}
-	
+
 	return Response.status(Status.NOT_FOUND).build();
-	
+
     }
 }

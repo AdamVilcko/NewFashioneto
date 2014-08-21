@@ -24,5 +24,7 @@ public interface ItemService {
 	public Item createItem(int itemId);
 
 	public List<Item> getItems(List<Integer> itemIds);
+
+	public Item retrieveItemCreateIfNull(int itemId);
 	
 }
