@@ -16,8 +16,12 @@ import org.springframework.stereotype.Component;
 
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.CommentParentType;
+import com.fashioneto.persistence.Image;
+import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.User;
 import com.fashioneto.service.CommentService;
+import com.fashioneto.service.ImageService;
+import com.fashioneto.service.ItemService;
 import com.fashioneto.service.UserService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
@@ -37,7 +41,13 @@ public class CommentRestBean {
     protected UserService userService;
     @Autowired
     protected CommentService commentService;
+    @Autowired
+    protected ItemService itemService;
+    @Autowired
+    protected ImageService imageService;
 
+    
+    
     @DELETE
     @Path("{commentId}")
     public Response delete(@PathParam("commentId") int commentId) {
@@ -91,14 +101,50 @@ public class CommentRestBean {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getMsg(@PathParam("parentType") CommentParentType parentType, @PathParam("parentId") int parentId) {
 	// http://localhost:8080/Fashioneto/as/comment/USER/1
+	
+	//TODO REFACTOR THIS! There's a lot of duplication here, you lazy ass!
+	DefaultSet<Comment> commentSet = null;
+	String jsonOutput = null;
+	switch (parentType) {
+	case USER:
+	    User user = userService.getUser(parentId);
+	    if (user == null) {
+		return Response.status(Status.NOT_FOUND).build();
+	    }
+	    commentSet = new DefaultSet<Comment>(user.getReceivedComments());
+	    jsonOutput = FashionetoJsonFactory.getJson(commentSet);
 
-	User user = userService.getUser(parentId);
-	if (parentType.equals(CommentParentType.USER) && user != null) {
-	    DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
-	    String jsonOutput = FashionetoJsonFactory.getJson(commentSet);
+	    return Response.status(Status.OK).entity(jsonOutput).build();
+	case ITEM:
+	    Item item = itemService.getItem(parentId);
+	    if (item == null) {
+		return Response.status(Status.NOT_FOUND).build();
+	    }
+	    commentSet = new DefaultSet<Comment>(item.getComments());
+	    jsonOutput = FashionetoJsonFactory.getJson(commentSet);
+
+	    return Response.status(Status.OK).entity(jsonOutput).build();
+	case IMAGE:
+	    Image image = imageService.getImage(parentId);
+	    if (image == null) {
+		return Response.status(Status.NOT_FOUND).build();
+	    }
+	    commentSet = new DefaultSet<Comment>(image.getComments());
+	    jsonOutput = FashionetoJsonFactory.getJson(commentSet);
+
+	    return Response.status(Status.OK).entity(jsonOutput).build();	    
+	case COMMENT:
+	    Comment comment = commentService.getComment(parentId);
+	    if (comment == null) {
+		return Response.status(Status.NOT_FOUND).build();
+	    }
+	    commentSet = new DefaultSet<Comment>(comment.getComments());
+	    jsonOutput = FashionetoJsonFactory.getJson(commentSet);
 
 	    return Response.status(Status.OK).entity(jsonOutput).build();
 	}
+	
 	return Response.status(Status.NOT_FOUND).build();
+	
     }
 }
