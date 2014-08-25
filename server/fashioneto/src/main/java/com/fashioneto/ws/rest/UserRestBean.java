@@ -108,65 +108,33 @@ public class UserRestBean {
      * @param password
      *            The password of the user.
      * @return A transfer containing the authentication token.
+     * @throws NoUserInContextException
      */
     @Path("authenticate")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response authenticate(@FormParam("username") String username, @FormParam("password") String password) {
-
-	UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
-		password);
-	Authentication authentication = this.authManager.authenticate(authenticationToken);
-	SecurityContextHolder.getContext().setAuthentication(authentication);
-
-	/*
-	 * Reload user as password of authentication principal will be null
-	 * after authorization and password is needed for token generation
-	 */
-	UserDetails userDetails = this.userService.loadUserByUsername(username);
-
-	User user = null;
-
-	if (userDetails instanceof User) {
-	    user = (User) userDetails;
-	}
-
-	TokenTransfer tokenTransfer = new TokenTransfer(TokenUtils.createToken(userDetails));
-
-	JsonObject jsonObject = new JsonObject();
-
-	jsonObject.add("user", FashionetoJsonFactory.getJsonElement(user));
-	jsonObject.addProperty("token", tokenTransfer.getToken());
-
+    public Response authenticate(@FormParam("username") String username, @FormParam("password") String password)
+	    throws NoUserInContextException {
+	JsonObject jsonObject = getJsonAuthentication(username, password);
 	return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(jsonObject)).build();
-    }
-
-    private Map<String, Boolean> createRoleMap(UserDetails userDetails) {
-
-	Map<String, Boolean> roles = new HashMap<String, Boolean>();
-	for (GrantedAuthority authority : userDetails.getAuthorities()) {
-	    roles.put(authority.getAuthority(), Boolean.TRUE);
-	}
-
-	return roles;
     }
 
     @Path("signup")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response signup(UserSignupWrapper userSignupWrapper) {
-	User user;
+    public Response signup(UserSignupWrapper userSignupWrapper) throws NoUserInContextException {
 	try {
-	    user = userServiceImpl.signupUser(userSignupWrapper.getUsername(), userSignupWrapper.getEmail(),
+	    User user = userServiceImpl.signupUser(userSignupWrapper.getUsername(), userSignupWrapper.getEmail(),
 		    userSignupWrapper.getPassword(), userSignupWrapper.getDisplayName());
+	    JsonObject jsonObject = getJsonAuthentication(userSignupWrapper.getUsername(), userSignupWrapper.getPassword());
+	    return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(jsonObject)).build();
 	} catch (UsernameInUseException e) {
 	    return Response.status(Status.CONFLICT).entity(e.getMessage()).build();
 	} catch (UserNotInvitedException e) {
 	    return Response.status(Status.UNAUTHORIZED).entity(e.getMessage()).build();
 	}
-	return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(user)).build();
     }
-    
+
     @Path("invite")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -178,6 +146,30 @@ public class UserRestBean {
 	} else {
 	    return Response.status(Status.NOT_MODIFIED).build();
 	}
-    }    
+    }
 
+    private JsonObject getJsonAuthentication(String username, String password) throws NoUserInContextException {
+	UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
+		password);
+	Authentication authentication = this.authManager.authenticate(authenticationToken);
+	SecurityContextHolder.getContext().setAuthentication(authentication);
+
+	User user = ContextUtils.getUserFromAuthenticationContext();
+	JsonObject jsonObject = new JsonObject();
+
+	jsonObject.add("user", FashionetoJsonFactory.getJsonElement(user));
+	String token = TokenUtils.createToken(username, password);
+	jsonObject.addProperty("token", token);
+	return jsonObject;
+    }
+
+    private Map<String, Boolean> createRoleMap(UserDetails userDetails) {
+
+	Map<String, Boolean> roles = new HashMap<String, Boolean>();
+	for (GrantedAuthority authority : userDetails.getAuthorities()) {
+	    roles.put(authority.getAuthority(), Boolean.TRUE);
+	}
+
+	return roles;
+    }
 }
