@@ -18,67 +18,58 @@ import org.springframework.web.filter.GenericFilterBean;
 
 import com.fashioneto.utils.TokenUtils;
 
-public class AuthenticationTokenProcessingFilter extends GenericFilterBean
-{
+public class AuthenticationTokenProcessingFilter extends GenericFilterBean {
 
-	private final UserDetailsService userService;
+    private final UserDetailsService userService;
 
-	public AuthenticationTokenProcessingFilter(UserDetailsService userService)
-	{
+    public AuthenticationTokenProcessingFilter(UserDetailsService userService) {
 
-		this.userService = userService;
+	this.userService = userService;
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
+	    ServletException {
+
+	HttpServletRequest httpRequest = this.getAsHttpRequest(request);
+
+	String authToken = this.extractAuthTokenFromRequest(httpRequest);
+	String userName = TokenUtils.getUserNameFromToken(authToken);
+
+	if (userName != null && StringUtils.hasText(userName)) {
+	    UserDetails userDetails = this.userService.loadUserByUsername(userName);
+
+	    if (TokenUtils.validateToken(authToken, userDetails)) {
+
+		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+			userDetails, null, userDetails.getAuthorities());
+		authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+	    }
 	}
 
-	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException,
-			ServletException
-	{
+	chain.doFilter(request, response);
+    }
 
-		HttpServletRequest httpRequest = this.getAsHttpRequest(request);
+    private HttpServletRequest getAsHttpRequest(ServletRequest request) {
 
-		String authToken = this.extractAuthTokenFromRequest(httpRequest);
-		String userName = TokenUtils.getUserNameFromToken(authToken);
-
-		if (userName != null && StringUtils.hasText(userName))
-		{
-			UserDetails userDetails = this.userService.loadUserByUsername(userName);
-
-			if (TokenUtils.validateToken(authToken, userDetails))
-			{
-
-				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails,
-						null, userDetails.getAuthorities());
-				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
-				SecurityContextHolder.getContext().setAuthentication(authentication);
-			}
-		}
-
-		chain.doFilter(request, response);
+	if (!(request instanceof HttpServletRequest)) {
+	    throw new RuntimeException("Expecting an HTTP request");
 	}
 
-	private HttpServletRequest getAsHttpRequest(ServletRequest request)
-	{
+	return (HttpServletRequest) request;
+    }
 
-		if (!(request instanceof HttpServletRequest))
-		{
-			throw new RuntimeException("Expecting an HTTP request");
-		}
+    private String extractAuthTokenFromRequest(HttpServletRequest httpRequest) {
 
-		return (HttpServletRequest) request;
+	/* Get token from header */
+	String authToken = httpRequest.getHeader("X-Auth-Token");
+
+	/* If token not found get it from request parameter */
+	if (authToken == null) {
+	    authToken = httpRequest.getParameter("token");
 	}
 
-	private String extractAuthTokenFromRequest(HttpServletRequest httpRequest)
-	{
-
-		/* Get token from header */
-		String authToken = httpRequest.getHeader("X-Auth-Token");
-
-		/* If token not found get it from request parameter */
-		if (authToken == null)
-		{
-			authToken = httpRequest.getParameter("token");
-		}
-
-		return authToken;
-	}
+	return authToken;
+    }
 }

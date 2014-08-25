@@ -158,7 +158,7 @@ public class UserRestBean {
 	JsonObject jsonObject = new JsonObject();
 
 	jsonObject.add("user", FashionetoJsonFactory.getJsonElement(user));
-	String token = TokenUtils.createToken(username, password);
+	String token = TokenUtils.createToken(user);
 	jsonObject.addProperty("token", token);
 	return jsonObject;
     }

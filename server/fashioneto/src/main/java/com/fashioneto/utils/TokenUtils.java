@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.codec.Hex;
 import org.springframework.util.StringUtils;
 
-import com.fashioneto.persistence.User;
-
 public class TokenUtils
 {
 
@@ -37,13 +35,6 @@ public class TokenUtils
 		return new String(Hex.encode(digest.digest(tokenBuilder.toString().getBytes())));
 	}
 	
-	public static String createToken(String username, String password) {
-	    User user = new User();
-	    user.setUsername(username);
-	    user.setPassword(password);
-	    return createToken(user);
-	}
-
 	public static String createToken(UserDetails userDetails)
 	{
 
