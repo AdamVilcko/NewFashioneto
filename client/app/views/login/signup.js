@@ -10,10 +10,11 @@ define(function(require){
 	MasterBaseView = require( "views/masterbaseview" ),
 	SignupModel = require( "models/signin/signup" ),
 	signup         = require( "text!templates/login/signup.hbr" ),
-	signupForm     = require( "text!templates/login/signup-form.hbr" );
+	signupForm     = require( "text!templates/login/signup-form.hbr" ),
+	LoginView	   = require ("views/login/login");
 
 
-	return MasterBaseView.extend({
+	return LoginView.extend({
 
 		el: document.body,
 
@@ -63,7 +64,8 @@ define(function(require){
 			};
 
 			new SignupModel( signupData ).save()
-			.done(function(){
+			.done(function(data){
+				this.proceed(data);
 				debugger;
 			})
 			.fail(function(){
