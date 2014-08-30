@@ -65,8 +65,8 @@ define(function(require){
 
 			new SignupModel( signupData ).save()
 			.done(function(data){
-				this.proceed(data);
 				debugger;
+				this.success(data);
 			})
 			.fail(function(){
 				debugger;

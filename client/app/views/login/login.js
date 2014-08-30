@@ -73,21 +73,7 @@ define(function(require){
 				context: this,
 				url: App.api.get( 'login' ),
 				data: loginCredentials,
-
-				success: function( data, textStatus, jqXHR ){
-					$.cookie( "fashioneto", data.token, {
-						expires : 10
-					});
-					$.ajaxSetup({
-						headers: { 'X-Auth-Token': data.token }
-					});
-
-					//Gonna get Felipe to refactor so details and id are returned only
-					data.user.details.id = data.user.id;
-					App.user = new User( data.user.details );
-					this.proceed( data.user );
-				},
-
+				success: this.success,
 				error: function( jqXHR, textStatus, errorThrown ){
 					if( jqXHR.status === 401 ){
 						alert( "Incorrect login credentials. Please try again!" );
@@ -100,6 +86,21 @@ define(function(require){
 
 		},
 
+		success: function( data, textStatus, jqXHR ){
+			$.cookie( "fashioneto", data.token, {
+				expires : 10
+			});
+			$.ajaxSetup({
+				headers: { 'X-Auth-Token': data.token }
+			});
+
+			//Gonna get Felipe to refactor so details and id are returned only
+			data.user.details.id = data.user.id;
+			App.user = new User( data.user.details );
+			this.proceed( data.user );
+		},
+		
+		
 		logout: function(){
 			$.removeCookie("fashioneto");
 			$.ajaxSetup({
