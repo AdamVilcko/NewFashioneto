@@ -12,7 +12,7 @@
       {{else}}
       <a class="website" title="http://www.somewebsite.com" href="http://www.somewebsite.com">http://www.somewebsite.com</a>
     {{/if}}
-    {{#unless myProfile}}
+    {{#unless model.myProfile}}
       {{follow}}
     {{/unless}}
   </div>
