@@ -37,9 +37,8 @@
 
 <div id="stats">
 
-  <div class="well pull-left">Following<br /><strong>{{model.details.followingCount}}</strong></div>
-  <div class="well pull-right">Followers<br /><strong>{{model.details.followersCount}}</strong></div>
-
+<a class="well pull-left" href="#{{#if myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/followers">Followers <strong>{{model.details.followingCount}}</strong></a>
+              <a class="well pull-right" href="#{{#if myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/following">Following <strong>{{model.details.followersCount}}</strong></a>
   <div class="clear"></div>
 
 </div><!-- stats -->

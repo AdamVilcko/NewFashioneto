@@ -1,5 +1,5 @@
   <div class="thumbnail">
-    <a href="#people/{{model.details.userName}}"><img src="{{model.imageUrl}}" alt="..."></a>
+    <a href="#people/{{model.details.userName}}"><img src="{{image model.details.imageId "STANDARD"}}" alt="..."></a>
   </div>
   <div class="caption">
     <h5><a href="#people/{{model.details.userName}}">{{model.details.displayName}}</a></h5>

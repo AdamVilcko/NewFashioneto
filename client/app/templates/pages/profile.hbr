@@ -23,9 +23,7 @@
               <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/wall" data-toggle="tab">Board</a></li>
               <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/photos" data-toggle="tab">Photos ({{model.imagesWrapper.count}})</a></li>
               <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/items" data-toggle="tab">Items({{model.itemsWrapper.count}})</a></li>
-              <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/followers" data-toggle="tab">Followers ({{model.followersWrapper.count}})</a></li>
-              <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/following" data-toggle="tab">Following ({{model.followingWrapper.count}})</a></li>
-              <!-- <li><a href="profile/info" data-toggle="tab">Information</a></li> -->
+
             </ul>
 
             <div id="tabContainer"></div><!-- tabContainer -->
