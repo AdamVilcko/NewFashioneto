@@ -2,14 +2,14 @@ define(function(require){
 
 	var
 
-	Handlebars          = require("handlebars"),
+	Handlebars         = require("handlebars"),
 
-	MasterBaseView = require( 'views/masterbaseview' ),
-	CommentView         = require("views/comments/comment"),
-	CommentsCollection  = require("collections/comments/comments"),
+	MasterBaseView     = require( 'views/masterbaseview' ),
+	CommentView        = require("views/comments/comment"),
+	CommentsCollection = require("collections/comments/comments"),
 
-	showAll             = require("text!templates/comments/showall.hbr"),
-	input               = require("text!templates/comments/input.hbr");
+	showAll            = require("text!templates/comments/showall.hbr"),
+	input              = require("text!templates/comments/input.hbr");
 
 
 	return MasterBaseView.extend({

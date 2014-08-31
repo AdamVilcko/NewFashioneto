@@ -112,7 +112,7 @@ function( Backbone, _, $, Handlebars, Login, Signup, MainView, Helper, bootstrap
 		},
 
 		signup: function(){
-			var signup = new Signup();
+			new Signup();
 		}
 
 	});

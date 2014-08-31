@@ -1,90 +1,129 @@
 /* Profile */
 
-#profilePicture{
+#profileBox{
+
 	margin-bottom: 20px;
+
+		.picture{
+			position: relative;
+			margin-bottom: 0px;
+			z-index:5;
+		}
+
+		.userTitle{
+			font-size: 20px;
+		}
+
+		.website{
+			display:block;
+			font-size: 14px;
+			text-align:center;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-bottom: 13px;
+		}
+
+		h6.location{
+			font-size: 16px;
+			margin-top:0;
+			text-align:center;
+			z-index:4;
+			width:90%;
+			margin:0 auto;
+			border-top:none;
+			-webkit-border-top-left-radius: 0px;
+			-webkit-border-top-right-radius: 0px;
+			-moz-border-radius-topleft: 0px;
+			-moz-border-radius-topright: 0px;
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
+			line-height: 40px
+
+		}
+
+		.details{
+			position: relative;
+			width:90%;
+			text-align: center;
+			z-index:3;
+			margin: -4px auto 0 auto;
+		}
+
 }
 
-#profilePicture a{
-	margin-bottom: 0px;
-	z-index:5;
-}
-
-#profilePicture h6.location{
-	margin-top:0;
-	text-align:center;
-	z-index:4;
-	width:90%;
-	margin:0 auto;
-	border-top:none;
-	-webkit-border-top-left-radius: 0px;
-	-webkit-border-top-right-radius: 0px;
-	-moz-border-radius-topleft: 0px;
-	-moz-border-radius-topright: 0px;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	background: url(../img/location-icon.png) no-repeat 30% center #fff;
-}
 
 /* UserTitle */
 
-#userTitle{
+#profileButtons{
+
 	margin-bottom:20px;
+
+		h1{
+			margin-top:0;
+		}
+
+		.options{
+			text-align: right;
+		}
+
+		button{
+			position: relative;
+		}
+
+		.duel{
+			padding-left:30px;
+		}
+
+		.duel:before{
+			background-image:url(../img/usertitle-swords.png);
+			background-repeat: no-repeat;
+			background-position:10px center;
+			content:" ";
+			position: absolute;
+			width:100%;
+			height: 100%;
+			top:0;
+			left:0;
+		}
+
+		.mail:before{
+			background-image:url(../img/usertitle-mail.png);
+			background-repeat: no-repeat;
+			content:" ";
+			display: inline-block;
+			height: 100%;
+			width:18px;
+			height: 11px;
+		}
+
+		.other:before{
+			background-image:url(../img/usertitle-chevrons.png);
+			background-repeat: no-repeat;
+			content:" ";
+			display: inline-block;
+			height: 100%;
+			width:12px;
+			height:7px;
+		}
+
+
+
 }
 
-#userTitle h1{
-	margin-top:0;
-}
-
-#userTitle .options{
-	text-align: right;
-}
-
-#userTitle button{
-	position: relative;
-}
-
-#userTitle .duel{
-	padding-left:30px;
-}
-
-#userTitle .duel:before{
-	background-image:url(../img/usertitle-swords.png);
-	background-repeat: no-repeat;
-	background-position:10px center;
-	content:" ";
-	position: absolute;
-	width:100%;
-	height: 100%;
-	top:0;
-	left:0;
-}
-
-#userTitle .mail:before{
-	background-image:url(../img/usertitle-mail.png);
-	background-repeat: no-repeat;
-	content:" ";
-	display: inline-block;
-	height: 100%;
-	width:18px;
-	height: 11px;
-}
-
-#userTitle .other:before{
-	background-image:url(../img/usertitle-chevrons.png);
-	background-repeat: no-repeat;
-	content:" ";
-	display: inline-block;
-	height: 100%;
-	width:12px;
-	height:7px;
-}
 
 /* Stats */
 
+#stats{
+	width: 82%;
+	margin: auto;
+
+}
+
 #stats .well{
 	text-align:center;
-	font-weight: bold;
 	padding:15px;
+
 }
 
 #stats .pull-left,

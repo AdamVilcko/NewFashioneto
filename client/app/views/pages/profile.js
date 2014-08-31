@@ -55,6 +55,8 @@ define(function(require){
 		success: function( data, textStatus, jqXHR ){
 			this.model = new MasterBaseModel(data);
 
+			this.model.set("myProfile", this.myProfile);
+
 			this.tabs = {
 				wall      : new Wall( { data: this.model } ),
 				photos    : new Photos( { data: this.model } ),

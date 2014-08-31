@@ -20,7 +20,7 @@ define(function(require){
 		},
 
 		handle: function( data ){
-			this.model = new MasterBaseModel( data.get( "details" ), { imageType: "STANDARD" } );
+			this.model = new MasterBaseModel( data.toJSON(), { imageType: "STANDARD" } );
 			return this;
 		},
 
