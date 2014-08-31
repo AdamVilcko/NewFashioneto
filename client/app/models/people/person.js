@@ -13,7 +13,14 @@ define(function(require){
 
 		createImageUrl: function( args ){
 			if( this.has( "id" ) && ! this.has( "imageUrl" ) ){
-				this.set( "imageUrl", App.api.get( "image" ) + this.imageType + "/" + this.get( "id" ) );
+				
+				var details = this.get("details");
+				if (details.profileImageId) {
+					this.set( "imageUrl", App.api.get( "image" ) + this.imageType + "/" + details.profileImageId );
+				} else {
+					// url for generic avatar
+				}
+				
 			}
 		},
 

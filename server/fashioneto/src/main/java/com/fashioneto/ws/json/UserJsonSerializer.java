@@ -39,6 +39,7 @@ public class UserJsonSerializer implements JsonSerializer<User> {
     public static final String JSON_PROPERTY_DETAILS_AGE = "age";
     public static final String JSON_PROPERTY_DETAILS_EMAIL = "email";
     public static final String JSON_PROPERTY_DETAILS_STATUS = "status";
+    public static final String JSON_PROPERTY_DETAILS_PROFILE_IMAGE_ID = "profileImageId";
 
     @Override
     public JsonElement serialize(User user, Type arg1, JsonSerializationContext context) {
@@ -88,6 +89,10 @@ public class UserJsonSerializer implements JsonSerializer<User> {
 	jsonObject.addProperty(JSON_PROPERTY_DETAILS_EMAIL, user.getEmail());
 	jsonObject.addProperty(JSON_PROPERTY_DETAILS_DISPLAY_NAME, user.getDisplayName());
 	jsonObject.addProperty(JSON_PROPERTY_DETAILS_STATUS, user.getStatus().name());
+	
+	if (user.getProfileImage() != null) {
+	    jsonObject.addProperty(JSON_PROPERTY_DETAILS_PROFILE_IMAGE_ID, user.getProfileImage().getId());
+	}
 	
 	
 	if (user.getProfileImage() != null) {

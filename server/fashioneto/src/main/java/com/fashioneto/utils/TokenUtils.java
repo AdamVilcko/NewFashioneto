@@ -34,7 +34,7 @@ public class TokenUtils
 
 		return new String(Hex.encode(digest.digest(tokenBuilder.toString().getBytes())));
 	}
-
+	
 	public static String createToken(UserDetails userDetails)
 	{
 
