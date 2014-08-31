@@ -3,21 +3,21 @@
 
           <div class="col-xs-12 col-sm-9">
 
-            <section id="profileButtons" class="row">
+            {{#unless model.myProfile }}
+            
+              <section id="profileButtons" class="row">
 
-              <div class="col-md-6">
-
-              </div>
-
-              {{#unless model.myProfile }}
+                <div class="col-md-6"></div>
+                
                  <div class="col-md-6 options">
                       <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
                       <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
                       <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
-                 </div>
-               {{/unless}}
+                 </div>               
 
-            </section><!-- profileButtons -->
+              </section><!-- profileButtons -->
+
+            {{/unless}}
 
             <ul class="nav nav-tabs" style="margin-bottom: 15px;">
               <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/wall" data-toggle="tab">Board</a></li>

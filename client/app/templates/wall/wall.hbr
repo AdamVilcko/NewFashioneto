@@ -1,6 +1,13 @@
 <section id="headlineGallery">
 
-  <div class="row" id="images">{{profilePhotos}}</div><!-- row -->
+  <div class="row" id="images">
+    {{profilePhotos}}
+    <div class="clear"></div>
+    <div class="buttonContainer">
+      <a class="btn btn-default" href="#{{#if model.myProfile}}profile{{else}}people/{{model.userName}}{{/if}}/photos">Show all photos</a>
+    </div>
+  
+  </div><!-- row -->
 
  <div class="clear"></div>
 
