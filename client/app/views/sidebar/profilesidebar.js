@@ -1,14 +1,15 @@
 define(function(require){
 
 	var
-	Backbone        = require("backbone"),
-	Handlebars      = require("handlebars"),
-	$               = require("jquery"),
-	Helper          = require('helper'),
-
-	BaseSidebarView = require('views/sidebar/basesidebarview'),
-	template        = require('text!templates/sidebar/profilesidebar.hbr'),
-	MasterBaseView  = require( 'views/masterbaseview' );
+	Backbone             = require("backbone"),
+	Handlebars           = require("handlebars"),
+	$                    = require("jquery"),
+	Helper               = require('helper'),
+	
+	ProfilePhotoUploader = require('views/photos/profile-photo-uploader'),
+	BaseSidebarView      = require('views/sidebar/basesidebarview'),
+	template             = require('text!templates/sidebar/profilesidebar.hbr'),
+	MasterBaseView       = require( 'views/masterbaseview' );
 
 
 	return MasterBaseView.extend({
@@ -28,9 +29,15 @@ define(function(require){
 			profile: {},
 			badges: {},
 			followers: {}
-		}
+		},
 
 		//DOM events
+
+		events:{
+			"click #profileBox .picture" : function(){
+				new ProfilePhotoUploader();
+			}
+		}
 
 	});
 
