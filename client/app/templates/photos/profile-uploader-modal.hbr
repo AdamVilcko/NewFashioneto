@@ -1,0 +1,141 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+      <div class="modal-body">
+
+        <div class="row">
+
+        <div class="col-md-8 left">
+
+          <section class="photos">
+            <div class="row">
+
+              <img class="thumbnail mainImage" src="{{model.image.sizes.Best.url}}" alt="">
+
+              <!-- <div class="col-lg-8">
+                <div class="main"></div>
+              </div>col-lg-8
+
+              <div class="col-lg-4">
+                <div class="gallery">
+                  <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
+                  <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
+                  <a class="thumbnail" href=""><img src="img/photos-modal-thumbnail.jpg" alt=""></a>
+                </div>
+              </div>col-lg-8 -->
+
+              </div><!-- row -->
+          </section><!-- gallery -->
+
+          <div class="horizontal rule"></div>
+
+          <section class="comments">
+
+             <div class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+              <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+            </div>
+          </div>
+
+          <div class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
+              <p>I’m a celebrity and I think this is looking pretty good, very nice outfit!</p>
+            </div>
+          </div>
+
+          <div class="media">
+            <a class="pull-left" href="#">
+              <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
+            </a>
+            <div class="media-body">
+              <textarea placeholder="Write your comment" class="well"></textarea>
+            </div><!-- media-body -->
+
+
+          </section><!-- comments -->
+
+          </div><!-- col-lg-8 -->
+
+          <div class="col-md-4 right">
+
+            <section class="itemDetails">
+
+              <h1 class="heading">{{model.unbrandedName}}<br /><span>by <span class="underline">{{model.brand.name}}</span></span></h1>
+
+              {{like "heart"}}
+
+              <p class="description">{{html model.description}}</p>
+
+              <!-- <a h`ref="#" class="moreInfo">More info <span class="glyphicon glyphicon-chevron-down"></span></a> -->
+
+              <p class="size">
+                Sizes available&nbsp;
+                {{#each model.sizes}}
+                  {{name}},
+                {{/each}}
+              </p>
+
+              <h5 class="price">{{model.priceLabel}}</h5>
+
+              <a target="_blank" href="{{model.clickUrl}}" class="btn btn-primary buy">Buy on {{model.retailer.name}}</a>
+
+            </section><!-- itemDetails -->
+
+            <div class="horizontal rule"></div>
+
+            <section class="recommendations">
+
+              <h5 class="heading">You might also like</h5>
+
+              <div class="items">
+
+                <div class="media item">
+                  <a class="pull-left thumbnail" href="#">
+                    <img class="media-object" src="img/photos-modal-recommendation-thumbnail.jpg">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading heading">Blended wool jumper with shawl collar<br /><span>by <span class="underline">Espirit</span></span></h4>
+                    <h6 class="price">£90</h6>
+                  </div>
+                </div>
+
+                <div class="media item">
+                  <a class="pull-left thumbnail" href="#">
+                    <img class="media-object" src="img/photos-modal-recommendation-thumbnail.jpg">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading heading">Blended wool jumper with shawl collar<br /><span>by <span class="underline">Espirit</span></span></h4>
+                    <h6 class="price">£90</h6>
+                  </div>
+                </div>
+
+                <div class="media item">
+                  <a class="pull-left thumbnail" href="#">
+                    <img class="media-object" src="img/photos-modal-recommendation-thumbnail.jpg">
+                  </a>
+                  <div class="media-body">
+                    <h4 class="media-heading heading">Blended wool jumper with shawl collar <span>by <span class="underline">Espirit</span></span></h4>
+                    <h6 class="price">£90</h6>
+                  </div>
+                </div>
+
+              </div>
+
+              <a class="similar" href="#">See similar items</a>
+
+            </section><!-- recommendations -->
+
+          </div><!-- col-lg-4 -->
+        </div>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
