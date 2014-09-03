@@ -10,23 +10,20 @@
 
   <div id="postCreate">
 
-    <div class="media">
-
+    <div class="media well">
       <a class="pull-left img-thumbnail" href="#">
         <img class="media-object" src="{{user.imageUrl}}" alt="...">
       </a>
-      <div class="media-body well">
 
-        <div class="row">
-          <div class="col-md-8"> <textarea placeholder="Write on {{model.displayName}}'s wall" class="well"></textarea></div>
-          <div class="col-md-2"><button class="btn btn-primary sendPost">Post</button></div>
-          <div class="col-md-2"><a class="uploadphoto pull-right" href="#">Upload photo</a></div>
-
+      <div class="media-body">
+        <div class="col-md-10">
+          <textarea placeholder="Write on {{model.displayName}}'s wall" class="well"></textarea>
         </div>
-
+        <div class="col-md-2">
+          <a class="uploadphoto pull-right" href="#">Upload photo</a>
+        </div>
       </div>
-
-    </div><!-- media -->
+    </div>
 
   </div><!-- postCreate -->
 
