@@ -11,10 +11,11 @@ define(function(require){
 	SignupModel = require( "models/signin/signup" ),
 	signup         = require( "text!templates/login/signup.hbr" ),
 	signupForm     = require( "text!templates/login/signup-form.hbr" ),
+	MainView       = require( "views/main"),
 	LoginView	   = require ("views/login/login");
 
 
-	return LoginView.extend({
+	return MasterBaseView.extend({
 
 		el: document.body,
 
@@ -52,7 +53,7 @@ define(function(require){
 		//Login actions
 		signup: function( ev ){
 			ev.preventDefault();
-			var form, signupData, signUpModel;
+			var form, signupData, signUpModel, self = this;
 
 			form = $( ev.target ).parents( "form" );
 
@@ -66,12 +67,26 @@ define(function(require){
 			new SignupModel( signupData ).save()
 			.done(function(data){
 				debugger;
-				this.success(data);
+				self.success(data);
 			})
 			.fail(function(){
 				debugger;
 			});
 
+		},
+		
+		success: function( data, textStatus, jqXHR ){
+			$.cookie( "fashioneto", data.token, {
+				expires : 10
+			});
+			$.ajaxSetup({
+				headers: { 'X-Auth-Token': data.token }
+			});
+
+			//Gonna get Felipe to refactor so details and id are returned only
+			data.user.details.id = data.user.id;
+			App.user = new User( data.user.details );
+			var mainView = new MainView();
 		},
 
 	});
