@@ -1,4 +1,4 @@
-define(function(require){
+define(function (require){
 
 	var
 
@@ -23,33 +23,33 @@ define(function(require){
 
 		modalInit: function(){
 			this.render();
-			this.open();
-			$(function () {
-			    'use strict';
-			    var url = App.api.get("upload");
-			    $('#fileupload').fileupload({
-			        url: url,
-			        dataType: 'json',
-			        send: function (e, data) {
+			this.open();			
+			    
+		    var url = App.api.get("upload");
+
+		    $('#fileupload').fileupload({
+		        url: url,
+		        dataType: 'json',
+		        send: function (e, data) {
 //			        	alert('I am sending');
-			        },
-			        done: function (e, data) {
-			        	$('#buttons-and-things').hide();
-			        	var message = '<p/><img src="' + App.api.get("image") + 'THUMBNAIL/' + data.result.id + '" />'
-			        	message = message + 'Uploaded successfully! Now refresh this page and don\'t complain!';
-			            $('#files').html(message);
-			        },
-			        progressall: function (e, data) {
-			            var progress = parseInt(data.loaded / data.total * 100, 10);
-			            $('#progress .progress-bar').css(
-			                'width',
-			                progress + '%'
-			            );
-			        }
+		        },
+		        done: function (e, data) {
+		        	$('#buttons-and-things').hide();
+		        	var message = '<p/><img src="' + App.api.get("image") + 'THUMBNAIL/' + data.result.id + '" />'
+		        	message = message + 'Uploaded successfully! Now refresh this page and don\'t complain!';
+		            $('#files').html(message);
+		        },
+		        progressall: function (e, data) {
+		            var progress = parseInt(data.loaded / data.total * 100, 10);
+		            $('#progress .progress-bar').css(
+		                'width',
+		                progress + '%'
+		            );
+		        }
 //			    });
-			    }).prop('disabled', !$.support.fileInput)
-			        .parent().addClass($.support.fileInput ? undefined : 'disabled');
-			});
+		    }).prop('disabled', !$.support.fileInput)
+		        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+			
 		}
 
 	});

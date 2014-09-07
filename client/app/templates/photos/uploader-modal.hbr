@@ -7,24 +7,34 @@
 
       <h1>Add new photo</h1>
 
-      <div id="files" class="files"></div>
+      <div class="form-inline well">
 
-      <div id="buttons-and-things">
+        <p class="pull-left form-group">Choose a file to upload</p>
         
-        <div id="progress" class="progress">
-          <div class="progress-bar" style="width: 0%;"></div>
-        </div>
+        <span class="form-group btn btn-default fileinput-button pull-right">
+          <i class="glyphicon glyphicon-plus"></i>
+          <span>Browse</span>
+          <!-- The file input field used as target for the file upload widget
+          <input id="fileupload" type="file" name="files[]" multiple> -->
+          <input id="fileupload" type="file" name="file">
+        </span>
+
+        <div class="clear clearer"></div>
+
+      </div>
+
+      <div id="files" class="files"></div>
+        
+      <div id="progress" class="progress">
+        <div class="progress-bar" style="width: 0%;"></div>
       </div>
 
       <textarea placeholder="Write a description..." class="well"></textarea>
 
-      <span class="btn btn-primary fileinput-button">
-          <i class="glyphicon glyphicon-plus"></i>
-          <span>Select files...</span>
-          <!-- The file input field used as target for the file upload widget
-          <input id="fileupload" type="file" name="files[]" multiple> -->
-          <input id="fileupload" type="file" name="file">
-      </span>
+      <button class="btn btn-primary">Save and publish</button>
+      <button class="btn btn-default">Cancel</button>
+
+      
 
 
 
