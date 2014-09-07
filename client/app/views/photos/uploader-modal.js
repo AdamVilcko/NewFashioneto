@@ -1,4 +1,4 @@
-define(function (require){
+define(function (require) {
 
 	var
 
@@ -15,44 +15,63 @@ define(function (require){
 	jQueryIframeTransport = require('jquery.iframe-transport');
 	jQueryUIWidget = require('jquery.ui.widget');
 
-	return ModalView.extend({
+	return function(aOptions){
 
-		id: "uploaderModal",
-		className: "modal fade",
-		template: Handlebars.compile( template ),
+		var self = this,
 
-		modalInit: function(){
-			this.render();
-			this.open();			
-			    
-		    var url = App.api.get("upload");
+		View = ModalView.extend({
 
-		    $('#fileupload').fileupload({
-		        url: url,
-		        dataType: 'json',
-		        send: function (e, data) {
-//			        	alert('I am sending');
-		        },
-		        done: function (e, data) {
-		        	$('#buttons-and-things').hide();
-		        	var message = '<p/><img src="' + App.api.get("image") + 'THUMBNAIL/' + data.result.id + '" />'
-		        	message = message + 'Uploaded successfully! Now refresh this page and don\'t complain!';
-		            $('#files').html(message);
-		        },
-		        progressall: function (e, data) {
-		            var progress = parseInt(data.loaded / data.total * 100, 10);
-		            $('#progress .progress-bar').css(
-		                'width',
-		                progress + '%'
-		            );
-		        }
-//			    });
-		    }).prop('disabled', !$.support.fileInput)
-		        .parent().addClass($.support.fileInput ? undefined : 'disabled');
-			
-		}
+			id: "uploaderModal",
+			className: "modal fade",
+			template: Handlebars.compile( template ),
 
-	});
+			modalInit: function(){
+				this.render();
+				this.open();			
+				    
+			    var url = App.api.get("upload");
+
+			    $('#fileupload').fileupload({
+			        url: url,
+			        dataType: 'json',
+			        send: function (e, data) {
+			        	$('.upload-browse, textarea, select').hide();
+			        	$('#progress').show();
+			        },
+			        done: function (e, data) {
+
+			        	//Add to collection
+			        	self.options.collection.add({
+			        		id: data.result.id
+			        	});
+
+			        	var message = '<img class="thumbnail center" src="' + App.api.get("image") + 'SMALL/' + data.result.id + '" />'
+			        	message = message + '<p class="alert alert-info" style="text-align: center;">Uploaded successfully to album.</p>';
+			            $('#files').html(message);
+			            $('#progress').hide();
+			        },
+			        progressall: function (e, data) {
+			            var progress = parseInt(data.loaded / data.total * 100, 10);
+			            $('#progress .progress-bar').css(
+			                'width',
+			                progress + '%'
+			            );
+			        }
+
+			    }).prop('disabled', !$.support.fileInput)
+			        .parent().addClass($.support.fileInput ? undefined : 'disabled');			
+			},
+
+			events:{
+				"click .button-container button": function(){
+					self.$el.modal("hide");
+				}
+			}
+
+		});
+
+		return _.extend( self, new View(aOptions) );
+
+	}	 
 
 });
-
