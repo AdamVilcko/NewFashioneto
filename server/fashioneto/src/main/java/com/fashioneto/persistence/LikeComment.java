@@ -18,99 +18,84 @@ import javax.persistence.Table;
  **/
 @Entity
 @Table(name = "like_comment")
-public class LikeComment implements Serializable
-{
+public class LikeComment implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	public static final String FIELD_NAME_USER_ID = "id_user";
-	public static final String FIELD_NAME_COMMENT_ID = "id_comment";
+    private static final long serialVersionUID = 1L;
+    public static final String FIELD_NAME_USER_ID = "id_user";
+    public static final String FIELD_NAME_COMMENT_ID = "id_comment";
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-	@JoinColumn(name = FIELD_NAME_USER_ID)
-	private User user;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name = FIELD_NAME_USER_ID)
+    private User user;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-	@JoinColumn(name = FIELD_NAME_COMMENT_ID)
-	private Comment comment;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    @JoinColumn(name = FIELD_NAME_COMMENT_ID)
+    private Comment comment;
 
-	public LikeComment()
-	{
-		
+    public LikeComment() {
+
+    }
+
+    public LikeComment(User user, Comment comment) {
+	super();
+	this.user = user;
+	this.comment = comment;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (user != null && comment != null && obj instanceof LikeComment) {
+	    User objUser = ((LikeComment) obj).getUser();
+	    Comment objComment = ((LikeComment) obj).getComment();
+	    return objUser != null && objComment != null && user.getId() == objUser.getId()
+		    && comment.getId() == objComment.getId();
 	}
-	
-	public LikeComment(User user, Comment comment) {
-		super();
-		this.user = user;
-		this.comment = comment;
-	}
+	return false;
+    }
 
-
-	@Override
-	public boolean equals(Object obj)
-	{
-		if (user != null && comment != null && obj instanceof LikeComment)
-		{
-			User objUser = ((LikeComment) obj).getUser();
-			Comment objComment = ((LikeComment) obj).getComment();
-			return objUser != null && objComment != null && user.getId() == objUser.getId()
-					&& comment.getId() == objComment.getId();
-		}
-		return false;
+    @Override
+    public int hashCode() {
+	if (user == null || comment == null) {
+	    return super.hashCode();
 	}
+	return user.getId() + comment.getId();
+    }
 
-	@Override
-	public int hashCode()
-	{
-		if (user == null || comment == null)
-		{
-			return super.hashCode();
-		}
-		return user.getId() + comment.getId();
+    @Override
+    public String toString() {
+	if (user == null || comment == null) {
+	    return "LikeComment [id=" + id + ", user=null, comment=null]";
 	}
+	return "LikeComment [id=" + id + ", user=" + user.getId() + ", comment=" + comment.getId() + "]";
+    }
 
-	@Override
-	public String toString()
-	{
-		if (user == null || comment == null)
-		{
-			return "LikeComment [id=" + id + ", user=null, comment=null]";
-		}
-		return "LikeComment [id=" + id + ", user=" + user.getId() + ", comment=" + comment.getId() + "]";
-	}
+    public User getUser() {
+	return user;
+    }
 
-	public User getUser()
-	{
-		return user;
-	}
+    public void setUser(User user) {
+	this.user = user;
+    }
 
-	public void setUser(User user)
-	{
-		this.user = user;
-	}
+    public Comment getComment() {
+	return comment;
+    }
 
-	public Comment getComment()
-	{
-		return comment;
-	}
+    public void setComment(Comment comment) {
+	this.comment = comment;
+    }
 
-	public void setComment(Comment comment)
-	{
-		this.comment = comment;
-	}
+    public int getId() {
+	return id;
+    }
 
-	public int getId()
-	{
-		return id;
-	}
-
-	public void setId(int id)
-	{
-		this.id = id;
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
 }
