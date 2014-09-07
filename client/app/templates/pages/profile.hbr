@@ -13,14 +13,14 @@
                       <button class="duel btn btn-default btn-md" href="../navbar-static-top/">Duel</button>
                       <button class="mail btn btn-default btn-md" href="../navbar-static-top/"></button>
                       <button class="other btn btn-default btn-md" href="../navbar-static-top/"></button>
-                 </div>               
+                 </div>
 
               </section><!-- profileButtons -->
 
             {{/unless}}
 
             <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-              <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/wall" data-toggle="tab">Board</a></li>
+              <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/wall" data-toggle="tab">{{model.details.firstName}}'s Board</a></li>
               <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/photos" data-toggle="tab">Photos ({{model.imagesWrapper.count}})</a></li>
               <li><a href="#{{#if model.myProfile}}profile{{else}}people/{{model.details.userName}}{{/if}}/items" data-toggle="tab">Items({{model.itemsWrapper.count}})</a></li>
 

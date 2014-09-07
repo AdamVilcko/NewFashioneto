@@ -7,7 +7,9 @@
          <div class="col-md-6">
 			<div class="pull-right">
 				<!-- <a class="albumBack" href="">Back to album view</a> -->
-				<button id="addPhotos" class="addphotos btn btn-primary btn-md" href="../navbar-static-top/">Add photos</button>
+				{{#if optionsData.myProfile }}
+					<button id="addPhotos" class="addphotos btn btn-primary btn-md" href="../navbar-static-top/">Add photos</button>
+				{{/if}}
 				<!-- <button class="btn btn-default btn-md" href="../navbar-static-top/">Edit album</button> -->
 			</div><!-- pull-right -->
          </div>

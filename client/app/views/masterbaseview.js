@@ -100,6 +100,11 @@ define(function(require){
 			data.user                   = App.user.toJSON();
 			data.locale                 = App.locale;
 			data.options                = this.options;
+
+			if( this.options.data instanceof Backbone.Model ){
+				data.optionsData = this.options.data.toJSON();
+			}
+
 			data.viewContext            = this;
 			return data;
 		},

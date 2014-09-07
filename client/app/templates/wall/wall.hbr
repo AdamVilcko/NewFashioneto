@@ -4,7 +4,7 @@
     {{profilePhotos}}
     <div class="clear"></div>
     <div class="buttonContainer">
-      <a class="btn btn-default" href="#{{#if model.myProfile}}profile{{else}}people/{{model.userName}}{{/if}}/photos">Show all photos</a>
+      <a class="btn btn-default" href="#{{#if model.myProfile}}profile{{else}}people/{{model.userName}}{{/if}}/photos"><strong>Show all photos</strong></a>
     </div>
   
   </div><!-- row -->
