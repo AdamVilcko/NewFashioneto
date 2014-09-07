@@ -4,10 +4,8 @@ define(function(require){
 
 	return MasterBaseModel.extend({
 
-
-
 		init: function(){
-			App.vent.on( "items:updateLikes", this.update, this );
+			App.vent.on( "items:updateLikes", this.update, this );			
 		},
 
 		update: function( collection ){

@@ -20,6 +20,7 @@ define(function(require){
 			this.model = new Model( this.options.data );
 			this.model.on( "sync change", this.renderToDom, this );
 			this.model.url = App.api.get( "like", this.options.contextId );
+			this.id = this.options.parentId;
 		},
 
 		events: {
@@ -27,12 +28,13 @@ define(function(require){
 		},
 
 		registerLike: function(){
-            this.model.persist( this.options.parentId, this.model.get("actioned") ? { type: "DELETE"} : null );
+            this.model.persist( this.id, this.model.get("actioned") ? { type: "DELETE"} : null );
 		},
 
-		bindData: function(){
-			this.model.on( "sync change", this.renderToDom, this );
-			this.model.url = App.api.get( "like", this.options.contextId );
+		bindData: function( aModel ){
+			this.model.set( aModel.get("likes") );
+			this.id = aModel.id;
+			this.renderToDom();
 		}
 
 	});

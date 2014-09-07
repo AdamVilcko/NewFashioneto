@@ -3,11 +3,10 @@ define(function(require){
 	var
 
 	Handlebars         = require("handlebars"),
-
-	MasterBaseView     = require( 'views/masterbaseview' ),
+	Backbone           = require("backbone"),
+	MasterBaseView     = require("views/masterbaseview"),
 	CommentView        = require("views/comments/comment"),
-	CommentsCollection = require("collections/comments/comments"),
-
+	CommentsCollection = require("collections/comments/comments"),	
 	showAll            = require("text!templates/comments/showall.hbr"),
 	input              = require("text!templates/comments/input.hbr");
 
@@ -62,10 +61,25 @@ define(function(require){
 
 		bindData: function( model ){
 			this.model = model;
-			this.collection.reset( model.get("commentsWrapper").collection );
+			var collection = model.get("commentsWrapper").collection;
+			if( collection instanceof Backbone.Collection ){
+				this.collection.off();
+				this.collection = collection;
+				this.collection
+				.setUrl( this.options )
+				.on( "sync", this.render, this )
+				.setUrl({
+					parentType: "image",
+					parentId: this.options.parentId
+				});
+			}
+			else {
+				this.collection.reset( collection );
+			}
 			this.renderToDom();
 		}
 
 	});
 
 });
+

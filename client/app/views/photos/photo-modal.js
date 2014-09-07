@@ -26,10 +26,10 @@ define(function(require){
 				var self = this, selectedModelId;
 				self.collection = self.options.model.collection;
 				self.model = self.options.model;
-
 				self.collection.fetch();
 				self.initComponents();
 				self.setEvents();
+				
 			},
 
 			initComponents: function(){
@@ -42,10 +42,6 @@ define(function(require){
 					} );
 					this.$( ".comments" )
 					.append( this.comments.render().el );
-				}
-
-				if( this.model.has("likes") ){
-
 				}
 
 				this.open();
@@ -84,7 +80,7 @@ define(function(require){
 
 			bindData: function(){
 				this.comments.bindData( this.model );
-				this.likes.bindData( this.model );
+				this.like.bindData( this.model );
 				this.$('#galleryImage')
 				.attr("src", App.api.get("image")  + "STANDARD/" + this.model.get("id") );
 			},
