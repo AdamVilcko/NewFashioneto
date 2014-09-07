@@ -19,8 +19,8 @@
                       <img class="media-object img-thumbnail" src="img/wall-avatar.jpg" alt="...">
                     </a>
                     <div class="media-body">
-                      <h4 class="media-heading">Bryan Transeau<span>10 mins ago</span></h4>
-                      <p>album- <span>{{model.imageDetails.albumName}}</span></p>
+                      <h4 class="media-heading">Bryan Transeau<span class="date">{{date model.date}}</span></h4>
+                      <p>{{model.imageDetails.albumName}}</p>
                       {{like "star"}}
                     </div>
                   </div>
