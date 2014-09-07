@@ -18,7 +18,7 @@ define(function(require){
 				if (details.profileImageId) {
 					this.set( "imageUrl", App.api.get( "image" ) + this.imageType + "/" + details.profileImageId );
 				} else {
-					// url for generic avatar
+					this.set( "imageUrl", "img/avatar.jpg" );
 				}
 				
 			}

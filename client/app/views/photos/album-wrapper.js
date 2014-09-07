@@ -7,7 +7,7 @@ define(function(require){
 	UploaderModal   = require('views/photos/uploader-modal'),
 
 	MasterBaseView  = require('views/masterbaseview'),
-	MasterBaseModel = require( 'models/masterbasemodel' );
+	MasterBaseModel = require( 'models/masterbasemodel' ),
 	Photos          = require('views/photos/album-photos'),
 	template        = require("text!templates/photos/album.hbr");
 
@@ -18,7 +18,7 @@ define(function(require){
 
 		init: function(){
 			this.photos = new Photos();
-			this.photos.collection.on("reset", this.renderPhotos, this );
+			this.photos.collection.on("reset add", this.render, this );
 			this.model = new MasterBaseModel();
 		},
 
@@ -36,7 +36,9 @@ define(function(require){
 
 		events:{
 			"click #addPhotos": function(){
-				this.uploaderModal = new UploaderModal();
+				this.uploaderModal = new UploaderModal({
+					collection: this.photos.collection
+				});
 			}
 		}
 

@@ -8,6 +8,7 @@ define(function(require){
 	MasterBaseView = require( 'views/masterbaseview' ),
 	Collection     = require('collections/photos/album-photos'),
 	AlbumThumbnail = require('views/photos/album-thumbnail');
+	
 
 	return MasterBaseView.extend({
 

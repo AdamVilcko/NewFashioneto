@@ -7,10 +7,8 @@
 
       <h1>Add new photo</h1>
 
-      <div class="form-inline well">
-
-        <p class="pull-left form-group">Choose a file to upload</p>
-        
+      <div class="form-inline modal-well upload-browse">
+        <p class="pull-left form-group">Choose a file to upload</p>        
         <span class="form-group btn btn-default fileinput-button pull-right">
           <i class="glyphicon glyphicon-plus"></i>
           <span>Browse</span>
@@ -18,21 +16,28 @@
           <input id="fileupload" type="file" name="files[]" multiple> -->
           <input id="fileupload" type="file" name="file">
         </span>
-
         <div class="clear clearer"></div>
-
       </div>
 
-      <div id="files" class="files"></div>
-        
-      <div id="progress" class="progress">
+      <div id="progress" class="progress" style="display:none;">
         <div class="progress-bar" style="width: 0%;"></div>
       </div>
 
-      <textarea placeholder="Write a description..." class="well"></textarea>
+      <div id="files" class="files"></div>     
 
-      <button class="btn btn-primary">Save and publish</button>
-      <button class="btn btn-default">Cancel</button>
+      <textarea rows="1" placeholder="Write a description..." class="modal-well"></textarea>
+
+      <select name="album" id="album" class="modal-well">
+        <option value="" disabled selected>Choose an album</option>
+        <option value="0">Looks</option>
+      </select>
+
+      <hr>
+
+      <div class="button-container">
+        <button class="btn btn-primary">Save and publish</button>
+        <button class="btn btn-default">Cancel</button>
+      </div>
 
       
 
