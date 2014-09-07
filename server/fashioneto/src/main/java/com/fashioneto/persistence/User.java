@@ -95,7 +95,7 @@ public class User implements Serializable, UserDetails {
     @Column(name = "city")
     private String city;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinColumn(name = "id_profile_image")
     private Image profileImage;
 

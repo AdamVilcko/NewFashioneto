@@ -5,7 +5,7 @@ package com.fashioneto.ws.entities;
  **/
 public enum ImageSize
 {
-	THUMBNAIL("-thumbnail", 51), SMALL("-small", 105), WALL("-wall", 295), STANDARD("", -1);
+	THUMBNAIL("-thumbnail", 51), SMALL("-small", 105), WALL("-wall", 252), STANDARD("", -1);
 
 	private String sufix;
 	private int width;
