@@ -21,6 +21,7 @@ define(function(require){
 		template: Handlebars.compile( mainTemplate ),
 
 		init: function(){
+			var defaults;
 			this.render().$el.removeClass( "login" );
 
 			this.nav = new Nav();
@@ -31,6 +32,15 @@ define(function(require){
 			};
 
 			App.vent.on( "page:change", this.controller, this );
+
+			//This should eventually use a local storage hash so that you get forwarded
+			//and various other refactoring
+			defaults = {
+				myProfile: true,
+				page: "profile",
+				tab: "wall"
+			};
+			this.controller( defaults );
 		},
 
 		controller: function( args ){
