@@ -26,6 +26,8 @@ import com.fashioneto.security.SaltedSHA256PasswordEncoder;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+    public static String USER_ROLE = "user";
+
     @Value("${user.signup.invitationOnly}")
     private boolean invitationOnlySignup;
     @Value("${album.name.uploads}")
@@ -70,6 +72,7 @@ public class UserServiceImpl implements UserService {
 	    return null;
 	}
 	boolean isInsert = user.getId() < 1;
+	user.addRole(USER_ROLE);
 	user = entityManager.merge(user);
 	if (isInsert) {
 	    entityManager.merge(new Album(AlbumService.ALBUM_UPLOADS, user));
@@ -79,8 +82,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User signupUser(String username, String email, String password, String displayName)
-	    throws UsernameInUseException, UserNotInvitedException {
+    public User signupUser(String username, String email, String password, String displayName) throws UsernameInUseException,
+	    UserNotInvitedException {
 	User user = new User();
 
 	if (getUser(username) != null) {
@@ -101,17 +104,17 @@ public class UserServiceImpl implements UserService {
 	user = saveUser(user);
 	return user;
     }
-    
+
     @Override
     public boolean inviteUser(User user, String email) {
-	
+
 	User alreadyActive = getUserByEmailAndStatus(email, UserStatus.ACTIVE);
 	if (alreadyActive != null) {
 	    return false;
 	}
-	
+
 	User invitedUser = getUserByEmailAndStatus(email, UserStatus.INVITED);
-	
+
 	if (invitedUser == null) {
 	    invitedUser = new User();
 	    invitedUser.setStatus(UserStatus.INVITED);
@@ -120,7 +123,7 @@ public class UserServiceImpl implements UserService {
 	}
 	invitedUser.setEmail(email);
 	invitedUser = saveUser(invitedUser);
-	
+
 	Invitation invitation = new Invitation(user, invitedUser, new Date());
 	entityManager.merge(invitation);
 	return true;

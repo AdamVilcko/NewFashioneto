@@ -149,8 +149,7 @@ public class UserRestBean {
     }
 
     private JsonObject getJsonAuthentication(String username, String password) throws NoUserInContextException {
-	UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,
-		password);
+	UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
 	Authentication authentication = this.authManager.authenticate(authenticationToken);
 	SecurityContextHolder.getContext().setAuthentication(authentication);
 
