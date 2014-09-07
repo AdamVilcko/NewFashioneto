@@ -28,6 +28,11 @@ define(function(require){
 
 		registerLike: function(){
             this.model.persist( this.options.parentId, this.model.get("actioned") ? { type: "DELETE"} : null );
+		},
+
+		bindData: function(){
+			this.model.on( "sync change", this.renderToDom, this );
+			this.model.url = App.api.get( "like", this.options.contextId );
 		}
 
 	});
