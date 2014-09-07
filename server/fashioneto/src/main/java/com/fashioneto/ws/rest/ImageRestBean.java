@@ -17,8 +17,10 @@ import javax.ws.rs.core.Response.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fashioneto.persistence.Album;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.User;
+import com.fashioneto.service.AlbumService;
 import com.fashioneto.service.ImageService;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
@@ -37,6 +39,8 @@ import com.sun.jersey.multipart.FormDataParam;
 public class ImageRestBean {
     @Autowired
     private ImageService imageService;
+    @Autowired
+    private AlbumService albumService;
 
     @GET
     @Path("raw/{imageId}")
@@ -66,13 +70,57 @@ public class ImageRestBean {
     public Response uploadFile(@FormDataParam("file") InputStream fileInputStream,
 	    @FormDataParam("file") FormDataContentDisposition contentDispositionHeader,
 	    @FormDataParam("file") FormDataBodyPart body) throws IOException {
-	
+
 	if (fileInputStream == null || contentDispositionHeader == null || body == null) {
 	    return Response.status(Status.BAD_REQUEST).build();
 	}
 	try {
 	    User user = ContextUtils.getUserFromAuthenticationContext();
-	    Image image = imageService.uploadImage(user, fileInputStream, body.getMediaType().getSubtype());
+	    Album album = albumService.getUploadAlbum(user);
+	    Image image = imageService.uploadImage(user, fileInputStream, body.getMediaType().getSubtype(), album);
+	    return Response.ok().entity(FashionetoJsonFactory.getJsonFromObject(image)).build();
+	} catch (NoUserInContextException e) {
+	    e.printStackTrace();
+	    return Response.status(Status.FORBIDDEN).build();
+	}
+
+    }
+
+    @POST
+    @Path("upload/{albumId}")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public Response uploadFile(@PathParam("album") int albumId, @FormDataParam("file") InputStream fileInputStream,
+	    @FormDataParam("file") FormDataContentDisposition contentDispositionHeader,
+	    @FormDataParam("file") FormDataBodyPart body) throws IOException {
+
+	if (fileInputStream == null || contentDispositionHeader == null || body == null) {
+	    return Response.status(Status.BAD_REQUEST).build();
+	}
+	try {
+	    User user = ContextUtils.getUserFromAuthenticationContext();
+	    Album album = albumService.getAlbum(albumId);
+	    Image image = imageService.uploadImage(user, fileInputStream, body.getMediaType().getSubtype(), album);
+	    return Response.ok().entity(FashionetoJsonFactory.getJsonFromObject(image)).build();
+	} catch (NoUserInContextException e) {
+	    e.printStackTrace();
+	    return Response.status(Status.FORBIDDEN).build();
+	}
+
+    }
+
+    @POST
+    @Path("upload/profile")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public Response uploadProfilePicture(@FormDataParam("file") InputStream fileInputStream,
+	    @FormDataParam("file") FormDataContentDisposition contentDispositionHeader,
+	    @FormDataParam("file") FormDataBodyPart body) throws IOException {
+
+	if (fileInputStream == null || contentDispositionHeader == null || body == null) {
+	    return Response.status(Status.BAD_REQUEST).build();
+	}
+	try {
+	    User user = ContextUtils.getUserFromAuthenticationContext();
+	    Image image = imageService.uploadProfilePicture(user, fileInputStream, body.getMediaType().getSubtype());
 	    return Response.ok().entity(FashionetoJsonFactory.getJsonFromObject(image)).build();
 	} catch (NoUserInContextException e) {
 	    e.printStackTrace();

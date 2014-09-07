@@ -65,7 +65,18 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public Image uploadImage(User user, InputStream fileInputStream, String fileExtension) throws IOException {
+    public Image uploadProfilePicture(User user, InputStream fileInputStream, String fileExtension) throws IOException {
+	Album profileAlbum = albumService.getProfileAlbum(user);
+	Image newProfileImage = uploadImage(user, fileInputStream, fileExtension, profileAlbum);
+	
+	user.setProfileImage(newProfileImage);
+	entityManager.merge(user);
+	
+	return newProfileImage;
+    }
+
+    @Override
+    public Image uploadImage(User user, InputStream fileInputStream, String fileExtension, Album album) throws IOException {
 
 	String newFilename = TokenUtils.createTokenImageName(user);
 
@@ -89,8 +100,6 @@ public class ImageServiceImpl implements ImageService {
 	image.setFilename(newFilename);
 	image.setUser(user);
 	image.setFileExtension(DEFAULT_EXTENSION);
-
-	Album album = albumService.getUploadAlbum(user);
 
 	image.setAlbum(album);
 	image = entityManager.merge(image);

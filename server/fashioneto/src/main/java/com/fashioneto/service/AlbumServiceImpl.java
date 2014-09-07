@@ -15,24 +15,26 @@ import com.fashioneto.persistence.User;
  **/
 
 @Service("albumService")
-public class AlbumServiceImpl implements AlbumService
-{
+public class AlbumServiceImpl implements AlbumService {
 
-	@PersistenceContext
-	private EntityManager entityManager;
+    @PersistenceContext
+    private EntityManager entityManager;
 
-	@Autowired
-	private AlbumDAO albumDAO;
+    @Autowired
+    private AlbumDAO albumDAO;
 
-	@Override
-	public Album getUploadAlbum(User user)
-	{
-		return albumDAO.getAlbumByName(user, ALBUM_UPLOADS);
-	}
+    @Override
+    public Album getUploadAlbum(User user) {
+	return albumDAO.getAlbumByName(user, ALBUM_UPLOADS);
+    }
 
-	@Override
-	public Album getAlbum(int albumId)
-	{
-		return entityManager.find(Album.class, albumId);
-	}
+    @Override
+    public Album getProfileAlbum(User user) {
+	return albumDAO.getAlbumByName(user, ALBUM_PROFILE);
+    }
+
+    @Override
+    public Album getAlbum(int albumId) {
+	return entityManager.find(Album.class, albumId);
+    }
 }

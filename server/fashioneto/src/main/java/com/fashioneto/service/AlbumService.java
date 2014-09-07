@@ -14,4 +14,6 @@ public interface AlbumService
 	public Album getUploadAlbum(User user);
 
 	public Album getAlbum(int albumId);
+
+	public Album getProfileAlbum(User user);
 }
