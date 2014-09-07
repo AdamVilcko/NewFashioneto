@@ -140,10 +140,10 @@ define(function(require){
 				},
 
 				error: function( jqXHR, textStatus, errorThrown ){
-					if( jqXHR.status === 401 ){
+					if( jqXHR.status === 401 || jqXHR.status === 404 ){
 						this.logout();
 					} else {
-						alert( "getUser method: " + jqXHR.status + ": " + errorThrown  );
+						console.log("getUser method: " + jqXHR.status + ": " + errorThrown);
 					}
 
 				}
