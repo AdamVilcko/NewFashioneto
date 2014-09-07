@@ -18,6 +18,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.geometry.Positions;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,8 +75,8 @@ public class ImageServiceImpl implements ImageService {
 	fileInputStream.close();
 
 	File standardImage = new File(imageFullPathName);
-	Thumbnails.of(standardImage).width(ImageSize.WALL.getWidth()).outputFormat(DEFAULT_EXTENSION)
-		.toFile(getFullImagePath(newFilename, ImageSize.WALL));
+	Thumbnails.of(standardImage).crop(Positions.CENTER).size(ImageSize.WALL.getWidth(), ImageSize.WALL.getWidth())
+		.outputFormat(DEFAULT_EXTENSION).toFile(getFullImagePath(newFilename, ImageSize.WALL));
 
 	Thumbnails.of(standardImage).width(ImageSize.SMALL.getWidth()).outputFormat(DEFAULT_EXTENSION)
 		.toFile(getFullImagePath(newFilename, ImageSize.SMALL));
