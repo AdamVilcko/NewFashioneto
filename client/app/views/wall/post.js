@@ -27,7 +27,6 @@ define(function(require){
 		},
 
 		postRender: function(){
-			Helper.processDate.call( this );
 			if( this.model.has( "commentsWrapper" ) ){
 				var commentData = this.model.get("commentsWrapper").collection;
 				this.comments = new Comments( {

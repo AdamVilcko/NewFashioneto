@@ -1,7 +1,5 @@
 define(function(require){
 
-	Moment    = require("moment"),
-	LiveStamp = require("jquery.livestamp"),
 	_ = require("_");
 
 	return {
@@ -46,12 +44,6 @@ define(function(require){
 				hide();
 				el.data( 'toggle', 'collapse' );
 			}
-		},
-
-		processDate: function(){
-			/*this.$el.find('.date')
-			.livestamp( this.model.get( "date" ) )
-			.attr( "title", Moment.unix( this.model.get( "date" ) ).format() );*/
 		},
 
 		queryBuilder: function( args, options ){

@@ -17,13 +17,7 @@ define(function(require){
 
 		className: "media comment",
 
-		template: Handlebars.compile( template ),
-
-		render: function(){
-			this.$el.html( this.template( this.merge() ) );
-			Helper.processDate.call( this );
-			return this;
-		}
+		template: Handlebars.compile( template )		
 
 	});
 

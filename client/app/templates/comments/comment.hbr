@@ -2,6 +2,6 @@
   <img class="media-object img-thumbnail" src="{{model.imageUrl}}" alt="...">
 </a>
 <div class="media-body">
-<h4 class="media-heading">{{model.displayName}}<span class="date"></span></h4>
+<h4 class="media-heading">{{model.displayName}}<span class="date">{{date model.date}}</span></h4>
   <p>{{model.content}}</p>
 </div>

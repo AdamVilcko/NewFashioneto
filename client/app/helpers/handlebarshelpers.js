@@ -1,10 +1,13 @@
 define(function(require){
 
 	var
-	$          = require("jquery"),
-	Handlebars = require( "handlebars" ),
-	_          = require("_"),
 
+	$          = require("jquery"),
+	_          = require("_"),
+	Handlebars = require( "handlebars" ),
+	Moment     = require("moment"),
+	LiveStamp  = require("jquery.livestamp"),
+	
 	Like       = require("views/like/like"),
 	Follow     = require("views/follow/follow");
 
@@ -97,5 +100,15 @@ define(function(require){
 		return new Handlebars.SafeString( string  );
 	});
 
+	Handlebars.registerHelper( 'date', function( date ) {
+
+		var view = this.viewContext;
+
+		_.defer(function(){
+			view.$('.date')
+			.livestamp( Moment.unix( view.model.get( "date" ) ) )
+			.attr( "title", Moment.unix( view.model.get( "date" ) ).format() );
+		});
+	});
 
 });
