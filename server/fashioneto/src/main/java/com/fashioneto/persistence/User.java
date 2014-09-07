@@ -101,7 +101,7 @@ public class User implements Serializable, UserDetails {
 
     @Enumerated(EnumType.STRING)
     private UserStatus status;
-    
+
     @Override
     public int hashCode() {
 	return id;
@@ -112,9 +112,7 @@ public class User implements Serializable, UserDetails {
 
 	if (obj instanceof User) {
 	    User user = (User) obj;
-	    return user.getId() == this.id
-		    && user.getUsername().equals(this.username)
-		    && user.getEmail().equals(this.email);
+	    return user.getId() == this.id && user.getUsername().equals(this.username) && user.getEmail().equals(this.email);
 	}
 
 	return false;
@@ -211,9 +209,8 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public String toString() {
-	return "User [id=" + id + ", username=" + username + ", email=" + email
-		+ ", postedComments=" + postedComments + ", receivedComments="
-		+ receivedComments + "]";
+	return "User [id=" + id + ", username=" + username + ", email=" + email + ", postedComments=" + postedComments
+		+ ", receivedComments=" + receivedComments + "]";
     }
 
     public Set<Comment> getPostedComments() {
@@ -246,6 +243,13 @@ public class User implements Serializable, UserDetails {
 	}
 
 	return authorities;
+    }
+
+    public void addRole(String roleName) {
+	if (roles == null) {
+	    roles = Collections.emptySet();
+	}
+	roles.add(roleName);
     }
 
     @Override
@@ -312,11 +316,11 @@ public class User implements Serializable, UserDetails {
     }
 
     public UserStatus getStatus() {
-        return status;
+	return status;
     }
 
     public void setStatus(UserStatus status) {
-        this.status = status;
+	this.status = status;
     }
 
 }
