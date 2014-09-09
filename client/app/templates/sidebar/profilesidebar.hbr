@@ -1,6 +1,7 @@
 <div id="profileBox">
 
   <div class="picture thumbnail" href="#">
+  	<div>Upload profile picture</div>
     <img src="{{image model.details.imageId "WALL"}}" alt="...">
   </div>
 

@@ -24,12 +24,17 @@ require = {
         "jquery.transit": "../lib/jquery.transit",
         "jquery.imageloaded" : "../lib/imagesloaded.pkgd.min",
         "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal",
-        "jquery.bridget": "../lib/jquery.bridget",        
+        "jquery.bridget": "../lib/jquery.bridget",
+        
         "jquery.fileupload": "../lib/jqueryuploader/jquery.fileupload",
-        "jquery.iframe-transport": "../lib/jqueryuploader/jquery.iframe-transport",     	
-        "jquery.ui.widget": "../lib/jqueryuploader/vendor/jquery.ui.widget"
+        "jquery.iframe-transport": "../lib/jqueryuploader/jquery.iframe-transport",
+		"jquery.ui.widget": "../lib/jqueryuploader/vendor/jquery.ui.widget",
 
-    },
+		//Add the rest of the image stuff here
+		//"load.image": "../lib/jqueryuploader/"
+		//"jquery.fileupload-image": "../lib/jqueryuploader/jquery.fileupload-image",
+
+    }, 
 
     shim:{
 
@@ -52,11 +57,12 @@ require = {
         "jquery.transit": ['jquery'],
         "jquery.imageloaded": ['jquery'],
         "jquery.bridget": ['jquery'],
-
         "jquery.masonryImagesReveal": ['jquery', "jquery.imageloaded" ],
 
+        "jquery.fileupload-image": ['jquery'],
         "jquery.iframe-transport": ['jquery'],
         "jquery.fileupload-ui": ['jquery'],
+
 
 
         jqueryui: ['jquery'],
