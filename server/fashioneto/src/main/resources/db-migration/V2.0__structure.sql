@@ -71,11 +71,6 @@ create table comment_parent (
 	`parent_type` varchar(50) not null
 );
 
-create table like_item (
-	`id_user` int(11) unsigned not null,
-	`id_item` int(11) unsigned not null	
-);
-
 create table like_comment (
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
 	`id_user` int(11) unsigned not null,
@@ -93,4 +88,21 @@ CREATE TABLE User_roles
 	`id` int(11) unsigned AUTO_INCREMENT not null primary key,
    `User_id` int(11) unsigned not null,
    `Roles` varchar(50)
+);
+
+-- FEED TABLES:
+create table feed (
+	`id_feed` int(11) unsigned AUTO_INCREMENT not null primary key,
+	`id_user` int(11) unsigned not null,
+	`date` DATETIME not null,
+	`type` varchar(20) not null
+);
+
+create table like_item (
+	`id_feed` int(11) unsigned not null,
+	`id_item` int(11) unsigned not null,	
+	
+	`id_user` int(11) unsigned not null,
+	`date` DATETIME not null,
+	`type` varchar(20) not null
 );

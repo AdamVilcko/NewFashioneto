@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Image;
-import com.fashioneto.persistence.Item;
+import com.fashioneto.persistence.LikeItem;
 import com.fashioneto.persistence.User;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
@@ -66,7 +66,7 @@ public class UserJsonSerializer implements JsonSerializer<User> {
 	DefaultSet<Comment> commentSet = new DefaultSet<Comment>(user.getReceivedComments());
 	jsonObject.add(JSON_PROPERTY_COMMENTS, context.serialize(commentSet));
 
-	DefaultSet<Item> likedItems = new DefaultSet<Item>(user.getItems());
+	DefaultSet<LikeItem> likedItems = new DefaultSet<LikeItem>(user.getLikedItems());
 	jsonObject.add(JSON_PROPERTY_ITEMS, context.serialize(likedItems));
 
 	DefaultSet<User> followersSet = new DefaultSet<User>(user.getFollowers());

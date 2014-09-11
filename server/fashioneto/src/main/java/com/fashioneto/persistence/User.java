@@ -74,10 +74,9 @@ public class User implements Serializable, UserDetails {
     @JoinTable(name = "follow_user", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_followed_user"))
     private Set<User> following = new LinkedHashSet<User>();
 
-    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-    @JoinTable(name = "like_item", joinColumns = @JoinColumn(name = "id_user"), inverseJoinColumns = @JoinColumn(name = "id_item"))
-    // @OrderBy("date desc")
-    private Set<Item> items = new LinkedHashSet<Item>();
+    @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @OrderBy("date desc")
+    private Set<LikeItem> likedItems = new LinkedHashSet<LikeItem>();
 
     @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @OrderBy("date desc")
@@ -307,13 +306,6 @@ public class User implements Serializable, UserDetails {
 	this.images = images;
     }
 
-    public Set<Item> getItems() {
-	return items;
-    }
-
-    public void setItems(Set<Item> items) {
-	this.items = items;
-    }
 
     public UserStatus getStatus() {
 	return status;
@@ -321,6 +313,14 @@ public class User implements Serializable, UserDetails {
 
     public void setStatus(UserStatus status) {
 	this.status = status;
+    }
+
+    public Set<LikeItem> getLikedItems() {
+        return likedItems;
+    }
+
+    public void setLikedItems(Set<LikeItem> likedItems) {
+        this.likedItems = likedItems;
     }
 
 }
