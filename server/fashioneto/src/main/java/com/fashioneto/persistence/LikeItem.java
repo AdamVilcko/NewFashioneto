@@ -3,17 +3,15 @@
  */
 package com.fashioneto.persistence;
 
-import java.io.Serializable;
-
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -22,34 +20,41 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "like_item")
-@PrimaryKeyJoinColumn(name = "id_feed")
-@AttributeOverrides({
-    @AttributeOverride(name="id", column=@Column(name="id_feed")),
-    @AttributeOverride(name="user", column=@Column(name="id_user")),
-    @AttributeOverride(name="date", column=@Column(name="date")),
-    @AttributeOverride(name="type", column=@Column(name="type"))
-})
-public class LikeItem extends Feed implements Serializable {
+public class LikeItem implements Feedable {
 
-    /**
-     * 
-     */
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    protected int id;
+    
+    @GeneratedValue
+    @OneToOne(mappedBy = "Feedable", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+    protected Feed feed;   
+    
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_item")
     private Item item;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_user")
+    protected User user;    
+    
     public LikeItem() {
-	this.setType(FeedType.LIKE_ITEM);
+	
     }
 
     public LikeItem(User user, Item item) {
-	super(user);
-	this.setType(FeedType.LIKE_ITEM);
 	this.item = item;
     }
 
+    @Override
+    public int hashCode() {
+	return getId();
+    }
+
+    
     @Override
     public boolean equals(Object obj) {
 
@@ -65,17 +70,29 @@ public class LikeItem extends Feed implements Serializable {
 
 	return false;
     }
-
-    public User getUser() {
-	return this.user;
-    }
-
+    
     public Item getItem() {
 	return item;
     }
 
     public void setItem(Item item) {
 	this.item = item;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

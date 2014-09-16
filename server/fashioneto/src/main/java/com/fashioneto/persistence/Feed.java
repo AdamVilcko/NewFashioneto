@@ -18,6 +18,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -25,9 +26,9 @@ import javax.persistence.Table;
  *
  */
 //@Entity
-//@Table(name = "feed")
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-//@Inheritance(strategy=InheritanceType.JOINED)
+@Table(name = "feed")
+//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy=InheritanceType.JOINED)
 @MappedSuperclass
 public class Feed {
 
@@ -36,22 +37,20 @@ public class Feed {
     @Column(name = "id_feed")
     protected int id;
     
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_user")
-    protected User user;
-    
-    @Column(name = "dt_comment")
+    @Column(name = "date")
     protected Date date;
     
     @Enumerated(EnumType.STRING)
     protected FeedType type;
+    
+    @OneToOne(mappedBy = "feed", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    protected Feedable feedable;
 
     public Feed() {
 	
     }
     
     public Feed(User user) {
-	this.user = user;
     }
     
     public int getId() {
@@ -60,14 +59,6 @@ public class Feed {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public Date getDate() {
@@ -84,6 +75,14 @@ public class Feed {
 
     public void setType(FeedType type) {
         this.type = type;
+    }
+
+    public Feedable getFeedable() {
+        return feedable;
+    }
+
+    public void setFeedable(Feedable feedable) {
+        this.feedable = feedable;
     }
 
     
