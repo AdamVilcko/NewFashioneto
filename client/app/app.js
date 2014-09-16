@@ -44,6 +44,7 @@ window.App =
         follow: "follow",
         photos: "images",
         upload: "image/upload",
+        profileupload: "image/upload/profile",
         signup: "user/signup",
 
         shopstyle: {

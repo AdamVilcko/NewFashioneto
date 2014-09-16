@@ -25,7 +25,7 @@
 
       <div id="files" class="files"></div>     
 
-      <textarea rows="1" placeholder="Write a description..." class="modal-well"></textarea>
+      <textarea rows="1" placeholder="Write a description..." class="modal-well uploaderDescription"></textarea>
 
       <select name="album" id="album" class="modal-well">
         <option value="" disabled selected>Choose an album</option>
@@ -35,7 +35,7 @@
       <hr>
 
       <div class="button-container">
-        <button class="btn btn-primary">Save and publish</button>
+        <button data-action="upload" class="btn btn-primary">Upload</button>
         <button class="btn btn-default">Cancel</button>
       </div>
 

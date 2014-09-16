@@ -34,6 +34,10 @@ define(function (require) {
 			    $('#fileupload').fileupload({
 			    	//autoUpload: false,
 			        url: url,
+				    formData: [{
+			    		value: this.$('.uploaderDescription').val(),
+			    		name: "description"
+			    	}],
 			        dataType: 'json',
 			        send: function (e, data) {
 			        	$('.upload-browse, textarea, select').hide();

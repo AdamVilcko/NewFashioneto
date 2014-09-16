@@ -25,16 +25,21 @@ require = {
         "jquery.imageloaded" : "../lib/imagesloaded.pkgd.min",
         "jquery.masonryImagesReveal" : "../lib/masonryImagesReveal",
         "jquery.bridget": "../lib/jquery.bridget",
-        
+
         "jquery.fileupload": "../lib/jqueryuploader/jquery.fileupload",
         "jquery.iframe-transport": "../lib/jqueryuploader/jquery.iframe-transport",
 		"jquery.ui.widget": "../lib/jqueryuploader/vendor/jquery.ui.widget",
 
 		//Add the rest of the image stuff here
-		//"load.image": "../lib/jqueryuploader/"
-		//"jquery.fileupload-image": "../lib/jqueryuploader/jquery.fileupload-image",
+		"jquery.fileupload-image": "../lib/jqueryuploader/jquery.fileupload-image",
+		"jquery.fileupload-process": "../lib/jqueryuploader/jquery.fileupload-process",
+		'load-image' : "../lib/jqueryuploader/load-image/js/load-image",
+        'load-image-meta' : "../lib/jqueryuploader/load-image/js/load-image-meta",
+        'load-image-exif' : "../lib/jqueryuploader/load-image/js/load-image-exif",
+        'load-image-ios' : "../lib/jqueryuploader/load-image/js/load-image-ios",
+        'canvas-to-blob' : "../lib/jqueryuploader/load-image/js/canvas-to-blob"
 
-    }, 
+    },
 
     shim:{
 
@@ -57,13 +62,9 @@ require = {
         "jquery.transit": ['jquery'],
         "jquery.imageloaded": ['jquery'],
         "jquery.bridget": ['jquery'],
-        "jquery.masonryImagesReveal": ['jquery', "jquery.imageloaded" ],
+        "jquery.masonryImagesReveal": ['jquery', "jquery.imageloaded"],
 
-        "jquery.fileupload-image": ['jquery'],
-        "jquery.iframe-transport": ['jquery'],
-        "jquery.fileupload-ui": ['jquery'],
-
-
+        'load-image' : ['jquery'],
 
         jqueryui: ['jquery'],
 

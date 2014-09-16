@@ -1,14 +1,18 @@
 define(function(require){
 
 	var
-	Handlebars = require( "handlebars" ),
-	$          = require( "jquery" ),
-	
-	Cropper    = require( 'jquery.cropper' ),
-	//ImagePreview = require('jquery.fileupload-image'),
-	ModalView  = require( 'components/modal' ),
-	template   = require( 'text!templates/photos/profile-uploader-modal.hbr' );
-
+		Handlebars      = require( "handlebars" ),
+		$               = require( "jquery" ),
+		
+		Cropper         = require( 'jquery.cropper' ),
+		Fileupload      = require('jquery.fileupload'),
+		FileuploadImage = require('jquery.fileupload-image'),
+		
+		//Add the rest of the image stuff here
+		
+		ModalView       = require( 'components/modal' ),
+		template        = require( 'text!templates/photos/profile-uploader-modal.hbr' );
+		
 
 	return ModalView.extend({
 
@@ -21,15 +25,22 @@ define(function(require){
 			this.render();
 			this.open();			
 			    
-		    var url = App.api.get("upload");
+		    var url = App.api.get("profileupload");
 
 		    $('#fileupload').fileupload({
-		    	autoUpload: false,
+		    	//autoUpload: false,
+		    	formData: [{
+		    		name: "description",
+		    		value: this.$('.uploaderDescription').val()
+		    	}],
 		        url: url,
 		        dataType: 'json',
-		        previewMaxWidth: 100,
-		        previewMaxHeight: 100,
-		        previewCrop: true,
+		        previewThumbnail: true,
+		        disableImageResize: /Android(?!.*Chrome)|Opera/
+            		.test(window.navigator.userAgent),
+		        previewMaxWidth: "500",
+		        previewMaxHeight: "600",
+		        
 		        send: function (e, data) {
 		        	$('.upload-browse, textarea, select').hide();
 		        	$('#progress').show();
@@ -56,14 +67,31 @@ define(function(require){
 
 		    })
 			.on('fileuploadadd', function (e, data) {
-		        data.context = $('<div/>').appendTo('#files');
-		        $.each(data.files, function (index, file) {
-		            var
-		            node = $('<p/>')
-		            .append( file.preview )
-		            .append($('<span/>').text(file.name));
-		            node.appendTo(data.context);
-		        });
+		        data.context = $('<div/>').appendTo('#files');		       
+		    })
+		    .on('fileuploadprocessalways', function (e, data) {
+		        var index = data.index,
+		            file = data.files[index],
+		            node = $(data.context),
+		            container;
+		        if (file.preview) {
+		        	container = $("<div></div>")
+		        		.addClass("modal-well")
+		        		.html(file.preview);
+		            node
+		                .prepend('<br>')
+		                .prepend(container);
+		        }
+		        if (file.error) {
+		            node
+		                .append('<br>')
+		                .append($('<span class="text-danger"/>').text(file.error));
+		        }
+		        if (index + 1 === data.files.length) {
+		            data.context.find('button')
+		                .text('Upload')
+		                .prop('disabled', !!data.files.error);
+		        }
 		    })
 		    .prop('disabled', !$.support.fileInput)
 		    .parent().addClass($.support.fileInput ? undefined : 'disabled');			
