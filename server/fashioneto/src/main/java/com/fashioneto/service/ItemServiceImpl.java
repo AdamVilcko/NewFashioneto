@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.fashioneto.dao.CommentDAO;
 import com.fashioneto.dao.ItemDAO;
 import com.fashioneto.persistence.Item;
+import com.fashioneto.persistence.LikeItem;
 import com.fashioneto.persistence.User;
 
 /**
@@ -36,14 +37,14 @@ public class ItemServiceImpl implements ItemService {
     public int like(User user, Item item) {
 	item.addLiker(user);
 	entityManager.merge(item);
-	return item.getLikedBy().size();
+	return item.getLikes().size();
     }
 
     @Override
     public int dislike(User user, Item item) {
 	item.removeLiker(user);
 	entityManager.merge(item);
-	return item.getLikedBy().size();
+	return item.getLikes().size();
     }
 
     @Override

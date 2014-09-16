@@ -25,92 +25,86 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "item")
-public class Item implements Serializable
-{
+public class Item implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "id")
-	private int id;
+    @Id
+    @Column(name = "id")
+    private int id;
 
-	@Column(name = "indexing_date")
-	private Date indexingDate;
+    @Column(name = "indexing_date")
+    private Date indexingDate;
 
-	@ManyToMany(cascade = { CascadeType.PERSIST }, fetch = FetchType.EAGER)
-	@JoinTable(name = "like_item", joinColumns = @JoinColumn(name = "id_item"), inverseJoinColumns = @JoinColumn(name = "id_user"))
-	private Set<User> likedBy = new LinkedHashSet<User>();
+    @OneToMany(mappedBy = "item", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    private Set<LikeItem> likes = new LinkedHashSet<LikeItem>();
 
-	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-	@JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_item"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
-	@OrderBy("date desc")
-	private Set<Comment> comments = new LinkedHashSet<Comment>();
+    @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @JoinTable(name = "comment_parent", joinColumns = @JoinColumn(name = "id_parent_item"), inverseJoinColumns = @JoinColumn(name = "id_comment"))
+    @OrderBy("date desc")
+    private Set<Comment> comments = new LinkedHashSet<Comment>();
 
-	public Item()
-	{
+    public Item() {
 
+    }
+
+    public Item(int id) {
+	this.id = id;
+    }
+
+    public Item(int id, Date indexingDate) {
+	this.id = id;
+	this.indexingDate = indexingDate;
+    }
+
+    public void addLiker(User user) {
+	LikeItem likeItem = new LikeItem(user, this);
+	if (!likes.contains(likeItem)) {
+	    likes.add(likeItem);
 	}
+    }
 
-	public Item(int id)
-	{
-		this.id = id;
+    public void removeLiker(User user) {
+	LikeItem likeItem = new LikeItem(user, this);
+	if (likes.contains(likeItem)) {
+	    likes.remove(likeItem);
 	}
+    }
 
-	public Item(int id, Date indexingDate)
-	{
-		this.id = id;
-		this.indexingDate = indexingDate;
-	}
+    @Override
+    public String toString() {
+	return "Item [id=" + id + ", indexingDate=" + indexingDate + "]";
+    }
 
-	public void addLiker(User user)
-	{
-		if (!likedBy.contains(user))
-		{
-			likedBy.add(user);
-		}
-	}
+    public int getId() {
+	return id;
+    }
 
-	public void removeLiker(User user)
-	{
-		if (likedBy.contains(user))
-		{
-			likedBy.remove(user);
-		}
-	}
+    public void setId(int id) {
+	this.id = id;
+    }
 
-	@Override
-	public String toString()
-	{
-		return "Item [id=" + id + ", indexingDate=" + indexingDate + "]";
-	}
+    public Set<Comment> getComments() {
+	return comments;
+    }
 
-	public int getId()
-	{
-		return id;
-	}
+    public void setComments(Set<Comment> comments) {
+	this.comments = comments;
+    }
 
-	public void setId(int id)
-	{
-		this.id = id;
-	}
+    public Date getIndexingDate() {
+        return indexingDate;
+    }
 
-	public Set<User> getLikedBy()
-	{
-		return likedBy;
-	}
+    public void setIndexingDate(Date indexingDate) {
+        this.indexingDate = indexingDate;
+    }
 
-	public void setLikedBy(Set<User> likedBy)
-	{
-		this.likedBy = likedBy;
-	}
+    public Set<LikeItem> getLikes() {
+        return likes;
+    }
 
-	public Set<Comment> getComments()
-	{
-		return comments;
-	}
-
-	public void setComments(Set<Comment> comments)
-	{
-		this.comments = comments;
-	}
+    public void setLikes(Set<LikeItem> likes) {
+        this.likes = likes;
+    }
 }
