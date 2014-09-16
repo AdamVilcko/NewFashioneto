@@ -48,14 +48,18 @@ define(function(require){
 		        done: function (e, data) {
 
 		        	//Add to collection
-		        	self.options.collection.add({
-		        		id: data.result.id
-		        	});
-
+		        	
 		        	var message = '<img class="thumbnail center" src="' + App.api.get("image") + 'SMALL/' + data.result.id + '" />'
 		        	message = message + '<p class="alert alert-info" style="text-align: center;">Uploaded successfully to album.</p>';
 		            $('#files').html(message);
 		            $('#progress').hide();
+
+		            var thumb = $("#nav-right img");
+		            thumb.attr('src', "/Fashioneto-0.1b/as/image/raw/THUMBNAIL/" + data.result.id);
+
+		            var profile = $("#profileBox .picture img");
+		            profile.attr('src', "/Fashioneto-0.1b/as/image/raw/WALL/" + data.result.id);
+
 		        },
 		        progressall: function (e, data) {
 		            var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -66,7 +70,7 @@ define(function(require){
 		        }
 
 		    })
-			.on('fileuploadadd', function (e, data) {
+			/*.on('fileuploadadd', function (e, data) {
 		        data.context = $('<div/>').appendTo('#files');		       
 		    })
 		    .on('fileuploadprocessalways', function (e, data) {
@@ -92,7 +96,7 @@ define(function(require){
 		                .text('Upload')
 		                .prop('disabled', !!data.files.error);
 		        }
-		    })
+		    })*/
 		    .prop('disabled', !$.support.fileInput)
 		    .parent().addClass($.support.fileInput ? undefined : 'disabled');			
 		}
