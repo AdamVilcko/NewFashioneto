@@ -7,6 +7,7 @@ import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.User;
 import com.fashioneto.utils.ContextUtils;
+import com.fashioneto.utils.DateUtils;
 import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.ws.entities.DefaultSet;
 import com.fashioneto.ws.entities.LikesWrapper;
@@ -24,6 +25,7 @@ public class ImageJsonSerializer implements JsonSerializer<Image>
 	public static final String JSON_PROPERTY_LIKES = "likes";
 
 	public static final String JSON_PROPERTY_DETAILS = "imageDetails";
+	public static final String JSON_PROPERTY_DETAILS_DATE = "date";
 	public static final String JSON_PROPERTY_DETAILS_USER_ID = "userId";
 	public static final String JSON_PROPERTY_DETAILS_DESCRIPTION = "description";
 	public static final String JSON_PROPERTY_DETAILS_ALBUM_NAME = "albumName";
@@ -66,6 +68,7 @@ public class ImageJsonSerializer implements JsonSerializer<Image>
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_USER_ID, image.getUser().getId());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_DESCRIPTION, image.getDescription());
 		jsonObject.addProperty(JSON_PROPERTY_DETAILS_ALBUM_NAME, image.getAlbum().getName());
+		jsonObject.addProperty(JSON_PROPERTY_DETAILS_DATE, DateUtils.getDateInTimestampString(image.getDate()));
 		return jsonObject;
 	}
 
