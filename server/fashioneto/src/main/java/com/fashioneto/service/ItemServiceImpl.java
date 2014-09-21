@@ -35,8 +35,11 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public int like(User user, Item item) {
-	item.addLiker(user);
-	entityManager.merge(item);
+	LikeItem likeItem = new LikeItem(user, item);
+	if (!user.getLikedItems().contains(likeItem)) {
+	    user.getLikedItems().add(likeItem);
+	    entityManager.merge(user);
+	}
 	return item.getLikes().size();
     }
 

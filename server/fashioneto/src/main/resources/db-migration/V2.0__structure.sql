@@ -93,16 +93,12 @@ CREATE TABLE User_roles
 -- FEED TABLES:
 create table feed (
 	`id_feed` int(11) unsigned AUTO_INCREMENT not null primary key,
-	`id_user` int(11) unsigned not null,
 	`date` DATETIME not null,
 	`type` varchar(20) not null
 );
 
 create table like_item (
 	`id_feed` int(11) unsigned not null,
-	`id_item` int(11) unsigned not null,	
-	
 	`id_user` int(11) unsigned not null,
-	`date` DATETIME not null,
-	`type` varchar(20) not null
+	`id_item` int(11) unsigned not null
 );

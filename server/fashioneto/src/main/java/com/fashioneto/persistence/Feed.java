@@ -3,34 +3,29 @@
  */
 package com.fashioneto.persistence;
 
+import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
  * @author FTonon
  *
  */
-//@Entity
+@Entity
 @Table(name = "feed")
-//@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 @Inheritance(strategy=InheritanceType.JOINED)
-@MappedSuperclass
-public class Feed {
+public class Feed implements Serializable {
+
+    private static final long serialVersionUID = 2521377671219075377L;
 
     @Id
     @GeneratedValue
@@ -43,9 +38,6 @@ public class Feed {
     @Enumerated(EnumType.STRING)
     protected FeedType type;
     
-    @OneToOne(mappedBy = "feed", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-    protected Feedable feedable;
-
     public Feed() {
 	
     }
@@ -77,17 +69,5 @@ public class Feed {
         this.type = type;
     }
 
-    public Feedable getFeedable() {
-        return feedable;
-    }
-
-    public void setFeedable(Feedable feedable) {
-        this.feedable = feedable;
-    }
-
-    
-    
-    
-    
     
 }

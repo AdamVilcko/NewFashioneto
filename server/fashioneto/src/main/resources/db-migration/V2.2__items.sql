@@ -13,6 +13,19 @@ insert into item (`id`, `indexing_date`) values (443831786, '2014-05-17 11:00:00
 --"True Decadence Delicate Detail Dress"
 insert into item (`id`, `indexing_date`) values (441708353, '2014-05-17 11:00:00');
 
+insert into feed (`id_feed`, `date`, `type`) values (1, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (1, 1, 442719185);
+insert into feed (`id_feed`, `date`, `type`) values (2, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (2, 1, 442698073);
+insert into feed (`id_feed`, `date`, `type`) values (3, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (3, 1, 443435217);
+insert into feed (`id_feed`, `date`, `type`) values (4, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (4, 2, 442719185);
+insert into feed (`id_feed`, `date`, `type`) values (5, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (5, 2, 442698073);
+insert into feed (`id_feed`, `date`, `type`) values (6, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (6, 2, 443435217);
+insert into feed (`id_feed`, `date`, `type`) values (7, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (7, 2, 443197350);
+insert into feed (`id_feed`, `date`, `type`) values (8, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (8, 2, 442389816);
+insert into feed (`id_feed`, `date`, `type`) values (9, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_user`, `id_item`) values (9, 2, 443831786);
+insert into feed (`id_feed`, `date`, `type`) values (10, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`,`id_user`,  `id_item`) values (10, 3, 441708353);
+insert into feed (`id_feed`, `date`, `type`) values (11, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`,`id_user`,  `id_item`) values (11, 3, 443435217);
+insert into feed (`id_feed`, `date`, `type`) values (12, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`,`id_user`,  `id_item`) values (12, 3, 443197350);
+insert into feed (`id_feed`, `date`, `type`) values (13, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`,`id_user`,  `id_item`) values (13, 3, 442389816);
 /*
 insert into feed (`id_feed`, `id_user`, `date`, `type`) values (1, 1, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_item`) values (1, 442719185);
 insert into feed (`id_feed`, `id_user`, `date`, `type`) values (2, 1, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_item`) values (2, 442698073);
@@ -27,8 +40,7 @@ insert into feed (`id_feed`, `id_user`, `date`, `type`) values (10, 3, '2014-09-
 insert into feed (`id_feed`, `id_user`, `date`, `type`) values (11, 3, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_item`) values (11, 443435217);
 insert into feed (`id_feed`, `id_user`, `date`, `type`) values (12, 3, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_item`) values (12, 443197350);
 insert into feed (`id_feed`, `id_user`, `date`, `type`) values (13, 3, '2014-09-10 20:29:00', 'LIKE_ITEM'); insert into like_item (`id_feed`, `id_item`) values (13, 442389816);
-*/
-
+ * 
 insert into like_item (`id_feed`, `id_item`, `id_user`, `date`, `type`) values (1, 442719185, 1, '2014-09-10 20:29:00', 'LIKE_ITEM');
 insert into like_item (`id_feed`, `id_item`, `id_user`, `date`, `type`) values (2, 442698073, 1, '2014-09-10 20:29:00', 'LIKE_ITEM');
 insert into like_item (`id_feed`, `id_item`, `id_user`, `date`, `type`) values (3, 443435217, 1, '2014-09-10 20:29:00', 'LIKE_ITEM');
@@ -42,6 +54,8 @@ insert into like_item (`id_feed`, `id_item`, `id_user`, `date`, `type`) values (
 insert into like_item (`id_feed`, `id_item`, `id_user`, `date`, `type`) values (11, 443435217, 3, '2014-09-10 20:29:00', 'LIKE_ITEM');
 insert into like_item (`id_feed`, `id_item`, `id_user`, `date`, `type`) values (12, 443197350, 3, '2014-09-10 20:29:00', 'LIKE_ITEM');
 insert into like_item (`id_feed`, `id_item`, `id_user`, `date`, `type`) values (13, 442389816, 3, '2014-09-10 20:29:00', 'LIKE_ITEM');
+*/
+
 
 -- user 2 commenting on user1's profile picture
 insert into comment (`id`, `id_user`, `content`, `dt_comment`, `status`) values (4, 2, 'You gotta admit, this is kinda ugly!!', '2014-08-07 11:10:00', 'ACTIVE');

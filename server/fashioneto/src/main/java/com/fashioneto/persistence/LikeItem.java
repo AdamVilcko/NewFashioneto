@@ -3,15 +3,14 @@
  */
 package com.fashioneto.persistence;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 /**
@@ -20,18 +19,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "like_item")
-public class LikeItem implements Feedable {
+@PrimaryKeyJoinColumn(name="id_feed")
+public class LikeItem extends Feed {
 
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    protected int id;
-    
-    @GeneratedValue
-    @OneToOne(mappedBy = "Feedable", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    protected Feed feed;   
+    private static final long serialVersionUID = -6101384511413246548L;
     
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_item")
@@ -42,16 +33,22 @@ public class LikeItem implements Feedable {
     protected User user;    
     
     public LikeItem() {
-	
+	super.setDate(new Date());
+	super.setType(FeedType.LIKE_ITEM);
     }
 
     public LikeItem(User user, Item item) {
+	this();
 	this.item = item;
+	this.user = user;
     }
 
     @Override
     public int hashCode() {
-	return getId();
+	if (getItem() == null || getUser() == null) {
+	    return 0;
+	}
+	return getItem().getId() / getUser().getId() ;
     }
 
     
@@ -93,6 +90,11 @@ public class LikeItem implements Feedable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+	return "LikeItem [item=" + item + ", user=" + user + ", id=" + id + ", date=" + date + ", type=" + type + "]";
     }
 
 }
