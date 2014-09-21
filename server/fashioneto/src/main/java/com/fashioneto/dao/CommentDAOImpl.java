@@ -17,79 +17,71 @@ import com.fashioneto.persistence.LikeComment;
  **/
 @Transactional
 @Service("commentDAO")
-public class CommentDAOImpl implements CommentDAO
-{
-	private static final String FIELD_ID_PARENT_COMMENT = "id_parent_comment";
-	private static final String FIELD_ID_PARENT_USER = "id_parent_user";
-	private static final String FIELD_ID_PARENT_IMAGE = "id_parent_image";
-	private static final String FIELD_ID_PARENT_ITEM = "id_parent_item";
+public class CommentDAOImpl implements CommentDAO {
+    private static final String FIELD_ID_PARENT_COMMENT = "id_parent_comment";
+    private static final String FIELD_ID_PARENT_USER = "id_parent_user";
+    private static final String FIELD_ID_PARENT_IMAGE = "id_parent_image";
+    private static final String FIELD_ID_PARENT_ITEM = "id_parent_item";
 
-	@PersistenceContext
-	private EntityManager entityManager;
+    @PersistenceContext
+    private EntityManager entityManager;
 
-	@Override
-	public int getNumberOfLikes(int commentId)
-	{
-		TypedQuery<Long> query = entityManager.createQuery(
-				"SELECT COUNT(lc) from LikeComment lc where comment.id=:commentId ", Long.class);
-		query.setParameter("commentId", commentId);
-		return query.getSingleResult().intValue();
+    @Override
+    public int getNumberOfLikes(int commentId) {
+	TypedQuery<Long> query = entityManager.createQuery(
+		"SELECT COUNT(lc) from LikeComment lc where comment.id=:commentId ", Long.class);
+	query.setParameter("commentId", commentId);
+	return query.getSingleResult().intValue();
+    }
+
+    @Override
+    public Comment save(Comment comment) {
+	return entityManager.merge(comment);
+    }
+
+    @Override
+    public LikeComment save(LikeComment likeComment) {
+	return entityManager.merge(likeComment);
+    }
+
+    @Override
+    public Comment saveNew(CommentParentType parentType, int parentId, Comment comment) {
+	Comment savedComment = save(comment);
+	saveCommentParent(parentType, parentId, savedComment);
+	return savedComment;
+    }
+
+    /**
+     * @param parentType
+     * @param parentId
+     * @param comment
+     * @return Number of affected rows;
+     */
+    private int saveCommentParent(CommentParentType parentType, int parentId, Comment comment) {
+	String sql = "INSERT INTO comment_parent (id_comment, " + getParentFieldName(parentType)
+		+ ", parent_type) values (:idComment, :parentId, :parentType);";
+	Query query = entityManager.createNativeQuery(sql);
+	query.setParameter("idComment", comment.getId());
+	query.setParameter("parentId", parentId);
+	query.setParameter("parentType", parentType.toString());
+	return query.executeUpdate();
+
+    }
+
+    private String getParentFieldName(CommentParentType parentType) {
+	switch (parentType) {
+	case COMMENT:
+	    return FIELD_ID_PARENT_COMMENT;
+	case ITEM:
+	    return FIELD_ID_PARENT_ITEM;
+	case IMAGE:
+	    return FIELD_ID_PARENT_IMAGE;
+	case USER:
+	    return FIELD_ID_PARENT_USER;
+	default:
+	    break;
 	}
+	return FIELD_ID_PARENT_USER;
 
-	@Override
-	public Comment save(Comment comment)
-	{
-		return entityManager.merge(comment);
-	}
-
-	@Override
-	public LikeComment save(LikeComment likeComment)
-	{
-		return entityManager.merge(likeComment);
-	}
-
-	@Override
-	public Comment saveNew(CommentParentType parentType, int parentId, Comment comment)
-	{
-		Comment savedComment = save(comment);
-		saveCommentParent(parentType, parentId, savedComment);
-		return savedComment;
-	}
-
-	/**
-	 * @param parentType
-	 * @param parentId
-	 * @param comment
-	 * @return Number of affected rows;
-	 */
-	private int saveCommentParent(CommentParentType parentType, int parentId, Comment comment)
-	{
-		String sql = "INSERT INTO comment_parent (id_comment, " + getParentFieldName(parentType)
-				+ ", parent_type) values (:idComment, :parentId, :parentType);";
-		Query query = entityManager.createNativeQuery(sql);
-		query.setParameter("idComment", comment.getId());
-		query.setParameter("parentId", parentId);
-		query.setParameter("parentType", parentType.toString());
-		return query.executeUpdate();
-
-	}
-
-	private String getParentFieldName(CommentParentType parentType)
-	{
-		switch (parentType)
-		{
-			case COMMENT:
-				return FIELD_ID_PARENT_COMMENT;
-			case ITEM:
-				return FIELD_ID_PARENT_ITEM;
-			case IMAGE:
-				return FIELD_ID_PARENT_IMAGE;
-			case USER:
-				return FIELD_ID_PARENT_USER;
-			default:
-				break;
-		}
-		return FIELD_ID_PARENT_USER;
-
-	}
+    }
 }
