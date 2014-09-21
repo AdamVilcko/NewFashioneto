@@ -3,14 +3,17 @@
  */
 package com.fashioneto.persistence;
 
-import java.util.Date;
+import java.io.Serializable;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,10 +22,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "like_item")
-@PrimaryKeyJoinColumn(name="id_feed")
-public class LikeItem extends Feed {
+public class LikeItem implements Serializable {
 
     private static final long serialVersionUID = -6101384511413246548L;
+    
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    protected int id;
     
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinColumn(name = "id_item")
@@ -31,10 +38,13 @@ public class LikeItem extends Feed {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_user")
     protected User user;    
+
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_feed")
+    protected Feed feed;  
     
     public LikeItem() {
-	super.setDate(new Date());
-	super.setType(FeedType.LIKE_ITEM);
+	
     }
 
     public LikeItem(User user, Item item) {
@@ -45,9 +55,11 @@ public class LikeItem extends Feed {
 
     @Override
     public int hashCode() {
+	
 	if (getItem() == null || getUser() == null) {
 	    return 0;
 	}
+	
 	return getItem().getId() / getUser().getId() ;
     }
 
@@ -94,7 +106,15 @@ public class LikeItem extends Feed {
 
     @Override
     public String toString() {
-	return "LikeItem [item=" + item + ", user=" + user + ", id=" + id + ", date=" + date + ", type=" + type + "]";
+	return "LikeItem [item=" + item + ", user=" + user + ", id=" + id + "]";
+    }
+
+    public Feed getFeed() {
+        return feed;
+    }
+
+    public void setFeed(Feed feed) {
+        this.feed = feed;
     }
 
 }

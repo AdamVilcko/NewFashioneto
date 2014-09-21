@@ -75,7 +75,7 @@ public class User implements Serializable, UserDetails {
     private Set<User> following = new LinkedHashSet<User>();
 
     @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
-    @OrderBy("date desc")
+    @OrderBy("id desc")
     private Set<LikeItem> likedItems = new LinkedHashSet<LikeItem>();
 
     @OneToMany(mappedBy = "user", cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)

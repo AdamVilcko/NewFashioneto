@@ -3,6 +3,7 @@ package com.fashioneto.ws.json;
 import java.util.Collection;
 
 import com.fashioneto.persistence.Comment;
+import com.fashioneto.persistence.Feed;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.LikeItem;
@@ -27,6 +28,7 @@ public class FashionetoJsonFactory {
 	gBuilder.registerTypeAdapter(Item.class, new ItemJsonSerializer());
 	gBuilder.registerTypeAdapter(DefaultSet.class, new DefaultSetJsonSerializer());
 	gBuilder.registerTypeAdapter(LikeItem.class, new LikeItemJsonSerializer());
+	gBuilder.registerTypeAdapter(Feed.class, new FeedJsonSerializer());
 	return gBuilder;
     }
 
@@ -60,9 +62,20 @@ public class FashionetoJsonFactory {
 	Gson gson = getGson();
 	return gson.toJson(user);
     }
+    
+    public static JsonElement getSimplifiedJson(User user) {
+	GsonBuilder gBuilder = getGsonBuilder();
+	gBuilder.registerTypeAdapter(User.class, new UserSimplifiedJsonSerializer());
+	if (PRETTY_PRINT) {
+	    gBuilder.setPrettyPrinting();
+	}
+	Gson gson = gBuilder.create();
+	return gson.toJsonTree(user);
+    }
 
     public static JsonElement getJsonElement(User user) {
 	Gson gson = getGson();
+	
 	return gson.toJsonTree(user);
     }
 
