@@ -62,7 +62,7 @@ public class FashionetoJsonFactory {
 	Gson gson = getGson();
 	return gson.toJson(user);
     }
-    
+
     public static JsonElement getSimplifiedJson(User user) {
 	GsonBuilder gBuilder = getGsonBuilder();
 	gBuilder.registerTypeAdapter(User.class, new UserSimplifiedJsonSerializer());
@@ -75,7 +75,7 @@ public class FashionetoJsonFactory {
 
     public static JsonElement getJsonElement(User user) {
 	Gson gson = getGson();
-	
+
 	return gson.toJsonTree(user);
     }
 
