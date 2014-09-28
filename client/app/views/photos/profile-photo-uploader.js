@@ -3,16 +3,16 @@ define(function(require){
 	var
 		Handlebars      = require( "handlebars" ),
 		$               = require( "jquery" ),
-		
+
 		Cropper         = require( 'jquery.cropper' ),
 		Fileupload      = require('jquery.fileupload'),
 		FileuploadImage = require('jquery.fileupload-image'),
-		
+
 		//Add the rest of the image stuff here
-		
+
 		ModalView       = require( 'components/modal' ),
 		template        = require( 'text!templates/photos/profile-uploader-modal.hbr' );
-		
+
 
 	return ModalView.extend({
 
@@ -22,37 +22,44 @@ define(function(require){
 		template: Handlebars.compile( template ),
 
 		modalInit: function(){
+
+			var self = this;
 			this.render();
-			this.open();			
-			    
+			this.open();
+
 		    var url = App.api.get("profileupload");
 
 		    $('#fileupload').fileupload({
-		    	//autoUpload: false,
+		    	autoUpload: false,
 		    	formData: [{
 		    		name: "description",
-		    		value: this.$('.uploaderDescription').val()
+		    		value: self.$('.uploaderDescription').val()
 		    	}],
 		        url: url,
 		        dataType: 'json',
+		        imageQuality: 0.99,
 		        previewThumbnail: true,
-		        disableImageResize: /Android(?!.*Chrome)|Opera/
-            		.test(window.navigator.userAgent),
-		        previewMaxWidth: "500",
-		        previewMaxHeight: "600",
-		        
+		        previewMinWidth: 500,
+		        previewCanvas: true,
+
+
+
+
+		        /*disableImageResize: /Android(?!.*Chrome)|Opera/
+            		.test(window.navigator.userAgent),*/
+
 		        send: function (e, data) {
-		        	$('.upload-browse, textarea, select').hide();
-		        	$('#progress').show();
+		        	self.$('.upload-browse, textarea, select').hide();
+		        	self.$('#progress').show();
 		        },
 		        done: function (e, data) {
 
 		        	//Add to collection
-		        	
+
 		        	var message = '<img class="thumbnail center" src="' + App.api.get("image") + 'SMALL/' + data.result.id + '" />'
 		        	message = message + '<p class="alert alert-info" style="text-align: center;">Uploaded successfully to album.</p>';
-		            $('#files').html(message);
-		            $('#progress').hide();
+		            self.$('#files').html(message);
+		            self.$('#progress').hide();
 
 		            var thumb = $("#nav-right img");
 		            thumb.attr('src', "/Fashioneto-0.1b/as/image/raw/THUMBNAIL/" + data.result.id);
@@ -63,15 +70,15 @@ define(function(require){
 		        },
 		        progressall: function (e, data) {
 		            var progress = parseInt(data.loaded / data.total * 100, 10);
-		            $('#progress .progress-bar').css(
+		            self.$('#progress .progress-bar').css(
 		                'width',
 		                progress + '%'
 		            );
 		        }
 
 		    })
-			/*.on('fileuploadadd', function (e, data) {
-		        data.context = $('<div/>').appendTo('#files');		       
+			.on('fileuploadadd', function (e, data) {
+		        data.context = $('<div/>').appendTo('#files');
 		    })
 		    .on('fileuploadprocessalways', function (e, data) {
 		        var index = data.index,
@@ -96,9 +103,9 @@ define(function(require){
 		                .text('Upload')
 		                .prop('disabled', !!data.files.error);
 		        }
-		    })*/
+		    })
 		    .prop('disabled', !$.support.fileInput)
-		    .parent().addClass($.support.fileInput ? undefined : 'disabled');			
+		    .parent().addClass($.support.fileInput ? undefined : 'disabled');
 		}
 
 	});
