@@ -1,0 +1,12 @@
+<div class="container topMargin">
+
+	<div class="col-xs-12 col-sm-9">
+		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+			<li><a href="#" data-toggle="tab">Everything</a></li>
+			<li><a href="#" data-toggle="tab">Only looks</a></li>
+			<li><a href="#" data-toggle="tab">Only items</a></li>
+			<li class="pull-right">Hello</li>
+		</ul>
+	</div>
+
+</div>

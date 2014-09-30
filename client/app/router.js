@@ -47,6 +47,8 @@ function( Backbone, _, $, Handlebars, Login, Signup, MainView, Helper, bootstrap
 
 			'': "index",
 
+			'home': 'home',
+
 			'profile': 'profile',
 
 			'profile/:tab': 'profile',
@@ -79,8 +81,8 @@ function( Backbone, _, $, Handlebars, Login, Signup, MainView, Helper, bootstrap
 
 		},
 
-		feed: function( tab ){
-			App.vent.trigger( 'page:change', { page:"feed", tab: tab } );
+		home: function( tab ){
+			App.vent.trigger( 'page:change', { page:"home", tab: tab } );
 		},
 
 		people: function( tab ){
