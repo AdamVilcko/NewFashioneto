@@ -48,7 +48,7 @@ define(function(require){
 			},
 
 			search: function( ev ){
-				var self = this, args = {}, controls;
+				var args = {}, controls;
 				if( ev.type === "keydown" && ev.which !== 13 ){
 					return;
 				}
@@ -65,7 +65,6 @@ define(function(require){
 			},
 
 			loadMore: function( ev ){
-				var self = this;
 				this.itemSearch.collection.loadMoreItems()
 				.done(function(a,b,c){
 					var length = self.itemSearch.collection.length,

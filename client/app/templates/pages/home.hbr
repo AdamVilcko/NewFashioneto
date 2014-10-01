@@ -1,12 +1,43 @@
 <div class="container topMargin">
 
-	<div class="col-xs-12 col-sm-9">
-		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-			<li><a href="#" data-toggle="tab">Everything</a></li>
-			<li><a href="#" data-toggle="tab">Only looks</a></li>
-			<li><a href="#" data-toggle="tab">Only items</a></li>
-			<li class="pull-right">Hello</li>
-		</ul>
+	<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+		<li><a href="#" data-toggle="tab">Everything</a></li>
+		<li><a href="#" data-toggle="tab">Only looks</a></li>
+		<li><a href="#" data-toggle="tab">Only items</a></li>
+		<li class="pull-right"><a href="#">Write a status update</a></li>
+		<li class="pull-right"><button id="addPhotos" class="addphotos btn btn-primary btn-md" href="../navbar-static-top/">Add photos</button></li>
+	</ul>
+
+	<div class="wrap row">
+		  <!-- <div class="col-xs-6">
+
+		  	<div class="feedItem thumbnail">
+
+		  		<div class="caption">
+
+		  			<div class="thumbnail">
+		  				<img src="/Fashioneto-0.1b/as/image/raw/THUMBNAIL/10" />
+		  			</div>
+
+		  			<h6>Bob Hoskins</h6>
+
+		  			<p>Added a new <strong>photo</strong> to her album <strong>only me</strong></p>
+
+		  			<div class="likeContainer">
+		  				<button type="button" class="btn btn-default like heart">Like</button>
+		  					</div>
+
+
+
+		  		</div>
+
+
+		  	</div>
+
+		  </div>
+		  <div class="col-xs-6">
+
+		  </div> -->
 	</div>
 
 </div>

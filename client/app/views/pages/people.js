@@ -7,7 +7,7 @@ define(function(require){
 	Handlebars   = require("handlebars"),
 	Masonry      = require("jquery.masonry"),
 	Imagesloaded = require("jquery.imageloaded"),
-	Helper               = require( 'helper' ),
+	Helper       = require( 'helper' ),
 
 	People       = require("views/people/people"),
 	BasePageView = require("views/pages/basepageview"),

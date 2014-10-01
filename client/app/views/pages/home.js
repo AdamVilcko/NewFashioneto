@@ -2,15 +2,15 @@ define(function(require){
 
 	var
 
-	$            = require("jquery"),
-	Backbone     = require("backbone"),
-	Handlebars   = require("handlebars"),
-	Masonry      = require("jquery.masonry"),
-	Imagesloaded = require("jquery.imageloaded"),
-	Helper       = require( 'helper' ),
+	$               = require("jquery"),
+	Handlebars      = require("handlebars"),
+	Helper          = require( 'helper' ),
 
-	BasePageView = require("views/pages/basepageview"),
-	pageTemplate = require("text!templates/pages/home.hbr");
+	ItemsCollection = require( "collections/items/items" ),
+	MetaCollection  = require( "collections/items/meta" ),
+
+	BasePageView    = require("views/pages/basepageview"),
+	pageTemplate    = require("text!templates/pages/home.hbr");
 
 
 	return BasePageView.extend({
@@ -27,6 +27,7 @@ define(function(require){
 
 		loadData: function(){
 			this.render();
+
 		}
 
 	});
