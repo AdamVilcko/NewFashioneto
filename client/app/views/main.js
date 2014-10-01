@@ -10,6 +10,8 @@ define(function(require){
 
 	Login             = require( 'views/login/login' ),
 	Nav               = require( 'views/ui/nav' ),
+
+	Home             = require( 'views/pages/home' ),
 	Items             = require( 'views/pages/items' ),
 	People            = require( 'views/pages/people' ),
 	Profile           = require( 'views/pages/profile' ),
@@ -26,6 +28,7 @@ define(function(require){
 
 			this.nav = new Nav();
 			this.pages = {
+				home   : new Home(),
 				items   : new Items(),
 				people  : new People(),
 				profile : new Profile()
