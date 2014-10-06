@@ -6,8 +6,7 @@ define(function(require){
 	Handlebars      = require("handlebars"),
 	Helper          = require( 'helper' ),
 
-	ItemsCollection = require( "collections/items/items" ),
-	MetaCollection  = require( "collections/items/meta" ),
+
 
 	BasePageView    = require("views/pages/basepageview"),
 	pageTemplate    = require("text!templates/pages/home.hbr");
@@ -22,12 +21,12 @@ define(function(require){
 		url: App.api.get( "people" ),
 
 		initSubviews: function(){
-
+			this.collection = new FeedCollection();
+			this.collection.fetch();
 		},
 
 		loadData: function(){
 			this.render();
-
 		}
 
 	});

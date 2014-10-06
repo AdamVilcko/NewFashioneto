@@ -46,6 +46,7 @@ window.App =
         upload: "image/upload",
         profileupload: "image/upload/profile",
         signup: "user/signup",
+        feed: "feed",
 
         shopstyle: {
             product:{

@@ -1,0 +1,11 @@
+<div class="caption">
+  <h6><strong>{{model.name}}</strong><br /> {{model.brandName}}</h6>
+</div>
+<div class="pic">
+	<div class="hover">
+		<h5>{{model.priceLabel}}</h5>
+		<button data-action="viewDetail" class="btn btn-primary">View detail</button>
+	</div>
+  <img src="{{model.image.sizes.Large.url}}" alt="...">
+</div>
+{{like "heart"}}
