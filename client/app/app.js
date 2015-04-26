@@ -13,7 +13,8 @@ window.App =
 
         language:"EN-GB",
         title: "Fasioneto",
-        follow: "Follow"
+        follow: "Follow",
+        me: "Anna"
     },
 
     api: {
@@ -33,9 +34,12 @@ window.App =
             return this.root + contextId + this[ arg ];
         },
 
-        root: "/Fashioneto-0.1b/as/",
+        
+        //root: "http://localhost:8080/as/",
+        root: "https://fashionetohelpsyou358.appspot.com/as/",
         user: "user",
         login: "user/authenticate",
+        preregister: "user/preregister",
         comment:"comment",
         people: "people/",
         items: "items",
@@ -44,13 +48,15 @@ window.App =
         follow: "follow",
         photos: "images",
         upload: "image/upload",
+        uploadFB: "image/uploadFromUrl",
+        uploadFromCrop: "image/uploadFromCrop",
         profileupload: "image/upload/profile",
         signup: "user/signup",
         feed: "feed",
 
         shopstyle: {
             product:{
-                root: "http://api.shopstyle.com/api/v2/products?",
+                root: "https://api.shopstyle.com/api/v2/products?",
                 defaults:{
                     format:"jsonp",
                     site: "www.shopstyle.co.uk",
@@ -97,4 +103,4 @@ window.App =
 
     }
 
-}
+};

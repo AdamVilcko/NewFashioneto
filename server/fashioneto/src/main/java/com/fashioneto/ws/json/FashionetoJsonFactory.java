@@ -5,6 +5,7 @@ import java.util.Collection;
 import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Feed;
 import com.fashioneto.persistence.Image;
+import com.fashioneto.persistence.InvitedUser;
 import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.LikeItem;
 import com.fashioneto.persistence.User;
@@ -24,6 +25,7 @@ public class FashionetoJsonFactory {
 	GsonBuilder gBuilder = new GsonBuilder();
 	gBuilder.registerTypeAdapter(Comment.class, new CommentJsonSerializer());
 	gBuilder.registerTypeAdapter(User.class, new UserJsonSerializer());
+	gBuilder.registerTypeAdapter(InvitedUser.class, new InvitedUserJsonSerializer());
 	gBuilder.registerTypeAdapter(Image.class, new ImageJsonSerializer());
 	gBuilder.registerTypeAdapter(Item.class, new ItemJsonSerializer());
 	gBuilder.registerTypeAdapter(DefaultSet.class, new DefaultSetJsonSerializer());

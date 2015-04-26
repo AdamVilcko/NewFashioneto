@@ -1,0 +1,33 @@
+<div class="row" id="fbPhotos">
+	</div>
+
+</div><!-- row -->
+
+
+
+
+<button id="addPhotos" class="addphotos btn btn-primary btn-md" href="../navbar-static-top/">Add photos</button>
+
+<button id="done" class="btn btn-primary btn-md" href="../navbar-static-top/">Continue</button>
+      
+<script>
+   var photos = store.get('photos');
+   var uploadedPhotots =  store.get('uploadedPhotos');
+   photos.push.apply(photos, uploadedPhotots);
+   var fbPhotosDiv = document.getElementById("fbPhotos");
+   
+   if (photos && photos.length){
+          for (var j=0; j<photos.length; j++){
+            var photo = photos[j];
+            // photo.picture contain the link to picture
+            var imageDiv = document.createElement('div');
+            imageDiv.className = "col-md-3";
+            var image = document.createElement('img');
+            image.className = "thumbnail uploadFromFacebook";
+            image.src = photo.source;
+
+            imageDiv.appendChild(image);
+            fbPhotosDiv.appendChild(imageDiv);
+          }
+    }      
+</script>

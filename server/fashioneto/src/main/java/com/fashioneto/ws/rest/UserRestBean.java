@@ -27,6 +27,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
+import com.fashioneto.persistence.InvitedUser;
 import com.fashioneto.persistence.User;
 import com.fashioneto.persistence.UserStatus;
 import com.fashioneto.service.UserNotInvitedException;
@@ -147,6 +148,18 @@ public class UserRestBean {
 	    return Response.status(Status.NOT_MODIFIED).build();
 	}
     }
+    
+    @Path("preregister")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response preregister(@FormParam("email") String email) throws NoUserInContextException {
+    User user = userServiceImpl.getUserByEmailAndStatus(email, UserStatus.INVITED);
+	if (user != null) {
+	    return Response.status(Status.OK).entity(FashionetoJsonFactory.getJson(user)).build();
+	} else {
+	    return Response.status(Status.NOT_MODIFIED).build();
+	}
+    }    
 
     private JsonObject getJsonAuthentication(String username, String password) throws NoUserInContextException {
 	UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);

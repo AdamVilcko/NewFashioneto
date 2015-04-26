@@ -1,9 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>Fashioneto</groupId>
+	<groupId>com.fashoneto</groupId>
 	<artifactId>Fashioneto</artifactId>
-	<version>0.1b</version>
+	<version>1.0.1</version>
 	<packaging>war</packaging>
 	<name>Fashionette</name>
 	<repositories>
@@ -20,15 +20,32 @@
 	</repositories>
 
 	<properties>
-		<jersey.version>1.18.1</jersey.version>
-		<spring.version>3.2.3.RELEASE</spring.version>
-		<spring.security.version>3.1.4.RELEASE</spring.security.version>
+		<appengine.app.version>1</appengine.app.version>
+		<jersey.version>2.15</jersey.version>
+		<jackson.version>2.5.0</jackson.version>
+		<spring.version>3.2.13.RELEASE</spring.version>
+		<spring.security.version>3.2.5.RELEASE</spring.security.version>
 		<images.path>image-uploads</images.path>
 		<hibernate.version>4.2.0.Final</hibernate.version>
 <!-- 		<hibernate.version>4.3.6.Final</hibernate.version> -->
 	</properties>
 		
 	<build>
+		<plugins>
+				<plugin>
+				   <groupId>com.google.appengine</groupId>
+				   <artifactId>appengine-maven-plugin</artifactId>
+				   <version>1.9.17</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<webXml>WebContent/WEB-INF/web.xml</webXml>
+					</configuration>
+				</plugin>				
+		</plugins>
 		<resources>
 			<resource>
 				<directory>src/main/resources/</directory>
@@ -62,16 +79,19 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.4</version>
-
 					<configuration>
-						<webXml>WebContent\WEB-INF\web.xml</webXml>
+						<webXml>WebContent/WEB-INF/web.xml</webXml>
 					</configuration>
-
 				</plugin>
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<version>2.2</version>
+				</plugin>
+				<plugin>
+				   <groupId>com.google.appengine</groupId>
+				   <artifactId>appengine-maven-plugin</artifactId>
+				   <version>1.9.17</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -90,7 +110,32 @@
 			</releases>
 		</pluginRepository>
 	</pluginRepositories>
-	<dependencies>
+	<dependencies>	
+       <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>1.9.17</version>
+        </dependency>		
+		<dependency>
+		    <groupId>com.google.appengine.tools</groupId>
+		    <artifactId>appengine-gcs-client</artifactId>
+		    <version>RELEASE</version>
+		</dependency>        
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.fasterxml.jackson.jaxrs</groupId>
+		    <artifactId>jackson-jaxrs-json-provider</artifactId>
+		    <version>${jackson.version}</version>
+		</dependency>        
 		<dependency>
 			<groupId>net.coobird</groupId>
 			<artifactId>thumbnailator</artifactId>
@@ -100,6 +145,16 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.9</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet</groupId>
+			<artifactId>mimepull</artifactId>
+			<version>1.6</version>
 		</dependency>
 		<!-- Huh? Spring Jdbc is suddenly marked as provided by spring-orm? -->
 		<dependency>
@@ -127,6 +182,11 @@
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -213,20 +273,40 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.thetransactioncompany</groupId>
+			<artifactId>cors-filter</artifactId>
+			<version>2.2.1</version>
+		</dependency>
 		<!-- JERSEY/Rest dependecies: -->
+	    <dependency>
+	        <groupId>org.glassfish.jersey.core</groupId>
+	        <artifactId>jersey-server</artifactId>
+	        <version>${jersey.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.glassfish.jersey.containers</groupId>
+	        <artifactId>jersey-container-servlet-core</artifactId>
+	        <version>${jersey.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>javax.ws.rs</groupId>
+	        <artifactId>javax.ws.rs-api</artifactId>
+	        <version>2.0.1</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.glassfish.jersey.media</groupId>
+	        <artifactId>jersey-media-json-jackson</artifactId>
+	        <version>${jersey.version}</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.glassfish.jersey.media</groupId>
+	        <artifactId>jersey-media-multipart</artifactId>
+	        <version>${jersey.version}</version>
+	    </dependency>
 		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-json</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-multipart</artifactId>
-			<version>${jersey.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.sun.jersey.contribs</groupId>
-			<artifactId>jersey-spring</artifactId>
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-spring3</artifactId>
 			<version>${jersey.version}</version>
 			<exclusions>
 				<exclusion>

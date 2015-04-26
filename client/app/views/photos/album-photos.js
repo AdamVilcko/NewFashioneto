@@ -14,7 +14,7 @@ define(function(require){
 
 		modelView: AlbumThumbnail,
 
-		emptyCollectionTemplate: Handlebars.compile("You are a twat"),
+		emptyCollectionTemplate: Handlebars.compile(""),
 
 		init: function(){
 			App.vent.on( "profile:dataLoaded", this.update, this );

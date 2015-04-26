@@ -5,13 +5,14 @@ require([
 	'handlebars',
 	'views/login/login',
 	'views/login/signup',
+	'views/login/welcome',
 	'views/main',
 	'helper',
 	'bootstrap',
 	'views/photos/photo-modal',
 	'jquery.masonry'
 ],
-function( Backbone, _, $, Handlebars, Login, Signup, MainView, Helper, bootstrap, PhotoModal, Masonry ){
+function( Backbone, _, $, Handlebars, Login, Signup, Welcome, MainView, Helper, bootstrap, PhotoModal, Masonry ){
 
 	window.App.vent = _.extend({}, Backbone.Events);
 
@@ -69,7 +70,11 @@ function( Backbone, _, $, Handlebars, Login, Signup, MainView, Helper, bootstrap
 
 			'logout' : 'logout',
 
-			'signup' : 'signup'
+			'signup' : 'signup',
+			
+			'welcome' : 'welcome',
+			
+			'preregister' : 'preregister'
 
 		},
 
@@ -115,6 +120,10 @@ function( Backbone, _, $, Handlebars, Login, Signup, MainView, Helper, bootstrap
 
 		signup: function(){
 			new Signup();
+		},
+		
+		welcome: function() {
+			new Welcome();
 		}
 
 	});

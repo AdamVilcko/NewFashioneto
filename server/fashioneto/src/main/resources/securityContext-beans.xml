@@ -9,7 +9,7 @@
 			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
 			http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd
 			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
-			http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+			http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
 	<bean id="userDao" class="com.fashioneto.dao.UserDAOImpl" />
 
@@ -31,6 +31,7 @@
 		<security:custom-filter ref="authenticationTokenProcessingFilter" position="FORM_LOGIN_FILTER" />
 		<security:intercept-url pattern="/as/user/authenticate" access="permitAll" />
 		<security:intercept-url pattern="/as/user/signup" access="permitAll" />
+		<security:intercept-url pattern="/as/user/preregister" access="permitAll" />
 		<security:intercept-url method="GET" pattern="/as/image/raw/**" access="permitAll" />
 		<security:intercept-url method="GET" pattern="/as/**" access="hasRole('user')" />
 		<security:intercept-url method="PUT" pattern="/as/**" access="hasRole('user')" />

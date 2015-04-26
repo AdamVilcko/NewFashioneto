@@ -19,7 +19,7 @@ define(function(require){
 
 		},
 
-		url: //Helper.queryBuilder( null, {api: "brand"} )
+		//url: Helper.queryBuilder( null, {api: "brand"} )
 
 	});
 });
