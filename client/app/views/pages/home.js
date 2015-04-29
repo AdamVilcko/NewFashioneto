@@ -9,8 +9,8 @@ define(function(require){
 
 
 	BasePageView    = require("views/pages/basepageview"),
-	pageTemplate    = require("text!templates/pages/home.hbr"),
-  FeedCollection = require('collections/feed/feed');
+	FeedCollection = require("collections/feed/feed"),
+	pageTemplate    = require("text!templates/pages/home.hbr");
 
 
 	return BasePageView.extend({
