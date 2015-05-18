@@ -1,5 +1,24 @@
 /* Login */
 
+body.login.welcome{
+	padding-top:0;
+	background:url(../img/landing-photo.jpg);
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+
+body.login.welcome #main{
+	padding-top:0;
+	background:none;
+}
+
+body.login.welcome h1{
+	text-align:center;
+	font-weight:bold;
+	font-size:35px;
+	color: #FFF;
+}
+
 body.login{
 	padding-top:0;
 	background:url(../img/landing-bg.jpg);
@@ -28,11 +47,89 @@ body.login p.para{
 	display:block;
 }
 
-.loginform{
+.loginform {
 	border-radius: 5px;
 	padding: 50px;
 	width: 350px;
 	margin: 0px auto;
+}
+
+.welcomeform {
+	border-radius: 5px;
+	padding: 50px;
+	width: 550px;
+	margin: 0px auto;
+}
+
+.welcomeform .form-control{
+	width: 400px;
+	display: inline;
+}
+
+.welcomeform form {
+	width: 600px;
+}	
+
+
+.welcomeform input {
+	display: inline;
+}
+
+.welcomeform #signup {
+	display: inline;
+	width: 200px;
+	height: 40px;
+	border: none;
+}
+
+.basicinfoform {
+	border-radius: 5px;
+	padding: 50px;
+	width: 450px;
+	margin: 0px auto;
+}
+
+.basicinfoform .form-control{
+	width: 250px;
+	display: inline;
+}
+
+.basicinfoform form {
+	width: 600px;
+}	
+
+.basicinfoform label {
+	display: inline-block; 
+	width: 160px; 
+	text-align: left;
+}
+
+.basicinfoform input {
+	display: inline;
+}
+
+.basicinfoform continuebtn {
+	display:block;
+	width:150px;
+	font-weight: bold;
+
+}
+
+.basicinfoContainer {
+	margin-top: 40px;
+}
+
+.toplogobar {
+	height: 60px;
+	margin:0px;
+	background-color: #3A2444;
+	border-color: #E7E7E7;
+	text-align: center;
+}
+
+.toplogobar #logofull-basicinfo {
+	height: 40px;
+	margin-top: 5px;
 }
 
 .loginform button{
@@ -41,8 +138,16 @@ body.login p.para{
 }
 
 .loginform .form-control,
-.loginform button{
+.loginform button,
+.welcomeform .form-control,
+.welcomeform button,
+.basicinfoform .form-control,
+.basicinfoform button {
 	height:50px;
+}
+
+.welcomebtn {
+	font-weight: bold;
 }
 
 body.login footer{
@@ -59,6 +164,68 @@ body.login #bottomBar{
 #logofull{
 	display:block;
 	margin:50px auto;
+}
+
+#fullNameLabel {
+	  padding-left: 30px;
+	  background: url(../img/user.png) no-repeat scroll 0 0 transparent;				
+}
+
+#cityLabel {
+	  padding-left: 30px;
+	  background: url(../img/location.png) no-repeat scroll 0 0 transparent;				
+}
+#birthdayLabel {
+	  padding-left: 30px;
+	  background: url(../img/date.png) no-repeat scroll 0 0 transparent;				
+}
+#genderLabel {
+	  padding-left: 30px;
+	  background: url(../img/sex.png) no-repeat scroll 0 0 transparent;				
+}
+
+#birthdayDay, #birthdayMonth {
+	height: 30px;
+	width: 50px;
+}
+#birthdayYear {
+	height: 30px;
+	width: 70px;
+}
+
+.sectionInfo {
+	text-align: center;
+}
+.sectionInfo p {
+	color: #8F82A9;
+	font-size: 24px;
+}
+
+.sectionInfo.white p {
+	color: #FFF;
+}
+
+#basicInfoContinue{
+	float:right;
+}
+
+.displayBlock {
+	display: block;
+}
+
+.displayNone {
+	display: none;
+}
+
+.errors {
+	color: red;
+	font-weight:bold;
+}
+
+.thumbnail.selected {
+	padding: 6px;
+	border-radius: 6px;
+	background-color: #3A2444;
 }
 
 @media( max-width: 768px ), handheld{

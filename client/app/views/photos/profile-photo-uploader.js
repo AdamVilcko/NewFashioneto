@@ -1,113 +1,69 @@
-define(function(require){
+define(function (require) {
 
 	var
-		Handlebars      = require( "handlebars" ),
-		$               = require( "jquery" ),
 
-		Cropper         = require( 'jquery.cropper' ),
-		Fileupload      = require('jquery.fileupload'),
-		FileuploadImage = require('jquery.fileupload-image'),
+	Handlebars = require("handlebars"),
+	$          = require("jquery"),
+	Helper     = require('helper'),
 
-		//Add the rest of the image stuff here
+	ModalView  = require('components/modal'),
+	Comments   = require("views/comments/comments"),
+	template   = require("text!templates/photos/uploader-modal.hbr"),
+	Bootstrap  = require('bootstrap'),
 
-		ModalView       = require( 'components/modal' ),
-		template        = require( 'text!templates/photos/profile-uploader-modal.hbr' );
+	jQueryFileUploader = require('jquery.fileupload');
+	jQueryIframeTransport = require('jquery.iframe-transport');
+	jQueryUIWidget = require('jquery.ui.widget');
 
+	return function(aOptions){
 
-	return ModalView.extend({
+		var self = this,
 
-		contextId: "image",
-		id: "uploaderModal",
-		className: "modal fade viewingPhoto",
-		template: Handlebars.compile( template ),
+		View = ModalView.extend({
 
-		modalInit: function(){
+			id: "uploaderModal",
+			className: "modal fade",
+			template: Handlebars.compile( template ),
 
-			var self = this;
-			this.render();
-			this.open();
+			modalInit: function(){
+				this.render();
+				this.open();			
+				    
+			    var url = App.api.get("profileupload");
+			},
+			
+			upload: function() {
+				$.ajax({
+					type: "POST",
+					context: this,
+					url: App.api.get( 'profileupload' ),
+					data: encodeURIComponent(this.$('#uploadCroppedImg').attr('src')),
+					success: function(data) {
+						self.options.collection.add({
+							id: JSON.parse(data).id
+			        	});
+						var message = '<div class="picture thumbnail" href="#"><img src="' + App.api.get("image") + 'WALL/' + JSON.parse(data).id + '" /></div>'
+			            $('#profilePhoto').html(message);
+					},
+						error: function( jqXHR, textStatus, errorThrown ){
+							alert( jqXHR.status + ": " + errorThrown  );
+					}
 
-		    var url = App.api.get("profileupload");
+				});
+			},
 
-		    $('#fileupload').fileupload({
-		    	autoUpload: false,
-		    	formData: [{
-		    		name: "description",
-		    		value: self.$('.uploaderDescription').val()
-		    	}],
-		        url: url,
-		        dataType: 'json',
-		        imageQuality: 0.99,
-		        previewThumbnail: true,
-		        previewMinWidth: 500,
-		        previewCanvas: true,
+			events:{
+				"click .button-container button": function(){
+					self.$el.modal("hide");
+				},
+				"click #save": "upload"
+				
+			}
 
+		});
 
+		return _.extend( self, new View(aOptions) );
 
-
-		        /*disableImageResize: /Android(?!.*Chrome)|Opera/
-            		.test(window.navigator.userAgent),*/
-
-		        send: function (e, data) {
-		        	self.$('.upload-browse, textarea, select').hide();
-		        	self.$('#progress').show();
-		        },
-		        done: function (e, data) {
-
-		        	//Add to collection
-
-		        	var message = '<img class="thumbnail center" src="' + App.api.get("image") + 'SMALL/' + data.result.id + '" />'
-		        	message = message + '<p class="alert alert-info" style="text-align: center;">Uploaded successfully to album.</p>';
-		            self.$('#files').html(message);
-		            self.$('#progress').hide();
-
-		            var thumb = $("#nav-right img");
-		            thumb.attr('src', "/Fashioneto-0.1b/as/image/raw/THUMBNAIL/" + data.result.id);
-
-		            var profile = $("#profileBox .picture img");
-		            profile.attr('src', "/Fashioneto-0.1b/as/image/raw/WALL/" + data.result.id);
-
-		        },
-		        progressall: function (e, data) {
-		            var progress = parseInt(data.loaded / data.total * 100, 10);
-		            self.$('#progress .progress-bar').css(
-		                'width',
-		                progress + '%'
-		            );
-		        }
-
-		    })
-			.on('fileuploadadd', function (e, data) {
-		        data.context = $('<div/>').appendTo('#files');
-		    })
-		    .on('fileuploadprocessalways', function (e, data) {
-		        var index = data.index,
-		            file = data.files[index],
-		            node = $(data.context),
-		            container;
-		        if (file.preview) {
-		        	container = $("<div></div>")
-		        		.addClass("modal-well")
-		        		.html(file.preview);
-		            node
-		                .prepend('<br>')
-		                .prepend(container);
-		        }
-		        if (file.error) {
-		            node
-		                .append('<br>')
-		                .append($('<span class="text-danger"/>').text(file.error));
-		        }
-		        if (index + 1 === data.files.length) {
-		            data.context.find('button')
-		                .text('Upload')
-		                .prop('disabled', !!data.files.error);
-		        }
-		    })
-		    .prop('disabled', !$.support.fileInput)
-		    .parent().addClass($.support.fileInput ? undefined : 'disabled');
-		}
-
-	});
+	}	 
 
 });

@@ -6,6 +6,7 @@ import com.fashioneto.persistence.Comment;
 import com.fashioneto.persistence.Image;
 import com.fashioneto.persistence.LikeItem;
 import com.fashioneto.persistence.User;
+import com.fashioneto.persistence.UserStatus;
 import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.ws.entities.DefaultSet;
@@ -46,10 +47,12 @@ public class UserJsonSerializer implements JsonSerializer<User> {
 	JsonObject jsonObject = new JsonObject();
 	jsonObject.addProperty(JSON_PROPERTY_ID, user.getId());
 
-	try {
-	    jsonObject.addProperty(JSON_PROPERTY_FOLLOWED, ContextUtils.isFollowed(user));
-	} catch (NoUserInContextException e) {
-	    e.printStackTrace();
+	if (user.getStatus() != UserStatus.INVITED) {
+		try {
+		    jsonObject.addProperty(JSON_PROPERTY_FOLLOWED, ContextUtils.isFollowed(user));
+		} catch (NoUserInContextException e) {
+		    e.printStackTrace();
+		}
 	}
 
 	jsonObject.add(JSON_PROPERTY_DETAILS, getUserDetails(user));

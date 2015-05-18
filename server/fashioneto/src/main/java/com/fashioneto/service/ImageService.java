@@ -31,6 +31,8 @@ public interface ImageService {
     public Image getImage(int imageId);
 
     public Image uploadProfilePicture(User user, InputStream fileInputStream, String fileExtension) throws IOException;
+    
+    public void uploadProfilePicture(User user, Image image) throws IOException;
 
     public Image uploadImage(User user, InputStream fileInputStream, String fileExtension, Album album) throws IOException;
 

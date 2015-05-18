@@ -30,48 +30,35 @@ define(function (require) {
 				this.open();			
 				    
 			    var url = App.api.get("upload");
-
-			    $('#fileupload').fileupload({
-			    	//autoUpload: false,
-			        url: url,
-				    formData: [{
-			    		value: this.$('.uploaderDescription').val(),
-			    		name: "description"
-			    	}],
-			        dataType: 'json',
-			        send: function (e, data) {
-			        	$('.upload-browse, textarea, select').hide();
-			        	$('#progress').show();
-			        },
-			        done: function (e, data) {
-
-			        	//Add to collection
-			        	self.options.collection.add({
-			        		id: data.result.id
+			},
+			
+			upload: function() {
+				$.ajax({
+					type: "POST",
+					context: this,
+					url: App.api.get( 'uploadFromCrop' ),
+					data: encodeURIComponent(this.$('#uploadCroppedImg').attr('src')),
+					success: function(data) {
+						self.options.collection.add({
+							id: JSON.parse(data).id
 			        	});
-
-			        	var message = '<img class="thumbnail center" src="' + App.api.get("image") + 'SMALL/' + data.result.id + '" />'
+						var message = '<img class="thumbnail center" src="' + App.api.get("image") + 'SMALL/' + JSON.parse(data).id + '" />'
 			        	message = message + '<p class="alert alert-info" style="text-align: center;">Uploaded successfully to album.</p>';
 			            $('#files').html(message);
-			            $('#progress').hide();
-			        },
-			        progressall: function (e, data) {
-			            var progress = parseInt(data.loaded / data.total * 100, 10);
-			            $('#progress .progress-bar').css(
-			                'width',
-			                progress + '%'
-			            );
-			        }
+					},
+						error: function( jqXHR, textStatus, errorThrown ){
+							alert( jqXHR.status + ": " + errorThrown  );
+					}
 
-			    })
-			    .prop('disabled', !$.support.fileInput)
-			    .parent().addClass($.support.fileInput ? undefined : 'disabled');			
+				});
 			},
 
 			events:{
 				"click .button-container button": function(){
 					self.$el.modal("hide");
-				}
+				},
+				"click #save": "upload"
+				
 			}
 
 		});

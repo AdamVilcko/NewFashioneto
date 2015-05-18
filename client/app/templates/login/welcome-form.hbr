@@ -1,0 +1,55 @@
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+      <input type="text" class="form-control email"  placeholder="Your email address" id="signupEmail">
+      <button type="submit" class="btn btn-primary welcomebtn" id="signup" onclick="setEmail();">Sign up for early access ></button>
+  </div>
+  <div class="form-group" id="fbLoginFormGroup">
+      <button id="loginFbBtn" class="btn-auth btn-facebook large" style="display:none" onclick="processLogin();">Facebook Login</button>
+      <button id="loginFbBtnTrigger" style="display:none">Facebook Login Hidden</button>
+		
+  </div>
+  <div class="form-group">
+  	<button class="btn-auth btn-facebook large" id="proceedFbBtn" style="display:none">Proceed with Facebook</button>
+  </div>
+</form>
+<script>
+	
+	function setEmail() {
+		store.set('email',$('#signupEmail').val());
+	}
+		
+	function processLogin() {
+			FB.getLoginStatus(function(response) {
+				if (response.status === 'connected') {
+					document.getElementById("proceedFbBtn").click();
+				} else {
+					//do the login
+				    FB.login(function(response) {
+				        if (response.authResponse) {
+				            //user just authorized your app
+				            FB.api('/me', function(response) {
+					    	console.log(response);
+					        store.set('email', response.email);
+					        store.set('name', response.name);
+					        store.set('birthday', response.birthday);
+
+							if (response.location) {
+								store.set('city', response.location.name);
+							}
+					        store.set('gender', response.gender);
+					        document.getElementById("loginFbBtnTrigger").click();
+					    });
+					    FB.api('/me/photos', function(response) {
+					    	store.set('photos', response.data);
+				    		console.log(response.data);
+						});
+					    FB.api('/me/photos/uploaded', function(response) {
+					    	store.set('uploadedPhotos', response.data);
+						});
+				        }
+				    }, {scope: 'email,public_profile,user_birthday,user_location,user_photos', return_scopes: true});
+				    
+				}
+			    });
+	}
+</script>

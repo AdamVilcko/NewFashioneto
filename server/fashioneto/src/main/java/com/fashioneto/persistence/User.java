@@ -12,6 +12,9 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -39,6 +42,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 @Table(name = "fashionetoer")
 @FilterDef(name = User.PARENT_TYPE_FILTER)
+
 public class User implements Serializable, UserDetails {
     public static final String PARENT_TYPE_FILTER = "userParentTypeFilter";
 
@@ -94,7 +98,7 @@ public class User implements Serializable, UserDetails {
     @Column(name = "city")
     private String city;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_profile_image")
     private Image profileImage;
 

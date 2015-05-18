@@ -1,10 +1,14 @@
 <div id="profileBox">
+ <div id="profilePhoto">
 
-  <div class="picture thumbnail" href="#">
-  	<div>Upload profile picture</div>
-    <img src="{{image model.details.imageId "WALL"}}" alt="...">
-  </div>
-
+  	{{#if model.details.imageId}}
+	  <div class="picture thumbnail" href="#">
+    	<img src="{{image model.details.imageId "WALL"}}" alt="...">
+	  </div>
+    {{else}}	
+	    <a class="btn btn-default" href="#"><strong>Upload profile picture</strong></a>	
+    {{/if}}	
+	</div>
   <div class="details well">
     <strong class="userTitle">{{model.details.displayName}}</strong>
     <h6 class="location"><img src="img/location-icon.png" /> &nbsp;{{model.details.city}}, {{model.details.country}}</h6>

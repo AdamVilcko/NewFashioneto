@@ -28,7 +28,7 @@ insert into comment (`id`, `id_user`, `content`, `dt_comment`, `status`) values 
 insert into comment_parent values (2, 1, null, null, null, 'COMMENT');
 
 
---user 1 liking comment 1
+-- user 1 liking comment 1
 insert into like_comment values (1, 1, 1);
 
 insert into follow_user (`id_user`, `id_followed_user`, `date`) values (2, 1, '2014-04-22 21:00:00');

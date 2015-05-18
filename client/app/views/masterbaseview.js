@@ -97,7 +97,7 @@ define(function(require){
 		merge: function( data ){
 			data                        = data || {};
 			if( this.model ) data.model = this.model.toJSON();
-			data.user                   = App.user.toJSON();
+			if (data.user) data.user                   = App.user.toJSON();
 			data.locale                 = App.locale;
 			data.options                = this.options;
 

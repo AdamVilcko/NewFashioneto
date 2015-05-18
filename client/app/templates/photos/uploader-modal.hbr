@@ -14,9 +14,12 @@
           <span>Browse</span>
           <!-- The file input field used as target for the file upload widget
           <input id="fileupload" type="file" name="files[]" multiple> -->
-          <input id="fileupload" type="file" name="file">
+          <input id="fileupload" type="file" name="file" style="display:none">
+          <input id="fileorigin" type="file" name="file" onchange="readURL(this);">
+         
         </span>
         <div class="clear clearer"></div>
+        <button id="getres"style="display:none" >Get result</button>
       </div>
 
       <div id="progress" class="progress" style="display:none;">
@@ -24,7 +27,11 @@
       </div>
 
       <div id="files" class="files"></div>     
-
+      <div class="cropper">
+	  </div>
+      <div class="cropped">
+	  </div>
+	  
       <textarea rows="1" placeholder="Write a description..." class="modal-well uploaderDescription"></textarea>
 
       <select name="album" id="album" class="modal-well">
@@ -35,17 +42,49 @@
       <hr>
 
       <div class="button-container">
-        <button class="btn btn-primary">Save and publish</button>
+      	 <button class="btn btn-primary" id="save" style="display:none">Send</button>
+        <button class="btn btn-primary" id="setCropped">Save and publish</button>
         <button class="btn btn-default">Cancel</button>
       </div>
-
-      
-
-
-
-
-
-
     </div><!-- /. modal-body -->
   </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
+<script>
+
+	function startCropper(imgUrl) {
+	 	var newImg = $('<img id="cropperImg" src="' + imgUrl + '">');
+		$(".cropper").empty().html(newImg);
+	     $("#cropperImg").cropper({
+	        aspectRatio: 4 / 5,
+	        data: {
+	          x: 420,
+	          y: 50,
+	          width: 640,
+	          height: 100
+	        },
+	        preview: $("#cropperImg").selector,
+	        resizeable: false,
+	        guides: false,
+	        done: function(data) {
+	        }
+	      });
+	      
+	}
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+        	   var imgUrl = '';
+		       var fileReader = new FileReader();
+ 		      fileReader.readAsDataURL(input.files[0]);
+		
+		      fileReader.onload = function () {
+		        imgUrl = this.result;
+		        startCropper(imgUrl);
+		      };
+        }
+    }
+      $("#setCropped").click(function() {
+	    var data = $("#cropperImg").cropper("getDataURL", {}, 'image/jpeg');
+      	$(".cropped").html('<img id="uploadCroppedImg" src="' + data + '">');
+      	$("#save").click();
+     });
+</script>

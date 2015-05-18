@@ -6,7 +6,9 @@ define(function(require){
 	$                    = require("jquery"),
 	Helper               = require('helper'),
 	
-	ProfilePhotoUploader = require('views/photos/profile-photo-uploader'),
+	Cropper         = require( 'jquery.cropper' )
+	Photos          = require('views/photos/album-photos'),
+	ProfilePhotoUploader   = require('views/photos/profile-photo-uploader'),
 	BaseSidebarView      = require('views/sidebar/basesidebarview'),
 	template             = require('text!templates/sidebar/profilesidebar.hbr'),
 	MasterBaseView       = require( 'views/masterbaseview' );
@@ -18,6 +20,8 @@ define(function(require){
 
 		init: function(){
 			App.vent.on( "profile:dataLoaded", this.handle, this );
+			this.photos = new Photos();
+			this.photos.collection.on("reset add", this.render, this );
 		},
 
 		handle: function( data ){
@@ -35,8 +39,15 @@ define(function(require){
 
 		events:{
 			"click #profileBox .picture" : function(){
-				new ProfilePhotoUploader();
-			}
+				this.uploaderModal = new ProfilePhotoUploader({
+					collection: this.photos.collection
+				});
+			},
+			"click #profileBox .btn" : function(){
+			this.uploaderModal = new ProfilePhotoUploader({
+				collection: this.photos.collection
+			});
+		}
 		}
 
 	});

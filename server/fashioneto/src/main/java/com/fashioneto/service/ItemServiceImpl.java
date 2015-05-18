@@ -15,6 +15,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fashioneto.dao.CommentDAO;
 import com.fashioneto.dao.ItemDAO;
+import com.fashioneto.persistence.Feed;
+import com.fashioneto.persistence.FeedType;
 import com.fashioneto.persistence.Item;
 import com.fashioneto.persistence.LikeItem;
 import com.fashioneto.persistence.User;
@@ -36,8 +38,14 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public int like(User user, Item item) {
 	LikeItem likeItem = new LikeItem(user, item);
+	Feed feed = new Feed();
+	feed.setType(FeedType.LIKE_ITEM);
+	feed.setUser(user);
+	feed.setLikeItem(likeItem);
 	if (!user.getLikedItems().contains(likeItem)) {
 	    user.getLikedItems().add(likeItem);
+	    entityManager.merge(likeItem);
+	    entityManager.merge(feed);
 	    entityManager.merge(user);
 	}
 	return item.getLikes().size();

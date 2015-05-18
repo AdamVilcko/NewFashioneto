@@ -1,0 +1,38 @@
+<div class="toplogobar"><img id="logofull-basicinfo" src="img/logo-full.png" align="middle"/></div
+<div id="main">
+<div id="fb-root"></div>
+<script src="app/helpers/facebook.js"></script>
+
+	<div class="container">
+
+		<h1>Sweet! Now show us how you look</h1>
+		 <div class="errors">
+  		</div>
+		<div id="sectionInfo"><p>Choose some photos from Facebook</p></div>
+		<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button>
+		<div id="status">
+		</div>
+		<div class="photosform photos-form"></div>
+		<h1 id="photosContainerTitle" class="displayNone">Your photos:</h1>
+		<div id="photosContainer" class="row"></div><!-- row -->
+
+	</div>
+
+</div> <!-- /container -->
+<footer>
+  <div class="container">
+    <ul class="list-unstyled row">
+      <li><a href="http://news.bootswatch.com" onclick="pageTracker._link(this.href); return false;">Blog</a></li>
+      <li><a href="http://feeds.feedburner.com/bootswatch">RSS</a></li>
+      <li><a href="https://twitter.com/thomashpark">Twitter</a></li>
+      <li><a href="https://github.com/thomaspark/bootswatch/">GitHub</a></li>
+      <li><a href="../help/#api">API</a></li>
+      <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=F22JEM3Q78JC2">Donate</a></li>
+    </ul>
+
+    <p id="copyright">&copy; Fashioneto 2014</p>
+
+  </div>
+</footer>
+<div id="bottomBar"></div>
