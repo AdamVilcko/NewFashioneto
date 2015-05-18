@@ -28,7 +28,7 @@ define(function(require){
 		},
 
 		registerLike: function(){
-            this.model.persist( this.id, this.model.get("actioned") ? { type: "DELETE"} : null );
+            this.model.persist( this.id );
 		},
 
 		bindData: function( aModel ){
