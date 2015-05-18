@@ -6,7 +6,7 @@
     <div class="buttonContainer">
       <a class="btn btn-default" href="#{{#if model.myProfile}}profile{{else}}people/{{model.userName}}{{/if}}/photos"><strong>Show all photos</strong></a>
     </div>
-  
+
   </div><!-- row -->
 
  <div class="clear"></div>
@@ -27,7 +27,7 @@
           <textarea placeholder="Write on {{model.displayName}}'s wall" class="well"></textarea>
         </div>
         <div class="col-md-2">
-          <a class="uploadphoto pull-right" href="#">Upload photo</a>
+          <button class="btn btn-primary pull-right sendPost">Post</button>
         </div>
       </div>
     </div>
