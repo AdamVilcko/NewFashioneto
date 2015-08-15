@@ -27,7 +27,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 
-import com.fashioneto.persistence.InvitedUser;
 import com.fashioneto.persistence.User;
 import com.fashioneto.persistence.UserStatus;
 import com.fashioneto.service.UserNotInvitedException;
@@ -37,7 +36,6 @@ import com.fashioneto.utils.ContextUtils;
 import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.utils.TokenUtils;
 import com.fashioneto.ws.entities.ContentWrapper;
-import com.fashioneto.ws.entities.TokenTransfer;
 import com.fashioneto.ws.entities.UserSignupWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
 import com.google.gson.JsonObject;

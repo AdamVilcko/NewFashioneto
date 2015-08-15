@@ -19,13 +19,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.commons.codec.binary.Base64;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import sun.misc.BASE64Decoder;
 
 import com.fashioneto.persistence.Album;
 import com.fashioneto.persistence.Image;
@@ -37,8 +34,6 @@ import com.fashioneto.utils.NoUserInContextException;
 import com.fashioneto.ws.entities.ImageSize;
 import com.fashioneto.ws.entities.LikesWrapper;
 import com.fashioneto.ws.json.FashionetoJsonFactory;
-import com.google.appengine.tools.cloudstorage.GcsFileOptions;
-import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
 import com.google.appengine.tools.cloudstorage.GcsService;
 import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 import com.google.appengine.tools.cloudstorage.RetryParams;
