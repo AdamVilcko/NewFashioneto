@@ -40,11 +40,16 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
-					<version>2.4</version>
+				<version>2.6</version>
 					<configuration>
 						<webXml>WebContent/WEB-INF/web.xml</webXml>
+						<webResources>
+							<resources>
+								<directory>../../client</directory>
+							</resources>
+						</webResources>
 					</configuration>
-				</plugin>				
+				</plugin>
 		</plugins>
 		<resources>
 			<resource>
@@ -78,9 +83,14 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
-					<version>2.4</version>
+					<version>2.6</version>
 					<configuration>
 						<webXml>WebContent/WEB-INF/web.xml</webXml>
+						<webResources>
+							<resources>
+								<directory>../../client</directory>
+							</resources>
+						</webResources>
 					</configuration>
 				</plugin>
 				<plugin>
